@@ -1,0 +1,59 @@
+<div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
+    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
+</div>
+<div class="card">
+    <div class="panel-heading bg-white" style="background: #428bca;">
+        <span class="font-bold"><left><font color="white">EDIT DATA URUSAN PEMERINTAH DAERAH</font></left></span>
+    </div>
+    <div ng-show="isLoading" layout="a" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <form ng-show="isLoaded" name="editForm">
+        <div class="card-body">
+            <div class="panel-body" style="background: #b3e5fc;">
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="md-form-group">
+                                <label>Kode Rekening </label>
+                                <input class="form-control" placeholder="Kode Rekening"
+                                       ng-model="input.kode_rekening" type="text">
+                            </div>
+                            <span class="input-group-btn">
+                                <div class="m-b-md">
+                                    <button tooltip="Kode Rekening Terakhir"
+                                            class="btn btn-icon btn-rounded btn-info" type="button"
+                                            popover-title="Kode Rekening Terakhir"
+                                            popover="{{rekening_terakhir.msg}}" md-ink-ripple
+                                            popover-placement="bottom" popover-animation="true"
+                                            style="margin-top: 45px;">
+                                        <i class="mdi-action-info-outline i-24"></i>
+                                    </button>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group">
+                            <div class="input-field">
+                                <label>Urusan</label>
+                                <input class="form-control" placeholder="Urusan"
+                                       ng-model="input.urusan" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="panel-footer text-center" style="background: #269abc">
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="updateData()"
+                        ng-disabled="addForm.$invalid || process">Simpan
+                </button>
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw bg-white" ui-sref="app.urusan"
+                        ng-disabled="process">Kembali
+                </button>
+            </footer>
+        </div>
+    </form>
+</div>

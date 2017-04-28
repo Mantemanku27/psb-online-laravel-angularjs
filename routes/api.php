@@ -17,4 +17,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::resource('contacts','ContactController');
+Route::resource('posts','PostController');
+Route::resource('jurusans','JurusanController');
+Route::resource('formulirs','FormulirController');
+Route::resource('biodatas','BiodataController');
+Route::resource('pendaftarans','PendaftaranController');
+Route::resource('users','UserController');

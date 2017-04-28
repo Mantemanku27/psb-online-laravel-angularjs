@@ -1,0 +1,134 @@
+<div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
+    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
+</div>
+<div class="panel panel-default" ng-controller="UrusanCtrl">
+    <div class="panel-heading bg-white" style="background: #b3c4c7;">
+        <span class="font-bold"><left><font color="black">DATA MEMBERS</font></left></span>
+    </div>
+    <!--<div ng-show="isLoading" layout="row" layout-sm="column" layout-align="space-around">-->
+        <!--<md-progress-circular md-mode="indeterminate"></md-progress-circular>-->
+    <!--</div>-->
+    <!--<div ng-show="isLoaded">-->
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-8 m-b-xs">
+            <span tooltip="Tambah Data">
+                <a md-ink-ripple ui-sref="app.urusan-create" class="btn btn-sm btn-default">
+                    <i class="glyphicon glyphicon-plus-sign"></i></a>
+                </span>
+            <span tooltip="Refresh data">
+                <button md-ink-ripple class="btn btn-sm btn-default" ng-click="refreshData()">
+                    <i class="glyphicon glyphicon-refresh"></i>
+                </button>
+            </span>
+            <span tooltip="Cetak data">
+                <button md-ink-ripple class="btn btn-sm btn-default" ng-click="print()">
+                    <i class="glyphicon glyphicon-print"></i>
+                </button>
+            </span>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group pull-right">
+                        <input type="text" class="input-sm form-control" placeholder="Search" ng-model="main.term"
+                               ng-disabled="disUtamrow.txtCari" ng-enter="getData()">
+                <span class="input-group-btn" tooltip="Cari Data">
+                    <button md-ink-ripple class="btn btn-sm btn-default" type="button" ng-click="getData()"
+                            ng-disabled="main.term ==''">Cari
+                    </button>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-md-2">Nama</th>
+                    <th class="col-md-2">Email</th>
+                    <th class="col-md-2">Class</th>
+                    <th class="col-md-2">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in dataMembers">
+                    <td class="col-md-2">{{row.name}}</td>
+                    <td class="col-md-2">{{row.email}}</td>
+                    <td class="col-md-2">{{row.class}}</td>
+                    <td class="col-md-2">
+                        <span ng-if="row.is_lock == '0'" class="label bg-info ng-scope">Draft</span>
+                        <span ng-if="row.is_lock == ''" class="label bg-info ng-scope">Draft</span>
+                        <span ng-if="row.is_lock == '1' " class="label bg-success ng-scope">Final</span>
+                    </td>
+
+                    <td class="col-md-2">
+                        <button type="button" ng-click="detailurusan(row.id)" md-ink-ripple tooltip="Detail Urusan"
+                                class="btn btn-sm btn-info">
+                            <i class="glyphicon glyphicon-zoom-in"></i>
+                        </button>
+                        <a ui-sref="app.urusan-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
+                           class="btn btn-sm btn-default" ng-if="row.is_lock =='0'">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                        <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data"
+                                class="btn btn-sm btn-danger" >
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                        <a ui-sref="app.urusan-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
+                           class="btn btn-sm btn-default" ng-if="row.is_lock ==''">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                        <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data"
+                                class="btn btn-sm btn-danger" ng-if="row.is_lock ==''">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                        <button ng-if="row.is_lock =='0'" type="button" ng-click="kunci(row.id)" md-ink-ripple tooltip="Kunci Data" class="btn btn-sm btn-accent">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </button>
+                        <button ng-if="row.is_lock == ''" type="button" ng-click="kunci(row.id)" md-ink-ripple tooltip="Kunci Data" class="btn btn-sm btn-accent">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </button>
+                        <button type="button" ng-click="buka(row.id)"ng-if="row.is_lock =='1' && dataUser.email == 'engineering@simperkot.com'"  md-ink-ripple tooltip="Buka Kunci Data" class="btn btn-sm btn-accent">
+                            <i class="fa fa-unlock-alt"></i>
+                        </button>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--panel pagination-->
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4 text-center-xs" style="margin-top: 27px;">
+                    <small>Menampilkan {{from}}-{{to}} dari {{total}} data</small>
+                </div>
+                <div class="col-sm-8 text-right text-center-xs">
+                    <ul class="pagination m-t-none m-b-none">
+                        <li tooltip="Halaman Pertama">
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='firstPage()'
+                                    ng-disabled='current_page == 1 || disUtamrow.btnPagging'><i
+                                    class="fa fa-angle-double-left"></i></button>
+                        </li>
+                        <li tooltip="Halaman Sebelumnya">
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='previousPage()'
+                                    ng-disabled='current_page <= 1 || disUtamrow.btnPagging'><i
+                                    class="fa fa-angle-left"></i></button>
+                        </li>
+                        <li tooltip="Halaman Selanjutnya">
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='nextPage()'
+                                    ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i
+                                    class="fa fa-angle-right"></i></button>
+                        </li>
+                        <li tooltip="Halaman Terakhir">
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='lastPage()'
+                                    ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i
+                                    class="fa fa-angle-double-right"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Base -->
+        </div>
+    </div>
+</div>

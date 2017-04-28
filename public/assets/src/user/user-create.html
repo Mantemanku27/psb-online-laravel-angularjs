@@ -1,0 +1,126 @@
+<div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
+    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
+</div>
+<form class="form-validation ng-invalid ng-invalid-required ng-valid-pattern ng-valid-email ng-dirty ng-valid-parse ng-invalid-validator"
+      name="addForm" style="">
+    <div class="panel panel-default">
+        <div class="panel-heading bg-white" style="background: #000000;">
+            <span class="font-bold"><left><font
+                    color="white">TAMBAH DATA PENGGUNA ADMINISTRATOR - [BackOffice]</font></left></span>
+        </div>
+        <div class="card-body">
+            <div class="panel-body" style="background: #b3e5fc;">
+                <div class="form-group">
+                    <div class="row row-sm">
+                        <div class="col-sm-12">
+                            <div class="md-form-group float-label">
+                                <div class="input-field">
+                                    <label>Nama Lengkap</label>
+                                    <input class="form-control" placeholder="Nama Lengkap"
+                                           ng-model="input.name" name="name"
+                                           type="text" required="" tabindex="0" aria-required="true"
+                                           aria-invalid="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="col-sm-12">
+                            <div class="md-form-group float-label">
+                                <div class="input-field">
+                                    <label>Nomor Induk Pegawai</label>
+                                    <input class="form-control" placeholder="Nomor Induk Pegawai"
+                                           ng-model="input.nip" type="text" required="" minlength="21" maxlength="21">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="col-sm-12">
+                            <div class="md-form-group float-label">
+                                <div class="input-field">
+                                    <label>Email</label>
+                                    <input class="form-control" placeholder="Email"
+                                           type="email" ng-model="input.email" name="email" required="" tabindex="0"
+                                           aria-required="false" aria-invalid="false" style="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <div class="input-field">
+                                <label>Password</label>
+                                <input class="form-control" placeholder="Password"
+                                       type="password" required="" ng-model="input.password" name="password"
+                                       tabindex="0"
+                                       aria-required="false" aria-invalid="false" style="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <div class="input-field">
+                                <label>Konfirmasi Password</label>
+                                <input class="form-control" placeholder="Konfirmasi Password"
+                                       type="password" ui-validate-watch=" 'input.password' "
+                                       ui-validate=" '$value==input.password' " ng-model="input.password_confirmation"
+                                       required="" name="password_confirmation" tabindex="0" aria-required="false"
+                                       aria-invalid="true" style="">
+                                <span class="" ng-show="addForm.password_confirmation.$error.validator"
+                                      aria-hidden="false"
+                                      style="" class="glyphicon glyphicon-remove form-control-feedback">Passwords Tidak Sama!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group">
+                            <div class="input-field">
+                                <label>Level Pengguna</label>
+                                <select md-select-label class="form-control" placeholder="Level Pengguna" style=""
+                                        ng-model="input.level">
+                                    <option value="">Pilih level Pengguna</option>
+                                    <option ng-if="detailbatas <2" value="100">Administrator</option>
+                                    <option value="101">Pimpinan Daerah</option>
+                                    <option value="102">Pimpinan Administrator</option>
+                                    <option value="103">Kontibutor-Perencanaan</option>
+                                    <option value="104">Kontributor-Referensi</option>
+                                    <option value="105">Verifikator-Perencanaan</option>
+                                    <option value="106">Verifikator-LockSystem</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <div class="input-field">
+                                <label>Kontak Pribadi</label>
+                                <input class="form-control" placeholder="Kontak Pribadi"
+                                       ng-model="input.no_telp" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="panel-footer text-center" style="background: #269abc">
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="submitData(false)"
+                        ng-disabled="addForm.$invalid || process">Simpan
+                </button>
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="submitData(true)"
+                        ng-disabled="addForm.$invalid || process">Simpan & Kembali
+                </button>
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw bg-white" ui-sref="app.user"
+                        ng-disabled="process">Kembali
+                </button>
+            </footer>
+        </div>
+    </div>
+</form>

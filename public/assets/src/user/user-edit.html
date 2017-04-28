@@ -1,0 +1,73 @@
+<div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
+    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
+</div>
+<form class="form-validation ng-invalid ng-invalid-required ng-valid-pattern ng-valid-email ng-dirty ng-valid-parse ng-invalid-validator"
+      name="editForm" style="">
+    <div class="panel panel-default">
+        <div class="panel-heading bg-white" style="background: #428bca;">
+            <span class="font-bold"><left><font
+                    color="white">EDIT DATA PENGGUNA ADMINISTRATOR - [BackOffice]</font></left></span>
+        </div>
+        <div class="panel-body">
+            <div class="panel-body" style="background: #b3e5fc;">
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <div class="input-field">
+                                <label>Nama Lengkap</label>
+                                <input class="form-control ng-untouched ng-valid-email form-control"
+                                       ng-model="input.name" name="name"
+                                       type="text" required="" tabindex="0" aria-required="true"
+                                       aria-invalid="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row row-sm">
+                        <div class="col-sm-12">
+                            <div class="md-form-group">
+                                <div class="input-field">
+                                    <label>Nomor Induk Pegawai</label>
+                                    <input class="form-control ng-untouched ng-valid-email form-control"
+                                           ng-model="input.nip" type="text" required="" minlength="21" maxlength="21">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="col-sm-12">
+                            <div class="md-form-group float-label">
+                                <div class="input-field">
+                                    <label>Email</label>
+                                    <input class="form-control ng-untouched ng-valid-email form-control"
+                                           type="email" ng-model="input.email" name="email" required="" tabindex="0"
+                                           aria-required="false" aria-invalid="false" style="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-sm-12">
+                        <div class="md-form-group float-label">
+                            <div class="input-field">
+                                <label>Kontak Pribadi</label>
+                                <input class="form-control ng-untouched ng-valid-email form-control"
+                                       ng-model="input.no_telp" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="panel-footer text-center" style="background: #269abc">
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="updateData()"
+                        ng-disabled="editForm.$invalid || process">Simpan
+                </button>
+                <button md-ink-ripple class="md-btn md-raised m-b btn-fw bg-white" ui-sref="app.user"
+                        ng-disabled="process">Kembali
+                </button>
+            </footer>
+        </div>
+    </div>
+</form>

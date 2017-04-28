@@ -241,7 +241,7 @@ abstract class AbstractRepository implements RepositoryContract
      */
     public function createSuccess($data)
     {
-        return response()->json($data);
+        return response()->json(['created' => true], 200);
     }
 
     /**
@@ -251,7 +251,7 @@ abstract class AbstractRepository implements RepositoryContract
      */
     public function updateSuccess($data)
     {
-        return response()->json($data);
+        return response()->json(['updated' => true], 200);
     }
 
     /**

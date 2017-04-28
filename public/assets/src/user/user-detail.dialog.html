@@ -1,0 +1,69 @@
+<div class="panel panel-default">
+    <div class="panel-heading bg-white" style="background: #c0a16b;">
+        <span class="font-bold"><left><font color="black">DATA DETAIL PENGGUNA ADMINISTRATOR [BackOffice]</font></left></span>
+    </div>
+    <br>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th class="col-md-3">Perangkat Daerah</th>
+                            <td class="col-md-9 ng-binding">:
+                                <span style="padding-left: 2px;"></span>{{input.bidang.bidang.urusan.kode_rekening}}.{{input.bidang.bidang.kode_rekening}}.{{input.skpd.kode_skpd}}
+                                <span style="padding-left: 32px;"></span>{{input.skpd.skpd}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-3">Unit Perangkat Daerah</th>
+                            <td class="col-md-9 ng-binding">:
+                                <span style="padding-left: 2px;"></span>{{input.bidang.bidang.urusan.kode_rekening}}.{{input.bidang.bidang.kode_rekening}}.{{input.skpd.kode_skpd}}.{{input.uptd.kode_uptd}}
+                                <span style="padding-left: 22px;"></span>{{input.uptd.uptd}}
+                            </td>
+                        </tr>
+                        </thead>
+                    </table>
+                    <form class="form-validation ng-invalid ng-invalid-required ng-valid-pattern ng-valid-email ng-dirty ng-valid-parse ng-invalid-validator"
+                          name="editForm" style="">
+                        <div class="card-body">
+                            <div class="row row-sm">
+                                <!--<div ng-show="isLoading" layout="row" layout-sm="column" layout-align="space-around">-->
+                                    <!--<md-progress-circular md-mode="indeterminate"></md-progress-circular>-->
+                                <!--</div>-->
+                                <!--<div ng-show="isLoaded">-->
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover bg-white">
+                                         <thead>
+                                         <tr>
+                                            <td class="col-md-2" style="background: #FFFBD3" align="center"><b>Perangkat Daerah</b></td>
+                                            <td class="col-md-2" style="background: #FFFBD3" align="center"><b>Email</b></td>
+                                            <td class="col-md-2" style="background: #FFFBD3" align="center"><b>Nama Pengguna</b></td>
+                                            <td class="col-md-2" style="background: #FFFBD3" align="center"><b>Nomor HP/Telepon</b></td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="col-md-3" align="center">{{input.uptd.uptd}}</td>
+                                            <td class="col-md-2" align="center">{{input.email}}</td>
+                                            <td class="col-md-2" align="center">{{input.name}}</td>
+                                            <td class="col-md-2" align="center">{{input.no_telp}}</td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <footer class="panel-footer text-center" style="background: #269abc">
+    <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" type="button"
+                            ui-sref="app.user">Kembali
+                    </button>
+    </footer>
+</div>
