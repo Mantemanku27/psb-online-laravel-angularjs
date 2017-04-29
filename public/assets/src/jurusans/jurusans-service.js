@@ -1,7 +1,7 @@
 /**
  * Created by - LENOVO - on 24/08/2015.
  */
-app.factory('jurusan', ['$http', function ($http) {
+app.factory('jurusans', ['$http', function ($http) {
     return {
         // get data dengan pagination dan pencarian data
         get: function (page, term) {

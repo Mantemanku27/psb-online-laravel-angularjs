@@ -1,59 +1,57 @@
-<div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
-    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
-</div>
-<div class="card">
-    <div class="panel-heading bg-white" style="background: #428bca;">
-        <span class="font-bold"><left><font color="white">EDIT DATA URUSAN PEMERINTAH DAERAH</font></left></span>
-    </div>
-    <div ng-show="isLoading" layout="a" layout-sm="column" layout-align="space-around">
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-    </div>
-    <form ng-show="isLoaded" name="editForm">
-        <div class="card-body">
-            <div class="panel-body" style="background: #b3e5fc;">
-                <div class="row row-sm">
-                    <div class="col-sm-12">
-                        <div class="input-group">
-                            <div class="md-form-group">
-                                <label>Kode Rekening </label>
-                                <input class="form-control" placeholder="Kode Rekening"
-                                       ng-model="input.kode_rekening" type="text">
+<!--<!— start: PAGE TITLE —>-->
+<div ng-controller="JurusansEditCtrl">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">FORM EDIT JURUSAN</h1>
+            </div>
+            <div ncy-breadcrumb></div>
+        </div>
+    </section>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+    <!--<!— end: PAGE TITLE —>
+<!— start: FORM VALIDATION —>-->
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form name="Form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
+                                        <label class="control-label"> Nama <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="nama" ng-model="myModel.nama" required />
+                                        <span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.kuota.$dirty && Form.kuota.$invalid, 'has-success':Form.kuota.$valid}">
+                                        <label class="control-label"> Kuota <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Class" class="form-control" name="kuota" ng-model="myModel.kuota" required />
+                                        <span class="error text-small block" ng-if="Form.kuota.$dirty && Form.kuota.$invalid">First Class is required</span>
+                                        <span class="success text-small" ng-if="Form.kuota.$valid">Thank You!</span>
+                                    </div>
+
+                                </fieldset>
                             </div>
-                            <span class="input-group-btn">
-                                <div class="m-b-md">
-                                    <button tooltip="Kode Rekening Terakhir"
-                                            class="btn btn-icon btn-rounded btn-info" type="button"
-                                            popover-title="Kode Rekening Terakhir"
-                                            popover="{{rekening_terakhir.msg}}" md-ink-ripple
-                                            popover-placement="bottom" popover-animation="true"
-                                            style="margin-top: 45px;">
-                                        <i class="mdi-action-info-outline i-24"></i>
-                                    </button>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan</button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.Jurusans" ng-disabled="process">Kembali</button>
                                 </div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-sm">
-                    <div class="col-sm-12">
-                        <div class="md-form-group">
-                            <div class="input-field">
-                                <label>Urusan</label>
-                                <input class="form-control" placeholder="Urusan"
-                                       ng-model="input.urusan" type="text">
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <footer class="panel-footer text-center" style="background: #269abc">
-                <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="updateData()"
-                        ng-disabled="addForm.$invalid || process">Simpan
-                </button>
-                <button md-ink-ripple class="md-btn md-raised m-b btn-fw bg-white" ui-sref="app.posts"
-                        ng-disabled="process">Kembali
-                </button>
-            </footer>
         </div>
-    </form>
+    </div>
 </div>
+<!--<!— end: FORM VALIDATION —>-->

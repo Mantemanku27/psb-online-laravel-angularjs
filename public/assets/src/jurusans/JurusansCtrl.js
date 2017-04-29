@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('JurusanCtrl', ['$scope', 'jurusan', 'SweetAlert', '$http','$timeout', function ($scope, jurusan,SweetAlert) {
+app.controller('JurusanCtrl', ['$scope', 'jurusans', 'SweetAlert', '$http','$timeout', function ($scope, jurusans, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,
@@ -39,7 +39,7 @@ app.controller('JurusanCtrl', ['$scope', 'jurusan', 'SweetAlert', '$http','$time
     //Init dataAkun
     $scope.dataJurusans = '';
     // init get data
-    jurusan.get($scope.main.page, $scope.main.term)
+    jurusans.get($scope.main.page, $scope.main.term)
         .success(function (data) {
 
             //Change Loading status
@@ -77,7 +77,7 @@ app.controller('JurusanCtrl', ['$scope', 'jurusan', 'SweetAlert', '$http','$time
         //Start loading
         $scope.setLoader(true);
 
-        jurusan.get($scope.main.page, $scope.main.term)
+        jurusans.get($scope.main.page, $scope.main.term)
             .success(function (data) {
 
                 //Stop loading
@@ -188,7 +188,7 @@ app.controller('JurusanCtrl', ['$scope', 'jurusan', 'SweetAlert', '$http','$time
             closeOnCancel: false
         }, function (isConfirm) {
             if (isConfirm) {
-                jurusan.destroy(id)
+                jurusans.destroy(id)
                     .success(function (data) {
                         if (data.success == true) {
                             SweetAlert.swal({
