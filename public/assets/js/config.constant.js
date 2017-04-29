@@ -56,22 +56,36 @@ app.constant('JS_REQUIRES', {
         'NotificationIconsCtrl': 'assets/js/controllers/notificationIconsCtrl.js',
         'membersCtrl'    : 'assets/src/members/MembersCtrl.js',
         'members_service': 'assets/src/members/members-service.js',
+        //*** Formulir
+        'FormulirCtrl'    : 'assets/src/formulirs/FormulirsCtrl.js',
+        'formulir_service': 'assets/src/formulirs/formulirs-service.js',
+        'FormulirCreateCtrl'    : 'assets/src/formulirs/FormulirsCreateCtrl.js',
+        'FormulirEditCtrl'    : 'assets/src/formulirs/FormulirsEditCtrl.js',
+        //*** Biodata
+        'BiodataCtrl'    : 'assets/src/biodatas/BiodatasCtrl.js',
+        'biodata_service': 'assets/src/biodatas/biodatas-service.js',
+        'BiodataCreateCtrl'    : 'assets/src/biodatas/BiodatasCreateCtrl.js',
+        'BiodataEditCtrl'    : 'assets/src/biodatas/BiodatasEditCtrl.js',
+        //*** User
+        'UserCtrl'    : 'assets/src/users/UsersCtrl.js',
+        'user_service': 'assets/src/users/users-service.js',
+        'UserCreateCtrl'    : 'assets/src/users/UsersCreateCtrl.js',
+        'UserEditCtrl'    : 'assets/src/users/UsersEditCtrl.js',
+        //*** Jurusan
+        'JurusanCtrl'    : 'assets/src/jurusans/JurusansCtrl.js',
+        'jurusan_service': 'assets/src/jurusans/jurusans-service.js',
+        'JurusanCreateCtrl'    : 'assets/src/jurusans/JurusansCreateCtrl.js',
+        'JurusanEditCtrl'    : 'assets/src/jurusans/JurusansEditCtrl.js',
+        //*** Jenis Jurusan
+        'PendaftaranCtrl'    : 'assets/src/pendaftarans/PendaftaransCtrl.js',
+        'pendaftaran_service': 'assets/src/pendaftarans/pendaftarans-service.js',
+        'PendaftaranCreateCtrl'    : 'assets/src/pendaftarans/PendaftaransCreateCtrl.js',
+        'PendaftaranEditCtrl'    : 'assets/src/pendaftarans/PendaftaransEditCtrl.js',
+        //*** Post Pemberitahuan
         'PostCtrl'    : 'assets/src/posts/PostsCtrl.js',
         'post_service': 'assets/src/posts/posts-service.js',
         'PostCreateCtrl'    : 'assets/src/posts/PostsCreateCtrl.js',
         'PostEditCtrl'    : 'assets/src/posts/PostsEditCtrl.js',
-        'JurusanCtrl'    : 'assets/src/jurusans/JurusansCtrl.js',
-        'jurusan_service': 'assets/src/jurusans/jurusans-service.js',
-        'JurusanCreateCtrl'    : 'assets/src/jurusans/JurusansCreateCtrl.js',
-        'FormulirCtrl'    : 'assets/src/formulirs/FormulirsCtrl.js',
-        'formulir_service': 'assets/src/formulirs/formulirs-service.js',
-        'FormulirCreateCtrl'    : 'assets/src/formulirs/FormulirsCreateCtrl.js',
-        'BiodataCtrl'    : 'assets/src/biodatas/BiodatasCtrl.js',
-        'biodata_service': 'assets/src/biodatas/biodatas-service.js',
-        'BiodataCreateCtrl'    : 'assets/src/biodatas/BiodatasCreateCtrl.js',
-        'PendaftaranCtrl'    : 'assets/src/pendaftarans/PendaftaransCtrl.js',
-        'pendaftaran_service': 'assets/src/pendaftarans/pendaftarans-service.js',
-        'PendaftaranCreateCtrl'    : 'assets/src/pendaftarans/PendaftaransCreateCtrl.js',
 
         //*** Filters
         'htmlToPlaintext': 'assets/js/filters/htmlToPlaintext.js'
