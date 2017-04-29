@@ -43,7 +43,117 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     })
 
-    //post
+    // Formulir
+        .state('app.formulirs', {
+            url: '/formulirs',
+            templateUrl: 'assets/src/formulirs/formulirs-list.html',
+            title: 'Data Formulir',
+            resolve: loadSequence('FormulirCtrl', 'formulir_service'),
+        })
+
+        .state('app.formulirs-create', {
+            url: '/formulirs-create',
+            templateUrl: 'assets/src/formulirs/formulirs-create.html',
+            title: 'Create Data Formulir',
+            resolve: loadSequence('FormulirCreateCtrl', 'formulir_service'),
+        })
+
+        .state('app.formulirs-edit', {
+            url: '/formulirs-edit/:id',
+            templateUrl: 'assets//src/formulirs/formulirs-edit.html',
+            title: 'Edit Data Formulir',
+            resolve: loadSequence('FormulirEditCtrl', 'formulir_service'),
+        })
+
+    // Biodata
+        .state('app.biodatas', {
+            url: '/biodatas',
+            templateUrl: 'assets/src/biodatas/biodatas-list.html',
+            title: 'Data Biodata',
+            resolve: loadSequence('BiodataCtrl', 'biodata_service'),
+        })
+
+        .state('app.biodatas-create', {
+            url: '/biodatas-create',
+            templateUrl: 'assets/src/biodatas/biodatas-create.html',
+            title: 'Create Data Biodata',
+            resolve: loadSequence('BiodataCreateCtrl', 'biodata_service'),
+        })
+
+        .state('app.biodatas-edit', {
+            url: '/biodatas-edit/:id',
+            templateUrl: 'assets//src/biodatas/biodatas-edit.html',
+            title: 'Edit Data Biodata',
+            resolve: loadSequence('BiodataEditCtrl', 'biodata_service'),
+        })
+
+    // User
+        .state('app.users', {
+            url: '/users',
+            templateUrl: 'assets/src/users/users-list.html',
+            title: 'Data User',
+            resolve: loadSequence('UserCtrl', 'user_service'),
+        })
+
+        .state('app.users-create', {
+            url: '/users-create',
+            templateUrl: 'assets/src/users/users-create.html',
+            title: 'Create Data User',
+            resolve: loadSequence('UserCreateCtrl', 'user_service'),
+        })
+
+        .state('app.users-edit', {
+            url: '/users-edit/:id',
+            templateUrl: 'assets//src/users/users-edit.html',
+            title: 'Edit Data User',
+            resolve: loadSequence('UserEditCtrl', 'user_service'),
+        })
+
+    // Jurusan
+        .state('app.jurusans', {
+            url: '/jurusans',
+            templateUrl: 'assets/src/jurusans/jurusans-list.html',
+            title: 'Data Jurusan',
+            resolve: loadSequence('JurusanCtrl', 'jurusan_service'),
+        })
+
+        .state('app.jurusans-create', {
+            url: '/jurusans-create',
+            templateUrl: 'assets/src/jurusans/jurusans-create.html',
+            title: 'Create Data Jurusan',
+            resolve: loadSequence('JurusanCreateCtrl', 'jurusan_service'),
+        })
+
+        .state('app.jurusans-edit', {
+            url: '/jurusans-edit/:id',
+            templateUrl: 'assets//src/jurusans/jurusans-edit.html',
+            title: 'Edit Data Jurusan',
+            resolve: loadSequence('JurusanEditCtrl', 'jurusan_service'),
+        })
+
+    // Pendaftaran/Jenis Jurusan
+        .state('app.pendaftarans', {
+            url: '/pendaftarans',
+            templateUrl: 'assets/src/pendaftarans/pendaftarans-list.html',
+            title: 'Data Pendaftaran',
+            resolve: loadSequence('PendaftaranCtrl', 'pendaftaran_service'),
+        })
+
+        .state('app.pendaftarans-create', {
+            url: '/pendaftarans-create',
+            templateUrl: 'assets/src/pendaftarans/pendaftarans-create.html',
+            title: 'Create Data Pendaftaran',
+            resolve: loadSequence('PendaftaranCreateCtrl', 'pendaftaran_service'),
+        })
+
+        .state('app.pendaftarans-edit', {
+            url: '/pendaftarans-edit/:id',
+            templateUrl: 'assets//src/pendaftarans/pendaftarans-edit.html',
+            title: 'Edit Data Pendaftaran',
+            resolve: loadSequence('PendaftaranEditCtrl', 'pendaftaran_service'),
+        })
+
+    // Post Pemberitahuan
         .state('app.posts', {
             url: '/posts',
             templateUrl: 'assets/src/posts/posts-list.html',
@@ -54,75 +164,15 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         .state('app.posts-create', {
             url: '/posts-create',
             templateUrl: 'assets/src/posts/posts-create.html',
-            title: 'Data Post create',
+            title: 'Create Data Post',
             resolve: loadSequence('PostCreateCtrl', 'post_service'),
         })
 
         .state('app.posts-edit', {
             url: '/posts-edit/:id',
             templateUrl: 'assets//src/posts/posts-edit.html',
-            title: 'Edit Data Posts',
+            title: 'Edit Data Post',
             resolve: loadSequence('PostEditCtrl', 'post_service'),
-        })
-    
-    //jurusan
-        .state('app.jurusan', {
-            url: '/jurusan',
-            templateUrl: 'assets/src/jurusans/jurusans-list.html',
-            title: 'Data Jurusan',
-            resolve: loadSequence('JurusanCtrl', 'jurusan_service'),
-        })
-
-        .state('app.jurusan-create', {
-            url: '/jurusan-create',
-            templateUrl: 'assets/src/jurusans/jurusans-create.html',
-            title: 'Data Jurusan create',
-            resolve: loadSequence('JurusanCreateCtrl', 'jurusan_service'),
-        })
-
-    //formulir
-        .state('app.formulir', {
-            url: '/formulir',
-            templateUrl: 'assets/src/formulirs/formulirs-list.html',
-            title: 'Data Formulir',
-            resolve: loadSequence('FormulirCtrl', 'formulir_service'),
-        })
-
-        .state('app.formulir-create', {
-            url: '/formulir-create',
-            templateUrl: 'assets/src/formulirs/formulirs-create.html',
-            title: 'Data Formulir create',
-            resolve: loadSequence('FormulirCreateCtrl', 'formulir_service'),
-        })
-
-    //biodata
-        .state('app.biodata', {
-            url: '/biodata',
-            templateUrl: 'assets/src/biodatas/biodatas-list.html',
-            title: 'Data Biodata',
-            resolve: loadSequence('BiodataCtrl', 'biodata_service'),
-        })
-
-        .state('app.biodata-create', {
-            url: '/biodata-create',
-            templateUrl: 'assets/src/biodatas/biodatas-create.html',
-            title: 'Data Biodatas create',
-            resolve: loadSequence('BiodataCreateCtrl', 'biodata_service'),
-        })
-
-    //pendaftaran
-        .state('app.pendaftaran', {
-            url: '/pendaftaran',
-            templateUrl: 'assets/src/pendaftarans/pendaftarans-list.html',
-            title: 'Data Pendaftaran',
-            resolve: loadSequence('PendaftaranCtrl', 'pendaftaran_service'),
-        })
-
-        .state('app.pendaftaran-create', {
-            url: '/pendaftaran-create',
-            templateUrl: 'assets/src/pendaftarans/pendaftarans-create.html',
-            title: 'Data Pendaftarans create',
-            resolve: loadSequence('PendaftaranCreateCtrl', 'pendaftaran_service'),
         })
 
     //urusan
