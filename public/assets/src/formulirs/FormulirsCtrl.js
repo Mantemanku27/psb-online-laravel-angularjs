@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('FormulirCtrl', ['$scope', 'formulir', 'SweetAlert', '$http','$timeout', function ($scope, formulir,SweetAlert) {
+app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert', '$http','$timeout', function ($scope, formulirs, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,
@@ -39,7 +39,7 @@ app.controller('FormulirCtrl', ['$scope', 'formulir', 'SweetAlert', '$http','$ti
     //Init dataAkun
     $scope.dataFormulirs = '';
     // init get data
-    formulir.get($scope.main.page, $scope.main.term)
+    formulirs.get($scope.main.page, $scope.main.term)
         .success(function (data) {
 
             //Change Loading status
@@ -77,7 +77,7 @@ app.controller('FormulirCtrl', ['$scope', 'formulir', 'SweetAlert', '$http','$ti
         //Start loading
         $scope.setLoader(true);
 
-        formulir.get($scope.main.page, $scope.main.term)
+        formulirs.get($scope.main.page, $scope.main.term)
             .success(function (data) {
 
                 //Stop loading
@@ -188,7 +188,7 @@ app.controller('FormulirCtrl', ['$scope', 'formulir', 'SweetAlert', '$http','$ti
             closeOnCancel: false
         }, function (isConfirm) {
             if (isConfirm) {
-                formulir.destroy(id)
+                formulirs.destroy(id)
                     .success(function (data) {
                         if (data.success == true) {
                             SweetAlert.swal({
