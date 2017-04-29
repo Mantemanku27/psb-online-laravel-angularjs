@@ -1,64 +1,136 @@
-<div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
-    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
-</div>
-<div class="card">
-    <div class="panel-heading bg-white" style="background: #000000;">
-        <span class="font-bold"><left><font color="white">TAMBAH DATA URUSAN PEMERINTAH DAERAH</font></left></span>
-    </div>
-    <div ng-show="isLoading" layout="a" layout-sm="column" layout-align="space-around">
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-    </div>
-    <form ng-show="isLoaded" name="addForm">
-        <div class="card-body">
-            <div class="row row-sm">
-                <div class="col-sm-12">
-                    <div class="panel-body" style="background: #b3e5fc;">
-                        <div class="input-group">
-                            <!--<div class="md-form-group float-label">-->
-                            <label for="input-kode_rekening">Kode Rekening</label>
-                            <!--</div>-->
-                            <input class="form-control" placeholder="Kode Rekening" ng-model="input.kode_rekening"
-                                   id="input-kode_rekening" name="kode_rekening"
-                                   type="text" required tabindex="0">
-                            <span class="input-group-btn">
-                                <div class="m-b-md">
-                                    <button tooltip="Kode Rekening Terakhir"
-                                            class="btn btn-icon btn-rounded btn-info" type="button"
-                                            popover-title="Kode Rekening Terakhir"
-                                            popover="{{input.msg}}" md-ink-ripple
-                                            popover-placement="bottom" popover-animation="true"
-                                            style="margin-top: 25px;">
-                                        <i class="mdi-action-info-outline i-24"></i>
-                                    </button>
-                                </div>
-                            </span>
-                        </div>
-                        <div class="row row-sm">
-                            <div class="col-sm-12">
-                                <div class="md-form-group float-label">
-                                    <div class="input-field">
-                                        <label for="input-urusan">Urusan</label>
-                                        <input class="form-control" placeholder="Urusan"
-                                               ng-model="input.urusan" id="input-urusan" name="urusan"
-                                               type="text" required tabindex="0">
+<!--<!— start: PAGE TITLE —>-->
+<div ng-controller="BiodatasCreateCtrl">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">FORM CREATE BIODATA</h1>
+            </div>
+            <div ncy-breadcrumb></div>
+        </div>
+    </section>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+    <!--<!— end: PAGE TITLE —>
+<!— start: FORM VALIDATION —>-->
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form name="Form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.nama_lengkap.$dirty && Form.nama_lengkap.$invalid, 'has-success':Form.nama_lengkap.$valid}">
+                                        <label class="control-label"> Nama Lengkap <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="nama_lengkap" ng-model="myModel.nama_lengkap" required />
+                                        <span class="error text-small block" ng-if="Form.nama_lengkap.$dirty && Form.nama_lengkap.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.nama_lengkap.$valid">Thank You!</span>
                                     </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.email.$dirty && Form.email.$invalid, 'has-success':Form.email.$valid}">
+                                        <label class="control-label"> Email <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Class" class="form-control" name="email" ng-model="myModel.email" required />
+                                        <span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$invalid">First Class is required</span>
+                                        <span class="success text-small" ng-if="Form.email.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.jk.$dirty && Form.jk.$invalid, 'has-success':Form.jk.$valid}">
+                                        <label class="control-label"> Jenis Kelamin <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="jk" ng-model="myModel.jk" required />
+                                        <span class="error text-small block" ng-if="Form.jk.$dirty && Form.jk.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.jk.$valid">Thank You!</span>
+                                    </div>
+                                    
+                                    <div class="form-group" ng-class="{'has-error':Form.agama.$dirty && Form.agama.$invalid, 'has-success':Form.agama.$valid}">
+                                        <label class="control-label"> Agama <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="agama" ng-model="myModel.agama" required />
+                                        <span class="error text-small block" ng-if="Form.agama.$dirty && Form.agama.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.agama.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.tempat_lahir.$dirty && Form.tempat_lahir.$invalid, 'has-success':Form.tempat_lahir.$valid}">
+                                        <label class="control-label"> Tempat Lahir <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="tempat_lahir" ng-model="myModel.tempat_lahir" required />
+                                        <span class="error text-small block" ng-if="Form.tempat_lahir.$dirty && Form.tempat_lahir.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.tempat_lahir.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid, 'has-success':Form.tanggal_lahir.$valid}">
+                                        <label class="control-label"> Tanggal Lahir <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="tanggal_lahir" ng-model="myModel.tanggal_lahir" required />
+                                        <span class="error text-small block" ng-if="Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.tanggal_lahir.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.alamat.$dirty && Form.alamat.$invalid, 'has-success':Form.alamat.$valid}">
+                                        <label class="control-label"> Alamat <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="alamat" ng-model="myModel.alamat" required />
+                                        <span class="error text-small block" ng-if="Form.alamat.$dirty && Form.alamat.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.alamat.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.desa.$dirty && Form.desa.$invalid, 'has-success':Form.desa.$valid}">
+                                        <label class="control-label"> Desa <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="desa" ng-model="myModel.desa" required />
+                                        <span class="error text-small block" ng-if="Form.desa.$dirty && Form.desa.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.desa.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.kecamatan.$dirty && Form.kecamatan.$invalid, 'has-success':Form.kecamatan.$valid}">
+                                        <label class="control-label"> Kecamatan <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="kecamatan" ng-model="myModel.kecamatan" required />
+                                        <span class="error text-small block" ng-if="Form.kecamatan.$dirty && Form.kecamatan.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.kecamatan.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.kabupaten.$dirty && Form.kabupaten.$invalid, 'has-success':Form.kabupaten.$valid}">
+                                        <label class="control-label"> Kabupaten <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="kabupaten" ng-model="myModel.kabupaten" required />
+                                        <span class="error text-small block" ng-if="Form.kabupaten.$dirty && Form.kabupaten.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.kabupaten.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.provinsi.$dirty && Form.provinsi.$invalid, 'has-success':Form.provinsi.$valid}">
+                                        <label class="control-label"> Provinsi <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="provinsi" ng-model="myModel.provinsi" required />
+                                        <span class="error text-small block" ng-if="Form.provinsi.$dirty && Form.provinsi.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.provinsi.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.jurusan.$dirty && Form.jurusan.$invalid, 'has-success':Form.jurusan.$valid}">
+                                        <label class="control-label"> Jurusan <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="jurusan" ng-model="myModel.jurusan" required />
+                                        <span class="error text-small block" ng-if="Form.jurusan.$dirty && Form.jurusan.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.jurusan.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.users_id.$dirty && Form.users_id.$invalid, 'has-success':Form.users_id.$valid}">
+                                        <label class="control-label"> Users_id <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Name" class="form-control" name="users_id" ng-model="myModel.users_id" required />
+                                        <span class="error text-small block" ng-if="Form.users_id.$dirty && Form.users_id.$invalid">First Name is required</span>
+                                        <span class="success text-small" ng-if="Form.users_id.$valid">Thank You!</span>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(false)" ng-disabled="Form.$invalid || process">Simpan</button>
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+                                    <button type="reset" class="btn btn-primary btn-o" ng-disabled="process" ng-click="form.reset(Form)">Reset</button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.biodatas" ng-disabled="process">Kembali</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <footer class="panel-footer text-center" style="background: #269abc">
-                        <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="submitData(false)"
-                                ng-disabled="addForm.$invalid || process">Simpan
-                        </button>
-                        <button md-ink-ripple class="md-btn md-raised m-b btn-fw blue" ng-click="submitData(true)"
-                                ng-disabled="addForm.$invalid || process">Simpan & Kembali
-                        </button>
-                        <button md-ink-ripple class="md-btn md-raised m-b btn-fw bg-white" ui-sref="app.urusan"
-                                ng-disabled="process">Kembali
-                        </button>
-                    </footer>
+                    </form>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
+<!--<!— end: FORM VALIDATION —>-->

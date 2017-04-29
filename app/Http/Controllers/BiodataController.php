@@ -84,7 +84,7 @@ class BiodataController extends Controller
      *
      * @apiError EmailHasRegitered The Email must diffrerent.
      */
-    public function update(BiodataEditRequest $request, $id)
+    public function update(Request $request, $id)
     {
         return $this->biodata->update($id, $request->all());
     }

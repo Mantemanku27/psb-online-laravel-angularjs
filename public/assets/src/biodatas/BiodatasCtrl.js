@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('BiodataCtrl', ['$scope', 'biodata', 'SweetAlert', '$http','$timeout', function ($scope, biodata,SweetAlert) {
+app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http','$timeout', function ($scope, biodatas, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,
@@ -39,7 +39,7 @@ app.controller('BiodataCtrl', ['$scope', 'biodata', 'SweetAlert', '$http','$time
     //Init dataAkun
     $scope.dataBiodatas = '';
     // init get data
-    biodata.get($scope.main.page, $scope.main.term)
+    biodatas.get($scope.main.page, $scope.main.term)
         .success(function (data) {
 
             //Change Loading status
@@ -77,7 +77,7 @@ app.controller('BiodataCtrl', ['$scope', 'biodata', 'SweetAlert', '$http','$time
         //Start loading
         $scope.setLoader(true);
 
-        biodata.get($scope.main.page, $scope.main.term)
+        biodatas.get($scope.main.page, $scope.main.term)
             .success(function (data) {
 
                 //Stop loading
@@ -188,7 +188,7 @@ app.controller('BiodataCtrl', ['$scope', 'biodata', 'SweetAlert', '$http','$time
             closeOnCancel: false
         }, function (isConfirm) {
             if (isConfirm) {
-                biodata.destroy(id)
+                biodatas.destroy(id)
                     .success(function (data) {
                         if (data.success == true) {
                             SweetAlert.swal({
