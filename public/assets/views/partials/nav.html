@@ -1,8 +1,10 @@
-<!-- start: SEARCH FORM -->
+<!-- Start Search Form -->
 <div class="search-form">
+
 	<a class="s-open" href="#">
 		<i class="ti-search"></i>
 	</a>
+
 	<form class="navbar-form" role="search">
 		<a class="s-remove" href="#" ng-toggle-class="search-open" target=".navbar-form">
 			<i class="ti-close"></i>
@@ -14,13 +16,17 @@
 			</button>
 		</div>
 	</form>
+
 </div>
-<!-- end: SEARCH FORM -->
-<!-- start: MAIN NAVIGATION MENU -->
+<!-- end Search -->
+
+<!-- Start Navigation Menu -->
 <div class="navbar-title">
 	<span translate="sidebar.heading.NAVIGATION">Main Navigation</span>
 </div>
+
 <ul class="main-navigation-menu">
+    <!-- Menu Dashboard -->
 	<li ui-sref-active="active">
 		<a ui-sref="app.dashboard">
 			<div class="item-content">
@@ -33,32 +39,9 @@
 			</div>
 		</a>
 	</li>
+	<!-- Menu Formulir -->
 	<li ui-sref-active="active">
-		<a ui-sref="app.posts">
-			<div class="item-content">
-				<div class="item-media">
-					<i class="ti-pencil-alt"></i>
-				</div>
-				<div class="item-inner">
-					<span class="title"> Post </span>
-				</div>
-			</div>
-		</a>
-	</li>
-	<li ui-sref-active="active">
-		<a ui-sref="app.jurusan">
-			<div class="item-content">
-				<div class="item-media">
-					<i class="ti-layers-alt"></i>
-				</div>
-				<div class="item-inner">
-					<span class="title"> Jurusan </span>
-				</div>
-			</div>
-		</a>
-	</li>
-	<li ui-sref-active="active">
-		<a ui-sref="app.formulir">
+		<a ui-sref="app.formulirs">
 			<div class="item-content">
 				<div class="item-media">
 					<i class="ti-pencil-alt"></i>
@@ -69,8 +52,9 @@
 			</div>
 		</a>
 	</li>
+	<!-- Menu Biodata -->
 	<li ui-sref-active="active">
-		<a ui-sref="app.biodata">
+		<a ui-sref="app.biodatas">
 			<div class="item-content">
 				<div class="item-media">
 					<i class="ti-pencil-alt"></i>
@@ -81,20 +65,9 @@
 			</div>
 		</a>
 	</li>
+	<!-- Menu Users -->
 	<li ui-sref-active="active">
-		<a ui-sref="app.pendaftaran">
-			<div class="item-content">
-				<div class="item-media">
-					<i class="ti-menu-alt"></i>
-				</div>
-				<div class="item-inner">
-					<span class="title"> Jenis Jurusan </span>
-				</div>
-			</div>
-		</a>
-	</li>
-	<li ui-sref-active="active">
-		<a ui-sref="app.user">
+		<a ui-sref="app.users">
 			<div class="item-content">
 				<div class="item-media">
 					<i class="ti-user"></i>
@@ -105,6 +78,47 @@
 			</div>
 		</a>
 	</li>
+	<!-- Menu Jurusan -->
+	<li ui-sref-active="active">
+		<a ui-sref="app.jurusans">
+			<div class="item-content">
+				<div class="item-media">
+					<i class="ti-layers-alt"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title"> Jurusan </span>
+				</div>
+			</div>
+		</a>
+	</li>
+	<!-- Menu Jenis Jurusan -->
+	<li ui-sref-active="active">
+		<a ui-sref="app.pendaftarans">
+			<div class="item-content">
+				<div class="item-media">
+					<i class="ti-menu-alt"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title"> Jenis Jurusan </span>
+				</div>
+			</div>
+		</a>
+	</li>
+	<!-- Menu Post -->
+	<li ui-sref-active="active">
+		<a ui-sref="app.posts">
+			<div class="item-content">
+				<div class="item-media">
+					<i class="ti-pencil-alt"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title"> Post Pemberitahuan </span>
+				</div>
+			</div>
+		</a>
+	</li>
+<!-- end Navigation Menu -->
+
 	<!--<li ng-class="{'active open':$state.includes('app.ui')}">
 		<a href="javascript:void(0)">
 			<div class="item-content">
@@ -759,11 +773,12 @@
 	</li>
 </ul>-->
 	<!-- end: CORE FEATURES -->
-	<!-- start: DOCUMENTATION BUTTON -->
-	<!--<div class="wrapper">
+
+<!-- Start Dokumentasi -->
+<div class="wrapper">
 	<a ui-sref="app.documentation" class="button-o">
 		<i class="ti-help"></i>
 		<span translate="sidebar.heading.DOCUMENTATION">Documentation</span>
 	</a>
-</div>-->
-	<!-- end: DOCUMENTATION BUTTON -->
+</div>
+<!-- end Dokumentasi -->
