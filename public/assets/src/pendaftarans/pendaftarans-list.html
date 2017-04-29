@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-8 m-b-xs">
             <span tooltip="Tambah Data">
-                <a md-ink-ripple ui-sref="app.urusan-create" class="btn btn-sm btn-default">
+                <a md-ink-ripple ui-sref="app.pendaftarans-create" class="btn btn-sm btn-default">
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
             <span tooltip="Refresh data">
@@ -60,34 +60,13 @@
                     </td>-->
 
                     <td class="col-md-2">
-                        <button type="button" ng-click="detailurusan(row.id)" md-ink-ripple tooltip="Detail Urusan"
-                                class="btn btn-sm btn-info">
-                            <i class="glyphicon glyphicon-zoom-in"></i>
-                        </button>
-                        <a ui-sref="app.urusan-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
-                           class="btn btn-sm btn-default" ng-if="row.is_lock =='0'">
+                        <a ui-sref="app.pendaftarans-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
+                           class="btn btn-sm btn-default" >
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
                         <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data"
                                 class="btn btn-sm btn-danger" >
                             <i class="glyphicon glyphicon-trash"></i>
-                        </button>
-                        <a ui-sref="app.urusan-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
-                           class="btn btn-sm btn-default" ng-if="row.is_lock ==''">
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </a>
-                        <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data"
-                                class="btn btn-sm btn-danger" ng-if="row.is_lock ==''">
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </button>
-                        <button ng-if="row.is_lock =='0'" type="button" ng-click="kunci(row.id)" md-ink-ripple tooltip="Kunci Data" class="btn btn-sm btn-accent">
-                            <i class="glyphicon glyphicon-lock"></i>
-                        </button>
-                        <button ng-if="row.is_lock == ''" type="button" ng-click="kunci(row.id)" md-ink-ripple tooltip="Kunci Data" class="btn btn-sm btn-accent">
-                            <i class="glyphicon glyphicon-lock"></i>
-                        </button>
-                        <button type="button" ng-click="buka(row.id)"ng-if="row.is_lock =='1' && dataUser.email == 'engineering@simperkot.com'"  md-ink-ripple tooltip="Buka Kunci Data" class="btn btn-sm btn-accent">
-                            <i class="fa fa-unlock-alt"></i>
                         </button>
 
                     </td>

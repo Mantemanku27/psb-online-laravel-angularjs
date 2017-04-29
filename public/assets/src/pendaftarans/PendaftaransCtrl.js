@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PendaftaranCtrl', ['$scope', 'pendaftaran', 'SweetAlert', '$http','$timeout', function ($scope, pendaftaran,SweetAlert) {
+app.controller('PendaftaranCtrl', ['$scope', 'pendaftarans', 'SweetAlert', '$http','$timeout', function ($scope, pendaftarans, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,
@@ -39,7 +39,7 @@ app.controller('PendaftaranCtrl', ['$scope', 'pendaftaran', 'SweetAlert', '$http
     //Init dataAkun
     $scope.dataPendaftarans = '';
     // init get data
-    pendaftaran.get($scope.main.page, $scope.main.term)
+    pendaftarans.get($scope.main.page, $scope.main.term)
         .success(function (data) {
 
             //Change Loading status
@@ -77,7 +77,7 @@ app.controller('PendaftaranCtrl', ['$scope', 'pendaftaran', 'SweetAlert', '$http
         //Start loading
         $scope.setLoader(true);
 
-        pendaftaran.get($scope.main.page, $scope.main.term)
+        pendaftarans.get($scope.main.page, $scope.main.term)
             .success(function (data) {
 
                 //Stop loading
@@ -188,7 +188,7 @@ app.controller('PendaftaranCtrl', ['$scope', 'pendaftaran', 'SweetAlert', '$http
             closeOnCancel: false
         }, function (isConfirm) {
             if (isConfirm) {
-                pendaftaran.destroy(id)
+                pendaftarans.destroy(id)
                     .success(function (data) {
                         if (data.success == true) {
                             SweetAlert.swal({

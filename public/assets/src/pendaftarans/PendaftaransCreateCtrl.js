@@ -1,131 +1,115 @@
-app.controller('UrusanCreateCtrl', ['$state', '$scope', 'urusan', '$mdToast', '$http', function ($state, $scope, urusan, $mdToast) {
-    //Init input form variable
-    //create urusan
-    $scope.input = {};
-    $scope.rekening_terakhir = '';
-    //Set process status to false
+app.controller('PendaftaransCreateCtrl', ['$state', '$scope', 'pendaftarans', '$timeout', 'SweetAlert', 'toaster', '$http', function ($state, $scope, pendaftarans, $timeout, SweetAlert, toaster) {
+    //Init input addForm variable
+    //create pendaftarans
     $scope.process = false;
 
-    //Init Alert status
-    $scope.alertset = {
-        show: 'hide',
-        class: 'green',
-        msg: ''
-    };
+    $scope.master = $scope.myModel;
+    $scope.form = {
 
-    $scope.getLastUrusan = function () {
-        $scope.loadKoderekening = true;
-        $scope.input.msg = '';
+        submit: function (form) {
+            var firstError = null;
+            if (form.$invalid) {
 
-        urusan.getLastUrusan()
-            .success(function (data) {
-                $scope.setLoader(false);
-                if (data.success == true) {
-                    $scope.input.msg = 'Kode Rekening: ' + data.result.kode_rekening;
-                } else {
-                    $scope.input.msg = 'Data Belum Tersedia';
+                var field = null, firstError = null;
+                for (field in form) {
+                    if (field[0] != '$') {
+                        if (firstError === null && !form[field].$valid) {
+                            firstError = form[field].$name;
+                        }
+
+                        if (form[field].$pristine) {
+                            form[field].$dirty = true;
+                        }
+                    }
                 }
-            })
-    };
+                angular.element('.ng-invalid[name=' + firstError + ']').focus();
+                SweetAlert.swal("The form cannot be submitted because it contains validation errors!", "Errors are marked with a red, dashed border!", "error");
+                return;
 
-    $scope.isLoading = true;
-    $scope.isLoaded = false;
-    $scope.getLastUrusan();
+            } else {
+                SweetAlert.swal("Good job!", "Your form is ready to be submitted!", "success");
+                //your code for submit
+            }
 
-    $scope.setLoader = function (status) {
-        if (status == true) {
-            $scope.isLoading = true;
-            $scope.isLoaded = false;
-        } else {
-            $scope.isLoading = false;
-            $scope.isLoaded = true;
+        },
+        reset: function (form) {
+
+            $scope.myModel = angular.copy($scope.master);
+            form.$setPristine(true);
         }
-    };
 
-    //Function to clear input
+    };
+    $scope.closeAlert = function (index) {
+        $scope.alerts.splice(index, 1);
+    };
     $scope.clearInput = function () {
-        $scope.input.kode_rekening = '';
-        $scope.input.urusan = '';
-        $scope.input.msg = '';
-        $scope.getLastUrusan();
+        $scope.myModel.no_pilihan = null;
+        $scope.myModel.status = null;
+        $scope.myModel.jurusans_id = null;
+        $scope.myModel.formulirs_id = null;
     };
 
-    //Submit Data
     $scope.submitData = function (isBack) {
-
+        $scope.alerts = [];
         //Set process status
         $scope.process = true;
-
         //Close Alert
-        $scope.alertset.show = 'hide';
 
         //Check validation status
-        if ($scope.addForm.$valid) {
+        if ($scope.Form.$valid) {
             //run Ajax
-            urusan.store($scope.input)
+            pendaftarans.store($scope.myModel)
                 .success(function (data) {
-                    if (data.success == true) {
+                    if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {
-                            //$scope.alertset.class = 'green';
-                            //Redirect to akun
-                            $state.go('app.urusan');
-                            $scope.showToast('green', 'Simpan Data Berhasil !');
+                            $state.go('app.pendaftarans');
+                            $scope.toaster = {
+                                type: 'success',
+                                title: 'Sukses',
+                                text: 'Simpan Data Berhasil!'
+                            };
+                            toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                         } else {
+                            $scope.clearInput();
                             $scope.sup();
+                            $scope.alerts.push({
+                                type: 'success',
+                                msg: 'Simpan Data Berhasil!'
+                            });
                             $scope.process = false;
-                            $scope.alertset.msg = 'Simpan Data Berhasil !';
-                            $scope.alertset.show = 'show';
-                            $scope.alertset.class = 'green';
-                            $scope.showToast('green', 'Simpan Data Berhasil !');
+                            $scope.toaster = {
+                                type: 'success',
+                                title: 'Sukses',
+                                text: 'Simpan Data Berhasil!'
+                            };
+                            toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                         }
                         //Clear Input
-                        $scope.clearInput();
-                    } else {
-                        //$scope.alertset.class = 'orange';
-                        $scope.showToast('red', 'Simpan Data Gagal !');
                     }
-                    //Set Alert message
-                    $scope.alertset.show = 'show';
-                    $scope.alertset.msg = data.result;
 
                 })
                 .error(function (data, status) {
-                    switch (status) {
-                        case 401 :
-                            $scope.redirect();
-                            break;
-                        case 500 :
-                            $scope.sup();
-                            $scope.process = false;
-                            $scope.alertset.msg = "Internal Server Errors";
-                            $scope.alertset.show = 'show';
-                            $scope.showToast('red', 'Simpan Data Gagal !');
-                            $scope.alertset.class = 'red';
-                            break;
-                        case 422 :
-                            $scope.sup();
-                            $scope.process = false;
-                            $scope.alertset.msg = data.validation;
-                            $scope.alertset.show = 'show';
-                            $scope.showToast('red', 'Simpan Data Gagal !');
-                            $scope.alertset.class = 'red';
-                            break;
+                    // unauthorized
+                    if (status === 401) {
+                        //redirect to login
+                        $scope.redirect();
                     }
+                    $scope.sup();
+                    // Stop Loading
+                    $scope.process = false;
+                    $scope.alerts.push({
+                        type: 'danger',
+                        msg: data.validation
+                    });
+                    $scope.toaster = {
+                        type: 'error',
+                        title: 'Gagal',
+                        text: 'Simpan Data Gagal!'
+                    };
+                    toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                 });
         }
-    };
-
-    //Alert
-    $scope.showToast = function (warna, msg) {
-        $mdToast.show({
-            //controller: 'AkunToastCtrl',
-            template: "<md-toast class='" + warna + "-500'><span flex> " + msg + "</span> <md-button ng-click='closeToast()'>x</md-button></md-toast> ",
-            //templateUrl: 'views/ui/material/toast.tmpl.html',
-            hideDelay: 6000,
-            parent: '#toast',
-            position: 'top right'
-        });
     };
 
 }]);
