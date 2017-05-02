@@ -24,23 +24,22 @@
 
                                     <div class="form-group" ng-class="{'has-error':Form.judul.$dirty && Form.judul.$invalid, 'has-success':Form.judul.$valid}">
                                         <label class="control-label"> Judul <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Name" class="form-control" name="judul" ng-model="myModel.judul" required />
-                                        <span class="error text-small block" ng-if="Form.judul.$dirty && Form.judul.$invalid">First Name is required</span>
+                                        <input type="text" placeholder="Enter your Judul" class="form-control" name="judul" ng-model="myModel.judul" required />
+                                        <span class="error text-small block" ng-if="Form.judul.$dirty && Form.judul.$invalid">Judul is required</span>
                                         <span class="success text-small" ng-if="Form.judul.$valid">Thank You!</span>
                                     </div>
 
                                     <div class="form-group" ng-class="{'has-error':Form.gambar.$dirty && Form.gambar.$invalid, 'has-success':Form.gambar.$valid}">
                                         <label class="control-label"> Gambar <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Class" class="form-control" name="gambar" ng-model="myModel.gambar" required />
-                                        <span class="error text-small block" ng-if="Form.gambar.$dirty && Form.gambar.$invalid">First Class is required</span>
+                                        <input type="text" placeholder="Enter your Gambar" class="form-control" name="gambar" ng-model="myModel.gambar" required />
+                                        <span class="error text-small block" ng-if="Form.gambar.$dirty && Form.gambar.$invalid">Gambar is required</span>
                                         <span class="success text-small" ng-if="Form.gambar.$valid">Thank You!</span>
                                     </div>
 
                                     <div class="form-group" ng-class="{'has-error':Form.deskripsi.$dirty && Form.deskripsi.$invalid, 'has-success':Form.deskripsi.$valid}">
                                         <label class="control-label"> Deskripsi <span class="symbol required"></span></label>
-                                        <input type="deskripsi" placeholder="Enter a valid E-mail" class="form-control" name="deskripsi" ng-model="myModel.deskripsi" required>
-                                        <span class="error text-small block" ng-if="Form.deskripsi.$dirty && Form.deskripsi.$error.required">Email is required.</span>
-                                        <span class="error text-small block" ng-if="Form.deskripsi.$error.deskripsi">Please, enter a valid deskripsi address.</span>
+                                        <input type="text" placeholder="Enter your Deskripsi" class="form-control" name="deskripsi" ng-model="myModel.deskripsi" required>
+                                        <span class="error text-small block" ng-if="Form.deskripsi.$dirty && Form.deskripsi.$error.required">Deskripsi is required.</span>
                                         <span class="success text-small" ng-if="Form.deskripsi.$valid">Thank You!</span>
                                     </div>
 
