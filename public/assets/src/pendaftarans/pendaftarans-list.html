@@ -46,6 +46,8 @@
                 <tr>
                     <th class="col-md-2">No Pilihan</th>
                     <th class="col-md-2">Status</th>
+                    <th class="col-md-2">Jurusans</th>
+                    <th class="col-md-2">Formulirs</th>
                     <th class="col-md-2">Aksi</th>
                 </tr>
                 </thead>
@@ -53,6 +55,8 @@
                 <tr ng-repeat="row in dataPendaftarans">
                     <td class="col-md-2">{{row.no_pilihan}}</td>
                     <td class="col-md-2">{{row.status}}</td>
+                    <td class="col-md-2">{{row.jurusans.nama}}</td>
+                    <td class="col-md-2">{{row.formulirs.asal_sekolah}}</td>
                     <!--<td class="col-md-2">
                         <span ng-if="row.is_lock == '0'" class="label bg-info ng-scope">Draft</span>
                         <span ng-if="row.is_lock == ''" class="label bg-info ng-scope">Draft</span>
