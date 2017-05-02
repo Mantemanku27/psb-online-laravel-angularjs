@@ -78,7 +78,6 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             'nama'    => e($data['nama']),
             'telepon' => e($data['telepon']),
             'email' => e($data['email']),
-            'password' => e($data['password']),
             'level'   => e($data['level'])
         ]);
     }

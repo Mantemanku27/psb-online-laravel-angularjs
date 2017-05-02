@@ -3,7 +3,7 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\Request;
-
+use Illuminate\Contracts\Validation\Validator;
 /**
  * Class UserCreateRequest
  *
@@ -30,7 +30,6 @@ class UserEditRequest extends Request
         'nama'    => 'Nama',
         'telepon'    => 'Telepon',
         'email' => 'Email',
-        'password' => 'Password',
         'level'   => 'Level'
     ];
 
@@ -44,8 +43,7 @@ class UserEditRequest extends Request
         return [
             'nama'    => 'required|max:225',
             'telepon'    => 'required|max:225',
-            'email'    => 'required|email|unique:users,email|max:225',
-            'password' => 'required|max:255',
+            'email'    => 'required|email|max:225',
             'level'   => 'required|max:2555'
         ];
     }
@@ -55,9 +53,30 @@ class UserEditRequest extends Request
      *
      * @return mixed
      */
-    public function validator($validator)
+public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
+    }
+
+    /**
+     * @param Validator $validator
+     * @return array
+     */
+    protected function formatErrors(Validator $validator)
+    {
+        $message = $validator->errors();
+
+        return [
+            'success'    => false,
+            'validation' => [
+                'nama' => $message->first('nama'),
+                'telepon'          => $message->first('telepon'),
+                'email'          => $message->first('email'),
+                'password'          => $message->first('password'),
+                'level'          => $message->first('level'),
+
+            ]
+        ];
     }
 
 }
