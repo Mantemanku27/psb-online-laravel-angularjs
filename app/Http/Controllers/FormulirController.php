@@ -33,7 +33,7 @@ class FormulirController extends Controller
      */
     public function index(Request $request)
     {
-        return $this->formulir->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('search'));
+        return $this->formulir->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
 
     /**

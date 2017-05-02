@@ -47,7 +47,18 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-        return parent::paginate($limit, $page, $column, 'asal_sekolah', $search);
+    $akun = $this->model
+            ->join('biodatas', 'formulirs.biodatas_id', '=', 'biodatas.id')
+            ->where(function ($query) use ($search) {
+                $query->where('formulirs.asal_sekolah', 'like', '%' . $search . '%')
+                    ->orWhere('biodatas.nama_lengkap', 'like', '%' . $search . '%');
+                    
+                })
+            ->select('formulirs.*')
+            ->paginate($limit)
+            
+            ->toArray();
+        return $akun;
     }
 
     /**
