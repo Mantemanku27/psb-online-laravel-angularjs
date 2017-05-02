@@ -47,15 +47,20 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-$jenis  = $this->model
-            ->where('nama_lengkap', 'like', '%' . $search . '%')
+    $akun = $this->model
+            ->join('users', 'biodatas.users_id', '=', 'users.id')
+            ->where(function ($query) use ($search) {
+                $query->where('biodatas.nama_lengkap', 'like', '%' . $search . '%')
+                ->orWhere('biodatas.email', 'like', '%' . $search . '%')
+                    ->orWhere('users.nama', 'like', '%' . $search . '%');
+                    
+                })
             ->select('biodatas.*')
             ->paginate($limit)
+            
             ->toArray();
-
-        // store to cache
-
-        return $jenis;    }
+        return $akun;
+    }
 
     /**
      * @param array $data
