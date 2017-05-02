@@ -67,7 +67,7 @@ body {
   font-size: 13px;
   padding: 0;
   margin: 0;
-  background: #f7f7f8;
+  background: #000;/*background warna hitam -----------------------------------------------------------------*/;
   -webkit-font-smoothing: antialiased !important;
 }
 body.bg_style_1 {
@@ -362,7 +362,7 @@ h5.over-title {
 }
 .navbar .navbar-header {
   z-index: 10;
-  background: #ffffff;
+  background: #ffffff;/*warna background logo -----------------------------------------------------------------*/
   border-bottom: 1px solid #c8c7cc;
   position: relative;
   height: 65px;
@@ -414,7 +414,7 @@ h5.over-title {
 .navbar .navbar-collapse {
   border-bottom: 1px solid #c8c7cc;
   border-top: none;
-  background: #ffffff;
+  background: red;/*warna nav atas -----------------------------------------------------------------------------*/
   padding-left: 15px !important;
   padding-right: 15px !important;
   position: relative;
@@ -594,7 +594,7 @@ h5.over-title {
   right: 0;
   border-left: 1px solid #c8c7cc;
   width: 30px;
-  background: #ffffff;
+  background: #000;/*warna background atas kanan -----------------------------------------------------------------*/
   line-height: 64px;
   color: #c8c7cc;
 }
@@ -869,7 +869,7 @@ h5.over-title {
   float: left;
   left: 0;
   bottom: 0;
-  background: #f7f7f8;
+  background: #000;/*warna background hitam kiri (navigation)*/
   overflow: visible;
   z-index: 1051;
 }
