@@ -23,3 +23,15 @@ Route::resource('formulirs','FormulirController');
 Route::resource('biodatas','BiodataController');
 Route::resource('pendaftarans','PendaftaranController');
 Route::resource('users','UserController');
+
+////auth
+Route::group(['namespace' => 'Auth'], function () {
+
+    // Authentication routes...
+    Route::get('get-login', 'LoginController@getLogin');
+    Route::get('logout', 'LoginController@getLogout');
+    Route::get('post-login', 'LoginController@getLogin');
+    Route::post('post-login', 'LoginController@postLogin');
+});
+
+Route::get('get-session', 'UserController@getSession');

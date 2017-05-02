@@ -1,6 +1,17 @@
-var app = angular.module('clipApp', ['clip-two']);
-app.run(['$rootScope', '$state', '$stateParams',
-function ($rootScope, $state, $stateParams) {
+var app = angular.module('clipApp', ['clip-two'])
+.factory('mainapp', ['$http', function ($http) {
+        return {
+            getusession: function () {
+                return $http({
+                    method: 'get',
+                    url: '/api/get-session',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
+                });
+            }
+        }
+    }]);
+app.run(['$rootScope', '$state', '$stateParams', 'mainapp',
+function ($rootScope, $state, $stateParams, mainapp) {
 
     // Attach Fastclick for eliminating the 300ms delay between a physical tap and the firing of a click event on mobile browsers
     FastClick.attach(document.body);
@@ -38,6 +49,23 @@ function ($rootScope, $state, $stateParams) {
         scrollTop: 0
       }, "slow");
     }
+    $rootScope.dataUser = '';
+    mainapp.getusession()
+        .success(function (data) {
+            $rootScope.dataUser = data.result;
+                })
+
+        .error(function (data, status) {
+            if (status === 401) {
+                $rootScope.redirect();
+            }
+        });
+    // $scope.redirect = function () {
+    //   window.location = "/api/logout";
+    // };
+    $rootScope.redirect = function () {
+        window.location = "/api/logout";
+    };
     $rootScope.user = {
         name: 'Peter',
         job: 'ng-Dev',
