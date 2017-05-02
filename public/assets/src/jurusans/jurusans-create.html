@@ -23,16 +23,16 @@
                                 <fieldset>
 
                                     <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
-                                        <label class="control-label"> Nama <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Name" class="form-control" name="nama" ng-model="myModel.nama" required />
-                                        <span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">First Name is required</span>
+                                        <label class="control-label"> Nama Jurusan <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Nama Jurusan" class="form-control" name="nama" ng-model="myModel.nama" required />
+                                        <span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama Jurusan is required</span>
                                         <span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
                                     </div>
 
                                     <div class="form-group" ng-class="{'has-error':Form.kuota.$dirty && Form.kuota.$invalid, 'has-success':Form.kuota.$valid}">
                                         <label class="control-label"> Kuota <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Class" class="form-control" name="kuota" ng-model="myModel.kuota" required />
-                                        <span class="error text-small block" ng-if="Form.kuota.$dirty && Form.kuota.$invalid">First Class is required</span>
+                                        <input type="text" placeholder="Enter your Kuota" class="form-control" name="kuota" ng-model="myModel.kuota" required />
+                                        <span class="error text-small block" ng-if="Form.kuota.$dirty && Form.kuota.$invalid">Kuota is required</span>
                                         <span class="success text-small" ng-if="Form.kuota.$valid">Thank You!</span>
                                     </div>
 
