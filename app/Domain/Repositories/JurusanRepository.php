@@ -47,7 +47,15 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-        return parent::paginate($limit, $page, $column, 'nama', $search);
+    $akun = $this->model
+            ->where(function ($query) use ($search) {
+                $query->where('nama', 'like', '%' . $search . '%')
+                    ->orWhere('kuota', 'like', '%' . $search . '%');
+                })
+        
+            ->paginate($limit)
+            ->toArray();
+        return $akun;    
     }
 
     /**
