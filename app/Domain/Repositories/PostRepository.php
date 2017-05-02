@@ -47,7 +47,16 @@ class PostRepository extends AbstractRepository implements PostInterface, Crudab
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-        return parent::paginate($limit, $page, $column, 'judul', $search);
+    $akun = $this->model
+            ->where(function ($query) use ($search) {
+                $query->where('judul', 'like', '%' . $search . '%')
+                    ->orWhere('gambar', 'like', '%' . $search . '%')
+                    ->orWhere('deskripsi', 'like', '%' . $search . '%');
+                })
+        
+            ->paginate($limit)
+            ->toArray();
+        return $akun;    
     }
 
     /**

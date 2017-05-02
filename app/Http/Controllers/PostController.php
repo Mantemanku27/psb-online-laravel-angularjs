@@ -33,7 +33,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        return $this->post->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('search'));
+        return $this->post->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
 
     /**
