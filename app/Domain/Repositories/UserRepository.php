@@ -47,7 +47,16 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-        return parent::paginate($limit, $page, $column, 'nama', $search);
+    $akun = $this->model
+            ->where(function ($query) use ($search) {
+                $query->where('nama', 'like', '%' . $search . '%')
+                    ->orWhere('telepon', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%');
+                })
+        
+            ->paginate($limit)
+            ->toArray();
+        return $akun;    
     }
 
     /**

@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return $this->user->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('search'));
+        return $this->user->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
 
     /**
