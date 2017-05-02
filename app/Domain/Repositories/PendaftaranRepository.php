@@ -47,9 +47,22 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-        return parent::paginate($limit, $page, $column, 'status', $search);
+    $akun = $this->model
+            ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
+            ->join('formulirs', 'pendaftarans.formulirs_id', '=', 'formulirs.id')
+            ->where(function ($query) use ($search) {
+                $query->where('pendaftarans.no_pilihan', 'like', '%' . $search . '%')
+                ->orWhere('pendaftarans.status', 'like', '%' . $search . '%')
+                    ->orWhere('jurusans.nama', 'like', '%' . $search . '%')
+                    ->orWhere('formulirs.asal_sekolah', 'like', '%' . $search . '%');
+                    
+                })
+            ->select('pendaftarans.*')
+            ->paginate($limit)
+            
+            ->toArray();
+        return $akun;
     }
-
     /**
      * @param array $data
      * @return \Symfony\Component\HttpFoundation\Response
