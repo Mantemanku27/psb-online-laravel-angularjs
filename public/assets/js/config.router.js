@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Config for the router
+ * Konfigurasi Router
  */
 app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$ocLazyLoadProvider', 'JS_REQUIRES',
 function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $ocLazyLoadProvider, jsRequires) {
@@ -43,7 +43,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
         }
     })
 
-    // Formulir
+    // URL CRUD Formulir
         .state('app.formulirs', {
             url: '/formulirs',
             templateUrl: 'assets/src/formulirs/formulirs-list.html',
@@ -65,7 +65,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             resolve: loadSequence('FormulirEditCtrl', 'formulir_service'),
         })
 
-    // Biodata
+    // URL CRUD Biodata
         .state('app.biodatas', {
             url: '/biodatas',
             templateUrl: 'assets/src/biodatas/biodatas-list.html',
@@ -87,7 +87,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             resolve: loadSequence('BiodataEditCtrl', 'biodata_service'),
         })
 
-    // User
+    // URL CRUD User
         .state('app.users', {
             url: '/users',
             templateUrl: 'assets/src/users/users-list.html',
@@ -109,7 +109,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             resolve: loadSequence('UserEditCtrl', 'user_service'),
         })
 
-    // Jurusan
+    // URL CRUD Jurusan
         .state('app.jurusans', {
             url: '/jurusans',
             templateUrl: 'assets/src/jurusans/jurusans-list.html',
@@ -131,7 +131,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             resolve: loadSequence('JurusanEditCtrl', 'jurusan_service'),
         })
 
-    // Pendaftaran/Jenis Jurusan
+    // URL CRUD Pendaftaran/Jenis Jurusan
         .state('app.pendaftarans', {
             url: '/pendaftarans',
             templateUrl: 'assets/src/pendaftarans/pendaftarans-list.html',
@@ -153,7 +153,7 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             resolve: loadSequence('PendaftaranEditCtrl', 'pendaftaran_service'),
         })
 
-    // Post Pemberitahuan
+    // URL CRUD Post Pemberitahuan
         .state('app.posts', {
             url: '/posts',
             templateUrl: 'assets/src/posts/posts-list.html',
@@ -174,37 +174,6 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
             title: 'Edit Data Post',
             resolve: loadSequence('PostEditCtrl', 'post_service'),
         })
-
-    //urusan
-        .state('app.members', {
-            url: '/members',
-            templateUrl: 'assets/src/members/members-list.html',
-            title: 'Data Members',
-            resolve: loadSequence('membersCtrl', 'members_service'),
-            // ncyBreadcrumb: {
-            //     label: 'Dashboard'
-            // }
-
-        })
-        // //urusan Create
-        // .state('app.urusan-create', {
-        //     url: '/urusan-create',
-        //     templateUrl: 'assets//src/urusan/urusan/urusan-create.html',
-        //     data: {title: 'Tambah Data Urusan Pemerintah Daerah'},
-        //     controller: 'UrusanCreateCtrl',
-        //     resolve: load(['assets//src/urusan/urusan/urusan-service.js', 'assets//src/urusan/urusan/UrusanCreateCtrl.js'])
-        // })
-        //
-        // //urusan Edit
-        // .state('app.urusan-edit', {
-        //     url: '/urusan-edit/:id',
-        //     templateUrl: 'assets//src/urusan/urusan/urusan-edit.html',
-        //     data: {title: 'Edit Data Urusan Pemerintah Daerah'},
-        //     controller: 'UrusanEditCtrl',
-        //     resolve: load(['assets//src/urusan/urusan/urusan-service.js', 'assets//src/urusan/urusan/UrusanEditCtrl.js'])
-        // })
-
-
 
         .state('app.ui', {
         url: '/ui',
