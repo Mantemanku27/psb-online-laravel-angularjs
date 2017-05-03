@@ -67,7 +67,7 @@ body {
   font-size: 13px;
   padding: 0;
   margin: 0;
-  background: #000;/*background warna hitam -----------------------------------------------------------------*/;
+  background: #1f1f21;/*background warna hitam -----------------------------------------------------------------*/;
   -webkit-font-smoothing: antialiased !important;
 }
 body.bg_style_1 {
@@ -112,7 +112,7 @@ a {
   color: #007AFF;
 }
 a:hover, a:focus, a:active {
-  color: #004999;
+  color: #0fef18;
 }
 
 h1, h2 {
@@ -362,7 +362,7 @@ h5.over-title {
 }
 .navbar .navbar-header {
   z-index: 10;
-  background: #ffffff;/*warna background logo -----------------------------------------------------------------*/
+  background: #0b0b0c;/*warna background logo -----------------------------------------------------------------*/
   border-bottom: 1px solid #c8c7cc;
   position: relative;
   height: 65px;
@@ -414,7 +414,7 @@ h5.over-title {
 .navbar .navbar-collapse {
   border-bottom: 1px solid #c8c7cc;
   border-top: none;
-  background: red;/*warna nav atas -----------------------------------------------------------------------------*/
+  background: #0b0b0c;/*warna nav atas -----------------------------------------------------------------------------*/
   padding-left: 15px !important;
   padding-right: 15px !important;
   position: relative;
@@ -594,7 +594,7 @@ h5.over-title {
   right: 0;
   border-left: 1px solid #c8c7cc;
   width: 30px;
-  background: #000;/*warna background atas kanan -----------------------------------------------------------------*/
+  background: #0b0b0c;/*warna background atas kanan -----------------------------------------------------------------*/
   line-height: 64px;
   color: #c8c7cc;
 }
@@ -671,7 +671,7 @@ h5.over-title {
   }
 }
 .navbar .navbar-right > li > a:hover {
-  background: #efeff0;
+  background: #1f1f21;/*-----------------------------------------------------------hover-----------------------------*/
 }
 .navbar .navbar-right > li > a i {
   display: block;
@@ -869,7 +869,7 @@ h5.over-title {
   float: left;
   left: 0;
   bottom: 0;
-  background: #000;/*warna background hitam kiri (navigation)*/
+  background: #0b0b0c;/*warna background hitam kiri (navigation)---------------------------------------*/
   overflow: visible;
   z-index: 1051;
 }
@@ -998,7 +998,7 @@ h5.over-title {
 }
 
 #sidebar > div nav > ul {
-  background: #ffffff;
+  background: #0b0b0c;/*warna background nav ul ----------------------------------------------------*/
   list-style: none;
   margin: 10px 0;
   padding: 0;
@@ -1019,10 +1019,10 @@ h5.over-title {
   background: #efeff0;
 }
 .no-touch #sidebar > div nav > ul > li:hover {
-  background: #efeff0;
+  background: #1f1f21;/*warna hover nav -------------------------------------------------------------------*/
 }
 #sidebar > div nav > ul > li.active {
-  background: #c8c7cc;
+  background: #1f1f21;/*warna nav active -------------------------------------------------------------*/
 }
 #sidebar > div nav > ul > li.active > a {
   border-top: none !important;
@@ -1434,7 +1434,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
 }
 
 .navbar-form {
-  background: #e2e2e4;
+  background: #1f1f21;/*warna search --------------------------------------------------------------------------*/
   border: none;
   box-shadow: none;
   margin: 0;
@@ -1527,7 +1527,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
 /*  Footer
 /* ---------------------------------------------------------------------- */
 #app > footer {
-  background-color: #ffffff;
+  background-color: #0b0b0c;/************************************* background footer **************************************/
   border-top: 1px solid #c8c7cc;
   bottom: 0;
   right: 0;
@@ -1595,7 +1595,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
   right: 0;
 }
 .settings > .btn {
-  background: #ffffff !important;
+  background: #0b0b0c !important;/******************************* background button setting ********************************/
   border-color: #c8c7cc !important;
   border-right-width: 0;
   left: -44px;
@@ -1613,14 +1613,14 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
   border-radius: 0 !important;
   border-top: none;
   border-right: none;
-  background: #ffffff;
+  background: #1f1f21;/*warna dalam tombol setting -----------------------------------------------------------*/
   border-color: #c8c7cc !important;
 }
 .settings.panel .panel-heading {
   border-top-width: 1px;
   border-top-style: solid;
   padding: 11px 15px;
-  background: #efeff0;
+  background: #0b0b0c;/*warna dalam tombol setting -----------------------------------------------------------*/
   border-color: #c8c7cc;
   border-radius: 0 !important;
 }
@@ -2675,7 +2675,7 @@ a.text-light:hover {
 }
 
 .bg-white {
-  background: #ffffff !important;
+  background: #0b0b0c !important;
 }
 
 .bg-black {
@@ -8036,7 +8036,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .button-o {
   background: none;
-  border: 1px solid #007aff;
+  border: 1px solid #0fef18;
   border-radius: 5px;
   box-sizing: border-box;
   color: #007aff;
