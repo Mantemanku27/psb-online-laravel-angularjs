@@ -52,7 +52,7 @@
 		</a>
 	</li>
 	<!-- Menu Users -->
-	<li ui-sref-active="active">
+	<li ui-sref-active="active" ng-if="dataUser.level !=1 ">
 		<a ui-sref="app.users"><!-- Link Masuk Halaman User -->
 			<div class="item-content">
 				<div class="item-media">
@@ -107,9 +107,8 @@
 
 <!-- Start Dokumentasi -->
 <div class="wrapper">
-	<a ui-sref="app.documentation" class="button-o"><!-- Link Masuk Halaman Dokumentasi -->
-		<i class="ti-help"></i>
-		<span translate="sidebar.heading.DOCUMENTATION">Documentation</span>
+	<a href="https://github.com/Mantemanku27" target="_blank" class="button-o"><!-- Link Masuk Github.com/Mantemanku27 -->
+		<i class="ti-github"></i>
 	</a>
 </div>
 <!-- end Dokumentasi -->
