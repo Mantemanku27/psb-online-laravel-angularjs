@@ -6,10 +6,10 @@
      ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
      ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
     ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
-*/
-/* ---------------------------------------------------------------------- 
->>> TABLE OF CONTENT
--------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------
+                                                TABLE OF CONTENT
+-------------------------------------------------------------------------------------------------------------------
 1 - Basic Elements & Classes
 2 - Top Navbar
 3 - Sidebar
@@ -49,8 +49,7 @@
 37 - Tooltips
 38 - Popovers
 39 - Date Picker
-/* ---------------------------------------------------------------------- */
-/*
+---------------------------------------------------------------------------------------------------------------- */
 
 /*-------------------------------------------------*/
 /*-------     Basic Elements & Classes     --------*/
@@ -125,7 +124,7 @@ a {
 }
 
 a:hover, a:focus, a:active {
-  color: #0fef18;
+  color: #ffffff; /* Color btn-github active & active */
 }
 
 h1, h2 {
@@ -1011,7 +1010,7 @@ h5.over-title {
     top: 0;
     width: inherit;
     z-index: -1;
-    border-right: 1px solid #1f1f21; /* Border-right bawah documentation sidebar navigation menu-left --*/
+    border-right: 1px solid #1f1f21; /* Border-right bawah btn-github sidebar navigation menu-left --*/
   }
 }
 
@@ -1113,7 +1112,7 @@ h5.over-title {
   margin: 10px 0;
   padding: 0;
   border-top: 1px solid #c8c7cc;
-  border-bottom: 1px solid #1f1f21; /* Border-bottom bawah documentation */
+  border-bottom: 1px solid #1f1f21; /* Border-bottom bawah btn-github */
 }
 
 #sidebar > div nav > ul > li a {
@@ -9006,14 +9005,14 @@ input[type="radio"], input[type="checkbox"] {
 
 .button-o {
   background: none;
-  border: 1px solid #0fef18;
-  border-radius: 5px;
+  border: 1px solid #ffffff; /* Border button Github */
+  border-radius: 100px;
   box-sizing: border-box;
-  color: #007aff;
+  color: #ffffff;
   cursor: pointer;
   display: block;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 20px;
   height: 29px;
   line-height: 27px;
   margin: 0;
