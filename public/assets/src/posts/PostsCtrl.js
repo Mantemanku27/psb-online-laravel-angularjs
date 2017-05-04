@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PostCtrl', ['$scope', 'posts', 'SweetAlert', '$http','$timeout', function ($scope, posts, SweetAlert) {
+app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$timeout', function ($state,$scope, posts, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,

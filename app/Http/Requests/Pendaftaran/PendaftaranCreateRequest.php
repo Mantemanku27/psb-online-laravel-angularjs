@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Pendaftaran;
 
 use App\Http\Requests\Request;
+use Illuminate\Contracts\Validation\Validator;
 
 /**
  * Class UserCreateRequest
@@ -53,9 +54,28 @@ class PendaftaranCreateRequest extends Request
      *
      * @return mixed
      */
-    public function validator($validator)
+     /* Menampilkan error */
+public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
+    }
+
+    /**
+     * @param Validator $validator
+     * @return array
+     */
+    protected function formatErrors(Validator $validator)
+    {
+        $message = $validator->errors();
+
+        return [
+            'success'    => false,
+            'validation' => [
+                'no_pilihan' => $message->first('no_pilihan'),
+                'status'          => $message->first('status')
+
+            ]
+        ];
     }
 
 }

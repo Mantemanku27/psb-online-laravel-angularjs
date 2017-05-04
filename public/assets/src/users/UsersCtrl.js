@@ -1,11 +1,14 @@
 'use strict';
 
-app.controller('UsersCtrl', ['$scope', 'users', 'SweetAlert', '$http','$timeout', function ($scope, users,SweetAlert) {
+app.controller('UsersCtrl', ['$state','$scope', 'users', 'SweetAlert', '$http','$timeout', function ($state,$scope, users,SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,
         term: ''
     };
+    if ($scope.dataUser.level == 1 ) {
+        $state.go("app.biodatas-create")
+    }
 
     $scope.isLoading = true;
     $scope.isLoaded = false;

@@ -22,6 +22,7 @@ class FormulirController extends Controller
     public function __construct(FormulirInterface $formulir)
     {
         $this->formulir = $formulir;
+        $this->middleware('auth');
     }
 
     /**

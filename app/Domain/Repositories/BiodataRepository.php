@@ -47,6 +47,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
+        if(session('level') == 0 ) {
     $akun = $this->model
             ->join('users', 'biodatas.users_id', '=', 'users.id')
             ->where(function ($query) use ($search) {
@@ -60,6 +61,23 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
             
             ->toArray();
         return $akun;
+        }
+        if(session('level') == 1 ) {
+    $akun = $this->model
+            ->join('users', 'biodatas.users_id', '=', 'users.id')
+            ->where('users.id',session('user_id')) 
+            ->where(function ($query) use ($search) {
+                $query->where('biodatas.nama_lengkap', 'like', '%' . $search . '%')
+                ->orWhere('biodatas.email', 'like', '%' . $search . '%')
+                    ->orWhere('users.nama', 'like', '%' . $search . '%');
+                    
+                })
+            ->select('biodatas.*')
+            ->paginate($limit)
+            
+            ->toArray();
+        return $akun;
+        }
     }
 
     /**
@@ -82,7 +100,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
             'kabupaten' => e($data['kabupaten']),
             'provinsi' => e($data['provinsi']),
             'jurusan'   => e($data['jurusan']),
-            'users_id'   => e($data['users_id'])
+            'users_id'   => session('user_id')
         ]);
 
     }
@@ -129,6 +147,18 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     public function findById($id, array $columns = ['*'])
     {
         return parent::find($id, $columns);
+    }
+public function batasInputBiodata()
+    {
+        $pribadi1 = $this->model
+            ->where('users_id', session('user_id'))
+            ->count();
+        if ($pribadi1 == 0) {
+            return 0;
+        }
+        else{
+            return 1;
+        }
     }
 
 }

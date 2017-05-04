@@ -22,6 +22,7 @@ class BiodataController extends Controller
     public function __construct(BiodataInterface $biodata)
     {
         $this->biodata = $biodata;
+        $this->middleware('auth');
     }
 
     /**
@@ -104,5 +105,10 @@ class BiodataController extends Controller
     {
         return $this->biodata->delete($id);
     }
+    public function batasInputBiodata()
+    {
+        return $this->biodata->batasInputBiodata();
+    }
+
 
 }

@@ -99,18 +99,15 @@
                                         <span class="success text-small" ng-if="Form.provinsi.$valid">Thank You!</span>
                                     </div>
 
-                                    <div class="form-group" ng-class="{'has-error':Form.jurusan.$dirty && Form.jurusan.$invalid, 'has-success':Form.jurusan.$valid}">
-                                        <label class="control-label"> Jurusan <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Jurusan" class="form-control" name="jurusan" ng-model="myModel.jurusan" required />
-                                        <span class="error text-small block" ng-if="Form.jurusan.$dirty && Form.jurusan.$invalid">Jurusan is required</span>
-                                        <span class="success text-small" ng-if="Form.jurusan.$valid">Thank You!</span>
-                                    </div>
-
-                                    <div class="form-group" ng-class="{'has-error':Form.users_id.$dirty && Form.users_id.$invalid, 'has-success':Form.users_id.$valid}">
-                                        <label class="control-label"> Users_id <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Users_id" class="form-control" name="users_id" ng-model="myModel.users_id" required />
-                                        <span class="error text-small block" ng-if="Form.users_id.$dirty && Form.users_id.$invalid">Users_id is required</span>
-                                        <span class="success text-small" ng-if="Form.users_id.$valid">Thank You!</span>
+                                   <div class="form-group" ng-class="{'has-error':Form.jurusans.$dirty && Form.jurusans.$invalid, 'has-success':Form.jurusans.$valid}">
+                                        <label class="control-label">
+                     Jurusan <span class="symbol required"></span>
+                  
+                                    </label>
+                                        <select md-select-label class="form-control" ng-model="myModel.jurusans" name="jurusans" ng-options="o as o.nama for o in objjurusan">
+                                </select>
+                                        <span class="error text-small block" ng-if="Form.jurusans.$dirty && Form.jurusans.$invalid">Jurusan is required</span>
+                                        <span class="success text-small" ng-if="Form.jurusans.$valid">Thank You!</span>
                                     </div>
 
                                 </fieldset>
@@ -120,7 +117,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-left">
-                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(false)" ng-disabled="Form.$invalid || process">Simpan</button>
                                     <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
                                     <button type="reset" class="btn btn-primary btn-o" ng-disabled="process" ng-click="form.reset(Form)">Reset</button>
                                     <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.biodatas" ng-disabled="process">Kembali</button>

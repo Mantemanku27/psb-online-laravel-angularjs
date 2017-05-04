@@ -1,11 +1,14 @@
 'use strict';
 
-app.controller('PendaftaranCtrl', ['$scope', 'pendaftarans', 'SweetAlert', '$http','$timeout', function ($scope, pendaftarans, SweetAlert) {
+app.controller('PendaftaranCtrl', ['$state','$scope', 'pendaftarans', 'SweetAlert', '$http','$timeout', function ($state,$scope, pendaftarans, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,
         term: ''
     };
+    if ($scope.dataUser.level == 1 ) {
+        $state.go("app.biodatas")
+    }
 
     $scope.isLoading = true;
     $scope.isLoaded = false;

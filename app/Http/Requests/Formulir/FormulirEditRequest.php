@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Formulir;
 
 use App\Http\Requests\Request;
+use Illuminate\Contracts\Validation\Validator;
 
 /**
  * Class UserCreateRequest
@@ -57,9 +58,30 @@ class FormulirEditRequest extends Request
      *
      * @return mixed
      */
-    public function validator($validator)
+     /* Menampilkan error */
+public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
     }
 
+    /**
+     * @param Validator $validator
+     * @return array
+     */
+    protected function formatErrors(Validator $validator)
+    {
+        $message = $validator->errors();
+
+        return [
+            'success'    => false,
+            'validation' => [
+                'asal_sekolah' => $message->first('asal_sekolah'),
+                'n_bi' => $message->first('n_bi'),
+                'n_mtk' => $message->first('n_mtk'),
+                'n_ipa'          => $message->first('n_ipa'),
+                'n_ing'          => $message->first('n_ing')
+
+            ]
+        ];
+    }
 }

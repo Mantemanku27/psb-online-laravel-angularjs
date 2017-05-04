@@ -22,6 +22,7 @@ class PendaftaranController extends Controller
     public function __construct(PendaftaranInterface $pendaftaran)
     {
         $this->pendaftaran = $pendaftaran;
+        $this->middleware('auth');
     }
 
     /**

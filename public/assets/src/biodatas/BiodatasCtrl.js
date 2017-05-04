@@ -19,6 +19,10 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http','$tim
             $scope.isLoaded = true;
         }
     };
+            biodatas.getbatasinput()
+            .success(function (data) {
+                $scope.batasinput = data;
+            })
 
     //Init Alert status
     $scope.alertset = {

@@ -1,7 +1,15 @@
 app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout', 'SweetAlert', 'toaster', '$http', function ($state, $scope, biodatas, $timeout, SweetAlert, toaster) {
     //Init input addForm variable
     //create biodatas
-    $scope.process = false;
+    $scope.myModel ={};
+        $scope.process = false;
+    biodatas.getbatasinput()
+        .success(function (data) {
+            $scope.batasinput = data;
+            if ($scope.batasinput == 1) {
+                $state.go("app.biodatas")
+            }
+        })
 
     $scope.master = $scope.myModel;
     $scope.form = {
@@ -42,6 +50,23 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
+    $scope.objjurusan = []
+    biodatas.getListjurusan()
+        .success(function (data_akun) {
+            if (data_akun.success == false) {
+                $scope.toaster = {
+                    type: 'warning',
+                    title: 'Warning',
+                    text: 'Data Belum Tersedia!'
+                };
+                toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+            } else {
+                data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
+                $scope.objjurusan = data_akun;
+                $scope.myModel.jurusan = $scope.objjurusan[0];
+            }
+        })
     $scope.clearInput = function () {
         $scope.myModel.nama_lengkap = null;
         $scope.myModel.email = null;
@@ -67,12 +92,13 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+            $scope.myModel.jurusan =$scope.myModel.jurusan.id
             biodatas.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {
-                            $state.go('app.biodatas');
+                            $state.go('app.formulirs-create');
                             $scope.toaster = {
                                 type: 'success',
                                 title: 'Sukses',
@@ -83,7 +109,8 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
                             $scope.clearInput();
                             $scope.sup();
                             $scope.alerts.push({
-                                type: 'success',
+
+type: 'success',
                                 msg: 'Simpan Data Berhasil!'
                             });
                             $scope.process = false;
@@ -94,10 +121,9 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
                             };
                             toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                         }
-                        //Clear Input
                     }
-
                 })
+
                 .error(function (data, status) {
                     // unauthorized
                     if (status === 401) {
@@ -118,7 +144,9 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
                     };
                     toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                 });
-        }
-    };
+            
 
+        }
+    }
+    //Clear Input
 }]);

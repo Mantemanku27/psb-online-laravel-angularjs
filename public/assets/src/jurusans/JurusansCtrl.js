@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('JurusanCtrl', ['$scope', 'jurusans', 'SweetAlert', '$http','$timeout', function ($scope, jurusans, SweetAlert) {
+app.controller('JurusanCtrl', ['$state','$scope', 'jurusans', 'SweetAlert','$http','$timeout', function ($state,$scope, jurusans, SweetAlert) {
 //urussan tampilan
     $scope.main = {
         page: 1,

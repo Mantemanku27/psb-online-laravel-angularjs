@@ -47,6 +47,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
+        if(session('level') == 0 ) {
     $akun = $this->model
             ->join('biodatas', 'formulirs.biodatas_id', '=', 'biodatas.id')
             ->where(function ($query) use ($search) {
@@ -59,6 +60,24 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             
             ->toArray();
         return $akun;
+        }
+        if(session('level') == 1 ) {
+    $akun = $this->model
+            ->join('biodatas', 'formulirs.biodatas_id', '=', 'biodatas.id')
+            ->join('users', 'biodatas.users_id', '=', 'users.id')
+            ->where('users.id',session('user_id')) 
+            ->where(function ($query) use ($search) {
+                $query->where('formulirs.asal_sekolah', 'like', '%' . $search . '%')
+                    ->orWhere('biodatas.nama_lengkap', 'like', '%' . $search . '%');
+                    
+                })
+            ->select('formulirs.*')
+            ->paginate($limit)
+            
+            ->toArray();
+        return $akun;
+        }
+
     }
 
     /**

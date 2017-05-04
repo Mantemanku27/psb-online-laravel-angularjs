@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Post;
 
 use App\Http\Requests\Request;
+use Illuminate\Contracts\Validation\Validator;
+
 
 /**
  * Class UserCreateRequest
@@ -51,9 +53,29 @@ class PostEditRequest extends Request
      *
      * @return mixed
      */
-    public function validator($validator)
+     /* Menampilkan error */
+public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
+    }
+
+    /**
+     * @param Validator $validator
+     * @return array
+     */
+    protected function formatErrors(Validator $validator)
+    {
+        $message = $validator->errors();
+
+        return [
+            'success'    => false,
+            'validation' => [
+                'judul' => $message->first('judul'),
+                'gambar'          => $message->first('gambar'),
+                'deskripsi'          => $message->first('deskripsi')
+
+            ]
+        ];
     }
 
 }

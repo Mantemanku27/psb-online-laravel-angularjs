@@ -11,11 +11,16 @@ app.factory('biodatas', ['$http', function ($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
             });
         },
-
-        getLastbiodatas: function () {
+getListjurusan: function () {
             return $http({
                 method: 'get',
-                url: '/api/get-last-biodatas',
+                url: '/api/getList-jurusan',
+            });
+        },
+        getbatasinput: function () {
+            return $http({
+                method: 'get',
+                url: '/api/batas-input-biodatas',
             });
         },
 

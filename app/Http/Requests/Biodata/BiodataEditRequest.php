@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Biodata;
 
 use App\Http\Requests\Request;
+use Illuminate\Contracts\Validation\Validator;
 
 /**
  * Class UserCreateRequest
@@ -71,9 +72,37 @@ class BiodataEditRequest extends Request
      *
      * @return mixed
      */
-    public function validator($validator)
+     /* Menampilkan error */
+public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
+    }
+
+    /**
+     * @param Validator $validator
+     * @return array
+     */
+    protected function formatErrors(Validator $validator)
+    {
+        $message = $validator->errors();
+
+        return [
+            'success'    => false,
+            'validation' => [
+                'nama_lengkap' => $message->first('nama_lengkap'),
+                'email' => $message->first('email'),
+                'agama' => $message->first('agama'),
+                'tempat_lahir'          => $message->first('tempat_lahir'),
+                'tanggal_lahir'          => $message->first('tanggal_lahir'),
+                'alamat'          => $message->first('alamat'),
+                'desa'          => $message->first('desa'),
+                'kecamatan'          => $message->first('kecamatan'),
+                'kabupaten'          => $message->first('kabupaten'),
+                'provinsi'          => $message->first('provinsi'),
+                'jurusan'          => $message->first('jurusan')
+
+            ]
+        ];
     }
 
 }

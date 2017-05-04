@@ -64,8 +64,21 @@
 <script src="../assets/js/app.js"></script>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/config.constant.js"></script>
-<script src="..
-/assets/js/config.router.js"></script>
+<!-- Digunakan untuk membedakan login antara level Admin(0) & User(1)  -->
+<?php
+if(session('level')==0) {
+?>
+<script src="../assets/js/config.router.js"></script> <!-- Link login Admin -->
+<?php
+}
+?>
+<?php
+if(session('level')==1) {
+?>
+<script src="../assets/js/config.router.user.js"></script> <!-- Link login User -->
+<?php
+}
+?>
 <!-- Clip-Two Directives -->
 <script src="../assets/js/directives/toggle.js"></script>
 <script src="../assets/js/directives/perfect-scrollbar.js"></script>

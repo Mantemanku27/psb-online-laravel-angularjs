@@ -22,6 +22,7 @@ class JurusanController extends Controller
     public function __construct(JurusanInterface $jurusan)
     {
         $this->jurusan = $jurusan;
+        $this->middleware('auth');
     }
 
     /**
@@ -104,5 +105,8 @@ class JurusanController extends Controller
     {
         return $this->jurusan->delete($id);
     }
-
+public function getList()
+    {
+        return $this->jurusan->getList();
+    }
 }

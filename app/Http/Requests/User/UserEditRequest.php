@@ -53,6 +53,7 @@ class UserEditRequest extends Request
      *
      * @return mixed
      */
+     /* Menampilkan error */
 public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
@@ -73,7 +74,7 @@ public function validator($validator)
                 'telepon'          => $message->first('telepon'),
                 'email'          => $message->first('email'),
                 'password'          => $message->first('password'),
-                'level'          => $message->first('level'),
+                'level'          => $message->first('level')
 
             ]
         ];
