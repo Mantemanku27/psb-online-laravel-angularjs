@@ -19,10 +19,15 @@ class Biodata extends Model
     protected $fillable = [
         'nama_lengkap', 'email', 'jk', 'agama', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'desa', 'kecamatan', 'kabupaten', 'provinsi', 'jurusan', 'users_id',
     ];
-    protected $with = ['users'];
+    protected $with = ['users','jurusans'];
 
     public function users()
     {
         return $this->belongsTo('App\Domain\Entities\User', 'users_id');
     }
+        public function jurusans()
+    {
+        return $this->belongsTo('App\Domain\Entities\Jurusan', 'jurusan');
+    }
+
 }

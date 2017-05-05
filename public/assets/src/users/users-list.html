@@ -3,13 +3,13 @@
 </div>
 <div class="panel panel-default" ng-controller="UsersCtrl">
     <div class="panel-heading bg-white" style="background: #b3c4c7;">
-        <span class="font-bold"><left><font color="black">DATA USERS</font></left></span>
+        <span class="font-bold"><left><font color="white">DATA USERS</font></left></span>
     </div>
 
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-8 m-b-xs">
-                <span tooltip="Tambah Data">
+                <span tooltip="Tambah Data" ng-if="dataUser.level !=1">
                 <a md-ink-ripple ui-sref="app.users-create" class="btn btn-sm btn-default">
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
@@ -40,7 +40,7 @@
                     <th class="col-md-2">Email</th>
                     <th class="col-md-2">Level</th>
                     <th class="col-md-2">Telepon</th>
-                    <th class="col-md-2">Aksi</th>
+                    <th class="col-md-2" ng-if="dataUser.level !=1">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +53,7 @@
                     </td>
                     <td class="col-md-2">{{row.telepon}}</td>
 
-                    <td class="col-md-2">
-
+                    <td class="col-md-2" ng-if="dataUser.level !=1">
                         <a ui-sref="app.users-edit({id:row.id})" md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-default">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>

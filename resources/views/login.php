@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-touch-fullscreen" content="yes" />
-  <title data-ng-bind="pageTitle()">Clip-Two - Angular Bootstrap Admin Template</title>
+  <title data-ng-bind="pageTitle()">Manteman - Angular Bootstrap Admin Template</title>
   <!--<!— Google fonts —>-->
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
   <!--<!— Bootstrap —>-->
@@ -25,7 +25,8 @@
   <!--<!— Clip-Two CSS —>-->
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/plugins.css">
-  <!--<!— Clip-Two Theme —>-->
+  <!--<!— X Icon —>-->
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
 
 </head>
 <!--<!— start: LOGIN —>-->
@@ -48,6 +49,7 @@
             Sign in to your account
           </legend>
           <p>
+            <img class="avatar-login" src="../assets/images/avatar-login.png">
             Please enter your name and password to log in.
           </p>
           <div class="form-group">

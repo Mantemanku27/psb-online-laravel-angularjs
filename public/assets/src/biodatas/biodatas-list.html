@@ -3,7 +3,7 @@
 </div>
 <div class="panel panel-default" ng-controller="BiodataCtrl">
     <div class="panel-heading bg-white" style="background: #b3c4c7;">
-        <span class="font-bold"><left><font color="black">DATA BIODATA</font></left></span>
+        <span class="font-bold"><left><font color="white">DATA BIODATA</font></left></span>
     </div>
     <!--<div ng-show="isLoading" layout="row" layout-sm="column" layout-align="space-around">-->
         <!--<md-progress-circular md-mode="indeterminate"></md-progress-circular>-->
@@ -44,17 +44,11 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th class="col-md-2">Nama Lengkap</th>
-                    <th class="col-md-2">Email</th>
-                    <th class="col-md-2">Jenis Kelamin</th>
-                    <th class="col-md-2">Agama</th>
-                    <th class="col-md-2">Tempat Lahir</th>
-                    <th class="col-md-2">Tanggal Lahir</th>
+                    <th class="col-md-2">Nama</th>
+                    <th class="col-md-1">Jenis Kelamin</th>
+                    <th class="col-md-1">Agama</th>
+                    <th class="col-md-2">Tempat Tanggal Lahir</th>
                     <th class="col-md-2">Alamat</th>
-                    <th class="col-md-2">Desa</th>
-                    <th class="col-md-2">Kecamatan</th>
-                    <th class="col-md-2">Kabupaten</th>
-                    <th class="col-md-2">Provinsi</th>
                     <th class="col-md-2">Jurusan</th>
                     <th class="col-md-2">Aksi</th>
                 </tr>
@@ -62,17 +56,11 @@
                 <tbody>
                 <tr ng-repeat="row in dataBiodatas">
                     <td class="col-md-2">{{row.nama_lengkap}}</td>
-                    <td class="col-md-2">{{row.email}}</td>
-                    <td class="col-md-2">{{row.jk}}</td>
-                    <td class="col-md-2">{{row.agama}}</td>
-                    <td class="col-md-2">{{row.tempat_lahir}}</td>
-                    <td class="col-md-2">{{row.tanggal_lahir}}</td>
-                    <td class="col-md-2">{{row.alamat}}</td>
-                    <td class="col-md-2">{{row.desa}}</td>
-                    <td class="col-md-2">{{row.kecamatan}}</td>
-                    <td class="col-md-2">{{row.kabupaten}}</td>
-                    <td class="col-md-2">{{row.provinsi}}</td>
-                    <td class="col-md-2">{{row.jurusan}}</td>
+                    <td class="col-md-1">{{row.jk}}</td>
+                    <td class="col-md-1">{{row.agama}}</td>
+                    <td class="col-md-2">{{row.tempat_lahir}}, {{row.tanggal_lahir}}</td>
+                    <td class="col-md-2">{{row.alamat}}, {{row.desa}},{{row.kecamatan}}, {{row.kabupaten}}, {{row.provinsi}}</td>
+                    <td class="col-md-2">{{row.jurusans.nama}}</td>
                     <!--<td class="col-md-2">
                         <span ng-if="row.is_lock == '0'" class="label bg-info ng-scope">Draft</span>
                         <span ng-if="row.is_lock == ''" class="label bg-info ng-scope">Draft</span>

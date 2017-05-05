@@ -64,7 +64,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
             } else {
                 data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
                 $scope.objjurusan = data_akun;
-                $scope.myModel.jurusan = $scope.objjurusan[0];
+                $scope.myModel.jurusans = $scope.objjurusan[0];
             }
         })
     $scope.clearInput = function () {
@@ -92,7 +92,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
-            $scope.myModel.jurusan =$scope.myModel.jurusan.id
+            $scope.myModel.jurusan =$scope.myModel.jurusans.id
             biodatas.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {

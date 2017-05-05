@@ -77,6 +77,10 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http','$tim
 
     // get data
     $scope.getData = function () {
+            biodatas.getbatasinput()
+            .success(function (data) {
+                $scope.batasinput = data;
+            })
 
         //Start loading
         $scope.setLoader(true);

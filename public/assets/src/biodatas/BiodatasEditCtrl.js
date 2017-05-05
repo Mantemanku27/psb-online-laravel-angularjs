@@ -5,6 +5,7 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
     if ($scope.id == null || $scope.id == '') {
         $state.go("app.biodatas")
     }
+    $scope.myModel ={};
 
     $scope.isLoading = true;
     $scope.isLoaded = false;
@@ -15,7 +16,6 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
             $scope.isLoaded = false;
         } else {
             $scope.isLoading = false;
-            $scope.isLoaded = true;
         }
     };
 
@@ -40,6 +40,15 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
         .success(function (data) {
             $scope.setLoader(false);
             $scope.myModel = data;
+            $scope.objjurusan = [];
+            biodatas.getListjurusan()
+                .success(function (datajk) {
+                    datajk.unshift({ id: 0, nama: 'Silahkan Pilih Jurusan' });
+                    $scope.objjurusan = datajk;
+                    $scope.myModel.jurusans = $scope.objjurusan[0];
+                    $scope.myModel.jurusans = $scope.objjurusan[findWithAttr($scope.objjurusan, 'id', parseInt(data.jurusan))];
+                });
+               console.log(data.jurusan); 
         });
 
     $scope.showToast = function (warna, msg) {
@@ -54,7 +63,7 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
     };
     //Submit Data
     $scope.updateData = function () {
-$scope.alerts = [];
+        $scope.alerts = [];
         //Set process status
         $scope.process = true;
 
@@ -64,6 +73,8 @@ $scope.alerts = [];
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+              $scope.myModel.jurusan =$scope.myModel.jurusans.id
+       
             biodatas.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {
@@ -103,5 +114,11 @@ $scope.alerts = [];
                 });
         }
     };
-
+function findWithAttr(array, attr, value) {
+        for (var i = 0; i < array.length; i += 1) {
+            if (array[i][attr] === value) {
+                return i;
+            }
+        }
+    }
 }]);
