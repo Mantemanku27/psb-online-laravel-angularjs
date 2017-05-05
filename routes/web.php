@@ -12,7 +12,7 @@
 */
 
 Route::get('/backoffice', ['as' => 'backoffice', 'uses' => 'PageController@backoffice']);
-
 Route::get('/', ['as' => 'page', 'uses' => 'PageController@getLogin']);
 Route::get('/login', ['as' => 'login', 'uses' => 'PageController@getLogin']);
+Route::get('/landingpage', ['as' => 'token', 'uses' => 'PageController@landingpage']);
 Route::get('give-me-token', ['as' => 'token', 'uses' => 'PageController@token']);

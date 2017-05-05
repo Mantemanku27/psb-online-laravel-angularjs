@@ -20,7 +20,7 @@ class PageController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['only' => ['getLogin']]);
+        $this->middleware('guest', ['only' => ['getLogin','landingpage']]);
 
     }
 
@@ -40,7 +40,10 @@ class PageController extends Controller
         return view('welcome');
 
     }
+    public function landingpage()
+    {
+        return view('landingpage');
 
-
+    }
 
 }

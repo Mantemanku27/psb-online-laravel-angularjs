@@ -25,6 +25,8 @@
   <!-- Clip-Two CSS -->
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/plugins.css">
+  <!-- X Icon -->
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
   <!-- Clip-Two Theme -->
   {{--<link rel="stylesheet" data-ng-href="../assets/css/themes/app.layout.theme.css" />--}}
 </head>
