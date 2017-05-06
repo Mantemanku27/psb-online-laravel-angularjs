@@ -20,14 +20,16 @@ class PageController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['only' => ['getLogin','landingpage']]);
+        $this->middleware('guest', ['only' => ['landingpage','getLogin','signup']]);
 
     }
 
-    public function getLogin()
+    public function landingpage()
     {
-        return view('login');
+        return view('landingpage');
+
     }
+
     /**
      * @return string
      */
@@ -35,14 +37,18 @@ class PageController extends Controller
     {
         return csrf_token();
     }
+    public function signup()
+    {
+        return view('signup');
+
+    }
+    public function getLogin()
+    {
+        return view('login');
+    }
     public function backoffice()
     {
         return view('welcome');
-
-    }
-    public function landingpage()
-    {
-        return view('landingpage');
 
     }
 
