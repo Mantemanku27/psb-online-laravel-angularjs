@@ -24,10 +24,18 @@
 
                                     <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
                                         <label class="control-label"> Nama Jurusan <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Nama Jurusan" class="form-control" name="nama" ng-model="myModel.nama" required />
-                                        <span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama Jurusan is required</span>
-                                        <span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
-                                    </div>
+									</label>
+										<select class="form-control" name="nama" ng-model="myModel.nama" required>
+										    <option value="" disabled selected>Silahkan pilih Nama Jurusan</option>
+										    <option value="rpl">Rekayasa Perangkat Lunak</option>
+										    <option value="tkj">Teknik Komputer Jaringan</option>
+                                            <option value="tei">Teknik Elektronika Industri</option>
+                                            <option value="tkr">Teknik Kendaraan Ringan</option>
+                                            <option value="tsm">Teknik Sepeda Motor</option>
+									    </select>
+										<span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama Jurusan is required</span>
+										<span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
+									</div>
 
                                     <div class="form-group" ng-class="{'has-error':Form.kuota.$dirty && Form.kuota.$invalid, 'has-success':Form.kuota.$valid}">
                                         <label class="control-label"> Kuota <span class="symbol required"></span></label>
