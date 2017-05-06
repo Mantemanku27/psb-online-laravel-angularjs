@@ -1700,4 +1700,48 @@ img {
 		padding:0;
 	}
 
+/*-------------------------------------------------*/
+/*--------------     Subscribe     ----------------*/
+/*-------------------------------------------------*/
 
+.subscribe {
+	text-align: center;
+}
+
+.form-inline {
+  padding-top: 16px;
+}
+
+.form-inline .form-group input {
+  width: 350px;
+  padding: 20px 0px 20px 15px;
+  border-radius: 0;
+  background: white;
+}
+
+.form-inline .form-group input:hover {
+  width: 350px;
+  padding: 20px 0px 20px 15px;
+  border-radius: 0;
+  background: white;
+}
+ 
+ .btn-signup {
+  background: #77c344;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  margin-left: -4px;
+  border: 2px solid transparent;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
+  transition: .2s all;
+}
+ .btn-signup:hover {
+  background: #fff;
+  border: 2px solid #77c344;
+}
+ .btn-signup:hover i {
+  color: #77c344;
+}
