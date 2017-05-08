@@ -278,8 +278,8 @@
           </div>
           <h3 class="wow fadeInDown delay-03s">Designer</h3>
           <span class="wow fadeInDown delay-03s">HTML5, CSS3 & BOOTSTRAP</span>
-          <p class="wow fadeInDown delay-03s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur
-            adipiscing elit proin consequat.</p>
+          <p class="wow fadeInDown delay-03s">Developer yang bertugas di bagian design merupakan developer yang bertugas merancang suatu desain project atau website.
+          </p>
         </div>
         <div class="team-leader-box">
           <div class="team-leader  wow fadeInDown delay-06s">
@@ -304,8 +304,8 @@
           </div>
           <h3 class="wow fadeInDown delay-06s">Frontend</h3>
           <span class="wow fadeInDown delay-06s">AngularJS</span>
-          <p class="wow fadeInDown delay-06s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur
-            adipiscing elit proin consequat.</p>
+          <p class="wow fadeInDown delay-06s">Developer yang bertugas di bagian Frontend merupakan developer yang bertugas membuat tampilan luar atau layout pada
+            website.</p>
         </div>
         <div class="team-leader-box">
           <div class="team-leader wow fadeInDown delay-09s">
@@ -330,8 +330,8 @@
           </div>
           <h3 class="wow fadeInDown delay-09s">Backend</h3>
           <span class="wow fadeInDown delay-09s">Laravel MySQL</span>
-          <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur
-            adipiscing elit proin consequat.</p>
+          <p class="wow fadeInDown delay-09s">Developer yang bertugas di bagian Backend tidak mengurus tampilan luar, tetapi hanya mengurus database atau server pada
+           website.</p>
         </div>
       </div>
     </div>
