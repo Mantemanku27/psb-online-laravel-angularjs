@@ -6,6 +6,7 @@ use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserEditRequest;
 use Illuminate\Http\Request;
 use App\Domain\Contracts\UserInterface;
+use App\Http\Requests\User\PasswordRequest;
 
 class UserController extends Controller
 {
@@ -136,5 +137,8 @@ class UserController extends Controller
 
             ]]);
     }
-
+         public function updatePass(Request $request)
+  {
+      return $this->user->updatePassword($request->all());
+  }
 }

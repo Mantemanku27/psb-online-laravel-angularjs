@@ -71,6 +71,7 @@ app.constant('JS_REQUIRES', {
         'user_service': 'assets/src/users/users-service.js',
         'UserCreateCtrl'    : 'assets/src/users/UsersCreateCtrl.js',
         'UserEditCtrl'    : 'assets/src/users/UsersEditCtrl.js',
+        'UserspasswordCtrl'    : 'assets/src/users/UsersPassword.js',
         //*** Jurusan
         'JurusanCtrl'    : 'assets/src/jurusans/JurusansCtrl.js',
         'jurusan_service': 'assets/src/jurusans/jurusans-service.js',

@@ -35,4 +35,5 @@ Route::group(['namespace' => 'Auth'], function () {
 });
 
 Route::get('get-session', 'UserController@getSession');
+Route::put('updatePass-users', 'UserController@updatePass');
 Route::get('getList-jurusan','JurusanController@getList');

@@ -104,9 +104,16 @@ function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvi
 
         .state('app.users-edit', {
             url: '/users-edit/:id',
-            templateUrl: 'assets//src/users/users-edit.html',
+            templateUrl: 'assets/src/users/users-edit.html',
             title: 'Edit Data User',
             resolve: loadSequence('UserEditCtrl', 'user_service'),
+        })
+
+        .state('app.users-password', {
+            url: '/users-password',
+            templateUrl: 'assets/src/users/users-password.html',
+            title: 'Tambah dfcdsfdsf Users',
+            resolve: loadSequence('UserspasswordCtrl', 'user_service'),
         })
 
     // URL CRUD Jurusan

@@ -39,10 +39,14 @@
 
                                     <div class="form-group" ng-class="{'has-error':Form.jk.$dirty && Form.jk.$invalid, 'has-success':Form.jk.$valid}">
                                         <label class="control-label"> Jenis Kelamin <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Jenis Kelamin" class="form-control" name="jk" ng-model="myModel.jk" required>
-                                        <span class="error text-small block" ng-if="Form.jk.$dirty && Form.jk.$error.required">Jenis Kelamin is required.</span>
-                                        <span class="success text-small" ng-if="Form.jk.$valid">Thank You!</span>
-                                    </div>
+										<select class="form-control" name="jk" ng-model="myModel.jk" required>
+										    <option value="" disabled selected>Silahkan pilih Jenis Kelamin</option>
+										    <option value="Laki-laki">Laki-laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+									    </select>
+										<span class="error text-small block" ng-if="Form.jk.$dirty && Form.jk.$invalid">Jenis Kelamin Jurusan is required</span>
+										<span class="success text-small" ng-if="Form.jk.$valid">Thank You!</span>
+									</div>
 
                                     <div class="form-group" ng-class="{'has-error':Form.agama.$dirty && Form.agama.$invalid, 'has-success':Form.agama.$valid}">
                                         <label class="control-label"> Agama <span class="symbol required"></span></label>

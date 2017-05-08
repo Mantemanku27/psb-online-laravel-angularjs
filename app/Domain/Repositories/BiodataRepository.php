@@ -87,7 +87,8 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     public function create(array $data)
     {
         // execute sql insert
-        return parent::create([
+    try {
+        Biodata::create([
             'nama_lengkap'    => e($data['nama_lengkap']),
             'email'   => e($data['email']),
             'jk' => e($data['jk']),
@@ -102,7 +103,28 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
             'jurusan'   => e($data['jurusan']),
             'users_id'   => session('user_id')
         ]);
+        Biodata::create([
+            'nama_lengkap'    => e($data['nama_lengkap']),
+            'email'   => e($data['email']),
+            'jk' => e($data['jk']),
+            'agama' => e($data['agama']),
+            'tempat_lahir' => e($data['tempat_lahir']),
+            'tanggal_lahir' => e($data['tanggal_lahir']),
+            'alamat' => e($data['alamat']),
+            'desa' => e($data['desa']),
+            'kecamatan' => e($data['kecamatan']),
+            'kabupaten' => e($data['kabupaten']),
+            'provinsi' => e($data['provinsi']),
+            'jurusan'   => e($data['jurusans_2']),
+            'users_id'   => session('user_id')
+        ]);
+        return $this->createSuccess();
+} catch (\Exception $e) {
+            // store errors to log
+            Log::error('class : ' . DokumenPendudukRepository::class . ' method : create | ' . $e);
 
+            return $this->createError();
+        }
     }
 
     /**
