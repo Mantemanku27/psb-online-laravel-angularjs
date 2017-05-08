@@ -27,11 +27,11 @@
 									</label>
 										<select class="form-control" name="nama" ng-model="myModel.nama" required>
 										    <option value="" disabled selected>Silahkan pilih Nama Jurusan</option>
-										    <option value="rpl">Rekayasa Perangkat Lunak</option>
-										    <option value="tkj">Teknik Komputer Jaringan</option>
-                                            <option value="tei">Teknik Elektronika Industri</option>
-                                            <option value="tkr">Teknik Kendaraan Ringan</option>
-                                            <option value="tsm">Teknik Sepeda Motor</option>
+										    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+										    <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
+                                            <option value="Teknik Elektronika Industri">Teknik Elektronika Industri</option>
+                                            <option value="Teknik Kendaraan Ringan">Teknik Kendaraan Ringan</option>
+                                            <option value="Teknik Sepeda Motor">Teknik Sepeda Motor</option>
 									    </select>
 										<span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama Jurusan is required</span>
 										<span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
@@ -51,7 +51,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-left">
-                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(false)" ng-disabled="Form.$invalid || process">Simpan</button>
                                     <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
                                     <button type="reset" class="btn btn-primary btn-o" ng-disabled="process" ng-click="form.reset(Form)">Reset</button>
                                     <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.jurusans" ng-disabled="process">Kembali</button>
