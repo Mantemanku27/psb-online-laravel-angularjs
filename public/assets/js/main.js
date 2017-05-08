@@ -72,6 +72,8 @@ function ($rootScope, $state, $stateParams, mainapp) {
         picture: 'app/img/user/02.jpg'
     };
 }])
+
+// Searching data enter
 .directive('ngEnter', function () {
         return function (scope, element, attrs) {
             element.bind("keydown keypress", function (event) {
@@ -85,6 +87,8 @@ function ($rootScope, $state, $stateParams, mainapp) {
             });
         };
     })
+// end searching data enter
+
 // translate config
 app.config(['$translateProvider',
 function ($translateProvider) {

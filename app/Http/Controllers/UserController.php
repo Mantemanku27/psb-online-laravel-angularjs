@@ -32,10 +32,13 @@ class UserController extends Controller
      *
      * @apiParam {Number} page Paginate user lists
      */
+
+// Searching data = term
     public function index(Request $request)
     {
         return $this->user->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
+// end searching data = term
 
     /**
      * @api {get} api/users/id Request Get User

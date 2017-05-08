@@ -44,6 +44,8 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
      * @param string $search
      * @return \Illuminate\Pagination\Paginator
      */
+
+// Searching Data
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
@@ -58,6 +60,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             ->toArray();
         return $akun;    
     }
+// end searching data
 
     /**
      * @param array $data
