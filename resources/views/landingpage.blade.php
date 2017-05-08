@@ -82,6 +82,7 @@
             <li><a href="#work_outer">Jurusan</a></li>
             <li><a href="#client_outer">Informasi</a></li>
             <li><a href="#team">Designer</a></li>
+            <li><a href="login"><u>Login</u></a></li>
             <li><a href="#contact">Subscribe</a></li>
           </ul>
           <ul class="">
@@ -90,6 +91,7 @@
             <li><a href="#work_outer">Jurusan</a></li>
             <li><a href="#client_outer">Informasi</a></li>
             <li><a href="#team">Designer</a></li>
+            <li><a href="login"><u>Login</u></a></li>
             <li><a href="#contact">Subscribe</a></li>
           </ul>
         </nav>
@@ -107,7 +109,7 @@
             <div class="col-lg-5 col-sm-7">
               <div class="top_left_cont flipInY wow animated">
                 <img src="../front/img/logo.png"><br>
-                <a href="#service" class="learn_more2">Daftar Sekarang</a>
+                <a href="signup" class="learn_more2">Daftar Sekarang</a>
               </div>
             </div>
             <div class="col-lg-7 col-sm-5"> </div>
@@ -121,7 +123,7 @@
   <!-- About Us -->
   <section id="service">
     <div class="container">
-      <h2>Tentang Kami</h2>
+      <h2>Tentang Website Kami</h2>
       <div class="service_area">
         <div class="row">
           <div class="col-lg-4">
@@ -136,17 +138,17 @@
           <div class="col-lg-4">
             <div class="service_block">
               <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
-              <h3 class="animated fadeInUp wow">Friendly Support</h3>
-              <p class="animated fadeInDown wow">Proin iaculis purus consequat sem cure digni. Donec porttitora entum suscipit aenean rhoncus posuere odio in
-                tincidunt.
+              <h3 class="animated fadeInUp wow">Keamanan terjamin</h3>
+              <p class="animated fadeInDown wow">Merupakan website yang di rancang dengan suatu sitem keamanan yang cukup terjamin oleh designer.
               </p>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="service_block">
               <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
-              <h3 class="animated fadeInUp wow">Keamanan terjamin</h3>
-              <p class="animated fadeInDown wow">Merupakan website yang di rancang dengan suatu sitem keamanan yang cukup terjamin oleh designer.
+              <h3 class="animated fadeInUp wow">Fitur Khusus</h3>
+              <p class="animated fadeInDown wow">Website kami hanya menyediakan fitur-fitur khusus & fitur yang ada sangkut pautnya dengan agenda pendaftaran
+              peserta didik baru.
               </p>
             </div>
           </div>
@@ -169,38 +171,38 @@
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Rekayasa Perangkat Lunak</h3>
-                  <p>Kuota Jurusan Rekayasa Perangkat Lunak Masih membutuhkan 200 pserta didik baru</p>
+                  <p>Kuota Jurusan Rekayasa Perangkat Lunak Masih membutuhkan 200 peserta didik baru</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Komputer Jaringan</h3>
-                  <p>Kuota Jurusan Teknik Komputer Jaringan Masih membutuhkan 200 pserta didik baru</p>
+                  <p>Kuota Jurusan Teknik Komputer Jaringan Masih membutuhkan 200 peserta didik baru</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Elektronika Industri</h3>
-                  <p>Kuota Jurusan Teknik Elektronika Industri Masih membutuhkan 200 pserta didik baru</p>
+                  <p>Kuota Jurusan Teknik Elektronika Industri Masih membutuhkan 200 peserta didik baru</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Kendaraan Ringan</h3>
-                  <p>Kuota Jurusan Teknik Kendaraan Ringan Masih membutuhkan 200 pserta didik baru</p>
+                  <p>Kuota Jurusan Teknik Kendaraan Ringan Masih membutuhkan 200 peserta didik baru</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Sepeda Motor</h3>
-                  <p>Kuota Jurusan Teknik Sepeda Motor Masih membutuhkan 200 pserta didik baru</p>
+                  <p>Kuota Jurusan Teknik Sepeda Motor Masih membutuhkan 200 peserta didik baru</p>
                 </div>
               </div>
-              <div class="work_bottom"><span>Ayo Pilih Keahlianmu Sekarang...!</span><a href="#" class="contact_btn">Daftar Sekarang</a></div>
+              <div class="work_bottom"><span>Ayo Pilih Keahlianmu Sekarang...!</span><a href="signup" class="contact_btn">Daftar Sekarang</a></div>
             </div>
             <figure class="col-lg-6 col-sm-6  text-right wow fadeInUp delay-02s"> </figure>
           </div>
@@ -218,12 +220,12 @@
     <div class="client_section animated  fadeInUp wow">
       <div class="client_profile">
         <div class="client_profile_pic"><img src="../front/img/client-pic1.jpg" alt=""></div>
-        <h3>Saul Goodman</h3>
-        <span>Lawless Inc</span> </div>
+        <h3>SMKN 1 Kepanjen</h3>
+        <span>Kanesa Bisa</span> </div>
       <div class="quote_section">
         <div class="quote_arrow"></div>
-        <p><b><img src="../front/img/quote_sign_left.png" alt=""></b> Proin iaculis purus consequat sem cure digni ssim donec porttitora
-          entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+        <p><b><img src="../front/img/quote_sign_left.png" alt=""></b> SMKN 1 Kepanjen merupakan salah satu pendidikan kejuruan di
+          wilayah Kepanjen kabupaten Malang yang memiliki tujuan untuk menciptakan tenaga kerja yang profesional & kompetitif.
           <small><img src="../front/img/quote_sign_right.png" alt=""></small> </p>
       </div>
       <div class="clear"></div>
@@ -231,46 +233,27 @@
     <div class="client_section animated  fadeInDown wow">
       <div class="client_profile flt">
         <div class="client_profile_pic"><img src="../front/img/client-pic2.jpg" alt=""></div>
-        <h3>Marie Schrader</h3>
-        <span>DEA Foundation</span> </div>
+        <h3>Tentang Kami</h3>
+        <span>SMKN 1 Kepanjen</span> </div>
       <div class="quote_section flt">
         <div class="quote_arrow2"></div>
-        <p><b><img src="../front/img/quote_sign_left.png" alt=""></b> Proin iaculis purus consequat sem cure digni ssim donec porttitora
-          entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+        <p><b><img src="../front/img/quote_sign_left.png" alt=""></b> Alamat Jl. Raya Kedungpedaringan Kepanjen Kab. Malang, Telp. (0341) 395777,
+          Fax (0341) 394776, E-mail <u>smkn1kepanjen@ymail.com</u> Website <u>smkn1kepanjen.sch.id</u> Kode Pos 65163.
           <small><img src="../front/img/quote_sign_right.png" alt=""></small> </p>
       </div>
       <div class="clear"></div>
     </div>
   </div>
   </section>
+  <hr>
   <!-- /end main section client part -->
-  <div class="c-logo-part">
-    <!-- c logo part start -->
-    <div class="container">
-      <ul class="delay-06s animated  bounce wow">
-        <li>
-          <a href="javascript:void(0)"><img src="../front/img/c-liogo1.png" alt=""></a>
-        </li>
-        <li>
-          <a href="javascript:void(0)"><img src="../front/img/c-liogo2.png" alt=""></a>
-        </li>
-        <li>
-          <a href="javascript:void(0)"><img src="../front/img/c-liogo3.png" alt=""></a>
-        </li>
-        <li>
-          <a href="javascript:void(0)"><img src="../front/img/c-liogo5.png" alt=""></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- /end c logo part end -->
-  
+
   <!-- Main Ssection Team -->
   <section class="main-section team" id="team">
     <!-- Taem -->
     <div class="container">
-      <h2>Komponen Website</h2>
-      <h6>Take a closer look into our amazing team. We won’t bite.</h6>
+      <h2>Designer Komponen Website</h2>
+      <h6>Website kami terdiri dari 3 komponen diantaranya Design, Frontend & Backend</h6>
       <div class="team-leader-block clearfix">
         <div class="team-leader-box">
           <div class="team-leader wow fadeInDown delay-03s">
