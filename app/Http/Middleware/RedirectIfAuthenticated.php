@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             if(Auth::user()->level == 0 AND Auth::user()->level <=99){
-                return redirect()->route('backoffice');
+                return redirect()->route('pendaftaran');
             }
         }
         return $next($request);

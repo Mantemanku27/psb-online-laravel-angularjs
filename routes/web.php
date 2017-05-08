@@ -15,5 +15,5 @@ Route::get('/', ['as' => 'page', 'uses' => 'PageController@landingpage']);
 Route::get('/landingpage', ['as' => 'token', 'uses' => 'PageController@landingpage']);
 Route::get('/signup', ['as' => 'signup', 'uses' => 'PageController@signup']);
 Route::get('/login', ['as' => 'login', 'uses' => 'PageController@getLogin']);
-Route::get('/backoffice', ['as' => 'backoffice', 'uses' => 'PageController@backoffice']);
+Route::get('/pendaftaran', ['as' => 'pendaftaran', 'uses' => 'PageController@pendaftaran']);
 Route::get('give-me-token', ['as' => 'token', 'uses' => 'PageController@token']);

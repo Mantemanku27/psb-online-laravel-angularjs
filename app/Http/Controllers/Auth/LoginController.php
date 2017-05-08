@@ -49,7 +49,7 @@ class LoginController extends Controller
 
             
             // Authentication passed...
-            return redirect()->route('backoffice');
+            return redirect()->route('pendaftaran');
         } else {
             session()->flash('auth_message', 'Kombinasi email dan password salah!');
             return redirect()->route('login');

@@ -46,7 +46,7 @@ class PageController extends Controller
     {
         return view('login');
     }
-    public function backoffice()
+    public function pendaftaran()
     {
         return view('welcome');
 
