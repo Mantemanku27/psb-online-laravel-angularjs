@@ -4613,7 +4613,7 @@ a.text-light:hover {
 /* ---------------------------------------------------------------------- */
 fieldset {
   background: #ffffff;
-  border: 1px solid #e6e8e8;
+  border: 3px solid #e6e8e8;
   border-radius: 5px;
   margin: 20px 0 20px 0;
   padding: 25px;
@@ -9497,7 +9497,7 @@ nav.links a {
   padding: 0 10px;
 }
 .main-login .box-login, .main-login .box-forgot, .main-login .box-register {
-  background: #FFFFFF;
+  background: none;
   border-radius: 5px;
   overflow: hidden;
   padding: 15px;
@@ -11314,4 +11314,7 @@ td.small-width {
 
 .avatar-login {
   width: 30%;
+}
+.forgot-pass {
+  float: right;
 }
