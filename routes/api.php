@@ -23,6 +23,8 @@ Route::resource('biodatas','BiodataController');
 Route::get('batas-input-biodatas','BiodataController@batasInputBiodata');
 Route::resource('pendaftarans','PendaftaranController');
 Route::resource('users','UserController');
+// Register
+Route::post('post-signup','UserdaftarController@createsiswa');
 
 Route::group(['namespace' => 'Auth'], function () {
     // Rute otentikasi

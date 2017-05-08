@@ -60,7 +60,7 @@
           </legend>
           <p>
             <img class="avatar-login" src="../assets/images/avatar-login.png">
-            Silahkan Masukan Email & Password anda untuk login.
+            Silahkan Masukan Email & Password untuk login.
           </p>
           <div class="form-group">
             <span class="input-icon">

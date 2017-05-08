@@ -44,7 +44,7 @@
   <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
     <!-- Box SignUp -->
     <div class="box-login">
-      <form class="subscribe" accept-charset="UTF-8" action="api/post-login" method="post">
+      <form class="subscribe" accept-charset="UTF-8" action="api/post-signup" method="post">
         <fieldset>
           <legend>
             Buat akun sekarang !
@@ -53,16 +53,17 @@
             <img class="avatar-login" src="../assets/images/avatar-login.png">
             Silahkan isi Registrasi di bawah ini.
           </p>
+          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"/>
           <label>Nama</label>
           <div class="form-group">
             <span class="input-icon">
-              <input type="text" class="form-control" name="email" placeholder="Nama">
+              <input type="text" class="form-control" name="nama" placeholder="Nama">
               <i class="fa fa-user"></i> </span>
           </div>
           <label>Telepon</label>          
           <div class="form-group">
             <span class="input-icon">
-              <input type="text" class="form-control" name="email" placeholder="No Telepon">
+              <input type="text" class="form-control" name="telepon" placeholder="No Telepon">
               <i class="fa fa-user"></i> </span>
           </div>
           <label>Email</label>          
@@ -75,12 +76,6 @@
               <label>Password</label>
             <span class="input-icon">
               <input type="password" class="form-control password" name="password" placeholder="Password">
-              <i class="fa fa-lock"></i>
-          </div>
-          <div class="form-group form-actions">
-              <label>Password</label>
-            <span class="input-icon">
-              <input type="password" class="form-control password" name="password" placeholder="Conform Password">
               <i class="fa fa-lock"></i>
           </div>
           <div class="form-actions">

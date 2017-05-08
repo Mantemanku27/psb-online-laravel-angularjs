@@ -100,6 +100,17 @@ abstract class AbstractRepository implements RepositoryContract
         return $this->createSuccess($data);
     }
 
+// Register
+    public function createsiswa(array $data)
+    {
+        $q = $this->model->create($data);
+        if (!$q) {
+            return $this->createError($data);
+        }
+        return $this->createSuccess($data);
+    }
+// end register
+
     /**
      * Update an existing entity
      *

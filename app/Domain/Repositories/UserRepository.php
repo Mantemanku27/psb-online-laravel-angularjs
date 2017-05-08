@@ -76,18 +76,29 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
 
     }
 
-    public function create(array $data)
+// Register
+    public function createsiswa(array $data)
     {
+        try {
         // execute sql insert
-        return parent::create([
+        User::create([
             'nama'    => e($data['nama']),
             'telepon' => e($data['telepon']),
             'email' => e($data['email']),
             'password' => bcrypt(e($data['password'])),
             'level'   => 1
-        ]);
-
+        ]);   
+        session()->flash('auth_messagee', 'Pendaftaran Berhasil!, Silahkan untuk login.');
+            return redirect()->route('login');
+        } catch (\Exception $e) {
+            // store errors to log
+            \Log::error('class : ' . UserRepository::class . ' method : create | ' . $e);
+            session()->flash('auth_messagee', 'Cek Ulang Pengguna, Simpan Data Gagal!');
+            return redirect()->route('login');
+            // return $this->createError();
+        }     
     }
+// end register
 
     /**
      * @param $id

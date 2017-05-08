@@ -7,7 +7,7 @@ use App\Http\Requests\User\UserEditRequest;
 use Illuminate\Http\Request;
 use App\Domain\Contracts\UserInterface;
 
-class UserController extends Controller
+class UserdaftarController extends Controller
 {
 
     /**
@@ -22,7 +22,6 @@ class UserController extends Controller
     public function __construct(UserInterface $user)
     {
         $this->user = $user;
-        $this->middleware('auth');
     }
 
     /**
@@ -72,7 +71,7 @@ class UserController extends Controller
     }
 
 // Register
-    public function createsiswa(UserCreateRequest $request)
+    public function createsiswa(Request $request)
     {
         return $this->user->createsiswa($request->all());
     }

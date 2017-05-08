@@ -47,5 +47,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->when('App\Http\Controllers\UserController')
             ->needs('App\Domain\Contracts\UserInterface')
             ->give('App\Domain\Repositories\UserRepository');
+         // mendaftarkan register
+        $this->app->when('App\Http\Controllers\UserdaftarController')
+            ->needs('App\Domain\Contracts\UserInterface')
+            ->give('App\Domain\Repositories\UserRepository');
     }
 }
