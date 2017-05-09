@@ -1,12 +1,22 @@
 'use strict';
 
+
 app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAlert', '$http', '$timeout', '$stateParams', function ($state, $scope, pendaftarans, SweetAlert, $stateParams) {
+
+
 //urussan tampilan
     $scope.main = {
         page: 1,
         term: ''
     };
+
     $scope.id = $scope.$stateParams.id;
+
+    if ($scope.dataUser.level == 1 ) {
+        $state.go("app.biodatas")
+    }
+
+
     $scope.isLoading = true;
     $scope.isLoaded = false;
 
@@ -19,6 +29,7 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
             $scope.isLoaded = true;
         }
     };
+
     pendaftarans.cekinputpendaftaran($scope.id)
         .success(function (data) {
             $scope.batasinput = data;
@@ -27,6 +38,8 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
         .success(function (data) {
             $scope.cekid = data;
         })
+
+
 
     //Init Alert status
     $scope.alertset = {
@@ -42,12 +55,20 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
     };
     // go to print preview page
     $scope.print = function () {
+
         window.open('../api/v1/cetak-pendaftaran', '_blank');
+
+        window.open ('../api/v1/cetak-pendaftaran','_blank');
+
     };
     //Init dataAkun
     $scope.dataPendaftarans = '';
     // init get data
+
     pendaftarans.get($scope.id, $scope.main.page, $scope.main.term)
+
+    pendaftarans.get($scope.main.page, $scope.main.term)
+
         .success(function (data) {
 
             //Change Loading status
@@ -81,15 +102,22 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
 
     // get data
     $scope.getData = function () {
+
         pendaftarans.cekinputpendaftaran($scope.id)
             .success(function (data) {
                 $scope.batasinput = data;
             })
 
+
+
         //Start loading
         $scope.setLoader(true);
 
+
         pendaftarans.get($scope.id, $scope.main.page, $scope.main.term)
+
+        pendaftarans.get($scope.main.page, $scope.main.term)
+
             .success(function (data) {
 
                 //Stop loading
@@ -163,6 +191,33 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
         $scope.getData()
     };
 
+
+
+// //hapus lewat tampilan
+//     $scope.hapus = function (id) {
+//         var confirm = $mdDialog.confirm()
+//             .title('Konfirmasi')
+//             .content('Apakah Anda yakin ingin menghapus data?')
+//             .ok('Hapus')
+//             .cancel('Batal')
+//             .targetEvent(id);
+//         //
+//         $mdDialog.show(confirm).then(function () {
+//             pendaftaran.destroy(id)
+//                 .success(function (data) {
+//                     if (data.success == true) {
+//                         $scope.showToast('green', 'Data Berhasil Dihapus');
+//                     } else {
+//                         $scope.showToast('red', data.result.message);
+//                     }
+//                     $scope.getData();
+//                 })
+//
+//         }, function () {
+//
+//         });
+//     };
+
     $scope.hapus = function (id) {
         SweetAlert.swal({
             title: "Are you sure?",
@@ -178,7 +233,10 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
             if (isConfirm) {
                 pendaftarans.destroy(id)
                     .success(function (data) {
-                        if (data.deleted == true) {
+
+
+                        if (data.success == true) {
+
                             SweetAlert.swal({
                                 title: "Deleted!",
                                 text: "Your imaginary file has been deleted.",

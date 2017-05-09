@@ -106,13 +106,16 @@ class JurusanController extends Controller
         return $this->jurusan->delete($id);
     }
 
+
     public function getList()
     {
         return $this->jurusan->getList();
     }
+
     public function getListjursanbypendaftaran($id)
     {
         return $this->jurusan->getListjursanbypendaftaran($id);
     }
 
+    
 }

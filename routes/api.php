@@ -39,6 +39,17 @@ Route::resource('users', 'UserController');
 // Register
 Route::post('post-signup', 'UserdaftarController@createsiswa');
 
+Route::resource('posts','PostController');
+Route::resource('jurusans','JurusanController');
+Route::resource('formulirs','FormulirController');
+Route::resource('biodatas','BiodataController');
+Route::get('batas-input-biodatas','BiodataController@batasInputBiodata');
+Route::resource('pendaftarans','PendaftaranController');
+Route::resource('users','UserController');
+// Register
+Route::post('post-signup','UserdaftarController@createsiswa');
+
+
 Route::group(['namespace' => 'Auth'], function () {
     // Rute otentikasi
     Route::get('get-login', 'LoginController@getLogin');
@@ -49,3 +60,4 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::get('get-session', 'UserController@getSession');
 Route::put('updatePass-users', 'UserController@updatePass');
+

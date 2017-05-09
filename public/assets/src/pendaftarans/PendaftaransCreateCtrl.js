@@ -1,3 +1,4 @@
+
 app.controller('PendaftaransCreateCtrl', ['$state', '$scope', 'pendaftarans', '$timeout', 'SweetAlert', 'toaster','$stateParams', '$http', function ($state, $scope, pendaftarans, $timeout, SweetAlert, toaster,$stateParams) {
     //Init input addForm variable
     //create pendaftarans
@@ -13,6 +14,12 @@ app.controller('PendaftaransCreateCtrl', ['$state', '$scope', 'pendaftarans', '$
             }
 
         })
+
+    //Init input addForm variable
+    //create pendaftarans
+    $scope.process = false;
+
+
     $scope.master = $scope.myModel;
     $scope.form = {
 
@@ -52,6 +59,7 @@ app.controller('PendaftaransCreateCtrl', ['$state', '$scope', 'pendaftarans', '$
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
+
     $scope.cekgetlist = function () {
         $scope.objjurusan = []
         pendaftarans.getListjurusan($scope.id)
@@ -72,12 +80,17 @@ app.controller('PendaftaransCreateCtrl', ['$state', '$scope', 'pendaftarans', '$
             })
 }
     $scope.cekgetlist()
+
+
     $scope.clearInput = function () {
         $scope.myModel.no_pilihan = null;
         $scope.myModel.status = null;
         $scope.myModel.jurusans_id = null;
         $scope.myModel.formulirs_id = null;
+
         $scope.cekgetlist()
+
+
     };
 
     $scope.submitData = function (isBack) {
@@ -89,14 +102,21 @@ app.controller('PendaftaransCreateCtrl', ['$state', '$scope', 'pendaftarans', '$
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+
             $scope.myModel.jurusans_id = $scope.myModel.jurusans.id
             $scope.myModel.formulirs_id =$scope.id
+
+
             pendaftarans.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {
+
                             window.location = "/pendaftaran#/app/pendaftarans/" + $scope.id;
+
+
+                            $state.go('app.pendaftarans');
 
                             $scope.toaster = {
                                 type: 'success',

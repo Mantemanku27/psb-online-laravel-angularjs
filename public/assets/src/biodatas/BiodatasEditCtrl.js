@@ -77,7 +77,13 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
 
-    //Submit Data
+    biodatas.show($scope.id)
+        .success(function (data) {
+            $scope.setLoader(false);
+            $scope.myModel = data;
+            $scope.objjurusan = [];
+    
+        });    //Submit Data
     $scope.updateData = function () {
         $scope.alerts = [];
         //Set process status
@@ -89,7 +95,7 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
-            $scope.myModel.jurusan = $scope.myModel.jurusans.id
+            // $scope.myModel.jurusan = $scope.myModel.jurusans.id
             if ($scope.myModel.tanggal_lahir instanceof Date) {
                 //$scope.d = new Date();
                 $scope.year = $scope.myModel.tanggal_lahir.getFullYear();
@@ -103,8 +109,6 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
                 }
                 $scope.myModel.tanggal_lahir = $scope.day + "/" + $scope.month + "/" + $scope.year;
             }
-            $scope.myModel.jurusans_2 = $scope.myModel.jurusans_2.id
-
             biodatas.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {
@@ -144,11 +148,4 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
                 });
         }
     };
-    function findWithAttr(array, attr, value) {
-        for (var i = 0; i < array.length; i += 1) {
-            if (array[i][attr] === value) {
-                return i;
-            }
-        }
-    }
 }]);

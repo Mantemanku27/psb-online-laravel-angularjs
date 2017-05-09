@@ -1,8 +1,12 @@
 'use strict';
 
+
 app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParams', '$http','$timeout', function ($scope, formulirs, SweetAlert,$stateParams) {
 //urussan tampilan
     $scope.id = $scope.$stateParams.id;
+
+
+//urussan tampilan
 
     $scope.main = {
         page: 1,
@@ -38,6 +42,7 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
     $scope.print = function () {
         window.open ('../api/v1/cetak-formulir','_blank');
     };
+
     formulirs.cekinputformulir($scope.id)
         .success(function (data) {
             $scope.batasinput = data;
@@ -47,6 +52,12 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
     $scope.dataFormulirs = '';
     // init get data
     formulirs.get($scope.id,$scope.main.page, $scope.main.term)
+
+    //Init dataAkun
+    $scope.dataFormulirs = '';
+    // init get data
+    formulirs.get($scope.main.page, $scope.main.term)
+
         .success(function (data) {
 
             //Change Loading status
@@ -80,15 +91,22 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
 
     // get data
     $scope.getData = function () {
+
         formulirs.cekinputformulir()
             .success(function (data) {
                 $scope.batasinput = data;
             })
 
+
+
         //Start loading
         $scope.setLoader(true);
 
+
         formulirs.get($scope.id,$scope.main.page, $scope.main.term)
+
+        formulirs.get($scope.main.page, $scope.main.term)
+
             .success(function (data) {
 
                 //Stop loading
@@ -201,7 +219,10 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
             if (isConfirm) {
                 formulirs.destroy(id)
                     .success(function (data) {
+
                         if (data.deleted == true) {
+
+
                             SweetAlert.swal({
                                 title: "Deleted!",
                                 text: "Your imaginary file has been deleted.",

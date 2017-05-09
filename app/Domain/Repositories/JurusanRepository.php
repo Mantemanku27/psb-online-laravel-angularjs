@@ -47,6 +47,7 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
+
         $akun = $this->model
             ->where(function ($query) use ($search) {
                 $query->where('nama', 'like', '%' . $search . '%')
@@ -55,6 +56,8 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
             ->paginate($limit)
             ->toArray();
         return $akun;
+
+
     }
 
     /**
@@ -65,8 +68,10 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
     {
         // execute sql insert
         return parent::create([
+
             'nama' => e($data['nama']),
             'kuota' => e($data['kuota'])
+
         ]);
 
     }
@@ -79,8 +84,10 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
     public function update($id, array $data)
     {
         return parent::update($id, [
+
             'nama' => e($data['nama']),
             'kuota' => e($data['kuota'])
+
         ]);
     }
 
@@ -104,7 +111,9 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
         return parent::find($id, $columns);
     }
 
+
     public function getList()
+
     {
         // query to aql
         $akun = $this->model->get()->toArray();
@@ -117,13 +126,14 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
         return $akun;
 
     }
+
     public function getListjursanbypendaftaran($id)
     {
 
         // query to aql
         $cari_rincian = \DB::table('pendaftarans')
             ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
-            ->where('pendaftarans.formulirs_id', $id)->where('jurusans.kuota','>=', 1)->whereNull('pendaftarans.deleted_at')->select('pendaftarans.jurusans_id')->get();
+            ->where('pendaftarans.formulirs_id', $id)->where('jurusans.kuota', '>=', 1)->whereNull('pendaftarans.deleted_at')->select('pendaftarans.jurusans_id')->get();
         $result = [];
         foreach ($cari_rincian as $key => $value) {
             $result[] = $value->jurusans_id;
@@ -147,5 +157,6 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
             ->toArray();
         return $provinsi;
     }
+
 
 }

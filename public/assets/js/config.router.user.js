@@ -4,6 +4,7 @@
  * Konfigurasi Router
  */
 app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$ocLazyLoadProvider', 'JS_REQUIRES',
+
     function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $ocLazyLoadProvider, jsRequires) {
 
         app.controller = $controllerProvider.register;
@@ -561,7 +562,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
             };
         }
     }])
-    .config(function ($httpProvider) {
+   .config(function ($httpProvider) {
         $httpProvider.defaults.headers.post = {
             "X-Requested-With": "XMLHttpRequest",
             'Content-Type': 'application/x-www-form-urlencoded',

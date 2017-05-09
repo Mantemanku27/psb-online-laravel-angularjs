@@ -36,10 +36,13 @@ class FormulirController extends Controller
     {
         return $this->formulir->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
+
     public function paginatebyid($id,Request $request)
     {
         return $this->formulir->paginatebyid($id,10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
+
+
 
     /**
      * @api {get} api/formulirs/id Request Get Formulir
@@ -109,6 +112,7 @@ class FormulirController extends Controller
     {
         return $this->formulir->delete($id);
     }
+
     public function batasInputformulir($id)
     {
         return $this->formulir->batasInputformulir($id);
@@ -117,5 +121,7 @@ class FormulirController extends Controller
     {
         return $this->formulir->cekidformulir();
     }
+
+
 
 }

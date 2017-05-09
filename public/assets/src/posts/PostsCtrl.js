@@ -190,7 +190,10 @@ app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$
             if (isConfirm) {
                 posts.destroy(id)
                     .success(function (data) {
+
                         if (data.deleted == true) {
+
+
                             SweetAlert.swal({
                                 title: "Deleted!",
                                 text: "Your imaginary file has been deleted.",

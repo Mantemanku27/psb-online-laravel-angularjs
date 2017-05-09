@@ -47,6 +47,8 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
+
+     
         $akun = $this->model
             ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
             ->join('formulirs', 'pendaftarans.formulirs_id', '=', 'formulirs.id')
@@ -102,6 +104,7 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
      */
     public function create(array $data)
     {
+
         $pribadi = $this->model
             ->where('formulirs_id', e($data['formulirs_id']))
             ->where('user_id', session('user_id'))
@@ -111,8 +114,7 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
             $no_pilihan = 1;
         } else if ($pribadi->no_pilihan == 1) {
             $no_pilihan = 2;
-        }
-        else if ($pribadi->no_pilihan == 2) {
+        } else if ($pribadi->no_pilihan == 2) {
             $no_pilihan = 1;
         }
 
@@ -123,6 +125,9 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
             'jurusans_id' => e($data['jurusans_id']),
             'formulirs_id' => e($data['formulirs_id']),
             'user_id' => session('user_id')
+
+            // execute sql insert
+
         ]);
 
     }
@@ -135,10 +140,13 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
     public function update($id, array $data)
     {
         return parent::update($id, [
+
             'no_pilihan' => e($data['no_pilihan']),
 //            'status' => e($data['status']),
             'jurusans_id' => e($data['jurusans_id']),
 //            'formulirs_id' => e($data['formulirs_id'])
+
+
         ]);
     }
 

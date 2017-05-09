@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Formulir
  * @package App\Domain\Entities
  */
+
 class Formulir extends Entities
+
+
 {
     use SoftDeletes;
 
@@ -17,7 +20,9 @@ class Formulir extends Entities
      * @var array
      */
     protected $fillable = [
+
         'asal_sekolah', 'n_bi', 'n_mtk', 'n_ipa', 'n_ing', 'biodatas_id','jurusan','jurusan_2','user_id'
+
     ];
     protected $with = ['biodatas'];
 
@@ -25,6 +30,7 @@ class Formulir extends Entities
     {
         return $this->belongsTo('App\Domain\Entities\Biodata', 'biodatas_id');
     }
+
 //    public function jurusans()
 //    {
 //        return $this->belongsTo('App\Domain\Entities\Jurusan', 'jurusan');
@@ -33,5 +39,7 @@ class Formulir extends Entities
 //    {
 //        return $this->belongsTo('App\Domain\Entities\Jurusan', 'jurusan_2');
 //    }
+
+
 
 }

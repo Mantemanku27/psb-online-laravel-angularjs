@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Jurusan
  * @package App\Domain\Entities
  */
+
 class Jurusan extends Entities
+
+
 {
     use SoftDeletes;
 

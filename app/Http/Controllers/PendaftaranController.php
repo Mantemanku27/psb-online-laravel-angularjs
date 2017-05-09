@@ -36,10 +36,13 @@ class PendaftaranController extends Controller
     {
         return $this->pendaftaran->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
+
     public function paginatebyid($id,Request $request)
     {
         return $this->pendaftaran->paginatebyid($id,10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
+
+
 
     /**
      * @api {get} api/pendaftarans/id Request Get Pendaftaran
@@ -109,9 +112,13 @@ class PendaftaranController extends Controller
     {
         return $this->pendaftaran->delete($id);
     }
+
     public function batasInputPendaftaran($id)
     {
         return $this->pendaftaran->batasInputPendaftaran($id);
     }
   
+
+
+
 }

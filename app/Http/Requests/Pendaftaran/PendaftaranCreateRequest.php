@@ -28,8 +28,13 @@ class PendaftaranCreateRequest extends Request
      * @var array
      */
     protected $attrs = [
+
 //        'no_pilihan'    => 'No_pilihan',
 //        'status'   => 'status',
+
+        'no_pilihan'    => 'No_pilihan',
+        'status'   => 'status',
+
         'jurusans_id'   => 'jurusans_id',
         'formulirs_id'   => 'formulirs_id'
     ];
@@ -42,8 +47,13 @@ class PendaftaranCreateRequest extends Request
     public function rules()
     {
         return [
+
 //            'no_pilihan'    => 'required|max:225',
 //            'status'   => 'required|max:2555',
+
+            'no_pilihan'    => 'required|max:225',
+            'status'   => 'required|max:2555',
+
             'jurusans_id'   => 'required|max:2555',
             'formulirs_id'   => 'required|max:2555'
         ];
@@ -71,7 +81,12 @@ public function validator($validator)
         return [
             'success'    => false,
             'validation' => [
+
                 'jurusans_id'   => $message->first('jurusans_id'),
+
+                'no_pilihan' => $message->first('no_pilihan'),
+                'status'          => $message->first('status')
+
 
             ]
         ];

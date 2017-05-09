@@ -1,12 +1,23 @@
 app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout', 'SweetAlert', 'toaster', '$http', function ($state, $scope, biodatas, $timeout, SweetAlert, toaster) {
     //Init input addForm variable
     //create biodatas
+
     $scope.myModel = {};
     $scope.process = false;
     biodatas.getbatasinput()
         .success(function (data) {
             $scope.batasinput = data;
             if ($scope.batasinput == 1 && dataUser.level != 1) {
+
+            }
+        })
+    $scope.myModel = {};
+    $scope.process = false;
+    biodatas.getbatasinput()
+        .success(function (data) {
+            $scope.batasinput = data;
+            if ($scope.batasinput == 1) {
+
                 $state.go("app.biodatas")
             }
         })
@@ -50,6 +61,44 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
+
+
+    $scope.objjurusan = []
+    biodatas.getListjurusan()
+        .success(function (data_akun) {
+            if (data_akun.success == false) {
+                $scope.toaster = {
+                    type: 'warning',
+                    title: 'Warning',
+                    text: 'Data Belum Tersedia!'
+                };
+                toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+            } else {
+                data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
+                $scope.objjurusan = data_akun;
+                $scope.myModel.jurusans = $scope.objjurusan[0];
+            }
+        })
+
+    $scope.objjurusan2 = []
+    biodatas.getListjurusan()
+        .success(function (data_akun) {
+            if (data_akun.success == false) {
+                $scope.toaster = {
+                    type: 'warning',
+                    title: 'Warning',
+                    text: 'Data Belum Tersedia!'
+                };
+                toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+            } else {
+                data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
+                $scope.objjurusan2 = data_akun;
+                $scope.myModel.jurusans_2 = $scope.objjurusan2[0];
+            }
+        })
+
     $scope.clearInput = function () {
         $scope.myModel.nama_lengkap = null;
         $scope.myModel.email = null;
@@ -66,6 +115,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
         $scope.myModel.jurusans_2 = null;
         $scope.myModel.users_id = null;
     };
+
 
     $scope.today = function () {
         $scope.dt = new Date();
@@ -102,6 +152,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
 
+
     $scope.submitData = function (isBack) {
         $scope.alerts = [];
         //Set process status
@@ -111,6 +162,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+
 
             if ($scope.myModel.tanggal_lahir instanceof Date) {
                 //$scope.d = new Date();
@@ -125,16 +177,21 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
                 }
                 $scope.myModel.tanggal_lahir = $scope.day + "/" + $scope.month + "/" + $scope.year;
             }
+
+            $scope.myModel.jurusan = $scope.myModel.jurusans.id
+            $scope.myModel.jurusans_2 = $scope.myModel.jurusans_2.id
+
             biodatas.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {
+
                             biodatas.getidbiodatas()
                                 .success(function (data1) {
                                     window.location = "/pendaftaran#/app/formulirs-create/" + data1;
 
-                                })                           
+                                })
                             // $state.go('app.formulirs-create');
                             $scope.toaster = {
                                 type: 'success',
@@ -147,6 +204,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
                             $scope.sup();
                             $scope.alerts.push({
 
+                                type: 'success',
                                 type: 'success',
                                 msg: 'Simpan Data Berhasil!'
                             });
@@ -182,8 +240,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
                     toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                 });
 
-
         }
     }
     //Clear Input
-}]);
+}])

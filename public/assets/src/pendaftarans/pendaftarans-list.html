@@ -2,12 +2,15 @@
     <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
 </div>
 <div class="panel panel-default" ng-controller="PendaftaranCtrl">
+
     <ul class="breadcrumb bg-white ng-scope">
         <li><a ui-sref="app.biodatas"><span class="ng-scope">Data Biodatas</span></a></li>
         <li><a ui-sref="app.formulirs({id:cekid.biodatas.id})"><span class="ng-scope">Data Formulir</span></a></li>
         <li class="active">Data Pilih Jurusan</li>
 
     </ul>
+
+
     <div class="panel-heading bg-white" style="background: #b3c4c7;">
         <span class="font-bold"><left><font color="white">DATA PILIAN JURUSAN</font></left></span>
     </div>
@@ -18,8 +21,13 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-8 m-b-xs">
+
             <span tooltip="Tambah Data" ng-if="batasinput  == 0">
                 <a md-ink-ripple ui-sref="app.pendaftarans-create({id:id})" class="btn btn-sm btn-default">
+
+            <span tooltip="Tambah Data">
+                <a md-ink-ripple ui-sref="app.pendaftarans-create" class="btn btn-sm btn-default">
+
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
             <span tooltip="Refresh data">

@@ -4,13 +4,16 @@
 app.factory('pendaftarans', ['$http', function ($http) {
     return {
         // get data dengan pagination dan pencarian data
-        get: function (_id,page, term) {
+
+        get: function (page, term) {
             return $http({
                 method: 'get',
-                url: '/api/get-pendaftarans-by-id/'+_id +'?page=' + page + '&term=' + term,
+                url: '/api/pendaftarans?page=' + page + '&term=' + term,
+
                 headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
             });
         },
+
 
         cekinputpendaftaran: function (_id) {
             return $http({
@@ -24,6 +27,15 @@ app.factory('pendaftarans', ['$http', function ($http) {
                 url: '/api/getList-jurusan-by-pendaftran/'+ _id,
             });
         },
+
+        getLastpendaftarans: function () {
+            return $http({
+                method: 'get',
+                url: '/api/get-last-pendaftarans',
+            });
+        },
+
+
         //Simpan data
         store: function (inputData) {
             return $http({
@@ -32,6 +44,7 @@ app.factory('pendaftarans', ['$http', function ($http) {
                 data: $.param(inputData)
             });
         },
+
         //Tampil Data
         showformulir: function (_id) {
             return $http({
@@ -39,6 +52,8 @@ app.factory('pendaftarans', ['$http', function ($http) {
                 url: '/api/formulirs/' + _id,
             });
         },
+
+
 
 
         //Tampil Data

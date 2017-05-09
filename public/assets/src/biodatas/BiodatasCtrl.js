@@ -1,6 +1,9 @@
 'use strict';
 
+
 app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$timeout', function ($scope, biodatas, SweetAlert) {
+
+
 //urussan tampilan
     $scope.main = {
         page: 1,
@@ -19,10 +22,17 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
             $scope.isLoaded = true;
         }
     };
+
     biodatas.getbatasinput()
         .success(function (data) {
             $scope.batasinput = data;
         })
+
+            biodatas.getbatasinput()
+            .success(function (data) {
+                $scope.batasinput = data;
+            })
+
 
     //Init Alert status
     $scope.alertset = {
@@ -38,7 +48,11 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
     };
     // go to print preview page
     $scope.print = function () {
+
         window.open('../api/v1/cetak-biodata', '_blank');
+
+        window.open ('../api/v1/cetak-biodata','_blank');
+
     };
     //Init dataAkun
     $scope.dataBiodatas = '';
@@ -77,7 +91,11 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
 
     // get data
     $scope.getData = function () {
+
         biodatas.getbatasinput()
+
+            biodatas.getbatasinput()
+
             .success(function (data) {
                 $scope.batasinput = data;
             })
@@ -198,7 +216,9 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
             if (isConfirm) {
                 biodatas.destroy(id)
                     .success(function (data) {
+
                         if (data.deleted == true) {
+
                             SweetAlert.swal({
                                 title: "Deleted!",
                                 text: "Your imaginary file has been deleted.",

@@ -36,7 +36,10 @@ class BiodataController extends Controller
     {
         return $this->biodata->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
+
  
+
+
 
     /**
      * @api {get} api/biodatas/id Request Get Biodata
@@ -110,10 +113,13 @@ class BiodataController extends Controller
     {
         return $this->biodata->batasInputBiodata();
     }
+
     public function cekidbiodata()
     {
         return $this->biodata->cekidbiodata();
     }
+
+
 
 
 }

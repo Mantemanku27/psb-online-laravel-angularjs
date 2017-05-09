@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Post
  * @package App\Domain\Entities
  */
+
 class Post extends Entities
+
+
 {
     use SoftDeletes;
 

@@ -11,7 +11,10 @@ app.factory('biodatas', ['$http', function ($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
             });
         },
+
+
         getListjurusan: function () {
+
             return $http({
                 method: 'get',
                 url: '/api/getList-jurusan',
@@ -23,12 +26,14 @@ app.factory('biodatas', ['$http', function ($http) {
                 url: '/api/batas-input-biodatas',
             });
         },
+
         getidbiodatas: function () {
             return $http({
                 method: 'get',
                 url: '/api/getidbiodatas',
             });
         },
+
 
         //Simpan data
         store: function (inputData) {

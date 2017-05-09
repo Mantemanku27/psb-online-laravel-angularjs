@@ -47,6 +47,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
+
         if (session('level') == 0) {
             $akun = $this->model
                 ->join('biodatas', 'formulirs.biodatas_id', '=', 'biodatas.id')
@@ -110,6 +111,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
                 ->paginate($limit)
                 ->toArray();
             return $akun;
+
         }
 
     }
@@ -122,6 +124,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
     {
         // execute sql insert
         return parent::create([
+
             'asal_sekolah' => e($data['asal_sekolah']),
             'n_bi' => e($data['n_bi']),
             'n_mtk' => e($data['n_mtk']),
@@ -143,6 +146,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
     public function update($id, array $data)
     {
         return parent::update($id, [
+
             'asal_sekolah' => e($data['asal_sekolah']),
             'n_bi' => e($data['n_bi']),
             'n_mtk' => e($data['n_mtk']),
@@ -174,6 +178,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
     {
         return parent::find($id, $columns);
     }
+
 
     public function batasInputformulir($id)
     {

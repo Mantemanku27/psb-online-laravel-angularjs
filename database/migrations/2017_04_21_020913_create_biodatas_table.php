@@ -14,6 +14,7 @@ class CreateBiodatasTable extends Migration
     public function up()
     {
         Schema::create('biodatas', function (Blueprint $table) {
+
             $table->uuid('id');
             $table->string('nama_lengkap');
             $table->string('email');
@@ -21,12 +22,15 @@ class CreateBiodatasTable extends Migration
             $table->string('agama');
             $table->string('tempat_lahir');
             $table->string('tanggal_lahir');
+
+            $table->date('tanggal_lahir');
+
             $table->string('alamat');
             $table->string('desa');
             $table->string('kecamatan');
             $table->string('kabupaten');
             $table->string('provinsi');
-            $table->integer('users_id', false);
+            $table->string('users_id');
             $table->timestamps();
             $table->softDeletes();
         });

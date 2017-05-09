@@ -39,23 +39,6 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         .success(function (data) {
             $scope.setLoader(false);
             $scope.myModel = data;
-            // $scope.objjurusan = [];
-            // formulirs.getListjurusan()
-            //     .success(function (datajk) {
-            //         datajk.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
-            //         $scope.objjurusan = datajk;
-            //         $scope.myModel.jurusans = $scope.objjurusan[0];
-            //         $scope.myModel.jurusans = $scope.objjurusan[findWithAttr($scope.objjurusan, 'id', parseInt(data.jurusan))];
-            //     });
-            //
-            // $scope.objjurusan2 = [];
-            // formulirs.getListjurusan()
-            //     .success(function (datajk) {
-            //         datajk.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
-            //         $scope.objjurusan2 = datajk;
-            //         $scope.myModel.jurusans_2 = $scope.objjurusan2[0];
-            //         $scope.myModel.jurusans_2 = $scope.objjurusan2[findWithAttr($scope.objjurusan2, 'id', parseInt(data.jurusan_2))];
-            //     });
 
         });
 
@@ -71,9 +54,6 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
-            // $scope.myModel.jurusan_2 = $scope.myModel.jurusans_2.id
-            // $scope.myModel.jurusan = $scope.myModel.jurusans.id
-
             formulirs.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {
@@ -114,12 +94,5 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
                 });
         }
     };
-    function findWithAttr(array, attr, value) {
-        for (var i = 0; i < array.length; i += 1) {
-            if (array[i][attr] === value) {
-                return i;
-            }
-        }
-    }
 
 }]);

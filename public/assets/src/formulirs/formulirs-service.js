@@ -4,13 +4,17 @@
 app.factory('formulirs', ['$http', function ($http) {
     return {
         // get data dengan pagination dan pencarian data
-        get: function (_id,page, term) {
+
+
+        get: function (page, term) {
             return $http({
                 method: 'get',
-                url: '/api/get-formulirs-by-id/'+_id+ '?page=' + page + '&term=' + term,
+                url: '/api/formulirs?page=' + page + '&term=' + term,
+
                 headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
             });
         },
+
 
         cekinputformulir: function (_id) {
             return $http({
@@ -28,6 +32,14 @@ app.factory('formulirs', ['$http', function ($http) {
             return $http({
                 method: 'get',
                 url: '/api/getList-jurusan',
+            });
+        },
+
+
+        getLastformulirs: function () {
+            return $http({
+                method: 'get',
+                url: '/api/get-last-formulirs',
             });
         },
 

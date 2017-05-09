@@ -57,6 +57,7 @@
                                         <span class="success text-small" ng-if="Form.n_ing.$valid">Thank You!</span>
                                     </div>
 
+
                                     <!--<div class="form-group" ng-class="{'has-error':Form.jurusans.$dirty && Form.jurusans.$invalid, 'has-success':Form.jurusans.$valid}">-->
                                         <!--<label class="control-label">Jurusan 1<span class="symbol required"></span></label>-->
                                         <!--<select md-select-label class="form-control" ng-model="myModel.jurusans" name="jurusans" ng-options="o as o.nama for o in objjurusan">-->
@@ -75,6 +76,16 @@
 
                                 </fieldset>
 
+
+                                    <div class="form-group" ng-class="{'has-error':Form.biodatas_id.$dirty && Form.biodatas_id.$invalid, 'has-success':Form.biodatas_id.$valid}">
+                                        <label class="control-label"> Biodatas_id <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Biodatas_id" class="form-control" name="biodatas_id" ng-model="myModel.biodatas_id" required />
+                                        <span class="error text-small block" ng-if="Form.biodatas_id.$dirty && Form.biodatas_id.$invalid">Biodatas_id is required</span>
+                                        <span class="success text-small" ng-if="Form.biodatas_id.$valid">Thank You!</span>
+                                    </div>
+
+                                </fieldset>
+
                             </div>
                         </div>
 
@@ -82,7 +93,11 @@
                             <div class="col-md-12">
                                 <div class="pull-left">
                                     <button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+
                                     <button md-ink-ripple class="btn btn-primary btn-o" onclick="goBack()" ng-disabled="process">Kembali</button>
+
+                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.formulirs" ng-disabled="process">Kembali</button>
+
                                 </div>
                             </div>
                         </div>
@@ -92,6 +107,7 @@
         </div>
     </div>
 </div>
+
 <!--<!— end: FORM VALIDATION —>-->
 <script>
     function goBack() {
@@ -99,3 +115,6 @@
     }
 
 </script>
+
+<!--<!— end: FORM VALIDATION —>-->
+

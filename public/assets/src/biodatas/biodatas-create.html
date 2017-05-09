@@ -70,6 +70,7 @@
 
                                     <div class="form-group" ng-class="{'has-error':Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid, 'has-success':Form.tanggal_lahir.$valid}">
                                         <label class="control-label"> Tanggal Lahir <span class="symbol required"></span></label>
+<<<<<<< HEAD
                                         <p class="input-group">
                                             <input type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="datepickerOptions" ng-required="true" close-text="Close"  placeholder="Enter your Tanggal Lahir"
                                                    is-open="opened" ng-model="myModel.tanggal_lahir" placeholder="Tanggal Lahir" required name="tanggal_lahir">
@@ -78,6 +79,9 @@
                                             class="glyphicon glyphicon-calendar"></i></button>
                                  </span>
                                         </p>
+=======
+                                        <input type="text" placeholder="Enter your Tanggal Lahir" class="form-control" name="tanggal_lahir" ng-model="myModel.tanggal_lahir" required />
+>>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
                                         <span class="error text-small block" ng-if="Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid">Tanggal Lahir is required</span>
                                         <span class="success text-small" ng-if="Form.tanggal_lahir.$valid">Thank You!</span>
                                     </div>
@@ -141,7 +145,6 @@
 										<span class="error text-small block" ng-if="Form.provinsi.$dirty && Form.provinsi.$invalid">Provinsi Jurusan is required</span>
 										<span class="success text-small" ng-if="Form.provinsi.$valid">Thank You!</span>
 									</div>
-
 
                                 </fieldset>
                             </div>

@@ -47,6 +47,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
+
         if (session('level') == 0) {
             $akun = $this->model
                 ->join('users', 'biodatas.users_id', '=', 'users.id')
@@ -75,6 +76,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
                 ->paginate($limit)
                 ->toArray();
             return $akun;
+
         }
     }
 
@@ -85,30 +87,8 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     public function create(array $data)
     {
         // execute sql insert
-            return parent::create([
-                'nama_lengkap' => e($data['nama_lengkap']),
-                'email' => e($data['email']),
-                'jk' => e($data['jk']),
-                'agama' => e($data['agama']),
-                'tempat_lahir' => e($data['tempat_lahir']),
-                'tanggal_lahir' => e($data['tanggal_lahir']),
-                'alamat' => e($data['alamat']),
-                'desa' => e($data['desa']),
-                'kecamatan' => e($data['kecamatan']),
-                'kabupaten' => e($data['kabupaten']),
-                'provinsi' => e($data['provinsi']),
-                'users_id' => session('user_id')
-            ]);
-    }
 
-    /**
-     * @param $id
-     * @param array $data
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function update($id, array $data)
-    {
-        return parent::update($id, [
+        return parent::create([
             'nama_lengkap' => e($data['nama_lengkap']),
             'email' => e($data['email']),
             'jk' => e($data['jk']),
@@ -120,7 +100,35 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
             'kecamatan' => e($data['kecamatan']),
             'kabupaten' => e($data['kabupaten']),
             'provinsi' => e($data['provinsi']),
+            'users_id' => session('user_id')
+        ]);
+
+    }
+
+
+    /**
+     * @param $id
+     * @param array $data
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function update($id, array $data)
+    {
+        return parent::update($id, [
+
+            'nama_lengkap' => e($data['nama_lengkap']),
+            'email' => e($data['email']),
+            'jk' => e($data['jk']),
+            'agama' => e($data['agama']),
+            'tempat_lahir' => e($data['tempat_lahir']),
+            'tanggal_lahir' => e($data['tanggal_lahir']),
+            'alamat' => e($data['alamat']),
+            'desa' => e($data['desa']),
+            'kecamatan' => e($data['kecamatan']),
+            'kabupaten' => e($data['kabupaten']),
+            'provinsi' => e($data['provinsi']),
+            'jurusan' => e($data['jurusan']),
             'users_id' => e($data['users_id'])
+
         ]);
     }
 
@@ -139,18 +147,22 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
      * @param array $columns
      * @return mixed
      */
-    public function findById($id, array $columns = ['*'])
+    public
+    function findById($id, array $columns = ['*'])
     {
         return parent::find($id, $columns);
     }
 
+
     public function batasInputBiodata()
+
     {
         $pribadi1 = $this->model
             ->where('users_id', session('user_id'))
             ->count();
         if ($pribadi1 == 0) {
             return 0;
+
         } else {
             return 1;
         }
@@ -178,6 +190,6 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
         $hasil = $array_id[0];
         return $hasil;
     }
-
-
 }
+        
+

@@ -1,10 +1,17 @@
 app.controller('PendaftaransEditCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAlert', 'toaster', '$stateParams', function ($state, $scope, pendaftarans, SweetAlert, toaster, mdToast, $stateParams) {
     $scope.id = $scope.$stateParams.id;
+<<<<<<< HEAD
     $scope.myModel ={}
     //edit pendaftarans
     //If Id is empty, then redirected
     if ($scope.id == null || $scope.id == '') {
         $state.go("app.dasboard")
+=======
+    //edit pendaftarans
+    //If Id is empty, then redirected
+    if ($scope.id == null || $scope.id == '') {
+        $state.go("app.pendaftarans")
+>>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
     }
 
     $scope.isLoading = true;
@@ -41,6 +48,7 @@ app.controller('PendaftaransEditCtrl', ['$state', '$scope', 'pendaftarans', 'Swe
         .success(function (data) {
             $scope.setLoader(false);
             $scope.myModel = data;
+<<<<<<< HEAD
             $scope.objjurusan = [];
             pendaftarans.getListjurusan($scope.myModel.formulirs_id)
                 .success(function (datajk) {
@@ -52,6 +60,20 @@ app.controller('PendaftaransEditCtrl', ['$state', '$scope', 'pendaftarans', 'Swe
 
         });
 
+=======
+        });
+
+    $scope.showToast = function (warna, msg) {
+        $mdToast.show({
+            //controller: 'AkunToastCtrl',
+            template: "<md-toast class='" + warna + "-500'><span flex> " + msg + "</span></md-toast> ",
+            //templateUrl: 'views/ui/material/toast.tmpl.html',
+            hideDelay: 6000,
+            parent: '#toast',
+            position: 'top right'
+        });
+    };
+>>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
     //Submit Data
     $scope.updateData = function () {
 $scope.alerts = [];
@@ -64,14 +86,20 @@ $scope.alerts = [];
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+<<<<<<< HEAD
             $scope.myModel.jurusans_id = $scope.myModel.jurusans.id
+=======
+>>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
             pendaftarans.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {
                         //If back to list after submitting
                         //Redirect to akun
+<<<<<<< HEAD
                         window.location = "/pendaftaran#/app/pendaftarans/" + $scope.myModel.formulirs_id;
 
+=======
+>>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
                         $state.go('app.pendaftarans');
                         $scope.toaster = {
                             type: 'success',
@@ -107,6 +135,7 @@ $scope.alerts = [];
         }
     };
 
+<<<<<<< HEAD
     function findWithAttr(array, attr, value) {
         for (var i = 0; i < array.length; i += 1) {
             if (array[i][attr] === value) {
@@ -114,4 +143,6 @@ $scope.alerts = [];
             }
         }
     }
+=======
+>>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
 }]);

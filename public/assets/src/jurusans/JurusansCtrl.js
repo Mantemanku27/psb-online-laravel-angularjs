@@ -190,7 +190,9 @@ app.controller('JurusanCtrl', ['$state','$scope', 'jurusans', 'SweetAlert','$htt
             if (isConfirm) {
                 jurusans.destroy(id)
                     .success(function (data) {
+
                         if (data.deleted == true) {
+
                             SweetAlert.swal({
                                 title: "Deleted!",
                                 text: "Your imaginary file has been deleted.",
