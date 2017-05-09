@@ -33,7 +33,7 @@ class FormulirCreateRequest extends Request
         'n_mtk'    => 'N_mtk',
         'n_ipa'    => 'N_ipa',
         'n_ing'   => 'N_ing',
-        'biodatas_id'   => 'biodatas_id'
+      
     ];
 
     /**
@@ -49,7 +49,6 @@ class FormulirCreateRequest extends Request
             'n_mtk'    => 'required|max:225',
             'n_ipa'    => 'required|max:225',
             'n_ing'   => 'required|max:255',
-            'biodatas_id'   => 'required|max:255'
         ];
     }
 

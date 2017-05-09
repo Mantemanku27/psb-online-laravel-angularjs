@@ -22,9 +22,6 @@ class CreateBiodatasTable extends Migration
             $table->string('agama');
             $table->string('tempat_lahir');
             $table->string('tanggal_lahir');
-
-            $table->date('tanggal_lahir');
-
             $table->string('alamat');
             $table->string('desa');
             $table->string('kecamatan');

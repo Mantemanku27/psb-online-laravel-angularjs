@@ -131,8 +131,6 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             'n_ipa' => e($data['n_ipa']),
             'n_ing' => e($data['n_ing']),
             'biodatas_id' => e($data['biodatas_id']),
-            'jurusan' => 0,
-            'jurusan_2' => 0,
             'user_id' => session('user_id')
         ]);
 
@@ -153,9 +151,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             'n_ipa' => e($data['n_ipa']),
             'n_ing' => e($data['n_ing']),
             'biodatas_id' => e($data['biodatas_id']),
-            'jurusan' => e($data['jurusan']),
-            'jurusan_2' => e($data['jurusan_2'])
-
+            
         ]);
     }
 

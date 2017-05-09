@@ -76,16 +76,6 @@
 
                                 </fieldset>
 
-
-                                    <div class="form-group" ng-class="{'has-error':Form.biodatas_id.$dirty && Form.biodatas_id.$invalid, 'has-success':Form.biodatas_id.$valid}">
-                                        <label class="control-label"> Biodatas_id <span class="symbol required"></span></label>
-                                        <input type="text" placeholder="Enter your Biodatas_id" class="form-control" name="biodatas_id" ng-model="myModel.biodatas_id" required />
-                                        <span class="error text-small block" ng-if="Form.biodatas_id.$dirty && Form.biodatas_id.$invalid">Biodatas_id is required</span>
-                                        <span class="success text-small" ng-if="Form.biodatas_id.$valid">Thank You!</span>
-                                    </div>
-
-                                </fieldset>
-
                             </div>
                         </div>
 
@@ -95,8 +85,6 @@
                                     <button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
 
                                     <button md-ink-ripple class="btn btn-primary btn-o" onclick="goBack()" ng-disabled="process">Kembali</button>
-
-                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.formulirs" ng-disabled="process">Kembali</button>
 
                                 </div>
                             </div>

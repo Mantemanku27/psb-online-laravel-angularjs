@@ -12,10 +12,7 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
 
     $scope.id = $scope.$stateParams.id;
 
-    if ($scope.dataUser.level == 1 ) {
-        $state.go("app.biodatas")
-    }
-
+   
 
     $scope.isLoading = true;
     $scope.isLoaded = false;

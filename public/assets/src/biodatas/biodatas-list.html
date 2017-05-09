@@ -29,9 +29,6 @@
                 <div class="col-sm-8 m-b-xs">
 
             <span tooltip="Tambah Data" ng-if="batasinput  == 0 && dataUser.level != 1">
-
-            <span tooltip="Tambah Data" ng-if="batasinput  == 0 ">
-
                 <a md-ink-ripple ui-sref="app.biodatas-create" class="btn btn-sm btn-default">
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
@@ -68,11 +65,6 @@
                     <th class="col-md-1">Agama</th>
                     <th class="col-md-2">Tempat Tanggal Lahir</th>
                     <th class="col-md-2">Alamat</th>
-
-                    <!--<th class="col-md-2">Jurusan</th>-->
-
-                    <!--<th class="col-md-2">Jurusan</th>-->
-
                     <th class="col-md-2">Aksi</th>
                 </tr>
                 </thead>
@@ -90,16 +82,6 @@
                            class="btn btn-sm btn-success" >
                             <i class="glyphicon glyphicon-list"></i>
                         </a>
-
-                    <!--<td class="col-md-2">{{row.jurusans.nama}}</td>-->
-                    <!--<td class="col-md-2">
-                        <span ng-if="row.is_lock == '0'" class="label bg-info ng-scope">Draft</span>
-                        <span ng-if="row.is_lock == ''" class="label bg-info ng-scope">Draft</span>
-                        <span ng-if="row.is_lock == '1' " class="label bg-success ng-scope">Final</span>
-                    </td>-->
-
-                    <td class="col-md-2">
-
                         <a ui-sref="app.biodatas-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
                            class="btn btn-sm btn-default" >
                             <i class="glyphicon glyphicon-edit"></i>

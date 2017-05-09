@@ -16,7 +16,7 @@ public function run()
         DB::table('jurusans')->truncate();
 
         $jurusans = [
-            ['id' => 1, 'nama' => 'Rekayasa Perangkat Lunak', 'kuota' => '150', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => 2, 'nama' => 'Rekayasa Perangkat Lunak', 'kuota' => '150', 'created_at' => \Carbon\Carbon::now()],
         ];
 
         // insert batch

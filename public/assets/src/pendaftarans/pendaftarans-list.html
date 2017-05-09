@@ -24,10 +24,6 @@
 
             <span tooltip="Tambah Data" ng-if="batasinput  == 0">
                 <a md-ink-ripple ui-sref="app.pendaftarans-create({id:id})" class="btn btn-sm btn-default">
-
-            <span tooltip="Tambah Data">
-                <a md-ink-ripple ui-sref="app.pendaftarans-create" class="btn btn-sm btn-default">
-
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
             <span tooltip="Refresh data">
@@ -78,10 +74,10 @@
                     </td>-->
 
                     <td class="col-md-2">
-                        <a ui-sref="app.pendaftarans-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
+                        <!--<a ui-sref="app.pendaftarans-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
                            class="btn btn-sm btn-default" >
                             <i class="glyphicon glyphicon-edit"></i>
-                        </a>
+                        </a>-->
                         <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data"
                                 class="btn btn-sm btn-danger" >
                             <i class="glyphicon glyphicon-trash"></i>

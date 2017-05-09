@@ -23,10 +23,6 @@
 
             <span tooltip="Tambah Data" ng-if="batasinput  == 0">
                 <a md-ink-ripple ui-sref="app.formulirs-create({id:id})" class="btn btn-sm btn-default">
-
-            <span tooltip="Tambah Data">
-                <a md-ink-ripple ui-sref="app.formulirs-create" class="btn btn-sm btn-default">
-
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
             <span tooltip="Refresh data">
@@ -63,12 +59,6 @@
                     <th class="col-md-1">N MTK</th>
                     <th class="col-md-1">N IPA</th>
                     <th class="col-md-1">N B.Inggris</th>
-
-                    <th class="col-md-2">N B.Indonesia</th>
-                    <th class="col-md-2">N MTK</th>
-                    <th class="col-md-2">N IPA</th>
-                    <th class="col-md-2">N B.Inggris</th>
-
                     <th class="col-md-2">Biodatas</th>
                     <th class="col-md-2">Aksi</th>
                 </tr>
@@ -81,12 +71,6 @@
                     <td class="col-md-1">{{row.n_mtk}}</td>
                     <td class="col-md-1">{{row.n_ipa}}</td>
                     <td class="col-md-1">{{row.n_ing}}</td>
-
-                    <td class="col-md-2">{{row.n_bi}}</td>
-                    <td class="col-md-2">{{row.n_mtk}}</td>
-                    <td class="col-md-2">{{row.n_ipa}}</td>
-                    <td class="col-md-2">{{row.n_ing}}</td>
-
                     <td class="col-md-2">{{row.biodatas.nama_lengkap}}</td>
                     <!--<td class="col-md-2">
                         <span ng-if="row.is_lock == '0'" class="label bg-info ng-scope">Draft</span>

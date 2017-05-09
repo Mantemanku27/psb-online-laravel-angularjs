@@ -16,22 +16,13 @@ class CreateFormulirsTable extends Migration
         Schema::create('formulirs', function (Blueprint $table) {
 
             $table->uuid('id');
-
-            $table->increments('id');
-
             $table->string('asal_sekolah');
             $table->integer('n_bi');
             $table->integer('n_mtk');
             $table->integer('n_ipa');
             $table->integer('n_ing');
-
             $table->string('biodatas_id');
-            $table->string('jurusan');
-            $table->string('jurusan_2');
             $table->string('user_id');
-
-            $table->integer('biodatas_id', false);
-
             $table->timestamps();
             $table->softDeletes();
         });

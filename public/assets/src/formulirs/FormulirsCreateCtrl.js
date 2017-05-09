@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeout', 'SweetAlert', 'toaster', '$stateParams', '$http', function ($state, $scope, formulirs, $timeout, SweetAlert, toaster, $stateParams) {
     //Init input addForm variable
     //create formulirs
@@ -13,12 +12,6 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
             }
 
         })
-=======
-app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeout', 'SweetAlert', 'toaster', '$http', function ($state, $scope, formulirs, $timeout, SweetAlert, toaster) {
-    //Init input addForm variable
-    //create formulirs
-    $scope.process = false;
->>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
 
     $scope.master = $scope.myModel;
     $scope.form = {
@@ -56,7 +49,6 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         }
 
     };
-<<<<<<< HEAD
     // $scope.cekgetlist = function () {
     //     $scope.objjurusan = []
     //     formulirs.getListjurusan()
@@ -96,8 +88,6 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
     //
     // }
     // $scope.cekgetlist()
-=======
->>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
@@ -108,12 +98,6 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         $scope.myModel.n_ipa = null;
         $scope.myModel.n_ing = null;
         $scope.myModel.biodata_id = null;
-<<<<<<< HEAD
-        $scope.myModel.jurusan = null;
-        $scope.myModel.jurusans_2 = null;
-        // $scope.cekgetlist()
-=======
->>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
     };
 
     $scope.submitData = function (isBack) {
@@ -125,26 +109,17 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
-<<<<<<< HEAD
-            // $scope.myModel.jurusan_2 = $scope.myModel.jurusans_2.id
-            // $scope.myModel.jurusan = $scope.myModel.jurusans.id
             $scope.myModel.biodatas_id = $scope.id
-=======
->>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
             formulirs.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {
-<<<<<<< HEAD
                             formulirs.cekidformulir()
                                 .success(function (data1) {
                                     window.location = "/pendaftaran#/app/pendaftarans-create/" + data1;
 
                                 })
-=======
-                            $state.go('app.formulirs');
->>>>>>> 4dee371576cd055b125a3e1325859132ee2fa3bc
                             $scope.toaster = {
                                 type: 'success',
                                 title: 'Sukses',
