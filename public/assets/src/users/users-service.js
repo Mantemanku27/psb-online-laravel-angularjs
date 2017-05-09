@@ -44,7 +44,8 @@ app.factory('users', ['$http', function ($http) {
         },
 
         //Update data
-        
+
+        // Ganti Password
         updatepassword: function (inputData) {
             return $http({
                 method: 'put',
@@ -52,6 +53,7 @@ app.factory('users', ['$http', function ($http) {
                 data: $.param(inputData)
             });
         },
+        // end ganti password 
 
         update: function (inputData) {
             return $http({

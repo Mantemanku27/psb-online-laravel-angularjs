@@ -118,6 +118,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
         ]);
     }
 
+// Ganti Password
    public function updatePassword(array $data)
     {
         try {
@@ -155,6 +156,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             return $this->createError();
         }
     }
+// end ganti password
 
     /**
      * @param $id

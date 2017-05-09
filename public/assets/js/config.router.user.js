@@ -110,6 +110,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 title: 'Edit Data User',
                 resolve: loadSequence('UserEditCtrl', 'user_service'),
             })
+            
             .state('app.users-password', {
                 url: '/users-password',
                 templateUrl: 'assets/src/users/users-password.html',

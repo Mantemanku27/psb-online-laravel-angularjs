@@ -137,8 +137,11 @@ class UserController extends Controller
 
             ]]);
     }
-         public function updatePass(Request $request)
-  {
-      return $this->user->updatePassword($request->all());
-  }
+
+// Ganti Password
+    public function updatePass(Request $request)
+      {
+          return $this->user->updatePassword($request->all());
+      }
+// end ganti password
 }
