@@ -1,0 +1,101 @@
+<!--<!— start: PAGE TITLE —>-->
+<div ng-controller="FormulirsEditCtrl">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">FORM EDIT FORMULIR</h1>
+            </div>
+            <div ncy-breadcrumb></div>
+        </div>
+    </section>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+    <!--<!— end: PAGE TITLE —>
+<!— start: FORM VALIDATION —>-->
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form name="Form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.asal_sekolah.$dirty && Form.asal_sekolah.$invalid, 'has-success':Form.asal_sekolah.$valid}">
+                                        <label class="control-label"> Asal Sekolah <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Asal Sekolah" class="form-control" name="asal_sekolah" ng-model="myModel.asal_sekolah" required />
+                                        <span class="error text-small block" ng-if="Form.asal_sekolah.$dirty && Form.asal_sekolah.$invalid">Asal Sekolah is required</span>
+                                        <span class="success text-small" ng-if="Form.asal_sekolah.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.n_bi.$dirty && Form.n_bi.$invalid, 'has-success':Form.n_bi.$valid}">
+                                        <label class="control-label"> N B.Indonesia <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your N B.Indonesia" class="form-control" name="n_bi" ng-model="myModel.n_bi" required />
+                                        <span class="error text-small block" ng-if="Form.n_bi.$dirty && Form.n_bi.$invalid">N B.Indonesia is required</span>
+                                        <span class="success text-small" ng-if="Form.n_bi.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.n_mtk.$dirty && Form.n_mtk.$invalid, 'has-success':Form.n_mtk.$valid}">
+                                        <label class="control-label"> N MTK <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your N MTK" class="form-control" name="n_mtk" ng-model="myModel.n_mtk" required>
+                                        <span class="error text-small block" ng-if="Form.n_mtk.$dirty && Form.n_mtk.$error.required">N MTK is required.</span>
+                                        <span class="success text-small" ng-if="Form.n_mtk.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.n_ipa.$dirty && Form.n_ipa.$invalid, 'has-success':Form.n_ipa.$valid}">
+                                        <label class="control-label"> N IPA <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your N IPA" class="form-control" name="n_ipa" ng-model="myModel.n_ipa" required />
+                                        <span class="error text-small block" ng-if="Form.n_ipa.$dirty && Form.n_ipa.$invalid">N IPA is required</span>
+                                        <span class="success text-small" ng-if="Form.n_ipa.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.n_ing.$dirty && Form.n_ing.$invalid, 'has-success':Form.n_ing.$valid}">
+                                        <label class="control-label"> N B.Inggris <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your N B.Inggris" class="form-control" name="n_ing" ng-model="myModel.n_ing" required />
+                                        <span class="error text-small block" ng-if="Form.n_ing.$dirty && Form.n_ing.$invalid">N B.Inggris is required</span>
+                                        <span class="success text-small" ng-if="Form.n_ing.$valid">Thank You!</span>
+                                    </div>
+
+                                    <!--<div class="form-group" ng-class="{'has-error':Form.jurusans.$dirty && Form.jurusans.$invalid, 'has-success':Form.jurusans.$valid}">-->
+                                        <!--<label class="control-label">Jurusan 1<span class="symbol required"></span></label>-->
+                                        <!--<select md-select-label class="form-control" ng-model="myModel.jurusans" name="jurusans" ng-options="o as o.nama for o in objjurusan">-->
+                                        <!--</select>-->
+                                        <!--<span class="error text-small block" ng-if="Form.jurusans.$dirty && Form.jurusans.$invalid">Jurusan is required</span>-->
+                                        <!--<span class="success text-small" ng-if="Form.jurusans.$valid">Thank You!</span>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="form-group" ng-class="{'has-error':Form.jurusans_2.$dirty && Form.jurusans_2.$invalid, 'has-success':Form.jurusans_2.$valid}">-->
+                                        <!--<label class="control-label">Jurusan 2<span class="symbol required"></span></label>-->
+                                        <!--<select md-select-label class="form-control" ng-model="myModel.jurusans_2" name="jurusans_2" ng-options="o as o.nama for o in objjurusan2">-->
+                                        <!--</select>-->
+                                        <!--<span class="error text-small block" ng-if="Form.jurusans_2.$dirty && Form.jurusans_2.$invalid">Jurusan is required</span>-->
+                                        <!--<span class="success text-small" ng-if="Form.jurusans_2.$valid">Thank You!</span>-->
+                                    <!--</div>-->
+
+                                </fieldset>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" onclick="goBack()" ng-disabled="process">Kembali</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<!— end: FORM VALIDATION —>-->
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

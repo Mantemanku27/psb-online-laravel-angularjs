@@ -1,0 +1,66 @@
+<!--<!— start: PAGE TITLE —>-->
+<div ng-controller="PendaftaransEditCtrl">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">FORM EDIT JENIS JURUSAN</h1>
+            </div>
+            <div ncy-breadcrumb></div>
+        </div>
+    </section>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+    <!--<!— end: PAGE TITLE —>
+<!— start: FORM VALIDATION —>-->
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form name="Form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+
+                                    <div class="form-group"
+                                         ng-class="{'has-error':Form.jurusans.$dirty && Form.jurusans.$invalid, 'has-success':Form.jurusans.$valid}">
+                                        <label class="control-label">Jurusan <span
+                                                class="symbol required"></span></label>
+                                        <select md-select-label class="form-control" ng-model="myModel.jurusans"
+                                                name="jurusans" ng-options="o as o.nama for o in objjurusan">
+                                        </select>
+                                        <span class="error text-small block"
+                                              ng-if="Form.jurusans.$dirty && Form.jurusans.$invalid">Jurusan is required</span>
+                                        <span class="success text-small" ng-if="Form.jurusans.$valid">Thank You!</span>
+                                    </div>
+
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="updateData()"
+                                            ng-disabled="Form.$invalid || process">Simpan & Kembali
+                                    </button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" onclick="goBack()"
+                                            ng-disabled="process">Kembali
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<!— end: FORM VALIDATION —>-->
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

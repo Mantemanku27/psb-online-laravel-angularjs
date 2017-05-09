@@ -1,0 +1,66 @@
+<!--<!— start: PAGE TITLE —>-->
+<div ng-controller="JurusansCreateCtrl">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">FORM CREATE JURUSAN</h1>
+            </div>
+            <div ncy-breadcrumb></div>
+        </div>
+    </section>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+    <!--<!— end: PAGE TITLE —>
+<!— start: FORM VALIDATION —>-->
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form name="Form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
+                                        <label class="control-label"> Nama Jurusan <span class="symbol required"></span></label>
+									</label>
+										<select class="form-control" name="nama" ng-model="myModel.nama" required>
+										    <option value="" disabled selected>Silahkan pilih Nama Jurusan</option>
+										    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+										    <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
+                                            <option value="Teknik Elektronika Industri">Teknik Elektronika Industri</option>
+                                            <option value="Teknik Kendaraan Ringan">Teknik Kendaraan Ringan</option>
+                                            <option value="Teknik Sepeda Motor">Teknik Sepeda Motor</option>
+									    </select>
+										<span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama Jurusan is required</span>
+										<span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
+									</div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.kuota.$dirty && Form.kuota.$invalid, 'has-success':Form.kuota.$valid}">
+                                        <label class="control-label"> Kuota <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Kuota" class="form-control" name="kuota" ng-model="myModel.kuota" required />
+                                        <span class="error text-small block" ng-if="Form.kuota.$dirty && Form.kuota.$invalid">Kuota is required</span>
+                                        <span class="success text-small" ng-if="Form.kuota.$valid">Thank You!</span>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+                                    <button type="reset" class="btn btn-primary btn-o" ng-disabled="process" ng-click="form.reset(Form)">Reset</button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.jurusans" ng-disabled="process">Kembali</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<!— end: FORM VALIDATION —>-->
