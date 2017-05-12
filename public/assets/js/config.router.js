@@ -138,6 +138,28 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 resolve: loadSequence('JurusanEditCtrl', 'jurusan_service'),
             })
 
+            // URL CRUD Panitia
+            .state('app.panitias', {
+                url: '/panitias',
+                templateUrl: 'assets/src/panitias/panitias-list.html',
+                title: 'Data Panitia',
+                resolve: loadSequence('PanitiaCtrl', 'panitia_service'),
+            })
+
+            .state('app.panitias-create', {
+                url: '/panitias-create',
+                templateUrl: 'assets/src/panitias/panitias-create.html',
+                title: 'Create Data Panitia',
+                resolve: loadSequence('PanitiaCreateCtrl', 'panitia_service'),
+            })
+
+            .state('app.panitias-edit', {
+                url: '/panitias-edit/:id',
+                templateUrl: 'assets//src/panitias/panitias-edit.html',
+                title: 'Edit Data Panitia',
+                resolve: loadSequence('PanitiaEditCtrl', 'panitia_service'),
+            })
+
             // URL CRUD Pendaftaran/Jenis Jurusan
             .state('app.pendaftarans', {
                 url: '/pendaftarans/:id',

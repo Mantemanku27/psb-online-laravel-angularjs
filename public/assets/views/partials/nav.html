@@ -25,21 +25,8 @@
 			</div>
 		</a>
 	</li>
+
 	<!-- Menu Formulir -->
-
-	<!--<li ui-sref-active="active">-->
-		<!--<a ui-sref="app.formulirs">&lt;!&ndash; Link Masuk Halaman Formulir &ndash;&gt;-->
-			<!--<div class="item-content">-->
-				<!--<div class="item-media">-->
-					<!--<i class="ti-pencil-alt"></i>-->
-				<!--</div>-->
-				<!--<div class="item-inner">-->
-					<!--<span class="title"> Formulir </span>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</a>-->
-	<!--</li>-->
-
 	<!--<li ui-sref-active="active">-->
 		<!--<a ui-sref="app.formulirs">&lt;!&ndash; Link Masuk Halaman Formulir &ndash;&gt;-->
 			<!--<div class="item-content">-->
@@ -61,19 +48,17 @@
 					<i class="ti-pencil-alt"></i>
 				</div>
 				<div class="item-inner">
-
 					<span class="title"> Pendaftaran Siswa Baru </span>
-
 					<!--<span class="title"> Biodata </span>-->
-
 				</div>
 			</div>
 		</a>
 	</li>
+
 	<!-- Menu Users -->
-	<li ui-sref-active="active">
-		<a ui-sref="app.users"><!-- Link Masuk Halaman User -->
-			<div class="item-content">
+	<!--<li ui-sref-active="active">-->
+		<!--<a ui-sref="app.users"> Link Masuk Halaman User -->
+			<!--<div class="item-content">
 				<div class="item-media">
 					<i class="ti-user"></i>
 				</div>
@@ -82,7 +67,22 @@
 				</div>
 			</div>
 		</a>
+	</li>-->
+
+	<!-- Menu Panitia -->
+	<li ui-sref-active="active">
+		<a ui-sref="app.panitias"><!-- Link Masuk Halaman Panitia -->
+			<div class="item-content">
+				<div class="item-media">
+					<i class="ti-pencil-alt"></i>
+				</div>
+				<div class="item-inner">
+					<span class="title"> Panitia </span>
+				</div>
+			</div>
+		</a>
 	</li>
+
 	<!-- Menu Jurusan -->
 	<li ui-sref-active="active">
 		<a ui-sref="app.jurusans"><!-- Link Masuk Halaman Jurusan -->
@@ -96,21 +96,8 @@
 			</div>
 		</a>
 	</li>
+
 	<!-- Menu Pendaftaran -->
-
-	<!--<li ui-sref-active="active">-->
-		<!--<a ui-sref="app.pendaftarans">&lt;!&ndash; Link Masuk Halaman Jenis Jurusan &ndash;&gt;-->
-			<!--<div class="item-content">-->
-				<!--<div class="item-media">-->
-					<!--<i class="ti-menu-alt"></i>-->
-				<!--</div>-->
-				<!--<div class="item-inner">-->
-					<!--<span class="title"> Pendaftaran </span>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</a>-->
-	<!--</li>-->
-
 	<!--<li ui-sref-active="active">-->
 		<!--<a ui-sref="app.pendaftarans">&lt;!&ndash; Link Masuk Halaman Jenis Jurusan &ndash;&gt;-->
 			<!--<div class="item-content">-->
@@ -138,6 +125,7 @@
 		</a>
 	</li>
 
+    <!-- Menu Ganti Password -->
     <li ui-sref-active="active" ng-if="dataUser.level !=0">
     	<a ui-sref="app.users-password"> <!-- Link Ganti Password -->
     		<div class="item-content">
@@ -150,6 +138,6 @@
     		</div>
     	</a>
     </li>
-<!-- end Navigation Menu -->
 
 </ul>
+<!-- end Navigation Menu -->

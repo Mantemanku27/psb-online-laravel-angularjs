@@ -77,7 +77,12 @@ app.constant('JS_REQUIRES', {
         'jurusan_service': 'assets/src/jurusans/jurusans-service.js',
         'JurusanCreateCtrl': 'assets/src/jurusans/JurusansCreateCtrl.js',
         'JurusanEditCtrl': 'assets/src/jurusans/JurusansEditCtrl.js',
-        //*** Jenis Jurusan
+        //*** Panitia
+        'PanitiaCtrl': 'assets/src/panitias/PanitiasCtrl.js',
+        'panitia_service': 'assets/src/panitias/panitias-service.js',
+        'PanitiaCreateCtrl': 'assets/src/panitias/PanitiasCreateCtrl.js',
+        'PanitiaEditCtrl': 'assets/src/panitias/PanitiasEditCtrl.js',
+        //*** Pendaftaran
         'PendaftaranCtrl': 'assets/src/pendaftarans/PendaftaransCtrl.js',
         'pendaftaran_service': 'assets/src/pendaftarans/pendaftarans-service.js',
         'PendaftaranCreateCtrl': 'assets/src/pendaftarans/PendaftaransCreateCtrl.js',

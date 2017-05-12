@@ -1,0 +1,60 @@
+<div ng-controller="PanitiasEditCtrl">
+    <!-- Page Title -->
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">FORM EDIT PANITIA</h1>
+            </div>
+            <div ncy-breadcrumb></div>
+        </div>
+    </section>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+    <!-- /end page title -->
+
+    <!-- Form Validation -->
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <form name="Form">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
+                                        <label class="control-label"> Nama <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Nama" class="form-control" name="nama" ng-model="myModel.nama" required />
+                                        <span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama is required</span>
+                                        <span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error':Form.nip.$dirty && Form.nip.$invalid, 'has-success':Form.nip.$valid}">
+                                        <label class="control-label"> NIP <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your NIP" class="form-control" name="nip" ng-model="myModel.nip" required>
+                                        <span class="error text-small block" ng-if="Form.nip.$dirty && Form.nip.$error.required">NIP is required.</span>
+                                        <span class="success text-small" ng-if="Form.nip.$valid">Thank You!</span>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.panitias" ng-disabled="process">Kembali</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /end form validation -->
+</div>
