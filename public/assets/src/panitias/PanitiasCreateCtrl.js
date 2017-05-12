@@ -45,6 +45,7 @@ app.controller('PanitiasCreateCtrl', ['$state', '$scope', 'panitias', '$timeout'
     $scope.clearInput = function () {
         $scope.myModel.nama = null;
         $scope.myModel.nip = null;
+        $scope.myModel.jurusan = null;
     };
 
     $scope.submitData = function (isBack) {

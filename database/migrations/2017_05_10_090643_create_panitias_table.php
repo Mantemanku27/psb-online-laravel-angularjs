@@ -18,6 +18,7 @@ class CreatePanitiasTable extends Migration
             $table->uuid('id');
             $table->string('nama');
             $table->integer('nip');
+            $table->string('jurusan');
             $table->timestamps();
             $table->softDeletes();
         });

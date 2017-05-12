@@ -38,6 +38,20 @@
                                         <span class="success text-small" ng-if="Form.nip.$valid">Thank You!</span>
                                     </div>
 
+                                    <div class="form-group" ng-class="{'has-error':Form.jurusan.$dirty && Form.jurusan.$invalid, 'has-success':Form.jurusan.$valid}">
+                                        <label class="control-label"> Jurusan <span class="symbol required"></span></label>
+										<select class="form-control" name="jurusan" ng-model="myModel.jurusan" required>
+										    <option value="" disabled selected>Silahkan pilih Nama Jurusan</option>
+										    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+										    <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
+                                            <option value="Teknik Elektronika Industri">Teknik Elektronika Industri</option>
+                                            <option value="Teknik Kendaraan Ringan">Teknik Kendaraan Ringan</option>
+                                            <option value="Teknik Sepeda Motor">Teknik Sepeda Motor</option>
+									    </select>
+										<span class="error text-small block" ng-if="Form.jurusan.$dirty && Form.jurusan.$invalid">Jurusan is required</span>
+										<span class="success text-small" ng-if="Form.jurusan.$valid">Thank You!</span>
+									</div>
+
                                 </fieldset>
                             </div>
                         </div>

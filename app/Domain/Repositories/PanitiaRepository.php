@@ -67,7 +67,8 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
         // execute sql insert
         return parent::create([
             'nama'    => e($data['nama']),
-            'nip'   => e($data['nip'])
+            'nip'   => e($data['nip']),
+            'jurusan'   => e($data['jurusan'])
         ]);
 
     }
@@ -81,7 +82,8 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
     {
         return parent::update($id, [
             'nama'    => e($data['nama']),
-            'nip'   => e($data['nip'])
+            'nip'   => e($data['nip']),
+            'jurusan'   => e($data['jurusan'])
         ]);
     }
 

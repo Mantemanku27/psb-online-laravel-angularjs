@@ -16,7 +16,7 @@ class PanitiaTableSeeder extends Seeder
         DB::table('panitias')->truncate();
 
         $panitias = [
-            ['id' => 1, 'nama' => 'Nico Pradana', 'nip' => '1234567890', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => 1, 'nama' => 'Nico Pradana', 'nip' => '1234567890', 'jurusan' => 'Rekayasa Perangkat Lunak', 'created_at' => \Carbon\Carbon::now()],
         ];
 
         // insert batch

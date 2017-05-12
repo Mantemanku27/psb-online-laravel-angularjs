@@ -29,7 +29,8 @@ class PanitiaCreateRequest extends Request
      */
     protected $attrs = [
         'nama'    => 'Nama',
-        'nip'   => 'Nip'
+        'nip'   => 'Nip',
+        'jurusan'   => 'Jurusan'
     ];
 
     /**
@@ -41,7 +42,8 @@ class PanitiaCreateRequest extends Request
     {
         return [
             'nama'    => 'required|max:225',
-            'nip'   => 'required|max:2555'
+            'nip'   => 'required|max:2555',
+            'jurusan'   => 'required|max:255'
         ];
     }
 

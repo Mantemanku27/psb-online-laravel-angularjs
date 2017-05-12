@@ -20,7 +20,7 @@ class Panitia extends Entities
      * @var array
      */
     protected $fillable = [
-        'nama', 'nip',
+        'nama', 'nip', 'jurusan',
     ];
 
 }
