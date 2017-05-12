@@ -122,6 +122,4 @@ class FormulirController extends Controller
         return $this->formulir->cekidformulir();
     }
 
-
-
 }

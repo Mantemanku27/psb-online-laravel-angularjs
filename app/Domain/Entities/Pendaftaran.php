@@ -18,6 +18,8 @@ class Pendaftaran extends Entities
     /**
      * @var array
      */
+
+    // Relasi tabel
     protected $fillable = [
 
         'no_pilihan', 'status', 'jurusans_id', 'formulirs_id', 'user_id',

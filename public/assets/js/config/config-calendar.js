@@ -5,3 +5,4 @@ angular.module('myModule', ['mwl.calendar'])
       calendarConfig.showTimesOnWeekView = false; //Make the week view more like the day view, with the caveat that event end times are ignored.
 
   });
+  

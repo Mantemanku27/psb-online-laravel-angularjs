@@ -34,6 +34,7 @@ class LoginController extends Controller
      *
      * @return void
      */
+// login
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
@@ -41,6 +42,7 @@ class LoginController extends Controller
 
     public function postLogin(UserLoginRequest $request)
     {
+        // tergantung field login
         if (Auth::attempt($request->only('email', 'password'), true)) {
             session()->put('nama', Auth::user()->nama);
             session()->put('email', Auth::user()->email);
@@ -48,9 +50,10 @@ class LoginController extends Controller
             session()->put('user_id', Auth::user()->id);
 
             
-            // Authentication passed...
+            // sukses masek pendaftaran
             return redirect()->route('pendaftaran');
         } else {
+            // gagal masuk ke login
             session()->flash('auth_message', 'Kombinasi email dan password salah!');
             return redirect()->route('login');
         }
@@ -63,4 +66,5 @@ class LoginController extends Controller
 
         return redirect()->route('login');
     }
+// end login
 }

@@ -117,8 +117,5 @@ class PendaftaranController extends Controller
     {
         return $this->pendaftaran->batasInputPendaftaran($id);
     }
-  
-
-
 
 }

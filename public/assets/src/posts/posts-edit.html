@@ -1,9 +1,9 @@
-<!--<!— start: PAGE TITLE —>-->
 <div ng-controller="PostsEditCtrl">
+    <!-- Page Title -->
     <section id="page-title">
         <div class="row">
             <div class="col-sm-8">
-                <h1 class="mainTitle">FORM EDIT POST</h1>
+                <h1 class="mainTitle">FORM EDIT POST PEMBERITAHUAN</h1>
             </div>
             <div ncy-breadcrumb></div>
         </div>
@@ -11,13 +11,15 @@
     <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
         {{alert.msg}}
     </uib-alert>
-    <!--<!— end: PAGE TITLE —>
-<!— start: FORM VALIDATION —>-->
+    <!-- /end page title -->
+
+    <!-- Form Validation -->
     <div class="container-fluid container-fullw bg-white">
         <div class="row">
             <div class="col-md-12">
                 <div>
                     <form name="Form">
+
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset>
@@ -55,10 +57,11 @@
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <!-- /end form validation -->
 </div>
-<!--<!— end: FORM VALIDATION —>-->

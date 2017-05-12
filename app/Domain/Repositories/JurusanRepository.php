@@ -158,5 +158,4 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
         return $provinsi;
     }
 
-
 }

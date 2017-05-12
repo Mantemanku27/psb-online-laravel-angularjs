@@ -1,5 +1,5 @@
-<!--<!— start: PAGE TITLE —>-->
 <div ng-controller="JurusansCreateCtrl">
+    <!-- Page Title -->
     <section id="page-title">
         <div class="row">
             <div class="col-sm-8">
@@ -11,20 +11,21 @@
     <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
         {{alert.msg}}
     </uib-alert>
-    <!--<!— end: PAGE TITLE —>
-<!— start: FORM VALIDATION —>-->
+    <!-- /end page title -->
+
+    <!-- Form Validation -->
     <div class="container-fluid container-fullw bg-white">
         <div class="row">
             <div class="col-md-12">
                 <div>
                     <form name="Form">
+
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset>
 
                                     <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
                                         <label class="control-label"> Nama Jurusan <span class="symbol required"></span></label>
-									</label>
 										<select class="form-control" name="nama" ng-model="myModel.nama" required>
 										    <option value="" disabled selected>Silahkan pilih Nama Jurusan</option>
 										    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
@@ -57,10 +58,11 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <!-- /end form validation -->
 </div>
-<!--<!— end: FORM VALIDATION —>-->

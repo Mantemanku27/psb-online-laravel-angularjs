@@ -64,17 +64,14 @@ return [
     |
     */
 
+    // login
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Domain\Entities\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
+    // end login
 
     /*
     |--------------------------------------------------------------------------

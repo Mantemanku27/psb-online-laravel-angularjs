@@ -32,85 +32,84 @@
   <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.min.css">
   <!-- Animate Css -->
   <link rel="stylesheet" href="../bower_components/animate.css/animate.min.css">
-  <!-- Clip-Two CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/plugins.css">
   <!-- X Icon -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
-  <!-- Clip-Two Theme -->
+  <!-- Theme -->
   {{--<link rel="stylesheet" data-ng-href="../assets/css/themes/app.layout.theme.css" />--}}
 </head>
 <body ng-controller="AppCtrl">
-<div ui-view id="app" ng-class="{'app-mobile' : app.isMobile, 'app-navbar-fixed' : app.layout.isNavbarFixed, 'app-sidebar-fixed' : app.layout.isSidebarFixed, 'app-sidebar-closed':app.layout.isSidebarClosed, 'app-footer-fixed':app.layout.isFooterFixed}"></div>
-
-<!-- jQuery -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Fastclick -->
-<script src="../bower_components/fastclick/lib/fastclick.js"></script>
-<!-- Angular -->
-<script src="../bower_components/angular/angular.min.js"></script>
-<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
-<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="../bower_components/angular-touch/angular-touch.min.js"></script>
-<script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<!-- Angular storage -->
-<script src="../bower_components/ngstorage/ngStorage.min.js"></script>
-<!-- Angular Translate -->
-<script src="../bower_components/angular-translate/angular-translate.min.js"></script>
-<script src="../bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
-<script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-<script src="../bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
-<script src="../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
-<!-- oclazyload -->
-<script src="../bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-<!-- breadcrumb -->
-<script src="../bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
-<!-- UI Bootstrap -->
-<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<!-- Loading Bar -->
-<script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-<!-- Angular Scroll -->
-<script src="../bower_components/angular-scroll/angular-scroll.min.js"></script>
-<!-- Clip-Two Scripts -->
-<script src="../assets/js/app.js"></script>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/config.constant.js"></script>
-<!-- Digunakan untuk membedakan login antara level Admin(0) & User(1)  -->
-<?php
-if(session('level')==0) {
-?>
-<script src="../assets/js/config.router.js"></script> <!-- Link login Admin -->
-<?php
-}
-?>
-<?php
-if(session('level')==1) {
-?>
-<script src="../assets/js/config.router.user.js"></script> <!-- Link login User -->
-<?php
-}
-?>
-<!-- Clip-Two Directives -->
-<script src="../assets/js/directives/toggle.js"></script>
-<script src="../assets/js/directives/perfect-scrollbar.js"></script>
-<script src="../assets/js/directives/empty-links.js"></script>
-<script src="../assets/js/directives/sidebars.js"></script>
-<script src="../assets/js/directives/off-click.js"></script>
-<script src="../assets/js/directives/full-height.js"></script>
-<script src="../assets/js/directives/panel-tools.js"></script>
-<script src="../assets/js/directives/char-limit.js"></script>
-<script src="../assets/js/directives/dismiss.js"></script>
-<script src="../assets/js/directives/compare-to.js"></script>
-<script src="../assets/js/directives/select.js"></script>
-<script src="../assets/js/directives/messages.js"></script>
-<script src="../assets/js/directives/chat.js"></script>
-<script src="../assets/js/directives/sparkline.js"></script>
-<script src="../assets/js/directives/touchspin.js"></script>
-<script src="../assets/js/directives/file-upload.js"></script>
-<!-- Clip-Two Controllers -->
-<script src="../assets/js/controllers/mainCtrl.js"></script>
-<script src="../assets/js/controllers/inboxCtrl.js"></script>
-<script src="../assets/js/controllers/bootstrapCtrl.js"></script>
-</body>
+  <div ui-view id="app" ng-class="{'app-mobile' : app.isMobile, 'app-navbar-fixed' : app.layout.isNavbarFixed, 'app-sidebar-fixed' : app.layout.isSidebarFixed, 'app-sidebar-closed':app.layout.isSidebarClosed, 'app-footer-fixed':app.layout.isFooterFixed}"></div>
+  <!-- jQuery -->
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Fastclick -->
+  <script src="../bower_components/fastclick/lib/fastclick.js"></script>
+  <!-- Angular -->
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.min.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <!-- Angular storage -->
+  <script src="../bower_components/ngstorage/ngStorage.min.js"></script>
+  <!-- Angular Translate -->
+  <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
+  <script src="../bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+  <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="../bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+  <script src="../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+  <!-- oclazyload -->
+  <script src="../bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+  <!-- breadcrumb -->
+  <script src="../bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+  <!-- UI Bootstrap -->
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <!-- Loading Bar -->
+  <script src="../bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+  <!-- Angular Scroll -->
+  <script src="../bower_components/angular-scroll/angular-scroll.min.js"></script>
+  <!-- Scripts -->
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/config.constant.js"></script>
+  <!-- Digunakan untuk membedakan login antara level Admin(0) & User(1)  -->
+  <?php
+    if(session('level')==0) {
+  ?>
+    <script src="../assets/js/config.router.js"></script> <!-- Link login Admin -->
+  <?php
+  }
+  ?>
+  <?php
+    if(session('level')==1) {
+  ?>
+    <script src="../assets/js/config.router.user.js"></script> <!-- Link login User -->
+  <?php
+  }
+  ?>
+  <!-- Directives -->
+  <script src="../assets/js/directives/toggle.js"></script>
+  <script src="../assets/js/directives/perfect-scrollbar.js"></script>
+  <script src="../assets/js/directives/empty-links.js"></script>
+  <script src="../assets/js/directives/sidebars.js"></script>
+  <script src="../assets/js/directives/off-click.js"></script>
+  <script src="../assets/js/directives/full-height.js"></script>
+  <script src="../assets/js/directives/panel-tools.js"></script>
+  <script src="../assets/js/directives/char-limit.js"></script>
+  <script src="../assets/js/directives/dismiss.js"></script>
+  <script src="../assets/js/directives/compare-to.js"></script>
+  <script src="../assets/js/directives/select.js"></script>
+  <script src="../assets/js/directives/messages.js"></script>
+  <script src="../assets/js/directives/chat.js"></script>
+  <script src="../assets/js/directives/sparkline.js"></script>
+  <script src="../assets/js/directives/touchspin.js"></script>
+  <script src="../assets/js/directives/file-upload.js"></script>
+  <!-- Controllers -->
+  <script src="../assets/js/controllers/mainCtrl.js"></script>
+  <script src="../assets/js/controllers/inboxCtrl.js"></script>
+  <script src="../assets/js/controllers/bootstrapCtrl.js"></script>
+  </body>
 </html>

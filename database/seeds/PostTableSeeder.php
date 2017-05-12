@@ -10,7 +10,8 @@ class PostTableSeeder extends Seeder
      *
      * @return void
      */
-public function run()
+
+    public function run()
     {
         // truncate record
         DB::table('posts')->truncate();

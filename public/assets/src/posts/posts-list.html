@@ -2,44 +2,46 @@
     <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
 </div>
 <div class="panel panel-default" ng-controller="PostCtrl">
+    <!-- Page Title -->
     <div class="panel-heading bg-white" style="background: #b3c4c7;">
-        <span class="font-bold"><left><font color="white">DATA POST</font></left></span>
+        <span class="font-bold"><left><font color="white">DATA POST PEMBERITAHUAN</font></left></span>
     </div>
-    <!--<div ng-show="isLoading" layout="row" layout-sm="column" layout-align="space-around">-->
-        <!--<md-progress-circular md-mode="indeterminate"></md-progress-circular>-->
-    <!--</div>-->
-    <!--<div ng-show="isLoaded">-->
+    <!-- /end page title -->
         <div class="panel-body">
             <div class="row">
+
+                <!-- Button -->
                 <div class="col-sm-8 m-b-xs">
-            <span tooltip="Tambah Data" ng-if="dataUser.level !=1 ">
-                <a md-ink-ripple ui-sref="app.posts-create" class="btn btn-sm btn-default">
-                    <i class="glyphicon glyphicon-plus-sign"></i></a>
-                </span>
-            <span tooltip="Refresh data">
-                <button md-ink-ripple class="btn btn-sm btn-default" ng-click="refreshData()">
-                    <i class="glyphicon glyphicon-refresh"></i>
-                </button>
-            </span>
-            <span tooltip="Cetak data">
-                <button md-ink-ripple class="btn btn-sm btn-default" ng-click="print()">
-                    <i class="glyphicon glyphicon-print"></i>
-                </button>
-            </span>
+                    <!-- Button Create -->
+                    <span tooltip="Tambah Data" ng-if="dataUser.level !=1 ">
+                        <a md-ink-ripple ui-sref="app.posts-create" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
+                    </span>
+                    <!-- Button Refresh -->
+                    <span tooltip="Refresh data">
+                        <button md-ink-ripple class="btn btn-sm btn-default" ng-click="refreshData()"><i class="glyphicon glyphicon-refresh"></i></button>
+                    </span>
+                    <!-- Button Print -->
+                    <span tooltip="Cetak data">
+                        <button md-ink-ripple class="btn btn-sm btn-default" ng-click="print()"><i class="glyphicon glyphicon-print"></i></button>
+                    </span>
                 </div>
+                <!-- /end button -->
+
+                <!-- Form Searching -->
                 <div class="col-sm-4">
                     <div class="input-group pull-right">
-                        <input type="text" class="input-sm form-control" placeholder="Search" ng-model="main.term"
-                               ng-disabled="disUtamrow.txtCari" ng-enter="getData()">
-                <span class="input-group-btn" tooltip="Cari Data">
-                    <button md-ink-ripple class="btn btn-sm btn-default" type="button" ng-click="getData()"
-                            ng-disabled="main.term ==''">Cari
-                    </button>
-                </span>
+                        <input type="text" class="input-sm form-control" placeholder="Search" ng-model="main.term" ng-disabled="disUtamrow.txtCari" ng-enter="getData()">
+                        <span class="input-group-btn" tooltip="Cari Data">
+                            <button md-ink-ripple class="btn btn-sm btn-default" type="button" ng-click="getData()" ng-disabled="main.term ==''">Cari</button>
+                        </span>
                     </div>
                 </div>
+                <!-- /end form searching -->
+            
             </div>
         </div>
+
+        <!-- Tabel Responsive -->
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -55,28 +57,22 @@
                     <td class="col-md-2">{{row.judul}}</td>
                     <td class="col-md-2">{{row.gambar}}</td>
                     <td class="col-md-2">{{row.deskripsi}}</td>
-                    <!--<td class="col-md-2">
-                        <span ng-if="row.is_lock == '0'" class="label bg-info ng-scope">Draft</span>
-                        <span ng-if="row.is_lock == ''" class="label bg-info ng-scope">Draft</span>
-                        <span ng-if="row.is_lock == '1' " class="label bg-success ng-scope">Final</span>
-                    </td>-->
 
                     <td class="col-md-2" ng-if="dataUser.level !=1 ">
-                        <a ui-sref="app.posts-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data"
-                           class="btn btn-sm btn-default" >
+                        <a ui-sref="app.posts-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-default" >
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
-                        <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data"
-                                class="btn btn-sm btn-danger" >
+                        <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger" >
                             <i class="glyphicon glyphicon-trash"></i>
                         </button>
-
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <!--panel pagination-->
+        <!-- /end tabel responsive -->
+
+        <!-- panel pagination-->
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-4 text-center-xs" style="margin-top: 27px;">
@@ -85,29 +81,30 @@
                 <div class="col-sm-8 text-right text-center-xs">
                     <ul class="pagination m-t-none m-b-none">
                         <li tooltip="Halaman Pertama">
-                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='firstPage()'
-                                    ng-disabled='current_page == 1 || disUtamrow.btnPagging'><i
-                                    class="fa fa-angle-double-left"></i></button>
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='firstPage()' ng-disabled='current_page == 1 || disUtamrow.btnPagging'>
+                                <i class="fa fa-angle-double-left"></i>
+                            </button>
                         </li>
                         <li tooltip="Halaman Sebelumnya">
-                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='previousPage()'
-                                    ng-disabled='current_page <= 1 || disUtamrow.btnPagging'><i
-                                    class="fa fa-angle-left"></i></button>
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='previousPage()' ng-disabled='current_page <= 1 || disUtamrow.btnPagging'>
+                                <i class="fa fa-angle-left"></i>
+                            </button>
                         </li>
                         <li tooltip="Halaman Selanjutnya">
-                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='nextPage()'
-                                    ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i
-                                    class="fa fa-angle-right"></i></button>
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='nextPage()' ng-disabled='main.page >= last_page || disUtamrow.btnPagging'>
+                                <i class="fa fa-angle-right"></i>
+                            </button>
                         </li>
                         <li tooltip="Halaman Terakhir">
-                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='lastPage()'
-                                    ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i
-                                    class="fa fa-angle-double-right"></i></button>
+                            <button md-ink-ripple class="btn btn-default" type="button" ng-click='lastPage()' ng-disabled='main.page >= last_page || disUtamrow.btnPagging'>
+                                <i class="fa fa-angle-double-right"></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
             </div>
-            <!-- /Base -->
         </div>
+        <!-- /panel pagination -->
+        
     </div>
 </div>

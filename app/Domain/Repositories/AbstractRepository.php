@@ -100,7 +100,7 @@ abstract class AbstractRepository implements RepositoryContract
         return $this->createSuccess($data);
     }
 
-// Register
+    // Function Register
     public function createsiswa(array $data)
     {
         $q = $this->model->create($data);
@@ -109,7 +109,7 @@ abstract class AbstractRepository implements RepositoryContract
         }
         return $this->createSuccess($data);
     }
-// end register
+    // end register
 
     /**
      * Update an existing entity

@@ -116,6 +116,7 @@ class UserController extends Controller
     {
         return $this->user->delete($id);
     }
+// login membuat session ke backoffice
     public function getSession()
     {
         if (session('nama') == null) {
@@ -137,6 +138,7 @@ class UserController extends Controller
 
             ]]);
     }
+// end login
 
 // Ganti Password
     public function updatePass(Request $request)

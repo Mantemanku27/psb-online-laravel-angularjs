@@ -19,6 +19,8 @@ class Formulir extends Entities
     /**
      * @var array
      */
+
+    // Relasi Tabel
     protected $fillable = [
 
         'asal_sekolah', 'n_bi', 'n_mtk', 'n_ipa', 'n_ing', 'biodatas_id','jurusan','jurusan_2','user_id'
@@ -39,7 +41,5 @@ class Formulir extends Entities
 //    {
 //        return $this->belongsTo('App\Domain\Entities\Jurusan', 'jurusan_2');
 //    }
-
-
 
 }

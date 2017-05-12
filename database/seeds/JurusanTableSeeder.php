@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Database\Seeder;
 
 class JurusanTableSeeder extends Seeder
@@ -10,7 +9,8 @@ class JurusanTableSeeder extends Seeder
      *
      * @return void
      */
-public function run()
+
+    public function run()
     {
         // truncate record
         DB::table('jurusans')->truncate();
