@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Database\Seeder;
 
 class BiodataTableSeeder extends Seeder
@@ -10,7 +9,8 @@ class BiodataTableSeeder extends Seeder
      *
      * @return void
      */
-public function run()
+
+    public function run()
     {
         // truncate record
         DB::table('biodatas')->truncate();
@@ -29,6 +29,5 @@ public function run()
 //
 //        // insert batch
 //        DB::table('biodatas')->insert($biodatas);
-
     }
 }

@@ -102,6 +102,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
     $scope.clearInput = function () {
         $scope.myModel.nama_lengkap = null;
         $scope.myModel.email = null;
+        $scope.myModel.telepon = null;
         $scope.myModel.jk = null;
         $scope.myModel.agama = null;
         $scope.myModel.tempat_lahir = null;

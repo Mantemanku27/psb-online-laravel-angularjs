@@ -22,7 +22,9 @@ class BiodataController extends Controller
     public function __construct(BiodataInterface $biodata)
     {
         $this->biodata = $biodata;
+        // login pengaman
         $this->middleware('auth');
+        // login
     }
 
     /**
@@ -118,8 +120,5 @@ class BiodataController extends Controller
     {
         return $this->biodata->cekidbiodata();
     }
-
-
-
 
 }

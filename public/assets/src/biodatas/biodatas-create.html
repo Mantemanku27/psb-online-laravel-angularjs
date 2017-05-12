@@ -36,6 +36,13 @@
                                         <span class="success text-small" ng-if="Form.email.$valid">Thank You!</span>
                                     </div>
 
+                                    <div class="form-group" ng-class="{'has-error':Form.telepon.$dirty && Form.telepon.$invalid, 'has-success':Form.telepon.$valid}">
+                                        <label class="control-label"> Telepon <span class="symbol required"></span></label>
+                                        <input type="text" placeholder="Enter your Nama Lengkap" class="form-control" name="telepon" ng-model="myModel.telepon" required />
+                                        <span class="error text-small block" ng-if="Form.telepon.$dirty && Form.telepon.$invalid">Nama Lengkap is required</span>
+                                        <span class="success text-small" ng-if="Form.telepon.$valid">Thank You!</span>
+                                    </div>
+
                                     <div class="form-group" ng-class="{'has-error':Form.jk.$dirty && Form.jk.$invalid, 'has-success':Form.jk.$valid}">
                                         <label class="control-label"> Jenis Kelamin <span class="symbol required"></span></label>
 										<select class="form-control" name="jk" ng-model="myModel.jk" required>

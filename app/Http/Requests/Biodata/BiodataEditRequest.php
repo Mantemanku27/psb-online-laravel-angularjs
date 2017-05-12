@@ -30,6 +30,7 @@ class BiodataEditRequest extends Request
     protected $attrs = [
         'nama_lengkap'    => 'Nama_lengkap',
         'email'    => 'Email',
+        'telepon'    => 'Telepon',
         'jk'    => 'Jk',
         'agama'    => 'Agama',
         'tempat_lahir'    => 'Tempat_lahir',
@@ -53,6 +54,7 @@ class BiodataEditRequest extends Request
         return [
             'nama_lengkap'    => 'required|max:225',
             'email'    => 'required|email|unique:contacts,email|max:225',
+            'telepon'    => 'required|max:225',
             'jk'    => 'required|max:225',
             'agama'    => 'required|max:225',
             'tempat_lahir'    => 'required|max:225',

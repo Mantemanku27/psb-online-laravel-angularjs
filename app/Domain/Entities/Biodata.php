@@ -19,9 +19,11 @@ class Biodata extends Entities
     /**
      * @var array
      */
+
+    // Relasi Tabel
     protected $fillable = [
 
-        'nama_lengkap', 'email', 'jk', 'agama', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'desa', 'kecamatan', 'kabupaten', 'provinsi', 'users_id',
+        'nama_lengkap', 'email', 'telepon', 'jk', 'agama', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'desa', 'kecamatan', 'kabupaten', 'provinsi', 'users_id',
     ];
     protected $with = ['users'];
 
