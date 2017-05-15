@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
 
         $users = [
             ['id' => 1, 'nama' => 'SMKN 1 Kepanjen', 'telepon' => '0341395777', 'email' => 'smkn1kepanjen@ymail.com', 'password' => bcrypt('kanesa'), 'level' => '0', 'created_at' => \Carbon\Carbon::now()],
-            ['id' => 2, 'nama' => 'Ayu Azmi Syafarini Arifianto', 'telepon' => '081000222777', 'email' => 'ayuazmi@gmail.com', 'password' => bcrypt('ayuazmi'), 'level' => '1', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => 2, 'nama' => 'Mustofa bisri', 'telepon' => '081000222777', 'email' => 'mustofa@gmail.com', 'password' => bcrypt('mustofa'), 'level' => '1', 'created_at' => \Carbon\Carbon::now()],
         ];
 
         // insert batch
