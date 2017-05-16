@@ -90,6 +90,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
 
         return parent::create([
             'nama_lengkap' => e($data['nama_lengkap']),
+            'foto' => e($data['foto']),
             'email' => e($data['email']),
             'telepon' => e($data['telepon']),
             'jk' => e($data['jk']),
@@ -117,6 +118,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
         return parent::update($id, [
 
             'nama_lengkap' => e($data['nama_lengkap']),
+            'foto' => e($data['foto']),
             'email' => e($data['email']),
             'telepon' => e($data['telepon']),
             'jk' => e($data['jk']),

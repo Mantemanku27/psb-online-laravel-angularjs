@@ -17,6 +17,7 @@ class CreateBiodatasTable extends Migration
 
             $table->uuid('id');
             $table->string('nama_lengkap');
+            $table->longtext('foto');
             $table->string('email');
             $table->string('telepon');
             $table->string('jk');

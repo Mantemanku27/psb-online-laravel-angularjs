@@ -29,6 +29,7 @@ class BiodataEditRequest extends Request
      */
     protected $attrs = [
         'nama_lengkap'    => 'Nama_lengkap',
+        'foto'    => 'Foto',
         'email'    => 'Email',
         'telepon'    => 'Telepon',
         'jk'    => 'Jk',
@@ -53,6 +54,7 @@ class BiodataEditRequest extends Request
     {
         return [
             'nama_lengkap'    => 'required|max:225',
+            'foto'    => 'required|max:225',
             'email'    => 'required|email|unique:contacts,email|max:225',
             'telepon'    => 'required|max:225',
             'jk'    => 'required|max:225',
@@ -92,6 +94,7 @@ public function validator($validator)
             'success'    => false,
             'validation' => [
                 'nama_lengkap' => $message->first('nama_lengkap'),
+                'foto' => $message->first('foto'),
                 'email' => $message->first('email'),
                 'agama' => $message->first('agama'),
                 'tempat_lahir'          => $message->first('tempat_lahir'),
