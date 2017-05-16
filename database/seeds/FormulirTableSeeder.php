@@ -16,7 +16,7 @@ class FormulirTableSeeder extends Seeder
         DB::table('formulirs')->truncate();
 
 //      $formulirs = [
-//          ['id' => 1, 'asal_sekolah' => 'SMPN 4 Gondanglegi', 'n_bi' => '27', 'n_mtk' => '27', 'n_ipa' => '27', 'n_ing' => '27', 'biodatas_id' => '1',  'jurusan' => 'Rekayasa Perangkat Lunak', 'jurusan_2' => 'Rekayasa Perangkat Lunak', 'user_id' => '1','created_at' => \Carbon\Carbon::now()],
+//          ['id' => 1, 'asal_sekolah' => 'SMPN 4 Gondanglegi', 'n_bi' => '27', 'n_mtk' => '27', 'n_ipa' => '27', 'n_ing' => '27', 'foto_ijazah' => 'hh.jpg', 'biodatas_id' => '1',  'jurusan' => 'Rekayasa Perangkat Lunak', 'jurusan_2' => 'Rekayasa Perangkat Lunak', 'user_id' => '1','created_at' => \Carbon\Carbon::now()],
 //      ];
 //
 //      // insert batch

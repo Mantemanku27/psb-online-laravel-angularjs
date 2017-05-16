@@ -33,7 +33,7 @@ class FormulirEditRequest extends Request
         'n_mtk'    => 'N_mtk',
         'n_ipa'    => 'N_ipa',
         'n_ing'   => 'N_ing',
-        
+        'foto_ijazah'   => 'Foto_ijazah',
     ];
 
     /**
@@ -49,7 +49,7 @@ class FormulirEditRequest extends Request
             'n_mtk'    => 'required|max:225',
             'n_ipa'    => 'required|max:225',
             'n_ing'   => 'required|max:255',
-        
+            'foto_ijazah'   => 'required|max:255',
         ];
     }
 
@@ -79,8 +79,8 @@ public function validator($validator)
                 'n_bi' => $message->first('n_bi'),
                 'n_mtk' => $message->first('n_mtk'),
                 'n_ipa'          => $message->first('n_ipa'),
-                'n_ing'          => $message->first('n_ing')
-
+                'n_ing'          => $message->first('n_ing'),
+                'foto_ijazah'          => $message->first('foto_ijazah')
             ]
         ];
     }

@@ -23,7 +23,7 @@ class Formulir extends Entities
     // Relasi Tabel
     protected $fillable = [
 
-        'asal_sekolah', 'n_bi', 'n_mtk', 'n_ipa', 'n_ing', 'biodatas_id','jurusan','jurusan_2','user_id'
+        'asal_sekolah', 'n_bi', 'n_mtk', 'n_ipa', 'n_ing', 'foto_ijazah', 'biodatas_id','jurusan','jurusan_2','user_id'
 
     ];
     protected $with = ['biodatas'];

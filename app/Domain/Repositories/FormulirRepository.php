@@ -130,6 +130,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             'n_mtk' => e($data['n_mtk']),
             'n_ipa' => e($data['n_ipa']),
             'n_ing' => e($data['n_ing']),
+            'foto_ijazah' => e($data['foto_ijazah']),
             'biodatas_id' => e($data['biodatas_id']),
             'user_id' => session('user_id')
         ]);
@@ -150,6 +151,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             'n_mtk' => e($data['n_mtk']),
             'n_ipa' => e($data['n_ipa']),
             'n_ing' => e($data['n_ing']),
+            'foto_ijazah' => e($data['foto_ijazah']),
             'biodatas_id' => e($data['biodatas_id']),
             
         ]);
