@@ -269,10 +269,10 @@
                 <a href="javascript:void(0)" class="fa-facebook"></a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="fa-pinterest"></a>
+                <a href="javascript:void(0)" class="fa-github"></a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="fa-google-plus"></a>
+                <a href="javascript:void(0)" class="fa-instagram"></a>
               </li>
             </ul>
           </div>
@@ -295,10 +295,10 @@
                 <a href="javascript:void(0)" class="fa-facebook"></a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="fa-pinterest"></a>
+                <a href="javascript:void(0)" class="fa-github"></a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="fa-google-plus"></a>
+                <a href="javascript:void(0)" class="fa-instagram"></a>
               </li>
             </ul>
           </div>
@@ -321,10 +321,10 @@
                 <a href="javascript:void(0)" class="fa-facebook"></a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="fa-pinterest"></a>
+                <a href="javascript:void(0)" class="fa-github"></a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="fa-google-plus"></a>
+                <a href="javascript:void(0)" class="fa-instagram"></a>
               </li>
             </ul>
           </div>
