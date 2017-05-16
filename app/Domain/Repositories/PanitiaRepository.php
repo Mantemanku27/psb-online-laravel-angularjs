@@ -106,5 +106,17 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
     {
         return parent::find($id, $columns);
     }
+    public function ceknamapanitia($id)
+    {
+        $pribadi1 = $this->model
+            ->where('jurusan', $id)
+            ->first();
+        if ($pribadi1 != null) {
+            return $pribadi1;
+        } else {
+            return null;
+        }
+    }
+
 
 }

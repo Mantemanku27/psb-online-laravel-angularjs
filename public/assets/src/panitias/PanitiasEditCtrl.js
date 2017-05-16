@@ -42,16 +42,7 @@ app.controller('PanitiasEditCtrl', ['$state', '$scope', 'panitias', 'SweetAlert'
             $scope.myModel = data;
         });
 
-    $scope.showToast = function (warna, msg) {
-        $mdToast.show({
-            //controller: 'AkunToastCtrl',
-            template: "<md-toast class='" + warna + "-500'><span flex> " + msg + "</span></md-toast> ",
-            //templateUrl: 'views/ui/material/toast.tmpl.html',
-            hideDelay: 6000,
-            parent: '#toast',
-            position: 'top right'
-        });
-    };
+
     //Submit Data
     $scope.updateData = function () {
 $scope.alerts = [];

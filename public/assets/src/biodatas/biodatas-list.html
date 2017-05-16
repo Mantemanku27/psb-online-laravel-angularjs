@@ -1,12 +1,4 @@
 
-<section id="page-title">
-    <div class="row">
-        <div class="col-sm-8">
-            <h1 class="mainTitle">DAtA BIODATA</h1>
-        </div>
-        <div ncy-breadcrumb></div>
-    </div>
-</section>
 
 
 
@@ -28,7 +20,11 @@
             <div class="row">
                 <div class="col-sm-8 m-b-xs">
 
-            <span tooltip="Tambah Data" ng-if="batasinput  == 0 && dataUser.level != 1">
+            <span tooltip="Tambah Data" ng-if="batasinput  == 0 && dataUser.level == 1">
+                <a md-ink-ripple ui-sref="app.biodatas-create" class="btn btn-sm btn-default">
+                    <i class="glyphicon glyphicon-plus-sign"></i></a>
+                </span>
+            <span tooltip="Tambah Data" ng-if="dataUser.level == 0">
                 <a md-ink-ripple ui-sref="app.biodatas-create" class="btn btn-sm btn-default">
                     <i class="glyphicon glyphicon-plus-sign"></i></a>
                 </span>
@@ -65,7 +61,7 @@
                     <th class="col-md-1">Agama</th>
                     <th class="col-md-2">Tempat Tanggal Lahir</th>
                     <th class="col-md-2">Alamat</th>
-                    <th class="col-md-1">Telepon</th>
+                    <th class="col-md-1">Foto</th>
                     <th class="col-md-2">Aksi</th>
                 </tr>
                 </thead>
@@ -76,7 +72,7 @@
                     <td class="col-md-1">{{row.agama}}</td>
                     <td class="col-md-2">{{row.tempat_lahir}}, {{row.tanggal_lahir}}</td>
                     <td class="col-md-2">{{row.alamat}}, {{row.desa}},{{row.kecamatan}}, {{row.kabupaten}}, {{row.provinsi}}</td>
-                    <td class="col-md-1">{{row.telepon}}</td>
+                    <td class="col-md-1"><img src="{{row.foto}}"  style="height:2in;width:1.5in;"> </td>
 
 
                     <td class="col-md-2">

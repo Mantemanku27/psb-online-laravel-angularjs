@@ -52,12 +52,7 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
     $scope.dataFormulirs = '';
     // init get data
     formulirs.get($scope.id,$scope.main.page, $scope.main.term)
-
-    //Init dataAkun
-    $scope.dataFormulirs = '';
-    // init get data
-    formulirs.get($scope.main.page, $scope.main.term)
-
+        
         .success(function (data) {
 
             //Change Loading status
@@ -92,21 +87,16 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
     // get data
     $scope.getData = function () {
 
-        formulirs.cekinputformulir()
+        formulirs.cekinputformulir($scope.id)
             .success(function (data) {
                 $scope.batasinput = data;
             })
-
-
 
         //Start loading
         $scope.setLoader(true);
 
 
         formulirs.get($scope.id,$scope.main.page, $scope.main.term)
-
-        formulirs.get($scope.main.page, $scope.main.term)
-
             .success(function (data) {
 
                 //Stop loading
@@ -179,31 +169,6 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
 
         $scope.getData()
     };
-
-// //hapus lewat tampilan
-//     $scope.hapus = function (id) {
-//         var confirm = $mdDialog.confirm()
-//             .title('Konfirmasi')
-//             .content('Apakah Anda yakin ingin menghapus data?')
-//             .ok('Hapus')
-//             .cancel('Batal')
-//             .targetEvent(id);
-//         //
-//         $mdDialog.show(confirm).then(function () {
-//             formulir.destroy(id)
-//                 .success(function (data) {
-//                     if (data.success == true) {
-//                         $scope.showToast('green', 'Data Berhasil Dihapus');
-//                     } else {
-//                         $scope.showToast('red', data.result.message);
-//                     }
-//                     $scope.getData();
-//                 })
-//
-//         }, function () {
-//
-//         });
-//     };
     $scope.hapus = function (id) {
         SweetAlert.swal({
             title: "Are you sure?",

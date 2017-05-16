@@ -157,5 +157,34 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
             ->toArray();
         return $provinsi;
     }
+    public function getListjursanbypaniata()
+    {
+
+        // query to aql
+        $cari_rincian = \DB::table('panitias')
+            ->whereNull('pendaftarans.deleted_at')->select('pendaftarans.jurusan')->get();
+        $result = [];
+        foreach ($cari_rincian as $key => $value) {
+            $result[] = $value->jurusan;
+        }
+
+        // --> Flatten  array
+        $array_id = [];
+        $array_length = count($result);
+        for ($i = 0; $i <= $array_length - 1; $i++) {
+            array_push($array_id, $result[$i]);
+        }
+
+        $provinsi = $this->model
+            ->whereNotIn('jurusans.id', function ($q) use ($array_id) {
+                $q->select('panitias.jurusan')
+                    ->from('panitias')
+                    ->whereIn('panitias.jurusan', $array_id)
+                    ->groupBy('panitias.jurusan');
+            })
+            ->get()
+            ->toArray();
+        return $provinsi;
+    }
 
 }

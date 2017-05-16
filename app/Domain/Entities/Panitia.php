@@ -22,5 +22,13 @@ class Panitia extends Entities
     protected $fillable = [
         'nama', 'nip', 'jurusan',
     ];
+    protected $with = ['jurusans'];
+
+    public function jurusans()
+    {
+        return $this->belongsTo('App\Domain\Entities\Jurusan', 'jurusan');
+
+    }
+
 
 }

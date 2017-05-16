@@ -2,6 +2,7 @@ app.controller('PanitiasCreateCtrl', ['$state', '$scope', 'panitias', '$timeout'
     //Init input addForm variable
     //create panitias
     $scope.process = false;
+    $scope.myModel = {}
 
     $scope.master = $scope.myModel;
     $scope.form = {
@@ -39,6 +40,28 @@ app.controller('PanitiasCreateCtrl', ['$state', '$scope', 'panitias', '$timeout'
         }
 
     };
+    $scope.cekgetlist = function () {
+        $scope.objjurusan = []
+        panitias.getListjurusan()
+            .success(function (data_akun) {
+                if (data_akun.success == false) {
+                    $scope.toaster = {
+                        type: 'warning',
+                        title: 'Warning',
+                        text: 'Data Belum Tersedia!'
+                    };
+                    toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+                } else {
+                    data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
+                    $scope.objjurusan = data_akun;
+                    $scope.myModel.jurusans = $scope.objjurusan[0];
+                }
+            })
+    }
+    $scope.cekgetlist()
+
+
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
@@ -46,6 +69,8 @@ app.controller('PanitiasCreateCtrl', ['$state', '$scope', 'panitias', '$timeout'
         $scope.myModel.nama = null;
         $scope.myModel.nip = null;
         $scope.myModel.jurusan = null;
+        $scope.cekgetlist()
+
     };
 
     $scope.submitData = function (isBack) {
@@ -57,6 +82,7 @@ app.controller('PanitiasCreateCtrl', ['$state', '$scope', 'panitias', '$timeout'
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+            $scope.myModel.jurusan = $scope.myModel.jurusans.id
             panitias.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {

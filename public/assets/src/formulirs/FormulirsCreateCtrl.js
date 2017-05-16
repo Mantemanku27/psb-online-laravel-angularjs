@@ -49,44 +49,23 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         }
 
     };
-    // $scope.cekgetlist = function () {
-    //     $scope.objjurusan = []
-    //     formulirs.getListjurusan()
-    //         .success(function (data_akun) {
-    //             if (data_akun.success == false) {
-    //                 $scope.toaster = {
-    //                     type: 'warning',
-    //                     title: 'Warning',
-    //                     text: 'Data Belum Tersedia!'
-    //                 };
-    //                 toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-    //
-    //             } else {
-    //                 data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
-    //                 $scope.objjurusan = data_akun;
-    //                 $scope.myModel.jurusans = $scope.objjurusan[0];
-    //             }
-    //         })
-    //
-    //     $scope.objjurusan2 = []
-    //     formulirs.getListjurusan()
-    //         .success(function (data_akun) {
-    //             if (data_akun.success == false) {
-    //                 $scope.toaster = {
-    //                     type: 'warning',
-    //                     title: 'Warning',
-    //                     text: 'Data Belum Tersedia!'
-    //                 };
-    //                 toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-    //
-    //             } else {
-    //                 data_akun.unshift({id: 0, nama: 'Silahkan Pilih Jurusan'});
-    //                 $scope.objjurusan2 = data_akun;
-    //                 $scope.myModel.jurusans_2 = $scope.objjurusan2[0];
-    //             }
-    //         })
-    //
-    // }
+    $scope.myImage = '';
+    $scope.myCroppedImage = '';
+    $scope.cropType = "square";
+
+    var handleFileSelect = function (evt) {
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.myImage = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+
+
     // $scope.cekgetlist()
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
@@ -110,6 +89,8 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         if ($scope.Form.$valid) {
             //run Ajax
             $scope.myModel.biodatas_id = $scope.id
+            $scope.myModel.foto_ijazah= $scope.myImage
+
             formulirs.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {

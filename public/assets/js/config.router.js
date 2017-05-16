@@ -55,14 +55,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 url: '/formulirs-create/:id',
                 templateUrl: 'assets/src/formulirs/formulirs-create.html',
                 title: 'Create Data Formulir',
-                resolve: loadSequence('FormulirCreateCtrl', 'formulir_service'),
+                resolve: loadSequence('FormulirCreateCtrl', 'formulir_service','ngImgCrop'),
             })
 
             .state('app.formulirs-edit', {
                 url: '/formulirs-edit/:id',
                 templateUrl: 'assets//src/formulirs/formulirs-edit.html',
                 title: 'Edit Data Formulir',
-                resolve: loadSequence('FormulirEditCtrl', 'formulir_service'),
+                resolve: loadSequence('FormulirEditCtrl', 'formulir_service','ngImgCrop'),
             })
 
             // URL CRUD Biodata
@@ -77,14 +77,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 url: '/biodatas-create',
                 templateUrl: 'assets/src/biodatas/biodatas-create.html',
                 title: 'Create Data Biodata',
-                resolve: loadSequence('BiodataCreateCtrl', 'biodata_service'),
+                resolve: loadSequence('BiodataCreateCtrl', 'biodata_service','ngImgCrop'),
             })
 
             .state('app.biodatas-edit', {
                 url: '/biodatas-edit/:id',
                 templateUrl: 'assets//src/biodatas/biodatas-edit.html',
                 title: 'Edit Data Biodata',
-                resolve: loadSequence('BiodataEditCtrl', 'biodata_service'),
+                resolve: loadSequence('BiodataEditCtrl', 'biodata_service','ngImgCrop'),
             })
 
             // URL CRUD User

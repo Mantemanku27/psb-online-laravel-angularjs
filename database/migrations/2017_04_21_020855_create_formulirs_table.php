@@ -21,7 +21,7 @@ class CreateFormulirsTable extends Migration
             $table->integer('n_mtk');
             $table->integer('n_ipa');
             $table->integer('n_ing');
-            $table->longtext('foto_ijazah');
+            $table->longText('foto_ijazah');
             $table->string('biodatas_id');
             $table->string('user_id');
             $table->timestamps();

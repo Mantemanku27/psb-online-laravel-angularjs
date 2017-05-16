@@ -28,11 +28,6 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
             $scope.batasinput = data;
         })
 
-            biodatas.getbatasinput()
-            .success(function (data) {
-                $scope.batasinput = data;
-            })
-
 
     //Init Alert status
     $scope.alertset = {
@@ -47,13 +42,6 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
         $scope.getData();
     };
     // go to print preview page
-    $scope.print = function () {
-
-        window.open('../api/v1/cetak-biodata', '_blank');
-
-        window.open ('../api/v1/cetak-biodata','_blank');
-
-    };
     //Init dataAkun
     $scope.dataBiodatas = '';
     // init get data
@@ -92,13 +80,10 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
     // get data
     $scope.getData = function () {
 
-        biodatas.getbatasinput()
 
-            biodatas.getbatasinput()
-
-            .success(function (data) {
-                $scope.batasinput = data;
-            })
+        biodatas.getbatasinput.success(function (data) {
+            $scope.batasinput = data;
+        })
 
         //Start loading
         $scope.setLoader(true);
@@ -177,30 +162,6 @@ app.controller('BiodataCtrl', ['$scope', 'biodatas', 'SweetAlert', '$http', '$ti
         $scope.getData()
     };
 
-// //hapus lewat tampilan
-//     $scope.hapus = function (id) {
-//         var confirm = $mdDialog.confirm()
-//             .title('Konfirmasi')
-//             .content('Apakah Anda yakin ingin menghapus data?')
-//             .ok('Hapus')
-//             .cancel('Batal')
-//             .targetEvent(id);
-//         //
-//         $mdDialog.show(confirm).then(function () {
-//             biodata.destroy(id)
-//                 .success(function (data) {
-//                     if (data.success == true) {
-//                         $scope.showToast('green', 'Data Berhasil Dihapus');
-//                     } else {
-//                         $scope.showToast('red', data.result.message);
-//                     }
-//                     $scope.getData();
-//                 })
-//
-//         }, function () {
-//
-//         });
-//     };
     $scope.hapus = function (id) {
         SweetAlert.swal({
             title: "Are you sure?",

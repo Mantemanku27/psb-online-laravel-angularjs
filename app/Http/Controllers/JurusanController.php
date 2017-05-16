@@ -116,5 +116,9 @@ class JurusanController extends Controller
     {
         return $this->jurusan->getListjursanbypendaftaran($id);
     }
+       public function getListjursanbypaniata()
+    {
+        return $this->jurusan->getListjursanbypaniata();
+    }
    
 }

@@ -18,6 +18,13 @@ app.factory('panitias', ['$http', function ($http) {
                 url: '/api/get-last-panitias',
             });
         },
+        getListjurusan: function () {
+            return $http({
+                method: 'get',
+                url: '/api/getList-jurusan-by-panitia',
+            });
+        },
+
 
         //Simpan data
         store: function (inputData) {

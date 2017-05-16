@@ -32,6 +32,22 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         msg: ''
     };
     //get lass formulirs
+    $scope.myImage = '';
+    $scope.myCroppedImage = '';
+    $scope.cropType = "square";
+
+    var handleFileSelect = function (evt) {
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.myImage = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+
 
 
     //Run Ajax
@@ -54,6 +70,7 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
+            $scope.myModel.foto_ijazah= $scope.myImage
             formulirs.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {

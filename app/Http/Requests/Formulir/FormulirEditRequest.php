@@ -49,7 +49,7 @@ class FormulirEditRequest extends Request
             'n_mtk'    => 'required|max:225',
             'n_ipa'    => 'required|max:225',
             'n_ing'   => 'required|max:255',
-            'foto_ijazah'   => 'required|max:255',
+            'foto_ijazah'   => 'required',
         ];
     }
 

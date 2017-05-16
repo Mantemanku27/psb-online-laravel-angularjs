@@ -148,7 +148,22 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
         startingDay: 1,
         class: 'datepicker'
     };
+    $scope.myImage = '';
+    $scope.myCroppedImage = '';
+    $scope.cropType = "square";
 
+    var handleFileSelect = function (evt) {
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.myImage = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+    
     $scope.initDate = new Date('2016-15-20');
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
@@ -181,6 +196,7 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
 
             $scope.myModel.jurusan = $scope.myModel.jurusans.id
             $scope.myModel.jurusans_2 = $scope.myModel.jurusans_2.id
+            $scope.myModel.foto= $scope.myImage
 
             biodatas.store($scope.myModel)
                 .success(function (data) {

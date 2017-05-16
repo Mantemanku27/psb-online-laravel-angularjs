@@ -39,7 +39,8 @@
                                         <label class="control-label"> N B.Indonesia <span
                                                 class="symbol required"></span></label>
                                         <input type="text" placeholder="Enter your N B.Indonesia" class="form-control"
-                                               name="n_bi" ng-model="myModel.n_bi" required/>
+                                               name="n_bi" ng-model="myModel.n_bi" required maxlength="5"
+                                               minlength="5"/>
                                         <span class="error text-small block"
                                               ng-if="Form.n_bi.$dirty && Form.n_bi.$invalid">N B.Indonesia is required</span>
                                         <span class="success text-small" ng-if="Form.n_bi.$valid">Thank You!</span>
@@ -50,7 +51,8 @@
                                         <label class="control-label"> N MTK <span
                                                 class="symbol required"></span></label>
                                         <input type="text" placeholder="Enter your N MTK" class="form-control"
-                                               name="n_mtk" ng-model="myModel.n_mtk" required/>
+                                               name="n_mtk" ng-model="myModel.n_mtk" required maxlength="5"
+                                               minlength="5"/>
                                         <span class="error text-small block"
                                               ng-if="Form.n_mtk.$dirty && Form.n_mtk.$invalid">N MTK is required</span>
                                         <span class="success text-small" ng-if="Form.n_mtk.$valid">Thank You!</span>
@@ -61,7 +63,8 @@
                                         <label class="control-label"> N IPA <span
                                                 class="symbol required"></span></label>
                                         <input type="text" placeholder="Enter your N IPA" class="form-control"
-                                               name="n_ipa" ng-model="myModel.n_ipa" required/>
+                                               name="n_ipa" ng-model="myModel.n_ipa" required maxlength="5"
+                                               minlength="5"/>
                                         <span class="error text-small block"
                                               ng-if="Form.n_ipa.$dirty && Form.n_ipa.$invalid">N IPA is required</span>
                                         <span class="success text-small" ng-if="Form.n_ipa.$valid">Thank You!</span>
@@ -71,12 +74,36 @@
                                          ng-class="{'has-error':Form.n_ing.$dirty && Form.n_ing.$invalid, 'has-success':Form.n_ing.$valid}">
                                         <label class="control-label"> N B.Inggris <span class="symbol required"></span></label>
                                         <input type="text" placeholder="Enter your N B.Inggris" class="form-control"
-                                               name="n_ing" ng-model="myModel.n_ing" required/>
+                                               name="n_ing" ng-model="myModel.n_ing" required maxlength="5"
+                                               minlength="5"/>
                                         <span class="error text-small block"
                                               ng-if="Form.n_ing.$dirty && Form.n_ing.$invalid">N B.Inggris is required</span>
                                         <span class="success text-small" ng-if="Form.n_ing.$valid">Thank You!</span>
                                     </div>
-
+                                    <div class="row">
+                                        <div class="col-md-12 margin-bottom-30">
+						<span class="btn btn-primary btn-file"> Select an image file
+							<input type="file" id="fileInput" ng-model="myModel.foto_ijazah"/>
+						</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="cropBox">
+                                                <div class="cropArea">
+                                                    <img-crop image="myImage" result-image="myCroppedImage"
+                                                              area-type="{{cropType}}"></img-crop>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="cropBox croppedBox">
+                                                <div>
+                                                    <img ng-src="{{myCroppedImage}}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </fieldset>
                             </div>
                         </div>
@@ -84,9 +111,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-left">
-                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
-                                    <button type="reset" class="btn btn-primary btn-o" ng-disabled="process" ng-click="form.reset(Form)">Reset</button>
-                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.formulirs" ng-disabled="process">Kembali</button>
+                                    <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)"
+                                            ng-disabled="Form.$invalid || process">Simpan & Kembali
+                                    </button>
+                                    <button type="reset" class="btn btn-primary btn-o" ng-disabled="process"
+                                            ng-click="form.reset(Form)">Reset
+                                    </button>
+                                    <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.formulirs({id:id})"
+                                            ng-disabled="process">Kembali
+                                    </button>
                                 </div>
                             </div>
                         </div>

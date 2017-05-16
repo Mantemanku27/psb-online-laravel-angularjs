@@ -39,6 +39,21 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
         .success(function (data) {
             $scope.setLoader(false);
             $scope.myModel = data;
+            $scope.myImage = data.foto;
+            $scope.myCroppedImage = data.foto;
+            $scope.cropType = "square";
+
+            var handleFileSelect = function (evt) {
+                var file = evt.currentTarget.files[0];
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    $scope.$apply(function ($scope) {
+                        $scope.myImage = evt.target.result;
+                    });
+                };
+                reader.readAsDataURL(file);
+            };
+            angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
         });
 
@@ -109,6 +124,7 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
                 }
                 $scope.myModel.tanggal_lahir = $scope.day + "/" + $scope.month + "/" + $scope.year;
             }
+            $scope.myModel.foto= $scope.myImage
             biodatas.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {

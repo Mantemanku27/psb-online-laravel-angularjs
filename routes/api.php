@@ -31,6 +31,7 @@ Route::get('cek-id-formulir', 'FormulirController@cekidformulir');
 Route::resource('jurusans', 'JurusanController');
 Route::get('getList-jurusan', 'JurusanController@getList');
 Route::get('getList-jurusan-by-pendaftran/{id}', 'JurusanController@getListjursanbypendaftaran');
+Route::get('getList-jurusan-by-panitia', 'JurusanController@getListjursanbypaniata');
 
 // Rute API tabel Pendaftaran
 Route::resource('pendaftarans', 'PendaftaranController');
@@ -60,3 +61,8 @@ Route::get('get-session', 'UserController@getSession');
 
 // Rute API Ganti Password
 Route::put('updatePass-users', 'UserController@updatePass');
+////---------------------------------------------------------------------------------------------------------------------------------------
+Route::group(['namespace' => 'Cetak'], function () {
+
+    Route::get('cetak-pendaftaran/{id}', 'CetakPendaftaran@Pendaftaran');
+});
