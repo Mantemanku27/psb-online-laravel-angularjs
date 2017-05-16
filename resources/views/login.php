@@ -78,7 +78,6 @@
               <label for="remember">
                 Biarkan saya tetap masuk.
               </label>
-              <a class="forgot-pass" href="#">Lupa Password</a>
             </div>
             <button type="submit" class="btn btn-primary pull-right">
               Login <i class="fa fa-arrow-circle-right"></i>
