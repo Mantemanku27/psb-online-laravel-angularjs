@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
 
             $table->uuid('id');
             $table->string('judul');
-            $table->string('gambar');
+            $table->longtext('gambar');
             $table->string('deskripsi');
             $table->timestamps();
             $table->softDeletes();
