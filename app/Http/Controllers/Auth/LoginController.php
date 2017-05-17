@@ -45,7 +45,7 @@ class LoginController extends Controller
         // tergantung field login
         if (Auth::attempt($request->only('email', 'password'), true)) {
              session()->put('konfirmasi', Auth::user()->konfirmasi);
-         if (Auth::user()->konfirmasi== 0){
+         if (Auth::user()->konfirmasi!= 0){
             session()->flash('auth_message', 'Email Belum diKonfirmasi!');
             return redirect()->route('login'); 
          }
