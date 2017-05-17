@@ -6,10 +6,10 @@ app.factory('formulirs', ['$http', function ($http) {
         // get data dengan pagination dan pencarian data
 
 
-        get: function (page, term) {
+        get: function (_id,page, term) {
             return $http({
                 method: 'get',
-                url: '/api/formulirs?page=' + page + '&term=' + term,
+                url: '/api/get-formulirs-by-id/'+_id+'?page=' + page + '&term=' + term,
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
             });

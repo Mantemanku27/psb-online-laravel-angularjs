@@ -72,6 +72,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
         return parent::create([
             'nama'    => e($data['nama']),
             'telepon' => e($data['telepon']),
+            'konfirmasi' => 0,
             'email' => e($data['email']),
             'password' => bcrypt(e($data['password'])),
             'level'   => e($data['level'])
@@ -84,14 +85,31 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     {
         try {
         // execute sql insert
+        // konfirmasi email
+        $confirmation_code = str_random(30);
+        // konfirmasi email
         User::create([
             'nama'    => e($data['nama']),
             'telepon' => e($data['telepon']),
+            'konfirmasi' => $confirmation_code,
             'email' => e($data['email']),
             'password' => bcrypt(e($data['password'])),
             'level'   => 1
         ]);   
         session()->flash('auth_messagee', 'Pendaftaran Berhasil!, Silahkan untuk login.');
+        // konfirmasi email
+        \Mail::send('emails/konfirmasi', [
+
+                'email' => $data['email'],
+                'name' => $data['nama'],
+                'confirmation_code' => $confirmation_code,], function ($message) use ($data)  {
+
+                $message->to($data['email']);
+
+                $message->subject('Info dari Pendaftaran');
+
+            });
+            // konfirmasi email
             return redirect()->route('login');
         } catch (\Exception $e) {
             // store errors to log
@@ -176,6 +194,30 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     public function findById($id, array $columns = ['*'])
     {
         return parent::find($id, $columns);
+    }
+public function updatekonfirmasi($id)
+    {
+        $users = \DB::table('users')
+            ->where('konfirmasi', $id)
+            ->count();
+
+        if ($users == 0) {
+            session()->flash('auth_message', 'maaf user konfirmasi email tidak berlaku lagi');
+            return redirect()->route('page.konfirmasi');
+
+        } else {
+            $user = \DB::table('users')
+                ->where('konfirmasi', $id)
+                ->first();
+            $userupdate = User::find($user->id);
+
+            $userupdate->konfirmasi = 0;
+            $userupdate->save();
+            session()->flash('auth_messagee', 'Konfirmasi Pengguna Berhasil!');
+            return redirect()->route('login');
+
+        }
+
     }
 
 }

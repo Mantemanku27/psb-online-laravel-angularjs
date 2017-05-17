@@ -64,6 +64,12 @@
                 <td class="col-md-2">{{row.formulirs.asal_sekolah}}</td>
 
                 <td class="col-md-2">
+                    <span tooltip="Cetak data">
+                        <button md-ink-ripple class="btn btn-sm btn-default"
+                                ng-click="cetak(row.id)">
+                    <i class="glyphicon glyphicon-print"></i>
+                </button>
+            </span>
                     <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger" >
                         <i class="glyphicon glyphicon-trash"></i>
                     </button>

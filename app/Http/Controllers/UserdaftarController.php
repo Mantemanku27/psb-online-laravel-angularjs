@@ -132,5 +132,9 @@ class UserdaftarController extends Controller
 
             ]]);
     }
+public function updatekonfirmasi($id)
+    {
+        return $this->user->updatekonfirmasi($id);
+    }
 
 }

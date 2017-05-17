@@ -40,6 +40,7 @@ Route::get('get-pendaftarans-by-id/{id}', 'PendaftaranController@paginatebyid');
 
 // Rute API tabel User
 Route::resource('users', 'UserController');
+Route::get('kirim/konfirmasi/{id}', 'UserdaftarController@updatekonfirmasi');
 
 // Rute API tabel Post Pemberitahuan
 Route::resource('posts', 'PostController');

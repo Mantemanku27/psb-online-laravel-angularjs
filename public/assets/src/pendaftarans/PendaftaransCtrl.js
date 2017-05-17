@@ -9,7 +9,9 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
         page: 1,
         term: ''
     };
-
+$scope.cetak = function (id) {
+        window.open('../api/cetak-pendaftaran/' + id , '_blank');
+    }
     $scope.id = $scope.$stateParams.id;
 
    

@@ -21,3 +21,5 @@ Route::get('/pendaftaran', ['as' => 'pendaftaran', 'uses' => 'PageController@pen
 // login
 Route::get('give-me-token', ['as' => 'token', 'uses' => 'PageController@token']);
 Route::get('/login', ['as' => 'login', 'uses' => 'PageController@getLogin']);
+Route::get('register/verify/{confirmationCode}', ['as' => 'confirmation_path', 'uses' => 'PageController@confirm']);
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
