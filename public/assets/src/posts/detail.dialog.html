@@ -1,0 +1,34 @@
+<md-dialog style="width: 1200px;">
+     <div class="panel-heading bg-white" style="background: #5F8295;">
+         <span class="font-bold"><center><font color="#000000">DETAIL POST PEMBERITAHUAN</font></center></span>
+     </div>
+ 
+ 
+     <div class="panel-body">
+         <div class="form-horizontal">
+             <div class="form-group">
+                 <label class="col-sm-3 control-label">Judul :</label>
+                 <div ng-if="input.prov_id != ''" class="col-sm-9">
+                     <p class="form-control-static">
+                         <span style="padding-left: 8px;"></span>{{myModel.judul}}
+                     </p>
+                 </div>
+                 <label class="col-sm-3 control-label">Gambar :</label>
+                 <div ng-if="input.prov_id != ''" class="col-sm-9">
+                     <p class="form-control-static">
+                         <span style="padding-left: 8px;"></span><img src="{{myModel.gambar}}">
+                     </p>
+                 </div>
+                 <label class="col-sm-3 control-label">Deskripsi :</label>
+                 <div ng-if="input.prov_id != ''" class="col-sm-9">
+                     <p class="form-control-static">
+                         <span style="padding-left: 8px;"></span>{{myModel.deskripsi}}
+                     </p>
+                 </div>
+             </div>
+             <footer class="panel-footer text-center" style="background: #ffffff">
+                 <md-button class="btn btn-fw btn-default" ng-click='cancel()' tooltip="Kembali">
+                     Kembali
+                 </md-button>
+             </footer>
+ </md-dialog> 
