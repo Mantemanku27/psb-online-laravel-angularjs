@@ -1,6 +1,6 @@
 app.controller('PostsCreateCtrl', ['$state', '$scope', 'posts', '$timeout', 'SweetAlert', 'toaster', '$http', function ($state, $scope, posts, $timeout, SweetAlert, toaster) {
-    //Init input addForm variable
-    //create posts
+    // Init Input Add Form Variable
+    // Create Posts
     $scope.process = false;
 
     $scope.master = $scope.myModel;
@@ -28,7 +28,7 @@ app.controller('PostsCreateCtrl', ['$state', '$scope', 'posts', '$timeout', 'Swe
 
             } else {
                 SweetAlert.swal("Good job!", "Your form is ready to be submitted!", "success");
-                //your code for submit
+                // Your Code For Submit
             }
 
         },
@@ -50,17 +50,17 @@ app.controller('PostsCreateCtrl', ['$state', '$scope', 'posts', '$timeout', 'Swe
 
     $scope.submitData = function (isBack) {
         $scope.alerts = [];
-        //Set process status
+        // Set Process Status
         $scope.process = true;
-        //Close Alert
+        // Close Alert
 
-        //Check validation status
+        // Check Validation Status
         if ($scope.Form.$valid) {
-            //run Ajax
+            // Run Ajax
             posts.store($scope.myModel)
                 .success(function (data) {
                     if (data.created == true) {
-                        //If back to list after submitting
+                        // If back to list after submitting
                         if (isBack == true) {
                             $state.go('app.posts');
                             $scope.toaster = {
@@ -84,14 +84,14 @@ app.controller('PostsCreateCtrl', ['$state', '$scope', 'posts', '$timeout', 'Swe
                             };
                             toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
                         }
-                        //Clear Input
+                        // Clear Input
                     }
 
                 })
                 .error(function (data, status) {
-                    // unauthorized
+                    // Unauthorized
                     if (status === 401) {
-                        //redirect to login
+                        // Redirect To Login
                         $scope.redirect();
                     }
                     $scope.sup();

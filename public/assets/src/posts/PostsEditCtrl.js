@@ -1,7 +1,7 @@
 app.controller('PostsEditCtrl', ['$state', '$scope', 'posts', 'SweetAlert', 'toaster', '$stateParams', function ($state, $scope, posts, SweetAlert, toaster, mdToast, $stateParams) {
     $scope.id = $scope.$stateParams.id;
-    //edit posts
-    //If Id is empty, then redirected
+    // Edit Posts
+    // If Id s empty, then redirected
     if ($scope.id == null || $scope.id == '') {
         $state.go("app.posts")
     }
@@ -19,23 +19,21 @@ app.controller('PostsEditCtrl', ['$state', '$scope', 'posts', 'SweetAlert', 'toa
         }
     };
 
-    //Init input form variable
+    // Init Input Form Variable
     $scope.input = {};
 
-    //Set process status to false
+    // Set Process Status To False
     $scope.process = false;
 
-    //Init Alert status
+    // Init Alert Status
     $scope.alertset = {
         show: 'hide',
         class: 'green',
         msg: ''
     };
-    //get lass posts
+    // Get Lass Posts
 
-
-
-    //Run Ajax
+    // Run Ajax
     posts.show($scope.id)
         .success(function (data) {
             $scope.setLoader(false);
@@ -44,31 +42,31 @@ app.controller('PostsEditCtrl', ['$state', '$scope', 'posts', 'SweetAlert', 'toa
 
     $scope.showToast = function (warna, msg) {
         $mdToast.show({
-            //controller: 'AkunToastCtrl',
+            // controller: 'AkunToastCtrl',
             template: "<md-toast class='" + warna + "-500'><span flex> " + msg + "</span></md-toast> ",
-            //templateUrl: 'views/ui/material/toast.tmpl.html',
+            // templateUrl: 'views/ui/material/toast.tmpl.html',
             hideDelay: 6000,
             parent: '#toast',
             position: 'top right'
         });
     };
-    //Submit Data
+    // Submit Data
     $scope.updateData = function () {
-$scope.alerts = [];
-        //Set process status
+    $scope.alerts = [];
+        // Set Process Status
         $scope.process = true;
 
-        //Close Alert
+        // Close Alert
         // $scope.alertset.show = 'hide';
 
-        //Check validation status
+        // Check Validation Status
         if ($scope.Form.$valid) {
-            //run Ajax
+            // Run Ajax
             posts.update($scope.myModel)
                 .success(function (data) {
                     if (data.updated == true) {
-                        //If back to list after submitting
-                        //Redirect to akun
+                        // If back to list after submitting
+                        // Redirect to akun
                         $state.go('app.posts');
                         $scope.toaster = {
                             type: 'success',
@@ -76,15 +74,12 @@ $scope.alerts = [];
                             text: 'Update Data Berhasil!'
                         };
                         toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-
                     }
-
-
                 })
                 .error(function (data, status) {
-                    // unauthorized
+                    // Unauthorized
                     if (status === 401) {
-                        //redirect to login
+                        // Redirect To Login
                         $scope.redirect();
                     }
                     $scope.sup();
