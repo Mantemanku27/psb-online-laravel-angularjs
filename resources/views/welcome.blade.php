@@ -7,8 +7,7 @@
    ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
   ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
 -->
-
-<!DOCTYPE html>
+<!Doctype html>
 <html lang="en" data-ng-app="clipApp">
 <head>
   <meta charset="utf-8">

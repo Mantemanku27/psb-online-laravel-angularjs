@@ -62,7 +62,8 @@ Route::get('get-session', 'UserController@getSession');
 
 // Rute API Ganti Password
 Route::put('updatePass-users', 'UserController@updatePass');
-////---------------------------------------------------------------------------------------------------------------------------------------
+
+// Rute API Cetak
 Route::group(['namespace' => 'Cetak'], function () {
 
     Route::get('cetak-pendaftaran/{id}', 'CetakPendaftaran@Pendaftaran');
