@@ -35,6 +35,24 @@ app.factory('pendaftarans', ['$http', function ($http) {
             });
         },
 
+        terima: function (_id) {
+            return $http({
+                method: 'put',
+                url: '/api/pendaftar-terima/' + _id
+            });
+        },
+        tolak: function (_id) {
+            return $http({
+                method: 'put',
+                url: '/api/pendaftar-tolak/' + _id
+            });
+        },
+        ijazah: function (_id) {
+            return $http({
+                method: 'put',
+                url: '/api/pendaftar-ijazah/' + _id
+            });
+        },
 
         //Simpan data
         store: function (inputData) {

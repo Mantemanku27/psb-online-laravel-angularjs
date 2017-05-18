@@ -84,13 +84,13 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
      * @param array $data
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function create(array $data)
+    public function createdata($fileName1,array $data)
     {
         // execute sql insert
 
         return parent::create([
             'nama_lengkap' => e($data['nama_lengkap']),
-            'foto' => e($data['foto']),
+            'foto' => $fileName1,
             'email' => e($data['email']),
             'telepon' => e($data['telepon']),
             'jk' => e($data['jk']),
@@ -115,10 +115,23 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
      */
     public function update($id, array $data)
     {
+        $arr2 = str_replace('-', '', e($data['foto']));
+
+        $fileName1 = date('dmYhi') . $arr2;
+
+        $cari = Biodata::find($id);
+        if ($cari->foto== e($data['foto'])) {
+            $filename2 = $cari->foto;
+
+        } else {
+            $filename2 = $fileName1;
+            \File::delete(public_path() . '/assets/foto/' . $cari->foto);
+
+        }
         return parent::update($id, [
 
             'nama_lengkap' => e($data['nama_lengkap']),
-            'foto' => e($data['foto']),
+            'foto' => $filename2,
             'email' => e($data['email']),
             'telepon' => e($data['telepon']),
             'jk' => e($data['jk']),
@@ -130,7 +143,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
             'kecamatan' => e($data['kecamatan']),
             'kabupaten' => e($data['kabupaten']),
             'provinsi' => e($data['provinsi']),
-            'jurusan' => e($data['jurusan']),
+//            'jurusan' => e($data['jurusan']),
             'users_id' => e($data['users_id'])
 
         ]);

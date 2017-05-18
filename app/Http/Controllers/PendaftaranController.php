@@ -37,11 +37,10 @@ class PendaftaranController extends Controller
         return $this->pendaftaran->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
 
-    public function paginatebyid($id,Request $request)
+    public function paginatebyid($id, Request $request)
     {
-        return $this->pendaftaran->paginatebyid($id,10, $request->input('page'), $column = ['*'], '', $request->input('term'));
+        return $this->pendaftaran->paginatebyid($id, 10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
-
 
 
     /**
@@ -116,6 +115,20 @@ class PendaftaranController extends Controller
     public function batasInputPendaftaran($id)
     {
         return $this->pendaftaran->batasInputPendaftaran($id);
+    }
+
+    public function Terima($id)
+    {
+        return $this->pendaftaran->Terima($id);
+    }
+
+    public function Tolak($id)
+    {
+        return $this->pendaftaran->Tolak($id);
+    }
+    public function Ijazahtaksesuai($id)
+    {
+        return $this->pendaftaran->Ijazahtaksesuai($id);
     }
 
 }

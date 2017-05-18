@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Formulir\FormulirCreateRequest;
 use App\Http\Requests\Formulir\FormulirEditRequest;
+use App\Http\Requests\Formulir\IjazahFormRequest;
 use Illuminate\Http\Request;
 use App\Domain\Contracts\FormulirInterface;
 
@@ -75,7 +76,11 @@ class FormulirController extends Controller
      */
     public function store(FormulirCreateRequest $request)
     {
-        return $this->formulir->create($request->all());
+        $arr1 = str_replace('-', '', $request->foto_ijazah);
+
+        $fileName1 = date('dmYhi') . $arr1;
+
+        return $this->formulir->createdata($fileName1,$request->all());
     }
 
     /**
@@ -120,6 +125,20 @@ class FormulirController extends Controller
     public function cekidformulir()
     {
         return $this->formulir->cekidformulir();
+    }
+    public function Upload2(IjazahFormRequest $request)
+    {
+        $file1 = $request->file('foto_ijazah');
+
+        $original_name1 = $file1->getClientOriginalName();
+        $arr1 = str_replace('-', '', $original_name1);
+
+
+        $fileName1 = date('dmYhi'). $arr1;
+        $destinationPath = public_path() . '/assets/ijazah';
+        $file1->move($destinationPath, $fileName1);
+        return response()->json(['created' => true], 200);
+
     }
 
 }

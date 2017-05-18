@@ -43,6 +43,17 @@ app.factory('biodatas', ['$http', function ($http) {
                 data: $.param(inputData)
             });
         },
+        uploadFile1: function (file1) {
+            var fd1 = new FormData();
+
+            var url = '/api/upload1';
+
+            fd1.append('foto', file1);
+            return $http.post(url, fd1,{
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            });
+        },
 
         //Tampil Data
         show: function (_id) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Biodata\BiodataCreateRequest;
 use App\Http\Requests\Biodata\BiodataEditRequest;
+use App\Http\Requests\Biodata\FotoFormRequest;
 use Illuminate\Http\Request;
 use App\Domain\Contracts\BiodataInterface;
 
@@ -24,7 +25,7 @@ class BiodataController extends Controller
         $this->biodata = $biodata;
         // login pengaman
         $this->middleware('auth');
-        // login
+
     }
 
     /**
@@ -38,9 +39,6 @@ class BiodataController extends Controller
     {
         return $this->biodata->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
-
- 
-
 
 
     /**
@@ -74,7 +72,11 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->biodata->create($request->all());
+        $arr1 = str_replace('-', '', $request->foto);
+
+        $fileName1 = date('dmYhi') . $arr1;
+
+        return $this->biodata->createdata($fileName1,$request->all());
     }
 
     /**
@@ -111,6 +113,7 @@ class BiodataController extends Controller
     {
         return $this->biodata->delete($id);
     }
+
     public function batasInputBiodata()
     {
         return $this->biodata->batasInputBiodata();
@@ -119,6 +122,21 @@ class BiodataController extends Controller
     public function cekidbiodata()
     {
         return $this->biodata->cekidbiodata();
+    }
+
+    public function Upload1(FotoFormRequest $request)
+    {
+        $file1 = $request->file('foto');
+
+        $original_name1 = $file1->getClientOriginalName();
+        $arr1 = str_replace('-', '', $original_name1);
+
+
+        $fileName1 = date('dmYhi'). $arr1;
+        $destinationPath = public_path() . '/assets/foto';
+        $file1->move($destinationPath, $fileName1);
+        return response()->json(['created' => true], 200);
+
     }
 
 }

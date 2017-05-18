@@ -12,6 +12,18 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
             }
 
         })
+    var handleFileSelect1 = function (evt) {
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.images1 = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+
+    };
+    angular.element(document.querySelector('#fileInput1')).on('change', handleFileSelect1);
 
     $scope.master = $scope.myModel;
     $scope.form = {
@@ -49,21 +61,6 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         }
 
     };
-    $scope.myImage = '';
-    $scope.myCroppedImage = '';
-    $scope.cropType = "square";
-
-    var handleFileSelect = function (evt) {
-        var file = evt.currentTarget.files[0];
-        var reader = new FileReader();
-        reader.onload = function (evt) {
-            $scope.$apply(function ($scope) {
-                $scope.myImage = evt.target.result;
-            });
-        };
-        reader.readAsDataURL(file);
-    };
-    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
 
     // $scope.cekgetlist()
@@ -89,10 +86,15 @@ app.controller('FormulirsCreateCtrl', ['$state', '$scope', 'formulirs', '$timeou
         if ($scope.Form.$valid) {
             //run Ajax
             $scope.myModel.biodatas_id = $scope.id
-            $scope.myModel.foto_ijazah= $scope.myImage
+            // $scope.myModel.foto_ijazah= $scope.myImage
 
-            formulirs.store($scope.myModel)
+            var file1 = $scope.image1;
+            //console.log(file)
+            $scope.myModel.foto_ijazah = file1.name;
+
+            formulirs.uploadFile1(file1)
                 .success(function (data) {
+                    formulirs.store($scope.myModel)
                     if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {

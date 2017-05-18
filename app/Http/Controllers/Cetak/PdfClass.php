@@ -476,7 +476,7 @@ class PdfClass extends Fpdf
             //Draw the border
 
             // Setting Style
-            $this->MultiCell($w, 4, $data[$i],1, 1);
+            $this->MultiCell($w, 5, $data[$i],1, 1);
             //Put the position to the right of the cell
             $this->SetXY($x+$w, $y);
         }

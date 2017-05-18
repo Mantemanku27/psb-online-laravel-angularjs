@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Biodata;
+namespace App\Http\Requests\Formulir;
 
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\Validation\Validator;
  * Class DataPemdaFormRequest
  * @package App\Http\Requests\DataUmum
  */
-class FotoFormRequest extends Request
+class IjazahFormRequest extends Request
 {
     public function authorize()
     {
@@ -20,7 +20,7 @@ class FotoFormRequest extends Request
      * @var array
      */
     protected $attrs = [
-        'foto'  => 'Foto',
+        'foto_ijazah'  => 'Foto',
     ];
 
     /**
@@ -31,7 +31,7 @@ class FotoFormRequest extends Request
     public function rules()
     {
         return [
-            'foto'  => 'mimes:png,jpeg|max:2000',
+            'foto_ijazah'  => 'mimes:png,jpeg|max:2000',
         ];
     }
 
@@ -55,7 +55,7 @@ class FotoFormRequest extends Request
         return [
             'success'    => false,
             'validation' => [
-                'foto'  => $message->first('foto'),
+                'foto_ijazah'  => $message->first('foto_ijazah'),
             ]
         ];
     }

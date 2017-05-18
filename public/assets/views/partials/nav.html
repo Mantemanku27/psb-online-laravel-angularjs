@@ -56,9 +56,9 @@
 	</li>
 
 	<!-- Menu Users -->
-	<!--<li ui-sref-active="active">-->
-		<!--<a ui-sref="app.users"> Link Masuk Halaman User -->
-			<!--<div class="item-content">
+	<li ui-sref-active="active" ng-if="dataUser.level == 0">
+		<a ui-sref="app.users">
+			<div class="item-content">
 				<div class="item-media">
 					<i class="ti-user"></i>
 				</div>
@@ -67,10 +67,10 @@
 				</div>
 			</div>
 		</a>
-	</li>-->
+	</li>
 
 	<!-- Menu Panitia -->
-	<li ui-sref-active="active">
+	<li ui-sref-active="active" ng-if="dataUser.level == 0">
 		<a ui-sref="app.panitias"><!-- Link Masuk Halaman Panitia -->
 			<div class="item-content">
 				<div class="item-media">
@@ -84,7 +84,7 @@
 	</li>
 
 	<!-- Menu Jurusan -->
-	<li ui-sref-active="active">
+	<li ui-sref-active="active" ng-if="dataUser.level == 0">
 		<a ui-sref="app.jurusans"><!-- Link Masuk Halaman Jurusan -->
 			<div class="item-content">
 				<div class="item-media">
@@ -112,7 +112,7 @@
 	<!--</li>-->
 
 	<!-- Menu Post Pemberitahuan -->
-	<li ui-sref-active="active">
+	<li ui-sref-active="active" ng-if="dataUser.level == 0">
 		<a ui-sref="app.posts"><!-- Link Masuk Halaman Post Pemberitahuan -->
 			<div class="item-content">
 				<div class="item-media">
@@ -126,7 +126,7 @@
 	</li>
 
     <!-- Menu Ganti Password -->
-    <li ui-sref-active="active" ng-if="dataUser.level !=0">
+    <li ui-sref-active="active" >
     	<a ui-sref="app.users-password"> <!-- Link Ganti Password -->
     		<div class="item-content">
     			<div class="item-media">

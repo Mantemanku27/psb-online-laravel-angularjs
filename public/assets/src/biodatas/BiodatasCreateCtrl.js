@@ -148,22 +148,22 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
         startingDay: 1,
         class: 'datepicker'
     };
-    $scope.myImage = '';
+    $scope.images1 = '';
     $scope.myCroppedImage = '';
     $scope.cropType = "square";
 
-    var handleFileSelect = function (evt) {
+    var handleFileSelect1 = function (evt) {
         var file = evt.currentTarget.files[0];
         var reader = new FileReader();
         reader.onload = function (evt) {
             $scope.$apply(function ($scope) {
-                $scope.myImage = evt.target.result;
+                $scope.images1 = evt.target.result;
             });
         };
         reader.readAsDataURL(file);
+
     };
-    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
-    
+    angular.element(document.querySelector('#fileInput1')).on('change', handleFileSelect1);
     $scope.initDate = new Date('2016-15-20');
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
@@ -196,10 +196,14 @@ app.controller('BiodatasCreateCtrl', ['$state', '$scope', 'biodatas', '$timeout'
 
             $scope.myModel.jurusan = $scope.myModel.jurusans.id
             $scope.myModel.jurusans_2 = $scope.myModel.jurusans_2.id
-            $scope.myModel.foto= $scope.myImage
+            // $scope.myModel.foto= $scope.myImage
+            var file1 = $scope.image1;
+            //console.log(file)
+            $scope.myModel.foto = file1.name;
 
-            biodatas.store($scope.myModel)
+            biodatas.uploadFile1(file1)
                 .success(function (data) {
+                    biodatas.store($scope.myModel)
                     if (data.created == true) {
                         //If back to list after submitting
                         if (isBack == true) {

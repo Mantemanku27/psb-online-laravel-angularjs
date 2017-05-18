@@ -131,22 +131,37 @@ class CetakPendaftaran extends Controller
         $pdf->SetAutoPageBreak(0, 20);
         $pdf->SetTitle('Surat pendaftaran');
         $this->Kop($pdf, $id);
+
         $pdf->SetY(60);
         $pendaftaran = $this->pendaftaran->findById($id);
 
 //==============================================================================================================================================================================
 
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 0, 'FORMULIR PENDAFTARAN SISWA BARU ', 0, 0, 'C');
+        $pdf->Ln(5);
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(0, 0, '( Tahun 2017-2018 )', 0, 0, 'C');
+        $pdf->Ln(5);
+
         // Biodata
-        $pdf->SetFont('Arial', 'B', 8);
-        $pdf->Cell(185, 46, '', 1, '', 'L');
-        $pdf->Ln(2);
-        $pdf->Cell(0, 0, 'BIODATA SISWA', 0, '', 'L');
+        $pdf->SetFont('Arial', 'B', 9);
+        $pdf->Cell(185, 76, '', 1, '', 'L');
+        $pdf->Ln(5);
+        $pdf->Cell(0, 0, '  * BIODATA SISWA', 0, '', 'L');
         // nama
-        $pdf->Ln(0);
+        $pdf->Ln(2);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(35, 5, strtoupper('1.   Nama Lengkap'), 0, '', 'L');
         $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(35, 5, strtoupper('1.   Nama                                             '), 0, '', 'L');
+        $pdf->Ln(3);
+        $pdf->Cell(35, 5, strtoupper('      ( Max 27 digit)'), 0, '', 'L');
+        $pdf->SetFont('Arial', 'B', 9);
+
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 6);
+        $pdf->Ln(-3);
+
         $totalkatanama = strlen($pendaftaran->formulirs->biodatas->nama_lengkap);
 
         $kurangnama = 26;
@@ -158,29 +173,27 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper($pendaftaran->formulirs->biodatas->nama_lengkap), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-
-
         if ($pendaftaran->formulirs->biodatas->jk == 'Laki-laki') {
             $jeniskelamin = '1';
         }
         if ($pendaftaran->formulirs->biodatas->jk == 'Perempuan') {
             $jeniskelamin = '2';
         }
-        $pdf->Ln(6);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(9);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(0, 0, strtoupper('2.   Jenis Kelamin                            '), 0, '', 'L');
         $pdf->Ln(-2);
         $pdf->SetX(50);
-        $pdf->Cell(5, 4, ':', 0, '', 'L');
+        $pdf->Cell(5, 5, ':', 0, '', 'L');
         $pdf->SetX(53);
-        $pdf->Cell(5, 4, $jeniskelamin, 1, '', 'L');
+        $pdf->Cell(5, 5, $jeniskelamin, 1, '', 'L');
         $pdf->SetX(60);
         $pdf->Cell(5, 5, strtoupper('1. Laki-Laki'), 0, '', 'L');
         $pdf->SetX(85);
@@ -204,43 +217,43 @@ class CetakPendaftaran extends Controller
         if ($pendaftaran->formulirs->biodatas->agama == 'Khonghucu') {
             $agama = '6';
         }
-        $pdf->Ln(6);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(9);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(0, 0, strtoupper('3.   Agama                  '), 0, '', 'L');
         $pdf->Ln(-2);
         $pdf->SetX(50);
-        $pdf->Cell(5, 4, ':', 0, '', 'L');
+        $pdf->Cell(5, 5, ':', 0, '', 'L');
         $pdf->SetX(53);
-        $pdf->Cell(5, 4, $agama, 1, '', 'L');
+        $pdf->Cell(5, 5, $agama, 1, '', 'L');
         $pdf->SetX(60);
-        $pdf->Cell(4, 4, strtoupper('1. Islam'), 0, '', 'L');
+        $pdf->Cell(5, 5, strtoupper('1. Islam'), 0, '', 'L');
         $pdf->SetX(80);
-        $pdf->Cell(4, 4, strtoupper('2. Kristen'), 0, '', 'L');
+        $pdf->Cell(5, 5, strtoupper('2. Kristen'), 0, '', 'L');
         $pdf->SetX(105);
-        $pdf->Cell(4, 4, strtoupper('3. Katholik'), 0, '', 'L');
+        $pdf->Cell(5, 5, strtoupper('3. Katholik'), 0, '', 'L');
         $pdf->SetX(125);
-        $pdf->Cell(4, 4, strtoupper('4. Hindu'), 0, '', 'L');
+        $pdf->Cell(5, 5, strtoupper('4. Hindu'), 0, '', 'L');
         $pdf->SetX(150);
-        $pdf->Cell(4, 4, strtoupper('5. Budha'), 0, '', 'L');
+        $pdf->Cell(5, 5, strtoupper('5. Budha'), 0, '', 'L');
         $pdf->SetX(170);
-        $pdf->Cell(4, 4, strtoupper('6. Khonghucu'), 0, '', 'L');
-        $pdf->Ln(4);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Cell(5, 5, strtoupper('6. Khonghucu'), 0, '', 'L');
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(34, 4, strtoupper('4.   Tempat Lahir                   '), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatatempatlahir = strlen($pendaftaran->formulirs->biodatas->tempat_lahir);
 
         $kurangtempatlahir = 15;
         $pdf->SetX(50);
-        $pdf->Cell(5, 4, ':', 0, '', 'L');
+        $pdf->Cell(5, 5, ':', 0, '', 'L');
         $pdf->SetX(53);
 
         for ($i = 0; $i <= $kurangtempatlahir; $i++) {
             $hasil1 = substr($pendaftaran->formulirs->biodatas->tempat_lahir, $i, $totalkatatempatlahir);
             $tampil1 = substr($hasil1, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array(strtoupper($tampil1));
             $pdf->SetWidths($widths);
@@ -271,16 +284,16 @@ class CetakPendaftaran extends Controller
         if ($dayForDate == 'Sat') {
             $hariindo = strtoupper('Sabtu');
         }
-        $pdf->Ln(4);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(34, 4, strtoupper('5.   Hari dan Tanggal lahir        '), 0, '', 'L');
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(34, 4, strtoupper('5.   Hari & Tanggal lahir        '), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatahari = strlen($hariindo);
 
         $kuranghari = 5;
         $pdf->SetX(50);
-        $pdf->Cell(5, 4, ':', 0, '', 'L');
+        $pdf->Cell(5, 5, ':', 0, '', 'L');
         $pdf->SetX(53);
         $pdf->Cell(0, 5, 'HARI', 0, '', '');
         $pdf->SetX(63);
@@ -288,7 +301,7 @@ class CetakPendaftaran extends Controller
             $hasil2 = substr($hariindo, $i, $totalkatahari);
             $tampil2 = substr($hasil2, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array(strtoupper($tampil2));
             $pdf->SetWidths($widths);
@@ -300,15 +313,15 @@ class CetakPendaftaran extends Controller
         $pdf->SetX(103);
         $tgl1 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 0, 1);
         $tgl2 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 1, 1);
-        $pdf->Cell(4, 4, $tgl1, 1, '', 'L');
-        $pdf->Cell(4, 4, $tgl2, 1, '', 'L');
+        $pdf->Cell(5, 5, $tgl1, 1, '', 'L');
+        $pdf->Cell(5, 5, $tgl2, 1, '', 'L');
         $pdf->SetX(115);
         $pdf->Cell(0, 5, 'BLN', 0, '', '');
         $pdf->SetX(123);
         $bln1 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 3, 1);
         $bln2 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 4, 1);
-        $pdf->Cell(4, 4, $bln1, 1, '', 'L');
-        $pdf->Cell(4, 4, $bln2, 1, '', 'L');
+        $pdf->Cell(5, 5, $bln1, 1, '', 'L');
+        $pdf->Cell(5, 5, $bln2, 1, '', 'L');
         $pdf->SetX(135);
         $pdf->Cell(0, 5, 'THN', 0, '', '');
         $pdf->SetX(143);
@@ -316,84 +329,83 @@ class CetakPendaftaran extends Controller
         $thn2 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 7, 1);
         $thn3 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 8, 1);
         $thn4 = substr($pendaftaran->formulirs->biodatas->tanggal_lahir, 9, 1);
-        $pdf->Cell(4, 4, $thn1, 1, '', 'L');
-        $pdf->Cell(4, 4, $thn2, 1, '', 'L');
-        $pdf->Cell(4, 4, $thn3, 1, '', 'L');
-        $pdf->Cell(4, 4, $thn4, 1, '', 'L');
+        $pdf->Cell(5, 5, $thn1, 1, '', 'L');
+        $pdf->Cell(5, 5, $thn2, 1, '', 'L');
+        $pdf->Cell(5, 5, $thn3, 1, '', 'L');
+        $pdf->Cell(5, 5, $thn4, 1, '', 'L');
 
 
 //        // ALamat Pendaftaran
 //
-        $pdf->Ln(7);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(10);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(0, 0, '6.   ALAMAT             ', 0, '', 'L');
         $pdf->Ln(-3);
         $pdf->SetX(50);
         $pdf->Cell(5, 4, ':', 0, '', 'L');
         $pdf->SetX(53);
-        $pdf->Cell(135, 4, strtoupper($pendaftaran->formulirs->biodatas->alamat), 1, '', 'L');
-        $pdf->Ln(6);
+        $pdf->Cell(135, 5, strtoupper($pendaftaran->formulirs->biodatas->alamat), 1, '', 'L');
+        $pdf->Ln(9);
         $pdf->SetX(53);
         $pdf->SetFont('Arial', '', 6);
         $pdf->Cell(0, 0, 'A. DESA/KELURAHAN     :', 0, '', '');
-
         $pdf->Ln(-2);
         $pdf->SetX(80);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(40, 4, strtoupper($pendaftaran->formulirs->biodatas->desa), 1, '', '');
-        $pdf->Ln(6);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(40, 5, strtoupper($pendaftaran->formulirs->biodatas->desa), 1, '', '');
+        $pdf->Ln(8);
         $pdf->SetX(53);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(0, 3, 'B. KECAMATAN         :', 0, '', '');
-        $pdf->Ln(-1);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(0, 1, 'B. KECAMATAN         :', 0, '', '');
+        $pdf->Ln(-2);
         $pdf->SetX(80);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(40, 5, strtoupper($pendaftaran->formulirs->biodatas->kecamatan), 1, '', '');
         $pdf->SetX(120);
-        $pdf->Cell(0, -5, 'C. KAB/KOTA               :', 0, '', '');
-        $pdf->Ln(-5);
+        $pdf->Cell(0, -7, 'C. KAB/KOTA               :', 0, '', '');
+        $pdf->Ln(-6);
         $pdf->SetX(148);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(40, 4, strtoupper($pendaftaran->formulirs->biodatas->kabupaten), 1, '', '');
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(40, 5, strtoupper($pendaftaran->formulirs->biodatas->kabupaten), 1, '', '');
         $pdf->Ln(10);
         $pdf->SetX(120);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(0, -6, 'D. PROVINSI                :', 0, '', '');
-        $pdf->Ln(-5);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(0, -3, 'D. PROVINSI                :', 0, '', '');
+        $pdf->Ln(-4);
         $pdf->SetX(148);
-        $pdf->SetFont('Arial', '', 7);
-            $pdf->Cell(40, 4, strtoupper($pendaftaran->formulirs->biodatas->provinsi), 1, '', '');
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(40, 5, strtoupper($pendaftaran->formulirs->biodatas->provinsi), 1, '', '');
 
 
-        $pdf->Ln(6);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(34, 4, strtoupper('7.   EMAIL'), 0, '', 'L');
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(34, 5, strtoupper('7.   EMAIL'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
 
         $totalkatatempatlahir = strlen($pendaftaran->formulirs->biodatas->email);
 
         $kurangtempatlahir = 26;
         $pdf->SetX(50);
-        $pdf->Cell(5, 4, ':', 0, '', 'L');
+        $pdf->Cell(5, 5, ':', 0, '', 'L');
         $pdf->SetX(53);
 
         for ($i = 0; $i <= $kurangtempatlahir; $i++) {
             $hasil1 = substr($pendaftaran->formulirs->biodatas->email, $i, $totalkatatempatlahir);
             $tampil1 = substr($hasil1, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array(strtoupper($tampil1));
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-        $pdf->Ln(4);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(34, 4, strtoupper('8.   TELEPON'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
 
         $totalkatatempatlahir = strlen($pendaftaran->formulirs->biodatas->telepon);
 
@@ -406,24 +418,24 @@ class CetakPendaftaran extends Controller
             $hasil1 = substr($pendaftaran->formulirs->biodatas->telepon, $i, $totalkatatempatlahir);
             $tampil1 = substr($hasil1, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array(strtoupper($tampil1));
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-        $pdf->Ln(5);
-        $pdf->SetFont('Arial', 'B', 8);
-        $pdf->Cell(185, 45, '', 1, '', 'L');
-        $pdf->Ln(2);
-        $pdf->Cell(0, 0, 'ASAL SEKOLAH', 0, '', 'L');
+        $pdf->Ln(8);
+        $pdf->SetFont('Arial', 'B', 9);
+        $pdf->Cell(185, 49, '', 1, '', 'L');
+        $pdf->Ln(4);
+        $pdf->Cell(0, 0, '  * ASAL SEKOLAH & NILAI UN', 0, '', 'L');
         // Asal
-        $pdf->Ln(2);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(3);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(35, 5, strtoupper('1.   ASAL SEKOLAH'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatanama = strlen($pendaftaran->formulirs->asal_sekolah);
 
         $kurangnama = 26;
@@ -435,7 +447,7 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper($pendaftaran->formulirs->asal_sekolah), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
@@ -443,11 +455,11 @@ class CetakPendaftaran extends Controller
 
         }
         // Asal
-        $pdf->Ln(5);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(35, 5, strtoupper('2.   NUN B.INDONESIA'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatanama = strlen($pendaftaran->formulirs->n_bi);
 
         $kurangnama = 4;
@@ -459,18 +471,18 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper($pendaftaran->formulirs->n_bi), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-        $pdf->Ln(5);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(35, 5, strtoupper('3.   NUN MATEMATIKA'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatanama = strlen($pendaftaran->formulirs->n_mtk);
 
         $kurangnama = 4;
@@ -482,18 +494,18 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper($pendaftaran->formulirs->n_mtk), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-        $pdf->Ln(5);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(35, 5, strtoupper('4.   NUN IPA'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatanama = strlen($pendaftaran->formulirs->n_ipa);
 
         $kurangnama = 4;
@@ -505,18 +517,18 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper($pendaftaran->formulirs->n_ipa), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-        $pdf->Ln(5);
-        $pdf->SetFont('Arial', '', 7);
-        $pdf->Cell(35, 5, strtoupper('4.   NUN Bahasa Inggris'), 0, '', 'L');
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(35, 5, strtoupper('5.   NUN Bahasa Inggris'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatanama = strlen($pendaftaran->formulirs->n_ing);
 
         $kurangnama = 4;
@@ -528,24 +540,54 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper($pendaftaran->formulirs->n_ing), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
             $pdf->FancyRow2($caption);
 
         }
-        $pdf->Ln(5);
-        $pdf->SetFont('Arial', 'B', 8);
-        $pdf->Cell(185, 16, '', 1, '', 'L');
-        $pdf->Ln(2);
-        $pdf->Cell(0, 0, 'SEKOLAH & JURUSAN YANG DI PILIH', 0, '', 'L');
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->Cell(35, 5, strtoupper('6.   Total NUN'), 0, '', 'L');
+        $pdf->Cell(20);
+        $pdf->SetFont('Arial', '', 8);
+        $totol = $pendaftaran->formulirs->n_ing + $pendaftaran->formulirs->n_ipa + $pendaftaran->formulirs->n_mtk + $pendaftaran->formulirs->n_bi;
+        if (strlen($totol) == 6) {
+            $total = $totol;
+        } else {
+            $total = $totol . '0';
+        }
+        $totalkatanama = strlen($total);
+
+
+        $kurangnama = 6;
+        $pdf->SetX(50);
+        $pdf->Cell(5, 4, ':', 0, '', 'L');
+        $pdf->SetX(53);
+
+        for ($i = 0; $i <= $kurangnama; $i++) {
+            $hasil = substr($total, $i, $totalkatanama);
+            $tampil = substr($hasil, 0, 1);
+            $widd = 5;
+            $pdf->SetFont('Arial', '', 8);
+            $widths = array($widd);
+            $caption = array($tampil);
+            $pdf->SetWidths($widths);
+            $pdf->FancyRow2($caption);
+
+        }
+        $pdf->Ln(8);
+        $pdf->SetFont('Arial', 'B', 9);
+        $pdf->Cell(185, 22, '', 1, '', 'L');
+        $pdf->Ln(4);
+        $pdf->Cell(0, 0, '  * SEKOLAH & JURUSAN YANG DI PILIH', 0, '', 'L');
         // Sekolah pilihan
-        $pdf->Ln(2);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(4);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(35, 5, strtoupper('1.   SEKOLAH PILIHAN'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $totalkatanama = strlen('SMK Negeri 1 Kepanjen');
 
         $kurangnama = 26;
@@ -557,7 +599,7 @@ class CetakPendaftaran extends Controller
             $hasil = substr(strtoupper('SMK Negeri 1 Kepanjen'), $i, $totalkatanama);
             $tampil = substr($hasil, 0, 1);
             $widd = 5;
-            $pdf->SetFont('Arial', '', 7);
+            $pdf->SetFont('Arial', '', 8);
             $widths = array($widd);
             $caption = array($tampil);
             $pdf->SetWidths($widths);
@@ -565,11 +607,11 @@ class CetakPendaftaran extends Controller
 
         }
         // Sekolah pilihan
-        $pdf->Ln(4);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->Ln(7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(35, 5, strtoupper('2.   JURUSAN PILIHAN'), 0, '', 'L');
         $pdf->Cell(20);
-        $pdf->SetFont('Arial', '', 7);
+        $pdf->SetFont('Arial', '', 8);
         $pdf->SetX(50);
         $pdf->Cell(5, 4, ':', 0, '', 'L');
         $pdf->SetX(53);
@@ -585,22 +627,53 @@ class CetakPendaftaran extends Controller
         $pdf->Cell(60, 36, '_______________________', 0, '', 'C');
         $pdf->Ln(4);
         $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(60, 36, $namapanitia->nama, 0, '', 'C');
+        $pdf->Cell(60, 36, strtoupper($namapanitia->nama), 0, '', 'C');
         $pdf->Ln(4);
-        $pdf->Cell(60, 36, 'NIP : '.$namapanitia->nip, 0, '', 'C');
+        $pdf->Cell(60, 36, 'NIP : ' . $namapanitia->nip, 0, '', 'C');
 
-        
+        $hari3 = substr($pendaftaran->updated_at, 8, 2);
+        $indo3 = array("", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+        if (substr($pendaftaran->updated_at, 5, 2) <= 9) {
+            $bulan3 = $indo3[substr($pendaftaran->updated_at, 6, 1)];
+        } else {
+            $bulan3 = $indo3[substr($pendaftaran->updated_at, 5, 2)];
+        }
+//        dump(substr($pendaftaran->updated_at, 5, 1));
+        $tahun3 = substr($pendaftaran->updated_at, 0, 4);
+        $tempatlahir3 = $hari3 . ' ' . $bulan3 . ' ' . $tahun3;
+
         $pdf->SetFont('Tahoma', 'B', 11);
-        $pdf->Cell(180, -40, 'Calon Peserta Didik Baru, ', 0, '', 'C');
+        $pdf->Cell(182, -48, 'Kepanjen , '.$tempatlahir3, 0, '', 'C');
+        $pdf->Ln(2);
+        $pdf->Cell(300, -42, 'Calon Peserta Didik Baru, ', 0, '', 'C');
 //        $pdf->SetX(30);
         $pdf->SetFont('Arial', 'BU', 10);
         $pdf->Ln(30);
         $pdf->Cell(300, -40, '_______________________', 0, '', 'C');
+        $pdf->SetFont('Arial', 'B', 10);
+
         $pdf->Ln(4);
-        $pdf->Cell(300, -40, $pendaftaran->formulirs->biodatas->nama_lengkap, 0, '', 'C');
+        $pdf->Cell(300, -40, strtoupper($pendaftaran->formulirs->biodatas->nama_lengkap), 0, '', 'C');
+        $pdf->Ln(4);
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(190, -126, 'Foto 4*3 ', 0, '', 'C');
+        $gambar = 'assets/foto/' . $pendaftaran->formulirs->biodatas->foto;
+        $pdf->Image($gambar, 90, 230, 30, 40);
+        $pdf->Ln(-15);
+        $pdf->SetFont('Arial', '', 7);
+        $pdf->Cell(0, 0, 'Informasi , ', 0, '', 'L');
+        $pdf->Ln(3);
+        $pdf->Cell(0, 0, '- Membawa berkas persyaratan yaitu :  ', 0, '', 'L');
+        $pdf->Ln(3);
+        $pdf->Cell(0, 0, '  1. Fotokopi SHUN/SKHUN/DNUN Paket A/SKYBS dengan memperlihatkan Dokumen ASLI. ', 0, '', 'L');
+        $pdf->Ln(3);
+        $pdf->Cell(0, 0, '  2. Fotokopi Kartu Keluarga/KK ', 0, '', 'L');
+        $pdf->Ln(3);
+        $pdf->Cell(0, 0, '- Serahkan Formulir Pendaftaran Akun ini ke SMKN 1 KEPANJEN. ', 0, '', 'L');
 
 
-       $tanggal = date('d/m/y');
+
+        $tanggal = date('d/m/y');
         $pdf->Output('cetak-data-pendaftaran-' . $tanggal . '.pdf', 'I');
         exit;
     }

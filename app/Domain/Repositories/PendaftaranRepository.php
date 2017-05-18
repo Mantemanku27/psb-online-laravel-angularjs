@@ -2,6 +2,7 @@
 
 namespace App\Domain\Repositories;
 
+use App\Domain\Entities\Jurusan;
 use App\Domain\Entities\Pendaftaran;
 use App\Domain\Contracts\PendaftaranInterface;
 use App\Domain\Contracts\Crudable;
@@ -48,7 +49,7 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
     {
         // query to aql
 
-     
+
         $akun = $this->model
             ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
             ->join('formulirs', 'pendaftarans.formulirs_id', '=', 'formulirs.id')
@@ -170,4 +171,60 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
         return parent::find($id, $columns);
     }
 
+    public function Terima($id)
+    {
+
+        $cek = Pendaftaran::find($id);
+        $kuotawal = $cek->jurusans->kuota;
+        if ($kuotawal >= 1) {
+
+            $jurusan = Jurusan::find($cek->jurusans_id);
+            $jurusan->kuota = $kuotawal - 1;
+            $jurusan->save();
+
+            $status = '1';
+            $pendaftaran = parent::update($id, [
+                    'status' => $status,
+
+                ]
+            );
+
+
+            return $pendaftaran;
+        }else{
+            return [
+                'success' => false,
+                'result' => [
+                    'message' => 'Maaf Kuota Jurusan '.$cek->jurusans->nama.' Telah Penuh.',
+                ],
+            ];
+            
+        }
+    }
+
+    public function Tolak($id)
+    {
+        $status = '2';
+        $pendaftaran = parent::update($id, [
+                'status' => $status,
+
+            ]
+        );
+
+
+        return $pendaftaran;
+    }
+
+    public function Ijazahtaksesuai($id)
+    {
+        $status = '3';
+        $pendaftaran = parent::update($id, [
+                'status' => $status,
+
+            ]
+        );
+
+
+        return $pendaftaran;
+    }
 }

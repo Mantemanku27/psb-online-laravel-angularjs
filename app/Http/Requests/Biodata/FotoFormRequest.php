@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\DataUmum;
+namespace App\Http\Requests\Biodata;
 
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
@@ -9,13 +9,18 @@ use Illuminate\Contracts\Validation\Validator;
  * Class DataPemdaFormRequest
  * @package App\Http\Requests\DataUmum
  */
-class LogoFormRequest extends Request
+class FotoFormRequest extends Request
 {
+    public function authorize()
+    {
+        return true;
+    }
+
     /**
      * @var array
      */
     protected $attrs = [
-        'logo'  => 'Logo',
+        'foto'  => 'Foto',
     ];
 
     /**
@@ -26,7 +31,7 @@ class LogoFormRequest extends Request
     public function rules()
     {
         return [
-            'logo'  => 'mimes:png|max:200',
+            'foto'  => 'mimes:png,jpeg|max:2000',
         ];
     }
 
@@ -50,7 +55,7 @@ class LogoFormRequest extends Request
         return [
             'success'    => false,
             'validation' => [
-                'logo'  => $message->first('logo'),
+                'foto'  => $message->first('foto'),
             ]
         ];
     }

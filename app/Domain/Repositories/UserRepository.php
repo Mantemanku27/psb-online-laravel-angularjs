@@ -49,16 +49,15 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
-    $akun = $this->model
+        $akun = $this->model
             ->where(function ($query) use ($search) {
                 $query->where('nama', 'like', '%' . $search . '%')
                     ->orWhere('telepon', 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%' . $search . '%');
-                })
-        
+            })
             ->paginate($limit)
             ->toArray();
-        return $akun;    
+        return $akun;
     }
 // end searching data
 
@@ -70,12 +69,12 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     {
         // execute sql insert
         return parent::create([
-            'nama'    => e($data['nama']),
+            'nama' => e($data['nama']),
             'telepon' => e($data['telepon']),
             'konfirmasi' => 0,
             'email' => e($data['email']),
             'password' => bcrypt(e($data['password'])),
-            'level'   => e($data['level'])
+            'level' => e($data['level'])
         ]);
 
     }
@@ -84,25 +83,25 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     public function createsiswa(array $data)
     {
         try {
-        // execute sql insert
-        // konfirmasi email
-        $confirmation_code = str_random(30);
-        // konfirmasi email
-        User::create([
-            'nama'    => e($data['nama']),
-            'telepon' => e($data['telepon']),
-            'konfirmasi' => $confirmation_code,
-            'email' => e($data['email']),
-            'password' => bcrypt(e($data['password'])),
-            'level'   => 1
-        ]);   
-        session()->flash('auth_messagee', 'Pendaftaran Berhasil!, Silahkan untuk login.');
-        // konfirmasi email
-        \Mail::send('emails/konfirmasi', [
+            // execute sql insert
+            // konfirmasi email
+            $confirmation_code = str_random(30);
+            // konfirmasi email
+            User::create([
+                'nama' => e($data['nama']),
+                'telepon' => e($data['telepon']),
+                'konfirmasi' => $confirmation_code,
+                'email' => e($data['email']),
+                'password' => bcrypt(e($data['password'])),
+                'level' => 1
+            ]);
+            session()->flash('auth_messagee', 'Pendaftaran Berhasil!, Silahkan untuk login.');
+            // konfirmasi email
+            \Mail::send('emails/konfirmasi', [
 
                 'email' => $data['email'],
                 'name' => $data['nama'],
-                'confirmation_code' => $confirmation_code,], function ($message) use ($data)  {
+                'confirmation_code' => $confirmation_code,], function ($message) use ($data) {
 
                 $message->to($data['email']);
 
@@ -117,7 +116,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             session()->flash('auth_messagee', 'Cek Ulang Pengguna, Simpan Data Gagal!');
             return redirect()->route('login');
             // return $this->createError();
-        }     
+        }
     }
 // end register
 
@@ -129,15 +128,15 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     public function update($id, array $data)
     {
         return parent::update($id, [
-            'nama'    => e($data['nama']),
+            'nama' => e($data['nama']),
             'telepon' => e($data['telepon']),
             'email' => e($data['email']),
-            'level'   => e($data['level'])
+            'level' => e($data['level'])
         ]);
     }
 
 // Ganti Password
-   public function updatePassword(array $data)
+    public function updatePassword(array $data)
     {
         try {
             $user = $this->model->find(session('user_id'));
@@ -146,7 +145,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
 
                 if (\Hash::check($data['old_password'], $old_password)) {
                     // flush cache with tags
-     
+
                     $user->password = bcrypt($data['new_password']);
                     $user->save();
 
@@ -195,7 +194,8 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     {
         return parent::find($id, $columns);
     }
-public function updatekonfirmasi($id)
+
+    public function updatekonfirmasi($id)
     {
         $users = \DB::table('users')
             ->where('konfirmasi', $id)
@@ -210,7 +210,6 @@ public function updatekonfirmasi($id)
                 ->where('konfirmasi', $id)
                 ->first();
             $userupdate = User::find($user->id);
-
             $userupdate->konfirmasi = 0;
             $userupdate->save();
             session()->flash('auth_messagee', 'Konfirmasi Pengguna Berhasil!');

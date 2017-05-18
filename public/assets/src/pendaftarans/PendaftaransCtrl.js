@@ -9,12 +9,11 @@ app.controller('PendaftaranCtrl', ['$state', '$scope', 'pendaftarans', 'SweetAle
         page: 1,
         term: ''
     };
-$scope.cetak = function (id) {
-        window.open('../api/cetak-pendaftaran/' + id , '_blank');
+    $scope.cetak = function (id) {
+        window.open('../api/cetak-pendaftaran/' + id, '_blank');
     }
     $scope.id = $scope.$stateParams.id;
 
-   
 
     $scope.isLoading = true;
     $scope.isLoaded = false;
@@ -39,7 +38,6 @@ $scope.cetak = function (id) {
         })
 
 
-
     //Init Alert status
     $scope.alertset = {
         show: 'hide',
@@ -57,7 +55,7 @@ $scope.cetak = function (id) {
 
         window.open('../api/v1/cetak-pendaftaran', '_blank');
 
-        window.open ('../api/v1/cetak-pendaftaran','_blank');
+        window.open('../api/v1/cetak-pendaftaran', '_blank');
 
     };
     //Init dataAkun
@@ -106,7 +104,6 @@ $scope.cetak = function (id) {
             .success(function (data) {
                 $scope.batasinput = data;
             })
-
 
 
         //Start loading
@@ -190,33 +187,6 @@ $scope.cetak = function (id) {
         $scope.getData()
     };
 
-
-
-// //hapus lewat tampilan
-//     $scope.hapus = function (id) {
-//         var confirm = $mdDialog.confirm()
-//             .title('Konfirmasi')
-//             .content('Apakah Anda yakin ingin menghapus data?')
-//             .ok('Hapus')
-//             .cancel('Batal')
-//             .targetEvent(id);
-//         //
-//         $mdDialog.show(confirm).then(function () {
-//             pendaftaran.destroy(id)
-//                 .success(function (data) {
-//                     if (data.success == true) {
-//                         $scope.showToast('green', 'Data Berhasil Dihapus');
-//                     } else {
-//                         $scope.showToast('red', data.result.message);
-//                     }
-//                     $scope.getData();
-//                 })
-//
-//         }, function () {
-//
-//         });
-//     };
-
     $scope.hapus = function (id) {
         SweetAlert.swal({
             title: "Are you sure?",
@@ -234,7 +204,7 @@ $scope.cetak = function (id) {
                     .success(function (data) {
 
 
-                        if (data.success == true) {
+                        if (data.deleted == true) {
 
                             SweetAlert.swal({
                                 title: "Deleted!",
@@ -261,6 +231,153 @@ $scope.cetak = function (id) {
                     title: "Cancelled",
                     text: "Your imaginary file is safe :)",
                     type: "error",
+                    confirmButtonColor: "#007AFF"
+                });
+            }
+        });
+    };
+    $scope.terima = function (id) {
+        SweetAlert.swal({
+            title: "Konfirmasi?",
+            text: "Apakah Anda Yakin Akan Terima Menjadi Siswa Baru",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Konfirmasi!",
+            cancelButtonText: "Batal!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function (isConfirm) {
+            if (isConfirm) {
+                pendaftarans.terima(id)
+                    .success(function (data) {
+
+
+                        if (data.updated == true) {
+
+                            SweetAlert.swal({
+                                title: "Berhasil!",
+                                text: "Data Berhasil Diterima.",
+                                type: "success",
+                                confirmButtonColor: "#007AFF"
+                            });
+
+                        } else {
+                            SweetAlert.swal({
+                                title: "Gagal",
+                                text: data.result.message,
+                                type: "error",
+                                confirmButtonColor: "#007AFF"
+                            })
+
+                        }
+                        $scope.getData();
+                    })
+
+
+            } else {
+                SweetAlert.swal({
+                    title: "Batal",
+                    text: "Konfirmasi Siswa Terima telah Di batalkan",
+                    type: "warning",
+                    confirmButtonColor: "#007AFF"
+                });
+            }
+        });
+    };
+    $scope.tolak = function (id) {
+        SweetAlert.swal({
+            title: "Konfirmasi?",
+            text: "Apakah Anda Yakin Akan Tolak Menjadi Siswa Baru",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Konfirmasi!",
+            cancelButtonText: "Batal!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function (isConfirm) {
+            if (isConfirm) {
+                pendaftarans.tolak(id)
+                    .success(function (data) {
+
+
+                        if (data.updated == true) {
+
+                            SweetAlert.swal({
+                                title: "Berhasil!",
+                                text: "Data Berhasil Dirubah.",
+                                type: "success",
+                                confirmButtonColor: "#007AFF"
+                            });
+
+                        } else {
+                            SweetAlert.swal({
+                                title: "Gagal",
+                                text: "Data Gagal Di tolak",
+                                type: "error",
+                                confirmButtonColor: "#007AFF"
+                            })
+
+                        }
+                        $scope.getData();
+                    })
+
+
+            } else {
+                SweetAlert.swal({
+                    title: "Batal",
+                    text: "Konfirmasi Siswa Tolak telah Di batalkan",
+                    type: "warning",
+                    confirmButtonColor: "#007AFF"
+                });
+            }
+        });
+    };
+    $scope.ijazah = function (id) {
+        SweetAlert.swal({
+            title: "Konfirmasi?",
+            text: "Apakah Anda Yakin Akan Menyuruh Pendaftar Melengkapi Berkas",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Konfirmasi!",
+            cancelButtonText: "Batal!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function (isConfirm) {
+            if (isConfirm) {
+                pendaftarans.ijazah(id)
+                    .success(function (data) {
+
+
+                        if (data.updated == true) {
+
+                            SweetAlert.swal({
+                                title: "Berhasil!",
+                                text: "Data Berhasil Dirubah.",
+                                type: "success",
+                                confirmButtonColor: "#007AFF"
+                            });
+
+                        } else {
+                            SweetAlert.swal({
+                                title: "Gagal",
+                                text: "Data Gagal Di rubah",
+                                type: "error",
+                                confirmButtonColor: "#007AFF"
+                            })
+
+                        }
+                        $scope.getData();
+                    })
+
+
+            } else {
+                SweetAlert.swal({
+                    title: "Batal",
+                    text: "Konfirmasi Siswa perubahan data telah Di batalkan",
+                    type: "warning",
                     confirmButtonColor: "#007AFF"
                 });
             }

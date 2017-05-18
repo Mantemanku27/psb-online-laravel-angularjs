@@ -32,22 +32,18 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         msg: ''
     };
     //get lass formulirs
-    $scope.myImage = '';
-    $scope.myCroppedImage = '';
-    $scope.cropType = "square";
-
-    var handleFileSelect = function (evt) {
+    var handleFileSelect1 = function (evt) {
         var file = evt.currentTarget.files[0];
         var reader = new FileReader();
         reader.onload = function (evt) {
             $scope.$apply(function ($scope) {
-                $scope.myImage = evt.target.result;
+                $scope.images1 = evt.target.result;
             });
         };
         reader.readAsDataURL(file);
-    };
-    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
+    };
+    angular.element(document.querySelector('#fileInput1')).on('change', handleFileSelect1);
 
 
     //Run Ajax
@@ -55,6 +51,9 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         .success(function (data) {
             $scope.setLoader(false);
             $scope.myModel = data;
+            $scope.foto = data.foto_ijazah;
+            $scope.images1 = data.foto_ijazah;
+
 
         });
 
@@ -70,45 +69,94 @@ app.controller('FormulirsEditCtrl', ['$state', '$scope', 'formulirs', 'SweetAler
         //Check validation status
         if ($scope.Form.$valid) {
             //run Ajax
-            $scope.myModel.foto_ijazah= $scope.myImage
-            formulirs.update($scope.myModel)
-                .success(function (data) {
-                    if (data.updated == true) {
-                        //If back to list after submitting
-                        //Redirect to akun
-                        window.location = "/pendaftaran#/app/formulirs/" + $scope.myModel.biodatas_id;
+                if ($scope.foto == $scope.images1) {
 
-                        $scope.toaster = {
-                            type: 'success',
-                            title: 'Sukses',
-                            text: 'Update Data Berhasil!'
-                        };
-                        toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+                    formulirs.update($scope.myModel)
+                        .success(function (data) {
+                            if (data.updated == true) {
+                                //If back to list after submitting
+                                //Redirect to akun
+                                window.location = "/pendaftaran#/app/formulirs/" + $scope.myModel.biodatas_id;
 
-                    }
+                                $scope.toaster = {
+                                    type: 'success',
+                                    title: 'Sukses',
+                                    text: 'Update Data Berhasil!'
+                                };
+                                toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+                            }
 
 
-                })
-                .error(function (data, status) {
-                    // unauthorized
-                    if (status === 401) {
-                        //redirect to login
-                        $scope.redirect();
-                    }
-                    $scope.sup();
-                    // Stop Loading
-                    $scope.process = false;
-                    $scope.alerts.push({
-                        type: 'danger',
-                        msg: data.validation
-                    });
-                    $scope.toaster = {
-                        type: 'error',
-                        title: 'Gagal',
-                        text: 'Update Data Gagal!'
-                    };
-                    toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-                });
+                        })
+                        .error(function (data, status) {
+                            // unauthorized
+                            if (status === 401) {
+                                //redirect to login
+                                $scope.redirect();
+                            }
+                            $scope.sup();
+                            // Stop Loading
+                            $scope.process = false;
+                            $scope.alerts.push({
+                                type: 'danger',
+                                msg: data.validation
+                            });
+                            $scope.toaster = {
+                                type: 'error',
+                                title: 'Gagal',
+                                text: 'Update Data Gagal!'
+                            };
+                            toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+                        });
+                }
+                else {
+
+                    var file1 = $scope.image1;
+                    //console.log(file)
+                    $scope.myModel.foto = file1.name;
+
+                    formulirs.uploadFile1(file1)
+                        .success(function (data) {
+                            if (data.created == true) {
+                                formulirs.update($scope.myModel)
+
+                                //If back to list after submitting
+                                //Redirect to akun
+                                window.location = "/pendaftaran#/app/formulirs/" + $scope.myModel.biodatas_id;
+
+                                $scope.toaster = {
+                                    type: 'success',
+                                    title: 'Sukses',
+                                    text: 'Update Data Berhasil!'
+                                };
+                                toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+                            }
+
+
+                        })
+                        .error(function (data, status) {
+                            // unauthorized
+                            if (status === 401) {
+                                //redirect to login
+                                $scope.redirect();
+                            }
+                            $scope.sup();
+                            // Stop Loading
+                            $scope.process = false;
+                            $scope.alerts.push({
+                                type: 'danger',
+                                msg: data.validation
+                            });
+                            $scope.toaster = {
+                                type: 'error',
+                                title: 'Gagal',
+                                text: 'Update Data Gagal!'
+                            };
+                            toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+                        });
+                }
         }
     };
 

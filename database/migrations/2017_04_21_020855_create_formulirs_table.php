@@ -17,10 +17,10 @@ class CreateFormulirsTable extends Migration
 
             $table->uuid('id');
             $table->string('asal_sekolah');
-            $table->integer('n_bi');
-            $table->integer('n_mtk');
-            $table->integer('n_ipa');
-            $table->integer('n_ing');
+            $table->string('n_bi');
+            $table->string('n_mtk');
+            $table->string('n_ipa');
+            $table->string('n_ing');
             $table->longText('foto_ijazah');
             $table->string('biodatas_id');
             $table->string('user_id');

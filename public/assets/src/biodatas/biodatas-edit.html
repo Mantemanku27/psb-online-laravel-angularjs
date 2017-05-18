@@ -97,24 +97,24 @@
                                     </div>
 
                                     <!--<div class="form-group"-->
-                                         <!--ng-class="{'has-error':Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid, 'has-success':Form.tanggal_lahir.$valid}">-->
-                                        <!--<label class="control-label"> Tanggal Lahir <span-->
-                                                <!--class="symbol required"></span></label>-->
-                                        <!--<p class="input-group">-->
-                                            <!--<input type="text" class="form-control" uib-datepicker-popup="{{format}}"-->
-                                                   <!--datepicker-options="datepickerOptions" ng-required="true"-->
-                                                   <!--close-text="Close" placeholder="Enter your Tanggal Lahir"-->
-                                                   <!--is-open="opened" ng-model="myModel.tanggal_lahir"-->
-                                                   <!--placeholder="Tanggal Lahir" required name="tanggal_lahir">-->
-                                <!--<span class="input-group-btn">-->
+                                    <!--ng-class="{'has-error':Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid, 'has-success':Form.tanggal_lahir.$valid}">-->
+                                    <!--<label class="control-label"> Tanggal Lahir <span-->
+                                    <!--class="symbol required"></span></label>-->
+                                    <!--<p class="input-group">-->
+                                    <!--<input type="text" class="form-control" uib-datepicker-popup="{{format}}"-->
+                                    <!--datepicker-options="datepickerOptions" ng-required="true"-->
+                                    <!--close-text="Close" placeholder="Enter your Tanggal Lahir"-->
+                                    <!--is-open="opened" ng-model="myModel.tanggal_lahir"-->
+                                    <!--placeholder="Tanggal Lahir" required name="tanggal_lahir">-->
+                                    <!--<span class="input-group-btn">-->
                                     <!--<button type="button" class="btn btn-default" ng-click="open($event)"><i-->
-                                            <!--class="glyphicon glyphicon-calendar"></i></button>-->
-                                 <!--</span>-->
-                                        <!--</p>-->
-                                        <!--<span class="error text-small block"-->
-                                              <!--ng-if="Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid">Tanggal Lahir is required</span>-->
-                                        <!--<span class="success text-small"-->
-                                              <!--ng-if="Form.tanggal_lahir.$valid">Thank You!</span>-->
+                                    <!--class="glyphicon glyphicon-calendar"></i></button>-->
+                                    <!--</span>-->
+                                    <!--</p>-->
+                                    <!--<span class="error text-small block"-->
+                                    <!--ng-if="Form.tanggal_lahir.$dirty && Form.tanggal_lahir.$invalid">Tanggal Lahir is required</span>-->
+                                    <!--<span class="success text-small"-->
+                                    <!--ng-if="Form.tanggal_lahir.$valid">Thank You!</span>-->
                                     <!--</div>-->
 
                                     <div class="form-group"
@@ -195,30 +195,32 @@
                                               ng-if="Form.provinsi.$dirty && Form.provinsi.$invalid">Provinsi Jurusan is required</span>
                                         <span class="success text-small" ng-if="Form.provinsi.$valid">Thank You!</span>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label"> Foto 4*3<span class="symbol required"></span></label>
+
                                     <div class="row">
                                         <div class="col-md-12 margin-bottom-30">
-						<span class="btn btn-primary btn-file"> Select an image file
-							<input type="file" id="fileInput" ng-model="myModel.foto"/>
-						</span>
+						                <span class="btn btn-primary btn-file"> Select an image file
+                                            <input type="file" id="fileInput1" ng-model="myModel.foto"
+                                                   file-model="image1" class="upload-file" data-max-size="100">
+						                    </span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="cropBox">
-                                                <div class="cropArea">
-                                                    <img-crop image="myImage" result-image="myCroppedImage"
-                                                              area-type="{{cropType}}"></img-crop>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="cropBox croppedBox">
-                                                <div>
-                                                    <img ng-src="{{myCroppedImage}}"/>
-                                                </div>
-                                            </div>
+                                                                        <span ng-if="foto != images1">
+                            <div class="card" style="height:300px;width:300px;">
+                                <img ng-src="{{images1}}" style="height:300px;width:300px;"/>
+                            </div></span>
+                            <span ng-if="foto == images1">
+                            <div class="card" style="height:300px;width:300px;">
+                                <img ng-src="assets/foto/{{foto}}" style="height:300px;width:300px;"/>
+                            </div>
+                            </span>
+
                                         </div>
                                     </div>
+</div>
                                 </fieldset>
                             </div>
                         </div>

@@ -120,7 +120,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
      * @param array $data
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function create(array $data)
+    public function createdata($filedata,array $data)
     {
         // execute sql insert
         return parent::create([
@@ -130,7 +130,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             'n_mtk' => e($data['n_mtk']),
             'n_ipa' => e($data['n_ipa']),
             'n_ing' => e($data['n_ing']),
-            'foto_ijazah' => e($data['foto_ijazah']),
+            'foto_ijazah' => $filedata,
             'biodatas_id' => e($data['biodatas_id']),
             'user_id' => session('user_id')
         ]);
@@ -144,6 +144,20 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
      */
     public function update($id, array $data)
     {
+        $arr2 = str_replace('-', '', e($data['foto_ijazah']));
+
+        $fileName1 = date('dmYhi') . $arr2;
+
+        $cari = Formulir::find($id);
+        if ($cari->foto_ijazah== e($data['foto_ijazah'])) {
+            $filename2 = $cari->foto_ijazah;
+
+        } else {
+            $filename2 = $fileName1;
+            \File::delete(public_path() . '/assets/ijazah/' . $cari->foto_ijazah);
+
+        }
+
         return parent::update($id, [
 
             'asal_sekolah' => e($data['asal_sekolah']),
@@ -151,7 +165,7 @@ class FormulirRepository extends AbstractRepository implements FormulirInterface
             'n_mtk' => e($data['n_mtk']),
             'n_ipa' => e($data['n_ipa']),
             'n_ing' => e($data['n_ing']),
-            'foto_ijazah' => e($data['foto_ijazah']),
+            'foto_ijazah' => $filename2,
             'biodatas_id' => e($data['biodatas_id']),
             
         ]);

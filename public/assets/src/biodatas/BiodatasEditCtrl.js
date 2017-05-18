@@ -32,6 +32,18 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
         msg: ''
     };
     //get lass biodatas
+    var handleFileSelect1 = function (evt) {
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.images1 = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+
+    };
+    angular.element(document.querySelector('#fileInput1')).on('change', handleFileSelect1);
 
 
     //Run Ajax
@@ -39,21 +51,10 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
         .success(function (data) {
             $scope.setLoader(false);
             $scope.myModel = data;
-            $scope.myImage = data.foto;
-            $scope.myCroppedImage = data.foto;
-            $scope.cropType = "square";
+            $scope.foto = data.foto;
+            $scope.images1 = data.foto;
 
-            var handleFileSelect = function (evt) {
-                var file = evt.currentTarget.files[0];
-                var reader = new FileReader();
-                reader.onload = function (evt) {
-                    $scope.$apply(function ($scope) {
-                        $scope.myImage = evt.target.result;
-                    });
-                };
-                reader.readAsDataURL(file);
-            };
-            angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+
 
         });
 
@@ -92,13 +93,6 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
 
-    biodatas.show($scope.id)
-        .success(function (data) {
-            $scope.setLoader(false);
-            $scope.myModel = data;
-            $scope.objjurusan = [];
-    
-        });    //Submit Data
     $scope.updateData = function () {
         $scope.alerts = [];
         //Set process status
@@ -124,44 +118,90 @@ app.controller('BiodatasEditCtrl', ['$state', '$scope', 'biodatas', 'SweetAlert'
                 }
                 $scope.myModel.tanggal_lahir = $scope.day + "/" + $scope.month + "/" + $scope.year;
             }
-            $scope.myModel.foto= $scope.myImage
-            biodatas.update($scope.myModel)
-                .success(function (data) {
-                    if (data.updated == true) {
-                        //If back to list after submitting
-                        //Redirect to akun
-                        $state.go('app.biodatas');
+            if ($scope.foto == $scope.images1) {
+                biodatas.update($scope.myModel)
+                    .success(function (data) {
+                        if (data.updated == true) {
+                            //If back to list after submitting
+                            //Redirect to akun
+                            $state.go('app.biodatas');
+                            $scope.toaster = {
+                                type: 'success',
+                                title: 'Sukses',
+                                text: 'Update Data Berhasil!'
+                            };
+                            toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+                        }
+
+
+                    })
+                    .error(function (data, status) {
+                        // unauthorized
+                        if (status === 401) {
+                            //redirect to login
+                            $scope.redirect();
+                        }
+                        $scope.sup();
+                        // Stop Loading
+                        $scope.process = false;
+                        $scope.alerts.push({
+                            type: 'danger',
+                            msg: data.validation
+                        });
                         $scope.toaster = {
-                            type: 'success',
-                            title: 'Sukses',
-                            text: 'Update Data Berhasil!'
+                            type: 'error',
+                            title: 'Gagal',
+                            text: 'Update Data Gagal!'
                         };
                         toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-
-                    }
-
-
-                })
-                .error(function (data, status) {
-                    // unauthorized
-                    if (status === 401) {
-                        //redirect to login
-                        $scope.redirect();
-                    }
-                    $scope.sup();
-                    // Stop Loading
-                    $scope.process = false;
-                    $scope.alerts.push({
-                        type: 'danger',
-                        msg: data.validation
                     });
-                    $scope.toaster = {
-                        type: 'error',
-                        title: 'Gagal',
-                        text: 'Update Data Gagal!'
-                    };
-                    toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
-                });
+            }
+            else{
+                var file1 = $scope.image1;
+                //console.log(file)
+                $scope.myModel.foto = file1.name;
+
+                biodatas.uploadFile1(file1)
+                    .success(function (data) {
+                        if (data.created == true) {
+                            biodatas.update($scope.myModel)
+
+                            //If back to list after submitting
+                            //Redirect to akun
+                            $state.go('app.biodatas');
+                            $scope.toaster = {
+                                type: 'success',
+                                title: 'Sukses',
+                                text: 'Update Data Berhasil!'
+                            };
+                            toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+
+                        }
+
+
+                    })
+                    .error(function (data, status) {
+                        // unauthorized
+                        if (status === 401) {
+                            //redirect to login
+                            $scope.redirect();
+                        }
+                        $scope.sup();
+                        // Stop Loading
+                        $scope.process = false;
+                        $scope.alerts.push({
+                            type: 'danger',
+                            msg: data.validation
+                        });
+                        $scope.toaster = {
+                            type: 'error',
+                            title: 'Gagal',
+                            text: 'Update Data Gagal!'
+                        };
+                        toaster.pop($scope.toaster.type, $scope.toaster.title, $scope.toaster.text);
+                    });
+            }
         }
     };
 }]);

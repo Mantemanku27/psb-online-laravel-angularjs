@@ -80,30 +80,24 @@
                                               ng-if="Form.n_ing.$dirty && Form.n_ing.$invalid">N B.Inggris is required</span>
                                         <span class="success text-small" ng-if="Form.n_ing.$valid">Thank You!</span>
                                     </div>
-                                    <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label"> Validasi Bukti Ijazah<span class="symbol required"></span></label>
+
+                                        <div class="row">
                                         <div class="col-md-12 margin-bottom-30">
-						<span class="btn btn-primary btn-file"> Select an image file
-							<input type="file" id="fileInput" ng-model="myModel.foto_ijazah"/>
-						</span>
+						                <span class="btn btn-primary btn-file"> Select an image file
+                                            <input type="file" id="fileInput1" ng-model="myModel.foto_ijazah" file-model="image1" class="upload-file" data-max-size="100">
+						                    </span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="cropBox">
-                                                <div class="cropArea">
-                                                    <img-crop image="myImage" result-image="myCroppedImage"
-                                                              area-type="{{cropType}}"></img-crop>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="cropBox croppedBox">
-                                                <div>
-                                                    <img ng-src="{{myCroppedImage}}"/>
-                                                </div>
+                                            <div class="card" style="height:300px;width:300px; ">
+                                                <img ng-src="{{images1}}" style="height:300px;width:300px;"/>
                                             </div>
                                         </div>
                                     </div>
+</div>
                                 </fieldset>
                             </div>
                         </div>

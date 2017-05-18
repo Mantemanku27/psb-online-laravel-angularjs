@@ -14,8 +14,6 @@ app.factory('formulirs', ['$http', function ($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest'}
             });
         },
-
-
         cekinputformulir: function (_id) {
             return $http({
                 method: 'get',
@@ -34,16 +32,6 @@ app.factory('formulirs', ['$http', function ($http) {
                 url: '/api/getList-jurusan',
             });
         },
-
-
-        getLastformulirs: function () {
-            return $http({
-                method: 'get',
-                url: '/api/get-last-formulirs',
-            });
-        },
-
-
         //Simpan data
         store: function (inputData) {
             return $http({
@@ -76,10 +64,15 @@ app.factory('formulirs', ['$http', function ($http) {
                 data: $.param(inputData)
             });
         },
-        kunci: function (_id) {
-            return $http({
-                method: 'put',
-                url: '/api/kunci-formulirs/' + _id
+        uploadFile1: function (file1) {
+            var fd1 = new FormData();
+
+            var url = '/api/upload2';
+
+            fd1.append('foto_ijazah', file1);
+            return $http.post(url, fd1,{
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
             });
         },
 
