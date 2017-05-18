@@ -1,9 +1,7 @@
-/**
- * Created by - LENOVO - on 24/08/2015.
- */
 app.factory('posts', ['$http', function ($http) {
     return {
-        // get data dengan pagination dan pencarian data
+        
+        // Get Data dengan Pagination & Pencarian Data
         get: function (page, term) {
             return $http({
                 method: 'get',
@@ -12,6 +10,7 @@ app.factory('posts', ['$http', function ($http) {
             });
         },
 
+        // List Data
         getLastposts: function () {
             return $http({
                 method: 'get',
@@ -19,7 +18,7 @@ app.factory('posts', ['$http', function ($http) {
             });
         },
 
-        //Simpan data
+        // Simpan Data
         store: function (inputData) {
             return $http({
                 method: 'POST',
@@ -28,7 +27,7 @@ app.factory('posts', ['$http', function ($http) {
             });
         },
 
-        //Tampil Data
+        // Tampil Data
         show: function (_id) {
             return $http({
                 method: 'get',
@@ -36,6 +35,7 @@ app.factory('posts', ['$http', function ($http) {
             });
         },
 
+        // Hapus Data
         destroy: function (_id) {
             return $http({
                 method: 'delete',
@@ -43,7 +43,7 @@ app.factory('posts', ['$http', function ($http) {
             });
         },
 
-        //Update data
+        // Update Data
         update: function (inputData) {
             return $http({
                 method: 'put',
@@ -51,6 +51,8 @@ app.factory('posts', ['$http', function ($http) {
                 data: $.param(inputData)
             });
         },
+
+        // Pengaman Data
         kunci: function (_id) {
             return $http({
                 method: 'put',

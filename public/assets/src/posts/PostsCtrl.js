@@ -1,7 +1,8 @@
 'use strict';
 
-app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$timeout', function ($state,$scope, posts, SweetAlert) {
-//urussan tampilan
+app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$uibModal', '$log', '$http','$timeout', function ($state,$scope, posts, SweetAlert,$uibModal,$log) {
+
+    // Urusan Tampilan
     $scope.main = {
         page: 1,
         term: ''
@@ -20,105 +21,128 @@ app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$
         }
     };
 
-    //Init Alert status
+   // Detail
+   $scope.posts = function (id) {
+
+        var modalInstance = $uibModal.open({
+            templateUrl: 'assets/src/posts/detail.dialog.html',
+            controller: 'PostdetailCtrl',
+            size: 'lg',
+            resolve: {
+                item: function () {
+                    return id;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
+
+    // Init Alert status
     $scope.alertset = {
         show: 'hide',
         class: 'green',
         msg: ''
     };
-    //refreshData
+
+    // Refresh Data
     $scope.refreshData = function () {
         $scope.main.page = 1;
         $scope.main.term = '';
         $scope.getData();
     };
+
     // go to print preview page
     $scope.print = function () {
         window.open ('../api/v1/cetak-post','_blank');
     };
-    //Init dataAkun
+
+    //Init Data Akun
     $scope.dataPosts = '';
-    // init get data
+
+    // Init Get Data
     posts.get($scope.main.page, $scope.main.term)
         .success(function (data) {
-
-            //Change Loading status
+            // Change Loading Status
             $scope.setLoader(false);
 
-            // result data
+            // Result Data
             $scope.dataPosts = data.data;
-            // set the current page
+            // Set The Current Page
             $scope.current_page = data.current_page;
 
-            // set the last page
+            // Set The Last Page
             $scope.last_page = data.last_page;
 
-            // set the data from
+            // Set The Data From
             $scope.from = data.from;
 
-            // set the data until to
+            // Set The Data Until To
             $scope.to = data.to;
 
-            // set the total result data
+            // Set The Total Result Data
             $scope.total = data.total;
         })
         .error(function (data, status) {
-            // unauthorized
+            // Unauthorized
             if (status === 401) {
-                //redirect to login
+                // Redirect To Login
                 $scope.redirect();
             }
             console.log(data);
         });
 
-    // get data
+    // Get Data
     $scope.getData = function () {
 
-        //Start loading
+        // Start Loading
         $scope.setLoader(true);
 
         posts.get($scope.main.page, $scope.main.term)
             .success(function (data) {
-
-                //Stop loading
+                // Stop Loading
                 $scope.setLoader(false);
 
-                // result data
+                // Result Data
                 $scope.dataPosts = data.data;
 
-                // set the current page
+                // Set The Current Page
                 $scope.current_page = data.current_page;
 
-                // set the last page
+                // Set The Last Page
                 $scope.last_page = data.last_page;
 
-                // set the data from
+                // Set The Data From
                 $scope.from = data.from;
 
-                // set the data until to
+                // Set The Data Until To
                 $scope.to = data.to;
 
-                // set the total result data
+                // Set The Total Result Data
                 $scope.total = data.total;
             })
             .error(function (data, status) {
-                // unauthorized
+                // Unauthorized
                 if (status === 401) {
-                    //redirect to login
+                    // Redirect To Login
                     $scope.redirect();
                 }
                 console.log(data);
             });
     };
 
-    // Navigasi halaman terakhir
+    // Navigasi Halaman Terakhir
     $scope.lastPage = function () {
-        //Disable All Controller
+        // Disable All Controller
         $scope.main.page = $scope.last_page;
         $scope.getData();
     };
 
-    // Navigasi halaman selanjutnya
+    // Navigasi Halaman Selanjutnya
     $scope.nextPage = function () {
         // jika page = 1 < halaman terakhir
         if ($scope.main.page < $scope.last_page) {
@@ -129,9 +153,9 @@ app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$
         $scope.getData();
     };
 
-    // Navigasi halaman sebelumnya
+    // Navigasi Halaman Sebelumnya
     $scope.previousPage = function () {
-        //Disable All Controller
+        // Disable All Controller
 
         // jika page = 1 > 1
         if ($scope.main.page > 1) {
@@ -142,9 +166,9 @@ app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$
         $scope.getData();
     };
 
-    // Navigasi halaman pertama
+    // Navigasi Halaman Pertama
     $scope.firstPage = function () {
-        //Disable All Controller
+        // Disable All Controller
 
         $scope.main.page = 1;
 
@@ -175,6 +199,8 @@ app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$
 //
 //         });
 //     };
+
+    // Hapus Data
     $scope.hapus = function (id) {
         SweetAlert.swal({
             title: "Are you sure?",
@@ -225,5 +251,35 @@ app.controller('PostCtrl', ['$state','$scope', 'posts', 'SweetAlert', '$http','$
         });
     };
 
-
 }]);
+
+// Detail
+app.controller('PostdetailCtrl', ['$scope', 'posts', 'SweetAlert', '$uibModal','$log','$uibModalInstance','toaster','item','$http','$timeout', function ($scope, posts,SweetAlert,$uibModal,$log,$uibModalInstance,toaster,item) {
+     // Urusan Tampilan
+     $scope.myModel ={}
+     
+     $scope.isLoading = true;
+     $scope.isLoaded = false;
+ 
+     $scope.setLoader = function (status) {
+         if (status == true) {
+             $scope.isLoading = true;
+             $scope.isLoaded = false;
+         } else {
+             $scope.isLoading = false;
+             $scope.isLoaded = true;
+         }
+     };
+     $scope.id =item
+     posts.show($scope.id)
+         .success(function (data) {
+             $scope.setLoader(false);
+             $scope.myModel = data;
+         });
+ 
+     $scope.cancel = function () {
+         $uibModalInstance.dismiss('cancel');
+     };
+ 
+ 
+ }]); 
