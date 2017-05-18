@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Domain\Repositories\JurusanRepository;
 
 /**
  * Class PageController
@@ -18,15 +19,19 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function __construct()
+    public function __construct(JurusanRepository $jurusan)
     {
         $this->middleware('guest', ['only' => ['landingpage','getLogin','signup']]);
-
+        $this->jurusan=$jurusan;
     }
 
     public function landingpage()
     {
-        return view('landingpage');
+        $getlist=$this->jurusan->getList();
+        // dump($getlist);
+        return view('landingpage')->with([
+            'getlist'=>$getlist
+        ]);
 
     }
 

@@ -166,14 +166,19 @@
         <div class="work_section">
           <div class="row">
             <div class="col-lg-6 col-sm-6 wow fadeInLeft delay-05s">
+@foreach($jurusan as $row)
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
-                  <h3>Rekayasa Perangkat Lunak</h3>
+                  <h3>{{$row->nama}}</h3>
                   <p>Kuota Jurusan Rekayasa Perangkat Lunak Masih membutuhkan 200 peserta didik baru</p>
                 </div>
               </div>
-              <div class="service-list">
+@andforeach
+
+
+
+              <!--<div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Komputer Jaringan</h3>
@@ -200,7 +205,7 @@
                   <h3>Teknik Sepeda Motor</h3>
                   <p>Kuota Jurusan Teknik Sepeda Motor Masih membutuhkan 200 peserta didik baru</p>
                 </div>
-              </div>
+              </div>-->
               <div class="work_bottom"><span>Ayo Pilih Keahlianmu Sekarang...!</span><a href="signup" class="contact_btn">Daftar Sekarang</a></div>
             </div>
             <figure class="col-lg-6 col-sm-6  text-right wow fadeInUp delay-02s"> </figure>
