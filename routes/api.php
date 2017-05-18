@@ -20,12 +20,14 @@ Route::get('/user', function (Request $request) {
 Route::resource('biodatas', 'BiodataController');
 Route::get('batas-input-biodatas', 'BiodataController@batasInputBiodata');
 Route::get('getidbiodatas', 'BiodataController@cekidbiodata');
+Route::post('upload1', 'BiodataController@Upload1');
 
 // Rute API tabel Formulir
 Route::resource('formulirs', 'FormulirController');
 Route::get('get-formulirs-by-id/{id}', 'FormulirController@paginatebyid');
 Route::get('batas-input-formulir/{id}', 'FormulirController@batasInputformulir');
 Route::get('cek-id-formulir', 'FormulirController@cekidformulir');
+Route::post('upload2', 'FormulirController@Upload2');
 
 // Rute API tabel Jurusan
 Route::resource('jurusans', 'JurusanController');
@@ -37,6 +39,9 @@ Route::get('getList-jurusan-by-panitia', 'JurusanController@getListjursanbypania
 Route::resource('pendaftarans', 'PendaftaranController');
 Route::get('batas-input-pendaftarans/{id}', 'PendaftaranController@batasInputPendaftaran');
 Route::get('get-pendaftarans-by-id/{id}', 'PendaftaranController@paginatebyid');
+Route::put('pendaftar-terima/{id}', 'PendaftaranController@Terima');
+Route::put('pendaftar-tolak/{id}', 'PendaftaranController@Tolak');
+Route::put('pendaftar-ijazah/{id}', 'PendaftaranController@Ijazahtaksesuai');
 
 // Rute API tabel User
 Route::resource('users', 'UserController');
@@ -62,8 +67,7 @@ Route::get('get-session', 'UserController@getSession');
 
 // Rute API Ganti Password
 Route::put('updatePass-users', 'UserController@updatePass');
-
-// Rute API Cetak
+////---------------------------------------------------------------------------------------------------------------------------------------
 Route::group(['namespace' => 'Cetak'], function () {
 
     Route::get('cetak-pendaftaran/{id}', 'CetakPendaftaran@Pendaftaran');
