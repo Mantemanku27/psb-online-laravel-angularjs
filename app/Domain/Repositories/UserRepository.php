@@ -50,6 +50,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     {
         // query to aql
         $akun = $this->model
+        ->where('konfirmasi','0')
             ->where(function ($query) use ($search) {
                 $query->where('nama', 'like', '%' . $search . '%')
                     ->orWhere('telepon', 'like', '%' . $search . '%')
