@@ -54,14 +54,14 @@
                 <td class="col-md-2">{{row.nama}}</td>
                 <td class="col-md-2">{{row.kuota}}</td>
 
-                <td class="col-md-2" ng-if="dataUser.level !=1 ">
+                <td class="col-md-2">
                         <button type="button" ng-click="jurusans(row.id)" md-ink-ripple tooltip="Detail Jurusan" class="btn btn-sm btn-info">
                             <i class="glyphicon glyphicon-zoom-in"></i>
                         </button>
-                    <a ui-sref="app.jurusans-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-defaul" >
+                    <a ng-if="dataUser.level !=1" ui-sref="app.jurusans-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-defaul" >
                         <i class="glyphicon glyphicon-edit"></i>
                     </a>
-                    <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger" >
+                    <button ng-if="dataUser.level !=1" type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger" >
                         <i class="glyphicon glyphicon-trash"></i>
                     </button>
                 </td>
