@@ -15,7 +15,7 @@
 <div class="panel panel-default" ng-controller="PostCtrl">
 
   <!-- Page Title -->
-  <div class="panel-heading bg-white" style="background: #b3c4c7;">
+  <div class="panel-heading bg-white">
     <span class="font-bold"><left><font color="#000000"><b>DATA POST PEMBERITAHUAN</b></font></left></span>
   </div>
   <!-- /end page title -->
@@ -83,7 +83,7 @@
             <button type="button" ng-click="posts(row.id)" md-ink-ripple tooltip="Detail Posts" class="btn btn-sm btn-info">
               <i class="glyphicon glyphicon-zoom-in"></i>
             </button>
-            <a ui-sref="app.posts-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-default">
+            <a ui-sref="app.posts-edit({id:row.id})"  md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-defaul">
               <i class="glyphicon glyphicon-edit"></i>
             </a>
             <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger">
