@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UsersCtrl', ['$state','$scope', 'users', 'SweetAlert', '$http','$timeout', function ($state,$scope, users,SweetAlert) {
+app.controller('UsersCtrl', ['$state','$scope', 'users', 'SweetAlert', '$uibModal', '$log', '$http','$timeout', function ($state,$scope, users,SweetAlert,$uibModal,$log) {
 //urussan tampilan
     $scope.main = {
         page: 1,
@@ -22,6 +22,28 @@ app.controller('UsersCtrl', ['$state','$scope', 'users', 'SweetAlert', '$http','
             $scope.isLoaded = true;
         }
     };
+
+  // Detail
+   $scope.users = function (id) {
+
+        var modalInstance = $uibModal.open({
+            templateUrl: 'assets/src/users/detail.dialog.html',
+            controller: 'PostdetailCtrl',
+            size: 'lg',
+            resolve: {
+                item: function () {
+                    return id;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
+
 
     //Init Alert status
     $scope.alertset = {
@@ -224,6 +246,33 @@ app.controller('UsersCtrl', ['$state','$scope', 'users', 'SweetAlert', '$http','
             }
         });
     };
-
+}]);
+// Detail
+app.controller('PostdetailCtrl', ['$scope', 'users', 'SweetAlert', '$uibModal','$log','$uibModalInstance','toaster','item','$http','$timeout', function ($scope, users,SweetAlert,$uibModal,$log,$uibModalInstance,toaster,item) {
+     // Urusan Tampilan
+     $scope.myModel ={}
+     
+     $scope.isLoading = true;
+     $scope.isLoaded = false;
+ 
+     $scope.setLoader = function (status) {
+         if (status == true) {
+             $scope.isLoading = true;
+             $scope.isLoaded = false;
+         } else {
+             $scope.isLoading = false;
+             $scope.isLoaded = true;
+         }
+     };
+     $scope.id =item
+     users.show($scope.id)
+         .success(function (data) {
+             $scope.setLoader(false);
+             $scope.myModel = data;
+         });
+ 
+     $scope.cancel = function () {
+         $uibModalInstance.dismiss('cancel');
+     };
 
 }]);

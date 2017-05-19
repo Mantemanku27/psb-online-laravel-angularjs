@@ -71,7 +71,10 @@
                     <td class="col-md-2">{{row.telepon}}</td>
 
                     <td class="col-md-2" ng-if="dataUser.level !=1">
-                        <a ui-sref="app.users-edit({id:row.id})" md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-default">
+                        <button type="button" ng-click="users(row.id)" md-ink-ripple tooltip="Detail User" class="btn btn-sm btn-info">
+                            <i class="glyphicon glyphicon-zoom-in"></i>
+                        </button>
+                        <a ui-sref="app.users-edit({id:row.id})" md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-defaul">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
                         <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger">
