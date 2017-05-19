@@ -1,0 +1,49 @@
+<!-- 
+   |||       ||||        |||       |||     || ||||||||||||  ||||||||||  |||       |||        |||       |||     ||
+   ||||     || ||       |||||      ||||    ||      ||       ||          ||||     ||||       |||||      ||||    ||
+   || ||   ||  ||      ||   ||     || ||   ||      ||       ||          || ||   || ||      ||   ||     || ||   ||
+   ||  || ||   ||     ||     ||    ||  ||  ||      ||       ||||||||||  ||  || ||  ||     ||     ||    ||  ||  ||
+   ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
+   ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
+  ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
+-->
+<md-dialog style="width: 1200px;">
+
+  <!-- Title Detail -->
+  <div class="panel-heading bg-detail-title">
+    <span class="font-detail-title"><center>DETAIL PANITIA PEMBERITAHUAN</center></span>
+  </div>
+  <!-- /end title detail -->
+
+  <!-- Body Detail -->
+  <div class="panel-body">
+  <div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Nama :</label>
+    <div ng-if="input.prov_id != ''" class="col-sm-9">
+      <p class="form-control-static">
+        <span style="padding-left: 8px;"></span>{{myModel.nama}}
+      </p>
+    </div>
+    <label class="col-sm-3 control-label">NIP :</label>
+    <div ng-if="input.prov_id != ''" class="col-sm-9">
+      <p class="form-control-static">
+        <span style="padding-left: 8px;"></span>{{myModel.nip}}
+      </p>
+    </div>
+    <label class="col-sm-3 control-label">Jurusan :</label>
+    <div ng-if="input.prov_id != ''" class="col-sm-9">
+      <p class="form-control-static">
+        <span style="padding-left: 8px;"></span>{{myModel.jurusan}}
+      </p>
+    </div>
+  </div>
+  <!-- /end body detail -->
+
+  <!-- Footer Detail -->
+  <footer class="panel-footer text-center" style="background: #ffffff">
+    <md-button class="btn btn-fw btn-default" ng-click='cancel()' tooltip="Kembali">Kembali</md-button>
+  </footer>
+  <!-- /end footer detail -->
+
+</md-dialog>
