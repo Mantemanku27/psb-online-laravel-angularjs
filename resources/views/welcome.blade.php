@@ -7,7 +7,8 @@
    ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
   ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
 -->
-<!Doctype html>
+<!DOCTYPE HTML>
+
 <html lang="en" data-ng-app="clipApp">
 <head>
   <meta charset="utf-8">
@@ -29,12 +30,12 @@
   <link rel="stylesheet" href="../bower_components/themify-icons/css/themify-icons.css">
   <!-- Loading Bar -->
   <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.min.css">
-  <!-- Animate Css -->
+  <!-- Animate CSS -->
   <link rel="stylesheet" href="../bower_components/animate.css/animate.min.css">
   <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/plugins.css">
-  <!-- X Icon -->
+  <!-- X-ICON -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
   <!-- Theme -->
   {{--<link rel="stylesheet" data-ng-href="../assets/css/themes/app.layout.theme.css" />--}}
@@ -60,9 +61,9 @@
   <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
   <script src="../bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
   <script src="../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
-  <!-- oclazyload -->
+  <!-- Oclazyload -->
   <script src="../bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-  <!-- breadcrumb -->
+  <!-- Breadcrumb -->
   <script src="../bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
   <!-- UI Bootstrap -->
   <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>

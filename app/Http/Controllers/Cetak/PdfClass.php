@@ -1,13 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: - INDIEGLO -
- * Date: 02/09/2015
- * Time: 15:48
+ * Created by Manteman27.
  */
 
 namespace App\Http\Controllers\Cetak;
-
 
 use Anouar\Fpdf\Fpdf;
 
@@ -513,4 +509,5 @@ class PdfClass extends Fpdf
         }
         parent::_endpage();
     }
+
 }

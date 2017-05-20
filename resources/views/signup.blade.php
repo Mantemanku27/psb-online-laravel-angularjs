@@ -7,7 +7,8 @@
    ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
   ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
 -->
-<!Doctype html>
+<!DOCTYPE HTML>
+
 <html lang="en" data-ng-app="clipApp">
 <head>
   <meta charset="utf-8">
@@ -34,7 +35,7 @@
   <!-- Assets CSS -->
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/plugins.css">
-  <!-- X Icon -->
+  <!-- X-ICON -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
 </head>
 <!-- SignUp -->

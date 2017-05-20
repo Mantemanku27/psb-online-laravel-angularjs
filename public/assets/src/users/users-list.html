@@ -1,116 +1,143 @@
+<!-- 
+   |||       ||||        |||       |||     || ||||||||||||  ||||||||||  |||       |||        |||       |||     ||
+   ||||     || ||       |||||      ||||    ||      ||       ||          ||||     ||||       |||||      ||||    ||
+   || ||   ||  ||      ||   ||     || ||   ||      ||       ||          || ||   || ||      ||   ||     || ||   ||
+   ||  || ||   ||     ||     ||    ||  ||  ||      ||       ||||||||||  ||  || ||  ||     ||     ||    ||  ||  ||
+   ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
+   ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
+  ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
+-->
 <div class="alert {{alertset.class}} lighten-4 {{alertset.class}}-text text-darken-2 {{alertset.show}}">
-    <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
+  <span ng-repeat="(key, value) in alertset.msg">{{value}}</span>
 </div>
 <div class="panel panel-default" ng-controller="UsersCtrl">
     
-    <!-- Page Title -->
-    <div class="panel-heading bg-white" style="background: #b3c4c7;">
-        <span class="font-bold"><left><font color="#000000">DATA USERS</font></left></span>
-    </div>
-    <!-- /end page title -->
+  <!-- Page Title -->
+  <div class="panel-heading bg-white" style="background: #b3c4c7;">
+    <span class="font-bold"><left><font color="#000000">DATA USERS</font></left></span>
+  </div>
+  <!-- /end page title -->
 
-    <div class="panel-body">
-        <div class="row">
+  <div class="panel-body">
+    <div class="row">
 
-            <!-- Button -->
-            <div class="col-sm-8 m-b-xs">
-                <!-- Button Create -->
-                <span tooltip="Tambah Data" ng-if="dataUser.level !=1">
-                    <a md-ink-ripple ui-sref="app.users-create" class="btn btn-sm btn-default">
-                    <i class="glyphicon glyphicon-plus-sign"></i></a>
-                </span>
-                <!-- Button Refresh -->
-                <span tooltip="Refresh data">
-                    <button md-ink-ripple class="btn btn-sm btn-default" ng-click="refreshData()">
-                        <i class="glyphicon glyphicon-refresh"></i>
-                    </button>
-                </span>
-                <!-- Button Print -->
-                <span tooltip="Cetak data">
-                    <button md-ink-ripple class="btn btn-sm btn-default" ng-click="print()">
-                        <i class="glyphicon glyphicon-print"></i>
-                    </button>
-                </span>
-            </div>
-            <!-- /end button -->
+      <!-- Button -->
+      <div class="col-sm-8 m-b-xs">
+        <!-- Button Create -->
+        <span tooltip="Tambah Data" ng-if="dataUser.level !=1">
+          <a md-ink-ripple ui-sref="app.users-create" class="btn btn-sm btn-default">
+          <i class="glyphicon glyphicon-plus-sign"></i></a>
+        </span>
+        <!-- Button Refresh -->
+        <span tooltip="Refresh data">
+          <button md-ink-ripple class="btn btn-sm btn-default" ng-click="refreshData()">
+            <i class="glyphicon glyphicon-refresh"></i>
+          </button>
+        </span>
+        <!-- Button Print -->
+        <span tooltip="Cetak data">
+          <button md-ink-ripple class="btn btn-sm btn-default" ng-click="print()">
+            <i class="glyphicon glyphicon-print"></i>
+          </button>
+        </span>
+      </div>
+      <!-- /end button -->
 
-            <!-- From Searching -->
-            <div class="col-sm-4">
-                <div class="input-group pull-right">
-                    <input type="text" class="input-sm form-control" placeholder="Search" ng-model="main.term" ng-disabled="disUtamrow.txtCari" ng-enter="getData()">
-                    <span class="input-group-btn" tooltip="Cari Data">
-                        <button md-ink-ripple class="btn btn-sm btn-default" type="button" ng-click="getData()" ng-disabled="main.term ==''">Cari</button>
-                    </span>
-                </div>
-            </div>
-            <!-- /end form searching -->
-
+      <!-- From Searching -->
+      <div class="col-sm-4">
+        <div class="input-group pull-right">
+          <input type="text" class="input-sm form-control" placeholder="Search" ng-model="main.term" ng-disabled="disUtamrow.txtCari" ng-enter="getData()">
+          <span class="input-group-btn" tooltip="Cari Data">
+            <button md-ink-ripple class="btn btn-sm btn-default" type="button" ng-click="getData()" ng-disabled="main.term ==''">Cari</button>
+          </span>
         </div>
+      </div>
+      <!-- /end form searching -->
+
     </div>
+  </div>
 
-    <!-- Tabel Responsive -->
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th class="col-md-2">Nama</th>
-                    <th class="col-md-2">Email</th>
-                    <th class="col-md-2">Level</th>
-                    <th class="col-md-2">Telepon</th>
-                    <th class="col-md-2" ng-if="dataUser.level !=1">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="row in dataUsers">
-                    <td class="col-md-2">{{row.nama}}</td>
-                    <td class="col-md-2">{{row.email}}</td>
-                    <td class="col-md-2">
-                        <span ng-if="row.level==0" class="label label-sm label-warning">administrator</span>
-                        <span ng-if="row.level==1" class="label label-sm label-success">user</span>
-                    </td>
-                    <td class="col-md-2">{{row.telepon}}</td>
+  <!-- Tabel Responsive -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      
+      <!-- Field -->
+      <thead>
+        <tr>
+          <th class="col-md-2">Nama</th>
+          <th class="col-md-2">Email</th>
+          <th class="col-md-2">Level</th>
+          <th class="col-md-2">Telepon</th>
+          <th class="col-md-2" ng-if="dataUser.level !=1">Aksi</th>
+        </tr>
+      </thead>
+      <!-- /end field -->
 
-                    <td class="col-md-2" ng-if="dataUser.level !=1">
-                        <button type="button" ng-click="users(row.id)" md-ink-ripple tooltip="Detail User" class="btn btn-sm btn-info">
-                            <i class="glyphicon glyphicon-zoom-in"></i>
-                        </button>
-                        <a ui-sref="app.users-edit({id:row.id})" md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-defaul">
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </a>
-                        <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger">
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </button>
+      <tbody>
+        <tr ng-repeat="row in dataUsers">
 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+          <!-- Include Data List -->
+          <td class="col-md-2">{{row.nama}}</td>
+          <td class="col-md-2">{{row.email}}</td>
+          <td class="col-md-2">
+            <span ng-if="row.level==0" class="label label-sm label-warning">administrator</span>
+            <span ng-if="row.level==1" class="label label-sm label-success">user</span>
+          </td>
+          <td class="col-md-2">{{row.telepon}}</td>
+          <!-- /end include data list -->
+
+          <!-- Button Aksi -->
+          <td class="col-md-2" ng-if="dataUser.level !=1">
+            <button type="button" ng-click="users(row.id)" md-ink-ripple tooltip="Detail User" class="btn btn-sm btn-info">
+              <i class="glyphicon glyphicon-zoom-in"></i>
+            </button>
+            <a ui-sref="app.users-edit({id:row.id})" md-ink-ripple tooltip="Edit Data" class="btn btn-sm btn-defaul">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <button type="button" ng-click="hapus(row.id)" md-ink-ripple tooltip="Hapus Data" class="btn btn-sm btn-danger">
+              <i class="glyphicon glyphicon-trash"></i>
+            </button>
+          </td>
+          <!-- /end button aksi -->
+
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+  <!-- /end tabel responsive -->
+
+  <!-- Panel Pagination-->
+  <div class="panel-body">
+    <div class="row">
+
+      <!-- Length Data -->
+      <div class="col-sm-4 text-center-xs" style="margin-top: 27px;">
+        <small>Menampilkan {{from}}-{{to}} dari {{total}} data</small>
+      </div>
+      <!-- /end length data -->
+
+      <!-- Button Page & Perpage -->
+      <div class="col-sm-8 text-right text-center-xs">
+        <ul class="pagination m-t-none m-b-none">
+          <li tooltip="Halaman Pertama">
+            <button md-ink-ripple class="btn btn-default" type="button" ng-click='firstPage()' ng-disabled='current_page == 1 || disUtamrow.btnPagging'><i class="fa fa-angle-double-left"></i></button>
+          </li>
+          <li tooltip="Halaman Sebelumnya">
+            <button md-ink-ripple class="btn btn-default" type="button" ng-click='previousPage()' ng-disabled='current_page <= 1 || disUtamrow.btnPagging'><i class="fa fa-angle-left"></i></button>
+          </li>
+          <li tooltip="Halaman Selanjutnya">
+            <button md-ink-ripple class="btn btn-default" type="button" ng-click='nextPage()' ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i class="fa fa-angle-right"></i></button>
+          </li>
+          <li tooltip="Halaman Terakhir">
+            <button md-ink-ripple class="btn btn-default" type="button" ng-click='lastPage()' ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i class="fa fa-angle-double-right"></i></button>
+          </li>
+        </ul>
+      </div>
+      <!-- /end button page & perpage -->
+
     </div>
-    <!-- /end tabel responsive -->
+  </div>
+  <!-- /end panel pagination  -->
 
-    <!-- Panel Pagination-->
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-sm-4 text-center-xs" style="margin-top: 27px;">
-                <small>Menampilkan {{from}}-{{to}} dari {{total}} data</small>
-            </div>
-            <div class="col-sm-8 text-right text-center-xs">
-                <ul class="pagination m-t-none m-b-none">
-                    <li tooltip="Halaman Pertama">
-                        <button md-ink-ripple class="btn btn-default" type="button" ng-click='firstPage()' ng-disabled='current_page == 1 || disUtamrow.btnPagging'><i class="fa fa-angle-double-left"></i></button>
-                    </li>
-                    <li tooltip="Halaman Sebelumnya">
-                        <button md-ink-ripple class="btn btn-default" type="button" ng-click='previousPage()' ng-disabled='current_page <= 1 || disUtamrow.btnPagging'><i class="fa fa-angle-left"></i></button>
-                    </li>
-                    <li tooltip="Halaman Selanjutnya">
-                        <button md-ink-ripple class="btn btn-default" type="button" ng-click='nextPage()' ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i class="fa fa-angle-right"></i></button>
-                    </li>
-                    <li tooltip="Halaman Terakhir">
-                        <button md-ink-ripple class="btn btn-default" type="button" ng-click='lastPage()' ng-disabled='main.page >= last_page || disUtamrow.btnPagging'><i class="fa fa-angle-double-right"></i></button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /end panel pagination  -->
 </div>

@@ -9,9 +9,9 @@ use Illuminate\Routing\Router;
 class Kernel extends HttpKernel
 {
     /**
-     * The application's global HTTP middleware stack.
+     * Aplikasi middleware HTTP global aplikasi.
      *
-     * These middleware are run during every request to your application.
+     * Middleware ini dijalankan selama setiap permintaan aplikasi Anda.
      *
      * @var array
      */
@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
         ];
 
     /**
-     * The application's route middleware groups.
+     * Kelompok middleware rute aplikasi.
      *
      * @var array
      */
@@ -43,9 +43,9 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * The application's route middleware.
+     * Middleware rute aplikasi.
      *
-     * These middleware may be assigned to groups or used individually.
+     * Middleware ini dapat ditugaskan ke grup atau digunakan secara terpisah.
      *
      * @var array
      */
@@ -58,7 +58,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 
-public function __construct(Application $app, Router $router)
+    public function __construct(Application $app, Router $router)
     {
         parent::__construct($app, $router);
 
@@ -68,4 +68,5 @@ public function __construct(Application $app, Router $router)
             }
         });
     }
+    
 }

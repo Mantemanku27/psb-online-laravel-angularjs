@@ -6,9 +6,9 @@ use App\Domain\Entities\Jurusan;
 use App\Domain\Contracts\JurusanInterface;
 use App\Domain\Contracts\Crudable;
 
-
 /**
- * Class JurusanRepository
+ * Class JurusanRepository.
+ *
  * @package App\Domain\Repositories
  */
 class JurusanRepository extends AbstractRepository implements JurusanInterface, Crudable
@@ -20,7 +20,8 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
     protected $model;
 
     /**
-     * JurusanRepository constructor.
+     * Konstruktor JurusanRepository.
+     *
      * @param Jurusan $jurusan
      */
     public function __construct(Jurusan $jurusan)
@@ -46,7 +47,7 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
+        // Query ke sql.
 
         $akun = $this->model
             ->where(function ($query) use ($search) {
@@ -57,7 +58,6 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
             ->toArray();
         return $akun;
 
-
     }
 
     /**
@@ -66,12 +66,10 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
      */
     public function create(array $data)
     {
-        // execute sql insert
+        // Eksekusi memasukan sql.
         return parent::create([
-
             'nama' => e($data['nama']),
             'kuota' => e($data['kuota'])
-
         ]);
 
     }
@@ -84,10 +82,8 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
     public function update($id, array $data)
     {
         return parent::update($id, [
-
             'nama' => e($data['nama']),
             'kuota' => e($data['kuota'])
-
         ]);
     }
 
@@ -113,24 +109,21 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
 
 
     public function getList()
-
     {
-        // query to aql
+        // Query ke sql.
         $akun = $this->model->get()->toArray();
-        // if data null
+        // Jika data null.
         if (null == $akun) {
-            // set response header not found
+            // Set header respon tidak ditemukan.
             return $this->errorNotFound('Data belum tersedia');
         }
 
         return $akun;
-
     }
 
     public function getListjursanbypendaftaran($id)
     {
-
-        // query to aql
+        // Query ke sql.
         $cari_rincian = \DB::table('pendaftarans')
             ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
             ->where('pendaftarans.formulirs_id', $id)->where('jurusans.kuota', '>=', 1)->whereNull('pendaftarans.deleted_at')->select('pendaftarans.jurusans_id')->get();
@@ -157,10 +150,11 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
             ->toArray();
         return $provinsi;
     }
+
     public function getListjursanbypaniata()
     {
 
-        // query to aql
+        // Query ke sql.
         $cari_rincian = \DB::table('panitias')
             ->whereNull('pendaftarans.deleted_at')->select('pendaftarans.jurusan')->get();
         $result = [];

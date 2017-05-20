@@ -1,4 +1,5 @@
 var app = angular.module('clipApp', ['clip-two'])
+
 // login
 .factory('mainapp', ['$http', function ($http) {
         return {
@@ -12,6 +13,7 @@ var app = angular.module('clipApp', ['clip-two'])
         }
     }]);
 // end login
+
 app.run(['$rootScope', '$state', '$stateParams', 'mainapp',
 function ($rootScope, $state, $stateParams, mainapp) {
 
@@ -52,7 +54,8 @@ function ($rootScope, $state, $stateParams, mainapp) {
       }, "slow");
     }
     $rootScope.dataUser = '';
-// login
+
+    // login
     mainapp.getusession()
         .success(function (data) {
             $rootScope.dataUser = data.result;
@@ -69,7 +72,8 @@ function ($rootScope, $state, $stateParams, mainapp) {
     $rootScope.redirect = function () {
         window.location = "/api/logout";
     };
-// login
+    // login
+
     $rootScope.user = {
         name: 'Peter',
         job: 'ng-Dev',
@@ -106,7 +110,6 @@ function ($rootScope, $state, $stateParams, mainapp) {
             }
         };
     }]);
-
 // end searching data enter
 
 // translate config

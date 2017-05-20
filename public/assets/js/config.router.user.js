@@ -44,8 +44,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
             }
         })
 
-        // URL CRUD Formulir
-        // URL CRUD Formulir
+            // URL CRUD Formulir
             .state('app.formulirs', {
                 url: '/formulirs/:id',
                 templateUrl: 'assets/src/formulirs/formulirs-list.html',
@@ -117,6 +116,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 title: 'Tambah dfcdsfdsf Users',
                 resolve: loadSequence('UserspasswordCtrl', 'user_service'),
             })
+            
             // URL CRUD Jurusan
             .state('app.jurusans', {
                 url: '/jurusans',

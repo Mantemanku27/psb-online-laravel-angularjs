@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Laravel - A PHP Framework For Web Artisans
+ * Laravel - Framework PHP untuk Developer Web.
  *
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
@@ -11,9 +11,10 @@ $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );
 
-// This file allows us to emulate Apache's "mod_rewrite" functionality from the
-// built-in PHP web server. This provides a convenient way to test a Laravel
-// application without having installed a "real" web server software here.
+// File ini memungkinkan kita untuk meniru fungsi "mod_rewrite" dari Apache Server.
+// Web PHP built-in Ini memberikan cara mudah untuk menguji Laravel.
+// Aplikasi tanpa harus menginstal perangkat lunak server "real(nyata)" di sini.
+
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
 }

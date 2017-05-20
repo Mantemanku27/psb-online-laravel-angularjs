@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Panitia
+ * Class Panitia.
  * @package App\Domain\Entities
  */
 
 class Panitia extends Entities
-
 
 {
     use SoftDeletes;
@@ -27,8 +26,6 @@ class Panitia extends Entities
     public function jurusans()
     {
         return $this->belongsTo('App\Domain\Entities\Jurusan', 'jurusan');
-
     }
-
 
 }

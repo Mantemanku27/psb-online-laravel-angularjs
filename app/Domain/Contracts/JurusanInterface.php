@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface JurusanInterface
+ * Antarmuka JurusanInterface.
  * @package App\Domain\Contracts
  */
 interface JurusanInterface {

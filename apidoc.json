@@ -1,6 +1,6 @@
 {
-  "name": "Contact",
+  "name": "Pendaftaran",
   "version": "0.1.0",
-  "description": "Contact API docs",
+  "description": "Pendaftaran Laravel AngularJS",
   "title": "Custom apiDoc browser title"
 }

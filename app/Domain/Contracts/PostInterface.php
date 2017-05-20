@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface PostInterface
+ * Antarmuka PostInterface.
  * @package App\Domain\Contracts
  */
 interface PostInterface {

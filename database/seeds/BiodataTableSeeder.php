@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class BiodataTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Menjalankan SeederDatabase.
      *
      * @return void
      */

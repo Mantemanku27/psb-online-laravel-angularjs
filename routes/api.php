@@ -4,11 +4,12 @@ use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
-|                               API Routes
+| Rute API.
 |--------------------------------------------------------------------------
 |
-|  Di gunakan untuk mendaftarkan rute API,
-|  dan rute di muat oleh RouteServiceProvider.
+| Di sinilah Anda bisa mendaftarkan rute API untuk aplikasi Anda. Ini
+| rute dimuat oleh RouteServiceProvider dalam grup yang
+| ditugaskan kelompok middleware "api". Nikmati membangun API Anda!
 |
 */
 
@@ -67,8 +68,8 @@ Route::get('get-session', 'UserController@getSession');
 
 // Rute API Ganti Password
 Route::put('updatePass-users', 'UserController@updatePass');
-////---------------------------------------------------------------------------------------------------------------------------------------
-Route::group(['namespace' => 'Cetak'], function () {
 
+// Rute API Cetak
+Route::group(['namespace' => 'Cetak'], function () {
     Route::get('cetak-pendaftaran/{id}', 'CetakPendaftaran@Pendaftaran');
 });

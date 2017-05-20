@@ -36,6 +36,8 @@ class FotoFormRequest extends Request
     }
 
     /**
+     * Menampilkan Error (Validator).
+     *
      * @param $validator
      * @return mixed
      */
@@ -59,4 +61,5 @@ class FotoFormRequest extends Request
             ]
         ];
     }
+
 }

@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Language Lines
+    | Baris Bahasa Otentikasi.
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
+    | Baris bahasa berikut digunakan selama otentikasi untuk berbagai
+    | pesan yang perlu ditampilkan kepada pengguna. Anda bebas untuk memodifikasi
+    | baris bahasa ini sesuai dengan kebutuhan aplikasi Anda.
     |
     */
 

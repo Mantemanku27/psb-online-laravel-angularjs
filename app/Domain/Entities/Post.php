@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Post
+ * Class Post.
  * @package App\Domain\Entities
  */
 
 class Post extends Entities
-
 
 {
     use SoftDeletes;
@@ -22,5 +21,4 @@ class Post extends Entities
     protected $fillable = [
         'judul', 'gambar', 'deskripsi',
     ];
-
 }

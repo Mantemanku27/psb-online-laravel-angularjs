@@ -8,7 +8,6 @@ use Monolog\Handler\StreamHandler;
 
 class ConfigureLogging extends BaseConfigureLogging
 {
-
     /**
      * OVERRIDE PARENT
      * Configure the Monolog handlers for the application.
@@ -20,7 +19,6 @@ class ConfigureLogging extends BaseConfigureLogging
      */
     protected function configureHandlers(Application $app, Writer $log)
     {
-
         $bubble = false;
 
         // Stream Handlers

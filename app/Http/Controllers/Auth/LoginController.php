@@ -11,30 +11,30 @@ class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Login Controller
+    | Login Controller.
     |--------------------------------------------------------------------------
     |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
+    | Pengontrol ini menangani otentikasi pengguna untuk aplikasi dan
+    | mengarahkan mereka ke layar utama Anda. Pengontrol menggunakan sifat
+    | untuk menyediakan fungsionalitasnya dengan mudah ke aplikasi Anda.
     |
     */
 
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Tempat untuk mengarahkan pengguna setelah masuk.
      *
      * @var string
      */
     // protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * Buat contoh pengontrol baru.
      *
      * @return void
      */
-// login
+    // login
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
@@ -51,7 +51,7 @@ class LoginController extends Controller
             session()->put('level', Auth::user()->level);
             session()->put('user_id', Auth::user()->id);
             
-            // sukses masek pendaftaran
+            // sukses masuk pendaftaran
             return redirect()->route('pendaftaran');
          }
          else{
@@ -74,5 +74,5 @@ class LoginController extends Controller
 
         return redirect()->route('login');
     }
-// end login
+    // end login
 }

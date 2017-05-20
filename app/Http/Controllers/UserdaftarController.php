@@ -70,12 +70,12 @@ class UserdaftarController extends Controller
         return $this->user->create($request->all());
     }
 
-// Register
+    // Register
     public function createsiswa(Request $request)
     {
         return $this->user->createsiswa($request->all());
     }
-// end register
+    // end register
 
     /**
      * @api {put} api/users/id Request Update User by ID
@@ -132,7 +132,7 @@ class UserdaftarController extends Controller
 
             ]]);
     }
-public function updatekonfirmasi($id)
+    public function updatekonfirmasi($id)
     {
         return $this->user->updatekonfirmasi($id);
     }

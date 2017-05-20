@@ -1,13 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: - INDIEGLO -
- * Date: 27/10/2015
- * Time: 8:45
+ * Created by Manteman27.
  */
 
 namespace App\Http\Controllers\Cetak;
-
 
 use App\Domain\Repositories\PanitiaRepository;
 use App\Domain\Repositories\PendaftaranRepository;
@@ -47,7 +43,6 @@ class CetakPendaftaran extends Controller
         $this->middleware('auth');
 
     }
-
 
     function Kop($pdf, $id)
     {
@@ -671,10 +666,9 @@ class CetakPendaftaran extends Controller
         $pdf->Ln(3);
         $pdf->Cell(0, 0, '- Serahkan Formulir Pendaftaran Akun ini ke SMKN 1 KEPANJEN. ', 0, '', 'L');
 
-
-
         $tanggal = date('d/m/y');
         $pdf->Output('cetak-data-pendaftaran-' . $tanggal . '.pdf', 'I');
         exit;
     }
+
 }

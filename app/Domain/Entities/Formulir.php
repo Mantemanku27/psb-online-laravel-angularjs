@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Formulir
+ * Class Formulir.
  * @package App\Domain\Entities
  */
 
 class Formulir extends Entities
-
 
 {
     use SoftDeletes;
@@ -19,13 +18,10 @@ class Formulir extends Entities
     /**
      * @var array
      */
-
-    // Relasi Tabel
     protected $fillable = [
-
         'asal_sekolah', 'n_bi', 'n_mtk', 'n_ipa', 'n_ing', 'foto_ijazah', 'biodatas_id','jurusan','jurusan_2','user_id'
-
     ];
+    // Relasi Tabel.
     protected $with = ['biodatas'];
 
     public function biodatas()

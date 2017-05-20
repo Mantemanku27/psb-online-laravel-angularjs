@@ -25,8 +25,6 @@ function() {'use strict';
 			opts.highlightSpotColor = attrs.highlightSpotColor || '#5f5';
 			opts.highlightLineColor = attrs.highlightLineColor || '#f22';
 			
-			
-
 			scope.$watch(attrs.ngModel, function() {
 				render();
 			});

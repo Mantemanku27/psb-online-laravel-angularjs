@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class JurusanTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Menjalankan SeederDatabase.
      *
      * @return void
      */

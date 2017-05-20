@@ -6,9 +6,9 @@ use App\Domain\Entities\User;
 use App\Domain\Contracts\UserInterface;
 use App\Domain\Contracts\Crudable;
 
-
 /**
- * Class UserRepository
+ * Class UserRepository.
+ *
  * @package App\Domain\Repositories
  */
 class UserRepository extends AbstractRepository implements UserInterface, Crudable
@@ -20,7 +20,8 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     protected $model;
 
     /**
-     * UserRepository constructor.
+     * Konstruktor UserRepository.
+     *
      * @param User $user
      */
     public function __construct(User $user)
@@ -45,7 +46,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
      * @return \Illuminate\Pagination\Paginator
      */
 
-// Searching Data
+    // Searching Data
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
         // query to aql
@@ -60,7 +61,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             ->toArray();
         return $akun;
     }
-// end searching data
+    // end searching data
 
     /**
      * @param array $data
@@ -68,7 +69,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
      */
     public function create(array $data)
     {
-        // execute sql insert
+        // Eksekusi memasukan sql.
         return parent::create([
             'nama' => e($data['nama']),
             'telepon' => e($data['telepon']),
@@ -77,14 +78,13 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             'password' => bcrypt(e($data['password'])),
             'level' => e($data['level'])
         ]);
-
     }
 
-// Register
+    // Register
     public function createsiswa(array $data)
     {
         try {
-            // execute sql insert
+            // Eksekusi memasukan sql.
             // konfirmasi email
             $confirmation_code = str_random(30);
             // konfirmasi email
@@ -119,7 +119,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             // return $this->createError();
         }
     }
-// end register
+    // end register
 
     /**
      * @param $id
@@ -136,7 +136,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
         ]);
     }
 
-// Ganti Password
+    // Ganti Password
     public function updatePassword(array $data)
     {
         try {
@@ -174,7 +174,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             return $this->createError();
         }
     }
-// end ganti password
+    // end ganti password
 
     /**
      * @param $id
@@ -184,7 +184,6 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
     {
         return parent::delete($id);
     }
-
 
     /**
      * @param $id
@@ -215,9 +214,7 @@ class UserRepository extends AbstractRepository implements UserInterface, Crudab
             $userupdate->save();
             session()->flash('auth_messagee', 'Konfirmasi Pengguna Berhasil!');
             return redirect()->route('login');
-
         }
-
     }
 
 }

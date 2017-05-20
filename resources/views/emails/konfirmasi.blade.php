@@ -48,7 +48,7 @@
           di SMK Negeri 1 Kepanjen 
         </p>
         <p>
-          Berikut adalah rincian secara detail data pendaftaran anda:
+          Berikut adalah rincian data pendaftaran anda:
         </p>
         <table style="width: 600px;">
           <tbody>
@@ -78,7 +78,7 @@
         <hr style="color: #eee; margin: 4px 0 0 0">
         <p>
           <em style="text-align: right; font-size: 12px;color: #bbb; margin: 0;">
-            OfficePage<br>
+            SMK NEGERI 1 KEPANJEN<br>
           </em>
         </p>
       </div>
@@ -109,8 +109,8 @@
             <em>
               <a style="text-decoration: none;font-style:normal;color:#1bb4d5 ;" href="http://kodesoft.co.id/" target="_blank">CV. Kodesoft Media Nusantara</a>
             </em><br>
-            Jl. Pasir Luhur No 28 RT 007 RW 002 Jenggolo Kepanjen Malang<br>
-            Indonesia
+            Jl. Raya Kedungpedaringan Kepanjen Kab. Malang, Telp. (0341) 395777, Fax (0341) 394776,<br>
+            E-mail smkn1kepanjen@ymail.com Website smkn1kepanjen.sch.id Kode Pos 65163.
           </p>
         </td>
       </tr>

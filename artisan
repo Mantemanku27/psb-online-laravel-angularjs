@@ -3,13 +3,13 @@
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader
+| Daftarkan Auto Loader.
 |--------------------------------------------------------------------------
 |
-| Composer provides a convenient, automatically generated class loader
-| for our application. We just need to utilize it! We'll require it
-| into the script here so that we do not have to worry about the
-| loading of any our classes "manually". Feels great to relax.
+| Komposer menyediakan loader kelas yang mudah dibuat secara otomatis
+| untuk aplikasi kita. Kita hanya perlu memanfaatkannya! & Kita akan membutuhkannya
+| Ke script disini agar kita tidak perlu khawatir dengan
+| Pemuatan kelas kita "secara manual". Merasa senang bisa bersantai.
 |
 */
 
@@ -19,12 +19,12 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
-| Run The Artisan Application
+| Jalankan Aplikasi Artisan.
 |--------------------------------------------------------------------------
 |
-| When we run the console application, the current CLI command will be
-| executed in this console and the response sent back to a terminal
-| or another output device for the developers. Here goes nothing!
+| Saat kita menjalankan aplikasi konsol, perintah CLI saat ini
+| dieksekusi di konsol ini dan respon dikirim kembali ke terminal
+| atau perangkat output lain untuk pengembang. Tidak ada gunanya!
 |
 */
 
@@ -37,12 +37,12 @@ $status = $kernel->handle(
 
 /*
 |--------------------------------------------------------------------------
-| Shutdown The Application
+| Shutdown Aplikasi.
 |--------------------------------------------------------------------------
 |
-| Once Artisan has finished running. We will fire off the shutdown events
-| so that any final work may be done by the application before we shut
-| down the process. This is the last thing to happen to the request.
+| Setelah Artisan selesai jalan. Kami akan mematikan secara shutdown
+| sehingga setiap pekerjaan akhir bisa dilakukan dengan aplikasi sebelum kita tutup.
+| Turunnya proses Ini adalah hal terakhir yang terjadi atas permintaan tersebut.
 |
 */
 

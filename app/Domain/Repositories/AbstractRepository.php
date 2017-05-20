@@ -5,27 +5,27 @@ namespace App\Domain\Repositories;
 use App\Domain\Contracts\Repository as RepositoryContract;
 
 /**
- * Class AbstractRepository
+ * Class AbstractRepository.
  *
  * @package app\Domain\Repository
  */
 abstract class AbstractRepository implements RepositoryContract
 {
     /**
-     * The model instance
+     * Contoh modelnya.
      *
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
     /**
-     * The model relations
+     * Relasi Model.
      *
      * @var array
      */
     protected $with = [];
 
     /**
-     * Set the array of items to eager load
+     * Tetapkan susunan item ke daftar keinginan.
      *
      * @param  array $with
      *
@@ -38,7 +38,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Make a new instance of the entity to query on
+     * Buat contoh baru dari entitas yang akan di kueri.
      */
     public function make()
     {
@@ -46,7 +46,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Retrieve all entities
+     * Ambil semua entitas.
      *
      * @param  array $columns
      *
@@ -58,7 +58,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Find a single entity
+     * Temukan satu kesatuan.
      *
      * @param  int $id
      * @param  array $columns
@@ -85,7 +85,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Create a new entity
+     * Buat entitas baru.
      *
      * @param array $data
      *
@@ -112,7 +112,7 @@ abstract class AbstractRepository implements RepositoryContract
     // end register
 
     /**
-     * Update an existing entity
+     * Perbarui entitas yang ada.
      *
      * @param       $id
      * @param array $data
@@ -129,7 +129,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Delete an existing entity
+     * Hapus entitas yang ada.
      *
      * @param $id
      *
@@ -147,7 +147,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Get Results by Page
+     * Dapatkan Hasil menurut Halaman.
      *
      * @param  int $limit
      * @param  int $page
@@ -163,7 +163,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Search for many results by key and value
+     * Cari banyak hasil dengan kunci dan nilai.
      *
      * @param  string $key
      * @param  mixed $value
@@ -177,7 +177,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Search a single result by key and value
+     * Cari satu hasil dengan kunci dan nilai.
      *
      * @param  string $key
      * @param  mixed $value
@@ -191,7 +191,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Get last a single result by key and value
+     * Dapatkan hasil akhir terakhir dengan kunci dan nilai.
      *
      * @param       $key
      * @param       $value
@@ -205,7 +205,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Search for many results where key is in array
+     * Cari banyak hasil dimana kunci berada dalam array.
      *
      * @param  string $key
      * @param  array $array
@@ -219,7 +219,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Get a new instance
+     * Dapatkan contoh baru.
      *
      * @param  array $attributes
      *
@@ -231,7 +231,7 @@ abstract class AbstractRepository implements RepositoryContract
     }
 
     /**
-     * Magically call the Model instance
+     * Panggilan ajaib contoh model.
      *
      * @param  string $method
      * @param  array $parameters
@@ -324,4 +324,5 @@ abstract class AbstractRepository implements RepositoryContract
             'result'  => $msg,
         ]);
     }
+    
 }

@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface PanitiaInterface
+ * Antarmuka PanitiaInterface.
  * @package App\Domain\Contracts
  */
 interface PanitiaInterface {

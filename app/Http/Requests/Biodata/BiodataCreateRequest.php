@@ -72,12 +72,13 @@ class BiodataCreateRequest extends Request
     }
 
     /**
+     * Menampilkan Error (Vallidator).
+     *
      * @param $validator
      *
      * @return mixed
      */
-     /* Menampilkan error */
-public function validator($validator)
+    public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
     }
@@ -105,7 +106,6 @@ public function validator($validator)
                 'kabupaten'          => $message->first('kabupaten'),
                 'provinsi'          => $message->first('provinsi'),
                 'jurusan'          => $message->first('jurusan')
-
             ]
         ];
     }

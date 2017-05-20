@@ -57,7 +57,7 @@ class PageController extends Controller
 
     }
 
-public function confirm($confirmation_code)
+    public function confirm($confirmation_code)
     {
         $users = \DB::table('users')
             ->where('confirmation_code', $confirmation_code)
@@ -72,13 +72,11 @@ public function confirm($confirmation_code)
                 ->where('confirmation_code', $confirmation_code)
                 ->first();
             $userupdate = User::find($user->id);
-
             $userupdate->is_aktif = 1;
             $userupdate->confirmation_code = 0;
             $userupdate->save();
             session()->flash('auth_messagee', 'User berhasil dikonfirmasi ');
             return redirect()->route('login');
-
         }
     }
 

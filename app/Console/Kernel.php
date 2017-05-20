@@ -10,7 +10,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 class Kernel extends ConsoleKernel
 {
     /**
-     * The Artisan commands provided by your application.
+     * Perintah Artisan yang disediakan oleh aplikasi Anda.
      *
      * @var array
      */
@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
     ];
 
     /**
-     * Define the application's command schedule.
+     * Tentukan jadwal perintah aplikasi.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
     }
 
     /**
-     * Register the Closure based commands for the application.
+     * Daftarkan perintah berdasarkan Penutupan untuk aplikasi.
      *
      * @return void
      */
@@ -40,15 +40,14 @@ class Kernel extends ConsoleKernel
         require base_path('routes/console.php');
     }
 
-public function __construct(Application $app, Dispatcher $events)
-{
-parent::__construct($app, $events);
-
-array_walk($this->bootstrappers, function (&$bootstrapper) {
-if ($bootstrapper === 'Illuminate\Foundation\Bootstrap\ConfigureLogging') {
-$bootstrapper = 'Bootstrap\ConfigureLogging';
-}
-});
-}
+    public function __construct(Application $app, Dispatcher $events)
+    {
+        parent::__construct($app, $events);
+        array_walk($this->bootstrappers, function (&$bootstrapper) {
+            if ($bootstrapper === 'Illuminate\Foundation\Bootstrap\ConfigureLogging') {
+            $bootstrapper = 'Bootstrap\ConfigureLogging';
+            }
+        });
+    }
 
 }

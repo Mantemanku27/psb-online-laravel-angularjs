@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class FormulirTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Menjalankan SeederDatabase.
      *
      * @return void
      */

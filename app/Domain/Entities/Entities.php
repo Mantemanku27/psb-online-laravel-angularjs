@@ -10,7 +10,7 @@ class Entities extends Model
 {
 
     /**
-     * The "booting" method of the model.
+     * Metode "booting" model.
      *
      * @return void
      */
@@ -26,7 +26,7 @@ class Entities extends Model
     }
 
     /**
-     * Generate new Uuid
+     * Menghasilkan Uuid baru.
      *
      * @return \Webpatser\Uuid\Uuid
      * @throws \Exception

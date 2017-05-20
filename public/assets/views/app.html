@@ -1,23 +1,32 @@
+<!-- 
+   |||       ||||        |||       |||     || ||||||||||||  ||||||||||  |||       |||        |||       |||     ||
+   ||||     || ||       |||||      ||||    ||      ||       ||          ||||     ||||       |||||      ||||    ||
+   || ||   ||  ||      ||   ||     || ||   ||      ||       ||          || ||   || ||      ||   ||     || ||   ||
+   ||  || ||   ||     ||     ||    ||  ||  ||      ||       ||||||||||  ||  || ||  ||     ||     ||    ||  ||  ||
+   ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
+   ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
+  ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
+-->
 <!-- Toaster Directive -->
 <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
 <!-- /end toaster directive -->
 
 <!-- Sidebar -->
 <div class="sidebar app-aside hidden-print" id="sidebar" toggleable parent-active-class="app-slide-off" >
-	<div perfect-scrollbar wheel-propagation="false" suppress-scroll-x="true" class="sidebar-container">
-		<div data-ng-include=" 'assets/views/partials/sidebar.html' "></div>
-	</div>
+  <div perfect-scrollbar wheel-propagation="false" suppress-scroll-x="true" class="sidebar-container">
+  	<div data-ng-include=" 'assets/views/partials/sidebar.html' "></div>
+  </div>
 </div>
 <!-- /end sidebar -->
 
 <!-- Content -->
 <div class="app-content" ng-class="{loading: loading}">
-	<!-- Top navbar -->
-	<header data-ng-include=" 'assets/views/partials/top-navbar.html' " class="navbar navbar-default navbar-static-top hidden-print"></header>
-	<!-- /end top navbar -->
-	<!-- Main Content -->
-	<div data-ng-include=" 'assets/views/partials/main-content.html' " class="main-content" ></div>
-	<!-- /end main content -->
+  <!-- Top navbar -->
+  <header data-ng-include=" 'assets/views/partials/top-navbar.html' " class="navbar navbar-default navbar-static-top hidden-print"></header>
+  <!-- /end top navbar -->
+  <!-- Main Content -->
+  <div data-ng-include=" 'assets/views/partials/main-content.html' " class="main-content" ></div>
+  <!-- /end main content -->
 </div>
 <!-- /end content -->
 

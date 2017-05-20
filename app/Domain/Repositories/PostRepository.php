@@ -6,9 +6,8 @@ use App\Domain\Entities\Post;
 use App\Domain\Contracts\PostInterface;
 use App\Domain\Contracts\Crudable;
 
-
 /**
- * Class PostRepository
+ * Class PostRepository.
  * @package App\Domain\Repositories
  */
 class PostRepository extends AbstractRepository implements PostInterface, Crudable
@@ -20,7 +19,8 @@ class PostRepository extends AbstractRepository implements PostInterface, Crudab
     protected $model;
 
     /**
-     * PostRepository constructor.
+     * Konstruktor PostRepository.
+     *
      * @param Post $post
      */
     public function __construct(Post $post)
@@ -46,7 +46,7 @@ class PostRepository extends AbstractRepository implements PostInterface, Crudab
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
+    // Query ke sql.
     $akun = $this->model
             ->where(function ($query) use ($search) {
                 $query->where('judul', 'like', '%' . $search . '%')
@@ -65,13 +65,12 @@ class PostRepository extends AbstractRepository implements PostInterface, Crudab
      */
     public function create(array $data)
     {
-        // execute sql insert
+        // Eksekusi memasukan sql.
         return parent::create([
             'judul'    => e($data['judul']),
             'gambar' => e($data['gambar']),
             'deskripsi'   => e($data['deskripsi'])
         ]);
-
     }
 
     /**
@@ -96,7 +95,6 @@ class PostRepository extends AbstractRepository implements PostInterface, Crudab
     {
         return parent::delete($id);
     }
-
 
     /**
      * @param $id

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 class Handler extends ExceptionHandler
 {
     /**
-     * A list of the exception types that should not be reported.
+     * Daftar jenis pengecualian yang tidak boleh dilaporkan.
      *
      * @var array
      */
@@ -23,9 +23,9 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
+     * Laporkan atau log pengecualian.
      *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     * Ini adalah tempat yang bagus untuk mengirim pengecualian ke Sentry, Bugsnag, dll.
      *
      * @param  \Exception  $exception
      * @return void
@@ -36,7 +36,7 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Render an exception into an HTTP response.
+     * Render pengecualian menjadi respons HTTP.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Convert an authentication exception into an unauthenticated response.
+     * Mengkonversi pengecualian otentikasi menjadi respons yang tidak terauthentikasi.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Auth\AuthenticationException  $exception
@@ -59,7 +59,7 @@ class Handler extends ExceptionHandler
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
-
         return redirect()->guest('login');
     }
+
 }

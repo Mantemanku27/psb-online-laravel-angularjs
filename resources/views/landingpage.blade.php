@@ -7,27 +7,27 @@
    ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
   ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
 -->
-<!Doctype html>
-<html>
+<!DOCTYPE HTML>
 
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1">
   <title>Pendaftaran | Landing Page</title>
-  <!-- Favicon logo -->
+  <!-- X-ICON -->
   <link rel="icon" href="../front/favicon.png" type="image/png">
-  <!-- Reset css -->
+  <!-- Reset CSS -->
   <link href="../front/css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="../front/css/style.css" rel="stylesheet" type="text/css">
   <link href="../front/css/linecons.css" rel="stylesheet" type="text/css">
   <link href="../front/css/font-awesome.css" rel="stylesheet" type="text/css">
   <link href="../front/css/responsive.css" rel="stylesheet" type="text/css">
   <link href="../front/css/animate.css" rel="stylesheet" type="text/css">
-  <!-- Font css dari web browser -->
+  <!-- Font CSS dari web browser -->
   <link href='http://fonts.googleapis.com/css?family=Lato:400,900,700,700italic,400italic,300italic,300,100italic,100,900italic'
     rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Dosis:400,500,700,800,600,300,200' rel='stylesheet' type='text/css'>
-  <!-- Reset Js -->
+  <!-- Reset JS -->
   <script type="text/javascript" src="../front/js/jquery.1.8.3.min.js"></script>
   <script type="text/javascript" src="../front/js/bootstrap.js"></script>
   <script type="text/javascript" src="../front/js/jquery-scrolltofixed.js"></script>

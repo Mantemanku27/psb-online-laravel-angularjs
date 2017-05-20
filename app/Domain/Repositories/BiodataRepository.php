@@ -6,9 +6,8 @@ use App\Domain\Entities\Biodata;
 use App\Domain\Contracts\BiodataInterface;
 use App\Domain\Contracts\Crudable;
 
-
 /**
- * Class BiodataRepository
+ * Class BiodataRepository.
  * @package App\Domain\Repositories
  */
 class BiodataRepository extends AbstractRepository implements BiodataInterface, Crudable
@@ -20,7 +19,8 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
     protected $model;
 
     /**
-     * BiodataRepository constructor.
+     * Konstruktor BiodataRepository.
+     *
      * @param Biodata $biodata
      */
     public function __construct(Biodata $biodata)
@@ -46,7 +46,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
+        // Query ke aql.
 
         if (session('level') == 0) {
             $akun = $this->model
@@ -55,13 +55,13 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
                     $query->where('biodatas.nama_lengkap', 'like', '%' . $search . '%')
                         ->orWhere('biodatas.email', 'like', '%' . $search . '%')
                         ->orWhere('users.nama', 'like', '%' . $search . '%');
-
                 })
                 ->select('biodatas.*')
                 ->paginate($limit)
                 ->toArray();
             return $akun;
         }
+
         if (session('level') == 1) {
             $akun = $this->model
                 ->join('users', 'biodatas.users_id', '=', 'users.id')
@@ -70,13 +70,11 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
                     $query->where('biodatas.nama_lengkap', 'like', '%' . $search . '%')
                         ->orWhere('biodatas.email', 'like', '%' . $search . '%')
                         ->orWhere('users.nama', 'like', '%' . $search . '%');
-
                 })
                 ->select('biodatas.*')
                 ->paginate($limit)
                 ->toArray();
             return $akun;
-
         }
     }
 
@@ -86,7 +84,7 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
      */
     public function createdata($fileName1,array $data)
     {
-        // execute sql insert
+        // Eksekusi memasukan sql.
 
         return parent::create([
             'nama_lengkap' => e($data['nama_lengkap']),
@@ -106,7 +104,6 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
         ]);
 
     }
-
 
     /**
      * @param $id
@@ -158,21 +155,17 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
         return parent::delete($id);
     }
 
-
     /**
      * @param $id
      * @param array $columns
      * @return mixed
      */
-    public
-    function findById($id, array $columns = ['*'])
+    public function findById($id, array $columns = ['*'])
     {
         return parent::find($id, $columns);
     }
 
-
     public function batasInputBiodata()
-
     {
         $pribadi1 = $this->model
             ->where('users_id', session('user_id'))
@@ -187,7 +180,6 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
 
     public function cekidbiodata()
     {
-
         $baru = $this->model
             ->orderBy('created_at', 'DESC')
             ->select('id')
@@ -207,4 +199,5 @@ class BiodataRepository extends AbstractRepository implements BiodataInterface, 
         $hasil = $array_id[0];
         return $hasil;
     }
+
 }

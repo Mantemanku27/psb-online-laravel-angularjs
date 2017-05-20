@@ -34,7 +34,7 @@
   <!-- Assets CSS -->
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/plugins.css">
-  <!-- X Icon -->
+  <!-- X-ICON -->
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
 </head>
 <!-- Login -->

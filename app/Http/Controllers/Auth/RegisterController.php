@@ -11,26 +11,26 @@ class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Register Controller
+    | Daftar pengontrol.
     |--------------------------------------------------------------------------
     |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
+    | Pengendali ini menangani pendaftaran pengguna baru dan juga akun mereka.
+    | Validasi dan penciptaan secara default pengontrol ini menggunakan ciri
+    | memberikan fungsi ini tanpa memerlukan kode tambahan.
     |
     */
 
     use RegistersUsers;
 
     /**
-     * Where to redirect users after login / registration.
+     * Dimana bisa mengarahkan pengguna setelah login / registrasi.
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * Buat contoh pengontrol baru.
      *
      * @return void
      */
@@ -40,7 +40,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Dapatkan validator untuk permintaan pendaftaran masuk.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -55,7 +55,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Buat contoh pengguna baru setelah pendaftaran yang valid.
      *
      * @param  array  $data
      * @return User
@@ -68,4 +68,5 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }

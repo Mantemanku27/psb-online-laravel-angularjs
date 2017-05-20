@@ -54,12 +54,13 @@ class FormulirEditRequest extends Request
     }
 
     /**
+     * Menampilkan Error (Validator).
+     *
      * @param $validator
      *
      * @return mixed
      */
-     /* Menampilkan error */
-public function validator($validator)
+    public function validator($validator)
     {
         return $validator->make($this->all(), $this->container->call([$this, 'rules']), $this->messages(), $this->attrs);
     }
@@ -84,4 +85,5 @@ public function validator($validator)
             ]
         ];
     }
+
 }

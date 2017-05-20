@@ -36,6 +36,8 @@ class IjazahFormRequest extends Request
     }
 
     /**
+     * Menampilkan Error (Validator).
+     *
      * @param $validator
      * @return mixed
      */
@@ -59,4 +61,5 @@ class IjazahFormRequest extends Request
             ]
         ];
     }
+
 }

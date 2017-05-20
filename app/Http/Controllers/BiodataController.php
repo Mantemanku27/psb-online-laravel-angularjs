@@ -131,12 +131,10 @@ class BiodataController extends Controller
         $original_name1 = $file1->getClientOriginalName();
         $arr1 = str_replace('-', '', $original_name1);
 
-
         $fileName1 = date('dmYhi'). $arr1;
         $destinationPath = public_path() . '/assets/foto';
         $file1->move($destinationPath, $fileName1);
         return response()->json(['created' => true], 200);
-
     }
 
 }

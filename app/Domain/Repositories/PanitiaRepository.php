@@ -6,9 +6,9 @@ use App\Domain\Entities\Panitia;
 use App\Domain\Contracts\PanitiaInterface;
 use App\Domain\Contracts\Crudable;
 
-
 /**
- * Class PanitiaRepository
+ * Class PanitiaRepository.
+ *
  * @package App\Domain\Repositories
  */
 class PanitiaRepository extends AbstractRepository implements PanitiaInterface, Crudable
@@ -20,7 +20,8 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
     protected $model;
 
     /**
-     * PanitiaRepository constructor.
+     * Konstruktor PanitiaRepository.
+     *
      * @param Panitia $panitia
      */
     public function __construct(Panitia $panitia)
@@ -46,7 +47,7 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
+    // Query ke sql.
     $akun = $this->model
             ->where(function ($query) use ($search) {
                 $query->where('nama', 'like', '%' . $search . '%')
@@ -64,7 +65,7 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
      */
     public function create(array $data)
     {
-        // execute sql insert
+        // Eksekusi memasukan sql.
         return parent::create([
             'nama'    => e($data['nama']),
             'nip'   => e($data['nip']),
@@ -96,7 +97,6 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
         return parent::delete($id);
     }
 
-
     /**
      * @param $id
      * @param array $columns
@@ -117,6 +117,5 @@ class PanitiaRepository extends AbstractRepository implements PanitiaInterface, 
             return null;
         }
     }
-
 
 }

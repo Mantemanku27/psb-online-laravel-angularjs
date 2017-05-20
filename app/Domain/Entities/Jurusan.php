@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Jurusan
+ * Class Jurusan.
  * @package App\Domain\Entities
  */
 
 class Jurusan extends Entities
-
 
 {
     use SoftDeletes;

@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface BiodataInterface
+ * Antarmuka BiodataInterface.
  * @package App\Domain\Contracts
  */
 interface BiodataInterface {

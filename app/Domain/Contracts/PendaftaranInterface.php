@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface PendaftaranInterface
+ * Antarmuka PendaftaranInterface.
  * @package App\Domain\Contracts
  */
 interface PendaftaranInterface {

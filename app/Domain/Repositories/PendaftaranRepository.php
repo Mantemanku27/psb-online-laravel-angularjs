@@ -7,9 +7,8 @@ use App\Domain\Entities\Pendaftaran;
 use App\Domain\Contracts\PendaftaranInterface;
 use App\Domain\Contracts\Crudable;
 
-
 /**
- * Class PendaftaranRepository
+ * Class PendaftaranRepository.
  * @package App\Domain\Repositories
  */
 class PendaftaranRepository extends AbstractRepository implements PendaftaranInterface, Crudable
@@ -21,7 +20,8 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
     protected $model;
 
     /**
-     * PendaftaranRepository constructor.
+     * Konstruktor PendaftaranRepository.
+     *
      * @param Pendaftaran $pendaftaran
      */
     public function __construct(Pendaftaran $pendaftaran)
@@ -47,9 +47,7 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
-
-
+        // Query ke sql.
         $akun = $this->model
             ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
             ->join('formulirs', 'pendaftarans.formulirs_id', '=', 'formulirs.id')
@@ -58,7 +56,6 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
                     ->orWhere('pendaftarans.status', 'like', '%' . $search . '%')
                     ->orWhere('jurusans.nama', 'like', '%' . $search . '%')
                     ->orWhere('formulirs.asal_sekolah', 'like', '%' . $search . '%');
-
             })
             ->select('pendaftarans.*')
             ->paginate($limit)
@@ -68,7 +65,7 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
 
     public function paginatebyid($id, $limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
+        // Query ke sql.
         $akun = $this->model
             ->join('jurusans', 'pendaftarans.jurusans_id', '=', 'jurusans.id')
             ->join('formulirs', 'pendaftarans.formulirs_id', '=', 'formulirs.id')
@@ -78,7 +75,6 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
                     ->orWhere('pendaftarans.status', 'like', '%' . $search . '%')
                     ->orWhere('jurusans.nama', 'like', '%' . $search . '%')
                     ->orWhere('formulirs.asal_sekolah', 'like', '%' . $search . '%');
-
             })
             ->select('pendaftarans.*')
             ->paginate($limit)
@@ -119,16 +115,13 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
             $no_pilihan = 1;
         }
 
-        // execute sql insert
+        // Eksekusi memasukan sql.
         return parent::create([
             'no_pilihan' => $no_pilihan,
             'status' => 0,
             'jurusans_id' => e($data['jurusans_id']),
             'formulirs_id' => e($data['formulirs_id']),
             'user_id' => session('user_id')
-
-            // execute sql insert
-
         ]);
 
     }
@@ -147,7 +140,6 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
             'jurusans_id' => e($data['jurusans_id']),
 //            'formulirs_id' => e($data['formulirs_id'])
 
-
         ]);
     }
 
@@ -159,7 +151,6 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
     {
         return parent::delete($id);
     }
-
 
     /**
      * @param $id
@@ -189,7 +180,6 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
                 ]
             );
 
-
             return $pendaftaran;
         }else{
             return [
@@ -207,11 +197,8 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
         $status = '2';
         $pendaftaran = parent::update($id, [
                 'status' => $status,
-
             ]
         );
-
-
         return $pendaftaran;
     }
 
@@ -220,11 +207,9 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
         $status = '3';
         $pendaftaran = parent::update($id, [
                 'status' => $status,
-
             ]
         );
-
-
         return $pendaftaran;
     }
+
 }

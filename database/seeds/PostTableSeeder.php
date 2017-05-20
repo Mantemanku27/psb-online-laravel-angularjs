@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 class PostTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Menjalankan SeederDatabase.
      *
      * @return void
      */

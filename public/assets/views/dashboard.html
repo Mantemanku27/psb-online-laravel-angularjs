@@ -1,221 +1,230 @@
+<!-- 
+   |||       ||||        |||       |||     || ||||||||||||  ||||||||||  |||       |||        |||       |||     ||
+   ||||     || ||       |||||      ||||    ||      ||       ||          ||||     ||||       |||||      ||||    ||
+   || ||   ||  ||      ||   ||     || ||   ||      ||       ||          || ||   || ||      ||   ||     || ||   ||
+   ||  || ||   ||     ||     ||    ||  ||  ||      ||       ||||||||||  ||  || ||  ||     ||     ||    ||  ||  ||
+   ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
+   ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
+  ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
+-->
 <!-- Dashboard Title -->
 <section id="page-title" class="padding-top-15 padding-bottom-15">
-	<div class="row">
-		<div class="col-sm-7">
-			<h1 class="mainTitle" translate="dashboard.WELCOME" translate-values="{ appName: app.name }">WELCOME TO MANTEMAN<sup>27</sup></h1>
-			<span class="mainDescription">overview &amp; stats </span>
-		</div>
-		<div class="col-sm-5">
-			<!-- Mini Stats With Sparkline -->
-			<ul class="mini-stats pull-right" ng-controller="SparklineCtrl">
-				<li>
-					<div class="sparkline">
-						<span jq-sparkline ng-model="sales" type="bar" height="20px" bar-color="#D43F3A"></span>
-					</div>
-					<div class="values">
-						<strong class="text-dark">18304</strong>
-						<p class="text-small no-margin">
-							Sales
-						</p>
-					</div>
-				</li>
-				<li>
-					<div class="sparkline">
-						<span jq-sparkline ng-model="earnings" type="bar" height="20px" bar-color="#5CB85C"></span>
-					</div>
-					<div class="values">
-						<strong class="text-dark">&#36;3,833</strong>
-						<p class="text-small no-margin">
-							Earnings
-						</p>
-					</div>
-				</li>
-				<li>
-					<div class="sparkline">
-						<span jq-sparkline ng-model="referrals" type="bar" height="20px" bar-color="#46B8DA"></span>
-					</div>
-					<div class="values">
-						<strong class="text-dark">&#36;848</strong>
-						<p class="text-small no-margin">
-							Referrals
-						</p>
-					</div>
-				</li>
-			</ul>
-			<!-- /end mini stats with sparkline -->
-		</div>
-	</div>
+  <div class="row">
+  	<div class="col-sm-7">
+  	  <h1 class="mainTitle" translate="dashboard.WELCOME" translate-values="{ appName: app.name }">WELCOME TO MANTEMAN<sup>27</sup></h1>
+  	  <span class="mainDescription">overview &amp; stats </span>
+  	</div>
+  	<div class="col-sm-5">
+  	  <!-- Mini Stats With Sparkline -->
+  	  <ul class="mini-stats pull-right" ng-controller="SparklineCtrl">
+  	  	<li>
+  	  	  <div class="sparkline">
+  	  	  	<span jq-sparkline ng-model="sales" type="bar" height="20px" bar-color="#D43F3A"></span>
+  	  	  </div>
+  	  	  <div class="values">
+  	  	  	<strong class="text-dark">18304</strong>
+  	  	  	<p class="text-small no-margin">
+  	  	  	  Sales
+  	  	  	</p>
+  	  	  </div>
+  	  	</li>
+  	  	<li>
+  	  	  <div class="sparkline">
+  	  	  	<span jq-sparkline ng-model="earnings" type="bar" height="20px" bar-color="#5CB85C"></span>
+  	  	  </div>
+  	  	  <div class="values">
+  	  	  	<strong class="text-dark">&#36;3,833</strong>
+  	  	  	<p class="text-small no-margin">
+  	  	  	  Earnings
+  	  	  	</p>
+  	  	  </div>
+  	  	</li>
+  	  	<li>
+  	  	  <div class="sparkline">
+  	  	  	<span jq-sparkline ng-model="referrals" type="bar" height="20px" bar-color="#46B8DA"></span>
+  	  	  </div>
+  	  	  <div class="values">
+  	  	  	<strong class="text-dark">&#36;848</strong>
+  	  	  	<p class="text-small no-margin">
+  	  	  	  Referrals
+  	  	  	</p>
+  	  	  </div>
+  	  	</li>
+  	  </ul>
+  	  <!-- /end mini stats with sparkline -->
+  	</div>
+  </div>
 </section>
 <!-- /end dashboard title -->
 
 <!-- Featured Box Links -->
 <div class="container-fluid container-fullw bg-white">
-	<div class="row">
-		<div class="col-sm-4">
-			<div class="panel panel-white no-radius text-center">
-				<div class="panel-body">
-					<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
-					<h2 class="StepTitle">Manage Users</h2>
-					<p class="text-small">
-						To add users, you need to be signed in as the super user.
-					</p>
-					<p class="links cl-effect-1">
-						<a href>
-							view more
-						</a>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="panel panel-white no-radius text-center">
-				<div class="panel-body">
-					<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i> </span>
-					<h2 class="StepTitle">Manage Orders</h2>
-					<p class="text-small">
-						The Manage Orders tool provides a view of all your orders.
-					</p>
-					<p class="cl-effect-1">
-						<a href>
-							view more
-						</a>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="panel panel-white no-radius text-center">
-				<div class="panel-body">
-					<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-					<h2 class="StepTitle">Manage Database</h2>
-					<p class="text-small">
-						Store, modify, and extract information from your database.
-					</p>
-					<p class="links cl-effect-1">
-						<a href>
-							view more
-						</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+  	<div class="col-sm-4">
+  	  <div class="panel panel-white no-radius text-center">
+  	  	<div class="panel-body">
+  	  	  <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
+  	  	  <h2 class="StepTitle">Manage Users</h2>
+  	  	  <p class="text-small">
+  	  	  	To add users, you need to be signed in as the super user.
+  	  	  </p>
+  	  	  <p class="links cl-effect-1">
+  	  	  	<a href>
+  	  	  	  view more
+  	  	  	</a>
+  	  	  </p>
+  	  	</div>
+  	  </div>
+  	</div>
+  	<div class="col-sm-4">
+  	  <div class="panel panel-white no-radius text-center">
+  	  	<div class="panel-body">
+  	  	  <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i> </span>
+  	  	  <h2 class="StepTitle">Manage Orders</h2>
+  	  	  <p class="text-small">
+  	  	  	The Manage Orders tool provides a view of all your orders.
+  	  	  </p>
+  	  	  <p class="cl-effect-1">
+  	  	  	<a href>
+  	  	  	  view more
+  	  	  	</a>
+  	  	  </p>
+  	  	</div>
+  	  </div>
+  	</div>
+  	<div class="col-sm-4">
+  	  <div class="panel panel-white no-radius text-center">
+  	  	<div class="panel-body">
+  	  	  <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+  	  	  <h2 class="StepTitle">Manage Database</h2>
+  	  	  <p class="text-small">
+  	  	  	Store, modify, and extract information from your database.
+  	  	  </p>
+  	  	  <p class="links cl-effect-1">
+  	  	  	<a href>
+  	  	  	  view more
+  	  	  	</a>
+  	  	  </p>
+  	  	</div>
+  	  </div>
+  	</div>
+  </div>
 </div>
 <!-- /end featured box links -->
 
 <!-- First Section -->
 <div class="container-fluid container-fullw padding-bottom-10">
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="row">
-				<div class="col-md-7 col-lg-8">
-					<div class="panel panel-white no-radius" id="visits">
-						<div class="panel-heading border-light">
-							<h4 class="panel-title"> Visits </h4>
-							<ul class="panel-heading-tabs border-light">
-								<li>
-									<div class="pull-right">
-										<div class="btn-group" uib-dropdown is-open="status.isopen">
-											<a uib-dropdown-toggle ng-disabled="disabled" class="padding-10">
-												<i class="ti-more-alt "></i>
-											</a>
-											<ul class="dropdown-menu dropdown-light" role="menu">
-												<li>
-													<a href="#">
-														Action
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														Another action
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														Something else here
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="rate">
-										<i class="fa fa-caret-up text-primary"></i><span class="value">15</span><span class="percentage">%</span>
-									</div>
-								</li>
-								<li class="panel-tools">
-									<ct-paneltool tool-refresh="load1"></ct-paneltool>
-								</li>
-							</ul>
-						</div>
-						<div uib-collapse="visits" ng-init="visits=false" class="panel-wrapper">
-							<div class="panel-body">
-								<div ng-controller="VisitsCtrl" class="height-350">
-									<canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data" chart-legend="chart1" width="100%"></canvas>
-									<div class="margin-top-20">
-										<div tc-chartjs-legend chart-legend="chart1" class="inline pull-left"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-5 col-lg-4">
-					<div class="panel panel-white no-radius">
-						<div class="panel-heading border-light">
-							<h4 class="panel-title"> Acquisition </h4>
-						</div>
-						<div class="panel-body">
-							<h3 class="inline-block no-margin">26</h3> visitors on-line <uib-progressbar value="40" class="progress-xs no-radius" type="success"></uib-progressbar>
-							<div class="row">
-								<div class="col-sm-4">
-									<h4 class="no-margin">15</h4>
-									<uib-progressbar value="80" class="progress-xs no-radius no-margin" type="danger"></uib-progressbar>
-									Direct
-								</div>
-								<div class="col-sm-4">
-									<h4 class="no-margin">7</h4>
-									<uib-progressbar value="60" class="progress-xs no-radius no-margin" type="info"></uib-progressbar>
-									Sites
-								</div>
-								<div class="col-sm-4">
-									<h4 class="no-margin">4</h4>
-									<uib-progressbar value="40" class="progress-xs no-radius no-margin" type="warning"></uib-progressbar>
-									Search
-								</div>
-							</div>
-							<div class="row margin-top-30">
-								<div class="col-xs-4 text-center">
-									<div class="rate">
-										<i class="fa fa-caret-up text-green"></i><span class="value">26</span><span class="percentage">%</span>
-									</div>
-									Mac OS X
-								</div>
-								<div class="col-xs-4 text-center">
-									<div class="rate">
-										<i class="fa fa-caret-up text-green"></i><span class="value">62</span><span class="percentage">%</span>
-									</div>
-									Windows
-								</div>
-								<div class="col-xs-4 text-center">
-									<div class="rate">
-										<i class="fa fa-caret-down text-red"></i><span class="value">12</span><span class="percentage">%</span>
-									</div>
-									Other OS
-								</div>
-							</div>
-							<div class="margin-top-10">
-								<div ng-controller="SalesCtrl" class="height-180">
-									<canvas class="tc-chart" tc-chartjs-bar chart-options="options" chart-data="data" chart-legend="chart2"></canvas>
-									<div tc-chartjs-legend chart-legend="chart2" class="inline pull-left legend-xs"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+  	<div class="col-sm-12">
+  	  <div class="row">
+  	  	<div class="col-md-7 col-lg-8">
+  	  	  <div class="panel panel-white no-radius" id="visits">
+  	  	  	<div class="panel-heading border-light">
+  	  	  	  <h4 class="panel-title"> Visits </h4>
+  	  	  	  <ul class="panel-heading-tabs border-light">
+  	  	  	  	<li>
+  	  	  	  	  <div class="pull-right">
+  	  	  	  	  	<div class="btn-group" uib-dropdown is-open="status.isopen">
+  	  	  	  	  	  <a uib-dropdown-toggle ng-disabled="disabled" class="padding-10">
+  	  	  	  	  	  	<i class="ti-more-alt "></i>
+  	  	  	  	  	  </a>
+  	  	  	  	  	  <ul class="dropdown-menu dropdown-light" role="menu">
+  	  	  	  	  	  	<li>
+  	  	  	  	  	  	  <a href="#">
+  	  	  	  	  	  	  	Action
+  	  	  	  	  	  	  </a>
+  	  	  	  	  	  	</li>
+  	  	  	  	  	  	<li>
+  	  	  	  	  	  	  <a href="#">
+  	  	  	  	  	  	  	Another action
+  	  	  	  	  	  	  </a>
+  	  	  	  	  	  	</li>
+  	  	  	  	  	  	<li>
+  	  	  	  	  	  	  <a href="#">
+  	  	  	  	  	  	  	Something else here
+  	  	  	  	  	  	  </a>
+  	  	  	  	  	  	</li>
+  	  	  	  	  	  </ul>
+  	  	  	  	  	</div>
+  	  	  	  	  </div>
+  	  	  	  	</li>
+  	  	  	  	<li>
+  	  	  	  	  <div class="rate">
+  	  	  	  	  	<i class="fa fa-caret-up text-primary"></i><span class="value">15</span><span class="percentage">%</span>
+  	  	  	  	  </div>
+  	  	  	  	</li>
+  	  	  	  	<li class="panel-tools">
+  	  	  	  	  <ct-paneltool tool-refresh="load1"></ct-paneltool>
+  	  	  	  	</li>
+  	  	  	  </ul>
+  	  	  	</div>
+  	  	  	<div uib-collapse="visits" ng-init="visits=false" class="panel-wrapper">
+  	  	  	  <div class="panel-body">
+  	  	  	  	<div ng-controller="VisitsCtrl" class="height-350">
+  	  	  	  	  <canvas class="tc-chart" tc-chartjs-line chart-options="options" chart-data="data" chart-legend="chart1" width="100%"></canvas>
+  	  	  	  	  <div class="margin-top-20">
+  	  	  	  	  	<div tc-chartjs-legend chart-legend="chart1" class="inline pull-left"></div>
+  	  	  	  	  </div>
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	</div>
+  	  	  </div>
+  	  	</div>
+  	  	<div class="col-md-5 col-lg-4">
+  	  	  <div class="panel panel-white no-radius">
+  	  	  	<div class="panel-heading border-light">
+  	  	  	  <h4 class="panel-title"> Acquisition </h4>
+  	  	  	</div>
+  	  	  	<div class="panel-body">
+  	  	  	  <h3 class="inline-block no-margin">26</h3> visitors on-line <uib-progressbar value="40" class="progress-xs no-radius" type="success"></uib-progressbar>
+  	  	  	  <div class="row">
+  	  	  	  	<div class="col-sm-4">
+  	  	  	  	  <h4 class="no-margin">15</h4>
+  	  	  	  	  <uib-progressbar value="80" class="progress-xs no-radius no-margin" type="danger"></uib-progressbar>
+  	  	  	  	  Direct
+  	  	  	  	</div>
+  	  	  	  	<div class="col-sm-4">
+  	  	  	  	  <h4 class="no-margin">7</h4>
+  	  	  	  	  <uib-progressbar value="60" class="progress-xs no-radius no-margin" type="info"></uib-progressbar>
+  	  	  	  	  Sites
+  	  	  	  	</div>
+  	  	  	  	<div class="col-sm-4">
+  	  	  	      <h4 class="no-margin">4</h4>
+  	  	  	      <uib-progressbar value="40" class="progress-xs no-radius no-margin" type="warning"></uib-progressbar>
+  	  	  	      Search
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	  <div class="row margin-top-30">
+  	  	  	  	<div class="col-xs-4 text-center">
+  	  	  	  	  <div class="rate">
+  	  	  	  	  	<i class="fa fa-caret-up text-green"></i><span class="value">26</span><span class="percentage">%</span>
+  	  	  	  	  </div>
+  	  	  	  	  Mac OS X
+  	  	  	  	</div>
+  	  	  	  	<div class="col-xs-4 text-center">
+  	  	  	  	  <div class="rate">
+  	  	  	  	  	<i class="fa fa-caret-up text-green"></i><span class="value">62</span><span class="percentage">%</span>
+  	  	  	  	  </div>
+  	  	  	  	  Windows
+  	  	  	  	</div>
+  	  	  	  	<div class="col-xs-4 text-center">
+  	  	  	  	  <div class="rate">
+  	  	  	  	  	<i class="fa fa-caret-down text-red"></i><span class="value">12</span><span class="percentage">%</span>
+  	  	  	  	  </div>
+  	  	  	  	  Other OS
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	  <div class="margin-top-10">
+  	  	  	  	<div ng-controller="SalesCtrl" class="height-180">
+  	  	  	  	  <canvas class="tc-chart" tc-chartjs-bar chart-options="options" chart-data="data" chart-legend="chart2"></canvas>
+  	  	  	  	  <div tc-chartjs-legend chart-legend="chart2" class="inline pull-left legend-xs"></div>
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	</div>
+  	  	  </div>
+  	  	</div>
+  	  </div>
+  	</div>
+  </div>
 </div>
 <!-- /end first section -->

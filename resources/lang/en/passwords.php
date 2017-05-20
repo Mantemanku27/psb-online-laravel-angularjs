@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Baris Bahasa Reset Password.
     |--------------------------------------------------------------------------
     |
-    | The following language lines are the default lines which match reasons
-    | that are given by the password broker for a password update attempt
-    | has failed, such as for an invalid token or invalid new password.
+    | Baris bahasa berikut adalah baris default yang sesuai dengan alasan
+    | yang diberikan oleh broker password untuk usaha update password
+    | telah gagal, seperti untuk kata kunci yang tidak valid atau kata kunci baru yang tidak benar.
     |
     */
 

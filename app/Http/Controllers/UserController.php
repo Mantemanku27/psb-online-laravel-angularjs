@@ -34,12 +34,12 @@ class UserController extends Controller
      * @apiParam {Number} page Paginate user lists
      */
 
-// Searching data = term
+    // Searching data = term
     public function index(Request $request)
     {
         return $this->user->paginate(10, $request->input('page'), $column = ['*'], '', $request->input('term'));
     }
-// end searching data = term
+    // end searching data = term
 
     /**
      * @api {get} api/users/id Request Get User
@@ -75,12 +75,12 @@ class UserController extends Controller
         return $this->user->create($request->all());
     }
 
-// Register
+    // Register
     public function createsiswa(UserCreateRequest $request)
     {
         return $this->user->createsiswa($request->all());
     }
-// end register
+    // end register
 
     /**
      * @api {put} api/users/id Request Update User by ID
@@ -116,7 +116,7 @@ class UserController extends Controller
     {
         return $this->user->delete($id);
     }
-// login membuat session ke backoffice
+    // login membuat session ke backoffice
     public function getSession()
     {
         if (session('nama') == null) {
@@ -138,12 +138,12 @@ class UserController extends Controller
 
             ]]);
     }
-// end login
+    // end login
 
-// Ganti Password
+    // Ganti Password
     public function updatePass(Request $request)
       {
           return $this->user->updatePassword($request->all());
       }
-// end ganti password
+    // end ganti password
 }

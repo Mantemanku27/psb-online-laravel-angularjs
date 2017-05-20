@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface UserInterface
+ * Antarmuka UserInterface.
  * @package App\Domain\Contracts
  */
 interface UserInterface {

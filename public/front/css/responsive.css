@@ -1,7 +1,6 @@
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-
+/*-------------------------------------------------*/
+/*------------     Media Queries     --------------*/
+/*-------------------------------------------------*/
 @media only screen and (max-width: 1380px) {
 	
 }
@@ -14,7 +13,7 @@
 }
    
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	/****Ipad Portrait 768 Container 750 ****/
+	/* Ipad Portrait 768 Container 750 */
 	body{ font-size:13px;}
 	p{ line-height:20px ;}
 	.header h1{ font-size:46px;}
@@ -49,17 +48,11 @@
 	.quote_section{ width:495px; margin: 6px 0 0 30px;}
 	.client_area{ width:700px;}
 	.client_profile_pic{ width:150px; height:150px;}
-	.quote_section.flt{ margin:6px 0 0 0;}
-	
-   
-	
-	
-	 
-	
+	.quote_section.flt{ margin:6px 0 0 0;}	
 }
 
 @media only screen and (max-width: 767px) {
-	/****Mobile Landscape 480 Container 100% ****/
+	/* Mobile Landscape 480 Container 100% */
 	.client_profile_pic{ float:none; width:150px; height:150px; margin:0px auto;}
 	#client_outer{ padding:25px 0px;}
 	.client_profile.flt{ float:none;}
@@ -115,11 +108,6 @@
 	.main-section.contact{ background-size:contain;}
 	.Portfolio-nav li a{ padding:5px 16px;}
 	.Portfolio-nav li{ display:block;}
-	/*.isotope-item img{ width:300px; left:50%; margin-left:-100px;}
-	.isotope-item{ width:300px; margin:0px auto;}
-	.isotope{ width:400px; margin:0px auto;}
-	.Portfolio-box{}
-	.portfolioContainer{ width:350px; margin:0px auto !important; } */
 	
 	.portfolioContainer { max-width:350px; margin:0px auto;}
 	.logo{ margin:0px auto 10px; float:none; }
@@ -157,7 +145,7 @@
 }
 
 @media only screen and (max-width: 479px) {
-	/****Mobile Portrait 320 ****/
+	/* Mobile Portrait 320 */
 	#filters ul li{ display:block;}
 	.contact-info-box{ margin-left:0px;}
 	.header{ padding:40px;}
@@ -172,5 +160,4 @@
 	.quote_section p{ font-size:15px;} 
 	.c-logo-part{ padding:18px 0px;}
 	.c-logo-part ul li{ margin:6px 0px; display:block;}
-	
 }

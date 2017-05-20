@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | Garis Bahasa Validasi.
     |--------------------------------------------------------------------------
     |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | Baris bahasa berikut berisi pesan kesalahan default yang digunakan oleh
+    | kelas validator. Beberapa aturan ini memiliki beberapa versi seperti itu
+    | sebagai aturan ukuran. Jangan ragu untuk men-tweak masing-masing pesan di sini.
     |
     */
 
@@ -86,12 +86,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
+    | Garis Bahasa Khusus Validasi.
     |--------------------------------------------------------------------------
     |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
+    | Di sini Anda dapat menentukan pesan validasi khusus untuk atribut yang menggunakan
+    | konvensi "atribut.rule" untuk memberi nama baris. Hal ini membuat cepat
+    | Tentukan baris bahasa khusus tertentu untuk aturan atribut yang diberikan.
     |
     */
 
@@ -103,12 +103,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Attributes
+    | Atribut Validasi Khusus.
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap attribute place-holders
-    | with something more reader friendly such as E-Mail Address instead
-    | of "email". This simply helps us make messages a little cleaner.
+    | Baris bahasa berikut digunakan untuk menukar atribut place-holders
+    | dengan sesuatu yang lebih ramah pembaca seperti E-Mail Address sebagai gantinya
+    | dari "email". Ini hanya membantu kita membuat pesan sedikit lebih bersih.
     |
     */
 

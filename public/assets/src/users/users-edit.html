@@ -1,67 +1,85 @@
+<!-- 
+   |||       ||||        |||       |||     || ||||||||||||  ||||||||||  |||       |||        |||       |||     ||
+   ||||     || ||       |||||      ||||    ||      ||       ||          ||||     ||||       |||||      ||||    ||
+   || ||   ||  ||      ||   ||     || ||   ||      ||       ||          || ||   || ||      ||   ||     || ||   ||
+   ||  || ||   ||     ||     ||    ||  ||  ||      ||       ||||||||||  ||  || ||  ||     ||     ||    ||  ||  ||
+   ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
+   ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
+  ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
+-->
+<!-- Include Dari UsersEditCtrl -->
 <div ng-controller="UsersEditCtrl">
-	<!-- Page Title -->
-	<section id="page-title">
-		<div class="row">
-			<div class="col-sm-8">
-				<h1 class="mainTitle">FORM EDIT USERS</h1>
-			</div>
-			<div ncy-breadcrumb></div>
-		</div>
-	</section>
-	<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-		{{alert.msg}}
-	</uib-alert>
-	<!-- /end page title -->
+  <!-- Page Title -->
+  <section id="page-title">
+  	<div class="row">
+  	  <div class="col-sm-8">
+  	  	<h1 class="mainTitle">FORM EDIT USERS</h1>
+  	  </div>
+  	  <div ncy-breadcrumb></div>
+  	</div>
+  </section>
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+  	{{alert.msg}}
+  </uib-alert>
+  <!-- /end page title -->
 
-	<!-- Form Validation -->
-	<div class="container-fluid container-fullw bg-white">
-		<div class="row">
-			<div class="col-md-12">
-				<div>
-					<form name="Form">
+  <!-- Form Validation -->
+  <div class="container-fluid container-fullw bg-white">
+  	<div class="row">
+  	  <div class="col-md-12">
+  	  	<div>
 
-						<div class="row">
-							<div class="col-md-12">
-								<fieldset>
+		      <!-- Form Input -->
+  	  	  <form name="Form">
+			
+			      <!-- Form Data Input -->
+  	  	  	<div class="row">
+  	  	  	  <div class="col-md-12">
+  	  	  	  	<fieldset>
+				          <!-- Form Input Nama -->
+  	  	  	  	  <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
+  	  	  	  	  	<label class="control-label"> Nama <span class="symbol required"></span></label>
+  	  	  	  	  	<input type="text" placeholder="Enter your Nama" class="form-control" name="nama" ng-model="myModel.nama" required />
+  	  	  	  	  	<span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama is required</span>
+  	  	  	  	  	<span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
+  	  	  	  	  </div>
+				          <!-- Form Input Telepon -->
+  	  	  	  	  <div class="form-group" ng-class="{'has-error':Form.telepon.$dirty && Form.telepon.$invalid, 'has-success':Form.telepon.$valid}">
+  	  	  	  	  	<label class="control-label"> Telepon <span class="symbol required"></span></label>
+  	  	  	  	  	<input type="text" placeholder="Enter your Telepon" class="form-control" name="telepon" ng-model="myModel.telepon" required />
+  	  	  	  	  	<span class="error text-small block" ng-if="Form.telepon.$dirty && Form.telepon.$invalid">Telepon is required</span>
+  	  	  	  	  	<span class="success text-small" ng-if="Form.telepon.$valid">Thank You!</span>
+  	  	  	  	  </div>
+				          <!-- Form Input Email -->
+  	  	  	  	  <div class="form-group" ng-class="{'has-error':Form.email.$dirty && Form.email.$invalid, 'has-success':Form.email.$valid}">
+  	  	  	  	  	<label class="control-label"> Email <span class="symbol required"></span></label>
+  	  	  	  	  	<input type="text" placeholder="Enter your Email" class="form-control" name="email" ng-model="myModel.email" required />
+  	  	  	  	  	<span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$invalid">Email is required</span>
+  	  	  	  	  	<span class="success text-small" ng-if="Form.email.$valid">Thank You!</span>
+  	  	  	  	  </div>
+  	  	  	  	</fieldset>
+  	  	  	  </div>
+  	  	  	</div>
+			      <!-- /end form data input -->
 
-									<div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
-										<label class="control-label"> Nama <span class="symbol required"></span></label>
-										<input type="text" placeholder="Enter your Nama" class="form-control" name="nama" ng-model="myModel.nama" required />
-										<span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama is required</span>
-										<span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
-									</div>
+            <!-- Button Aksi -->
+  	  	  	<div class="row">
+  	  	  	  <div class="col-md-12">
+  	  	  	  	<div class="pull-left">
+  	  	  	  	  <button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+  	  	  	  	  <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.users" ng-disabled="process">Kembali</button>
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	</div>
+			      <!-- /end button aksi -->
 
-									<div class="form-group" ng-class="{'has-error':Form.telepon.$dirty && Form.telepon.$invalid, 'has-success':Form.telepon.$valid}">
-										<label class="control-label"> Telepon <span class="symbol required"></span></label>
-										<input type="text" placeholder="Enter your Telepon" class="form-control" name="telepon" ng-model="myModel.telepon" required />
-										<span class="error text-small block" ng-if="Form.telepon.$dirty && Form.telepon.$invalid">Telepon is required</span>
-										<span class="success text-small" ng-if="Form.telepon.$valid">Thank You!</span>
-									</div>
+  	  	  </form>
+		      <!-- /end form input -->
 
-									<div class="form-group" ng-class="{'has-error':Form.email.$dirty && Form.email.$invalid, 'has-success':Form.email.$valid}">
-										<label class="control-label"> Email <span class="symbol required"></span></label>
-										<input type="text" placeholder="Enter your Email" class="form-control" name="email" ng-model="myModel.email" required />
-										<span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$invalid">Email is required</span>
-										<span class="success text-small" ng-if="Form.email.$valid">Thank You!</span>
-									</div>
-
-								</fieldset>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-12">
-								<div class="pull-left">
-									<button md-ink-ripple class="btn btn-primary" ng-click="updateData()" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
-									<button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.users" ng-disabled="process">Kembali</button>
-								</div>
-							</div>
-						</div>
-						
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /end form validation -->
+  	  	</div>
+  	  </div>
+  	</div>
+  </div>
+  <!-- /end form validation -->
+	
 </div>

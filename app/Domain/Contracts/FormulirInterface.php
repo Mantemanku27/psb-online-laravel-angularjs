@@ -3,7 +3,7 @@
 namespace App\Domain\Contracts;
 
 /**
- * Interface FormulirInterface
+ * Antarmuka FormulirInterface.
  * @package App\Domain\Contracts
  */
 interface FormulirInterface {
