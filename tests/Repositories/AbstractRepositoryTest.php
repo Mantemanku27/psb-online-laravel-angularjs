@@ -204,4 +204,5 @@ class AbstractRepositoryTest extends TestCase
 
         $this->assertInstanceOf(stdClass::class, $this->repositoryFake->instance());
     }
+
 }

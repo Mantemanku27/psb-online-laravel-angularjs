@@ -5408,27 +5408,27 @@ input[type="radio"], input[type="checkbox"] {
   background: none !important;
 }
 .btn-default {
-  background-color: #1be2fb;
+  background-color: #ffffff;
   border-color: #c8c7cc;
   color: #000000;
 }
 .btn-default:hover {
-  background-color: #1be2fb;
+  background-color: #ffffff;
   border-color: #bbbac0;
   color: #000000 !important;
 }
 .btn-default:active, .btn-default.active, .btn-default.active:focus, .btn-default:active:focus, .btn-default:active:hover {
-  background-color: #1be2fb;
+  background-color: #ffffff;
   border-color: #d5d4d8;
   color: #000000 !important;
 }
 .btn-default:focus {
-  background-color: #1be2fb;
+  background-color: #ffffff;
   border-color: #bbbac0;
   color: #000000 !important;
 }
 .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
-  background-color: #1be2fb;
+  background-color: #ffffff;
   border-color: #e2e2e4;
   color: #000000;
 }
