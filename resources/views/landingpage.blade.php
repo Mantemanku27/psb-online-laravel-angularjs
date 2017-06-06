@@ -23,7 +23,7 @@
   <link href="../front/css/font-awesome.css" rel="stylesheet" type="text/css">
   <link href="../front/css/responsive.css" rel="stylesheet" type="text/css">
   <link href="../front/css/animate.css" rel="stylesheet" type="text/css">
-  <!-- Font CSS dari web browser -->
+  <!-- Google Font -->
   <link href='http://fonts.googleapis.com/css?family=Lato:400,900,700,700italic,400italic,300italic,300,100italic,100,900italic'
     rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Dosis:400,500,700,800,600,300,200' rel='stylesheet' type='text/css'>
@@ -122,13 +122,13 @@
   <!-- About Us -->
   <section id="service">
     <div class="container">
-      <h2>Tentang Website Kami</h2>
+      <h2>Tentang Kami</h2>
       <div class="service_area">
         <div class="row">
           <div class="col-lg-4">
             <div class="service_block">
               <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa-shield"></i></span> </div>
-              <h3 class="animated fadeInUp wow">Website Multifungsi</h3>
+              <h3 class="animated fadeInUp wow">VISI</h3>
               <p class="animated fadeInDown wow">Merupakan website yang di rancang untuk memudahkan suatu pendidikan dalam melakukan penerimaan peserta didik
                 baru.
               </p>
@@ -137,7 +137,7 @@
           <div class="col-lg-4">
             <div class="service_block">
               <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
-              <h3 class="animated fadeInUp wow">Keamanan terjamin</h3>
+              <h3 class="animated fadeInUp wow">SMK NEGERI 1 KEPANJEN</h3>
               <p class="animated fadeInDown wow">Merupakan website yang di rancang dengan suatu sitem keamanan yang cukup terjamin oleh designer.
               </p>
             </div>
@@ -145,7 +145,7 @@
           <div class="col-lg-4">
             <div class="service_block">
               <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
-              <h3 class="animated fadeInUp wow">Fitur Khusus</h3>
+              <h3 class="animated fadeInUp wow">MISI</h3>
               <p class="animated fadeInDown wow">Website kami hanya menyediakan fitur-fitur khusus & fitur yang ada sangkut pautnya dengan agenda pendaftaran
               peserta didik baru.
               </p>
@@ -170,35 +170,35 @@
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Rekayasa Perangkat Lunak</h3>
-                  <p>Kuota Jurusan Rekayasa Perangkat Lunak Masih membutuhkan 200 peserta didik baru</p>
+                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Komputer Jaringan</h3>
-                  <p>Kuota Jurusan Teknik Komputer Jaringan Masih membutuhkan 200 peserta didik baru</p>
+                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Elektronika Industri</h3>
-                  <p>Kuota Jurusan Teknik Elektronika Industri Masih membutuhkan 200 peserta didik baru</p>
+                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Kendaraan Ringan</h3>
-                  <p>Kuota Jurusan Teknik Kendaraan Ringan Masih membutuhkan 200 peserta didik baru</p>
+                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
                 </div>
               </div>
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
                   <h3>Teknik Sepeda Motor</h3>
-                  <p>Kuota Jurusan Teknik Sepeda Motor Masih membutuhkan 200 peserta didik baru</p>
+                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
                 </div>
               </div>
               <div class="work_bottom"><span>Ayo Pilih Keahlianmu Sekarang...!</span><a href="signup" class="contact_btn">Daftar Sekarang</a></div>
@@ -252,7 +252,7 @@
     <!-- Taem -->
     <div class="container">
       <h2>Designer Komponen Website</h2>
-      <h6>Website kami terdiri dari 3 komponen diantaranya Design, Frontend & Backend</h6>
+      <h6>Website kami terdiri dari 3 komponen, diantaranya Design, Frontend & Backend</h6>
       <div class="team-leader-block clearfix">
         <div class="team-leader-box">
           <div class="team-leader wow fadeInDown delay-03s">
@@ -362,7 +362,7 @@
     </div>
     <!-- Copyright -->
     <div class="container">
-      <div class="footer_bottom"><span>Copyright © 2017 | By <a href="https://github.com/Mantemanku27">Mantemanku27</a></span></div>
+      <div class="footer_bottom"><span>Copyright © 2017 | By <a href="https://github.com/Mantemanku27" target="_blank">Mantemanku27</a></span></div>
     </div>
     <!-- /end copyright -->
   </footer>

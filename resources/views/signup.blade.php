@@ -39,7 +39,6 @@
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="x-icon">
 </head>
 <!-- SignUp -->
-<a class="back-landing" href="landingpage">Kembali ke landing page sekarang !</a>
 <div class="row">
   <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
     <!-- Box SignUp -->
@@ -79,6 +78,7 @@
               <i class="fa fa-lock"></i>
           </div>
           <div class="form-actions">
+            <a class="btn btn-primary" href="landingpage"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
             <button type="submit" class="btn btn-primary pull-right">
               Sign Up <i class="fa fa-arrow-circle-right"></i>
             </button>
