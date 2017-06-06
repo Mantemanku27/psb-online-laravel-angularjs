@@ -21,7 +21,7 @@ class PageController extends Controller
      */
     public function __construct(JurusanRepository $jurusan)
     {
-        $this->middleware('guest', ['only' => ['landingpage','getLogin','signup']]);
+        $this->middleware('guest', ['only' => ['getLogin','signup']]);
         $this->jurusan=$jurusan;
     }
 
