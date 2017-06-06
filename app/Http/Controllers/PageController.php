@@ -27,12 +27,8 @@ class PageController extends Controller
 
     public function landingpage()
     {
-        $getlist=$this->jurusan->getList();
-        // dump($getlist);
-        return view('landingpage')->with([
-            'getlist'=>$getlist
-        ]);
-
+        $jurusans = $this->jurusan->getList();
+        return view('landingpage', ['jurusans' => $jurusans]);
     }
 
     /**

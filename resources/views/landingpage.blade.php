@@ -129,8 +129,8 @@
             <div class="service_block">
               <div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa-shield"></i></span> </div>
               <h3 class="animated fadeInUp wow">VISI</h3>
-              <p class="animated fadeInDown wow">Merupakan website yang di rancang untuk memudahkan suatu pendidikan dalam melakukan penerimaan peserta didik
-                baru.
+              <p class="animated fadeInDown wow">Mewujudkan Sekolah Menengah Kejuruan Negeri 1 Kepanjen sebagai lembaga pendidikan kejuruan yang menghasilkan 
+                Sumber Daya Manusia dibidang teknologi yang profesional serta bertaqwa kepada Tuhan Yang Maha Esa.
               </p>
             </div>
           </div>
@@ -138,7 +138,7 @@
             <div class="service_block">
               <div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
               <h3 class="animated fadeInUp wow">SMK NEGERI 1 KEPANJEN</h3>
-              <p class="animated fadeInDown wow">Merupakan website yang di rancang dengan suatu sitem keamanan yang cukup terjamin oleh designer.
+              <p class="animated fadeInDown wow">Alamat Jl. Raya Kedungpedaringan Kepanjen Kab. Malang, Telp. (0341) 395777, Fax (0341) 394776, E-mail smkn1kepanjen@ymail.com Website smkn1kepanjen.sch.id Kode Pos 65163. 
               </p>
             </div>
           </div>
@@ -146,8 +146,9 @@
             <div class="service_block">
               <div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa-shield"></i></span> </div>
               <h3 class="animated fadeInUp wow">MISI</h3>
-              <p class="animated fadeInDown wow">Website kami hanya menyediakan fitur-fitur khusus & fitur yang ada sangkut pautnya dengan agenda pendaftaran
-              peserta didik baru.
+              <p class="animated fadeInDown wow"><strong>1.</strong> Meningkatkan pengelolaan sekolah secara profesional. <strong>2.</strong> Meningkatkan pelaksaan Pendidikan Sistem Ganda 
+                (PSG) Tujuan Mendorong SMK Negeri 1 Kepanjen untuk secara bertahap memiliki sarana dan prasarana pendidikan sumber belajar yang sesuai dengan 
+                Standar Nasional dan Standar Internasional melalui Program Pengadaan Peralatan di lingkungan SMKN 1 Kepanjen melalui Bantuan Pengadaan Peralatan APBN 2009.
               </p>
             </div>
           </div>
@@ -166,41 +167,15 @@
         <div class="work_section">
           <div class="row">
             <div class="col-lg-6 col-sm-6 wow fadeInLeft delay-05s">
+            @foreach($jurusans as $jurusan)
               <div class="service-list">
                 <div class="service-list-col1"><i class="icon-cog"></i></div>
                 <div class="service-list-col2">
-                  <h3>Rekayasa Perangkat Lunak</h3>
-                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
+                  <h3>{{$jurusan['nama']}}</h3>
+                  <p>Kuota yang tersedia saat ini <strong>{{$jurusan['kuota']}}</strong> calon siswa.</p>
                 </div>
               </div>
-              <div class="service-list">
-                <div class="service-list-col1"><i class="icon-cog"></i></div>
-                <div class="service-list-col2">
-                  <h3>Teknik Komputer Jaringan</h3>
-                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
-                </div>
-              </div>
-              <div class="service-list">
-                <div class="service-list-col1"><i class="icon-cog"></i></div>
-                <div class="service-list-col2">
-                  <h3>Teknik Elektronika Industri</h3>
-                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
-                </div>
-              </div>
-              <div class="service-list">
-                <div class="service-list-col1"><i class="icon-cog"></i></div>
-                <div class="service-list-col2">
-                  <h3>Teknik Kendaraan Ringan</h3>
-                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
-                </div>
-              </div>
-              <div class="service-list">
-                <div class="service-list-col1"><i class="icon-cog"></i></div>
-                <div class="service-list-col2">
-                  <h3>Teknik Sepeda Motor</h3>
-                  <p>Kuota yang dibutuhkan sebanyak 150 Peserta Didik Baru.</p>
-                </div>
-              </div>
+              @endforeach
               <div class="work_bottom"><span>Ayo Pilih Keahlianmu Sekarang...!</span><a href="signup" class="contact_btn">Daftar Sekarang</a></div>
             </div>
             <figure class="col-lg-6 col-sm-6  text-right wow fadeInUp delay-02s"> </figure>

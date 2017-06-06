@@ -6,7 +6,7 @@ use App\Domain\Entities\Jurusan;
 use App\Domain\Entities\Pendaftaran;
 use App\Domain\Contracts\PendaftaranInterface;
 use App\Domain\Contracts\Crudable;
-
+use App\Domain\Repositories\JurusanRepository;
 /**
  * Class PendaftaranRepository.
  * @package App\Domain\Repositories
@@ -19,14 +19,17 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
      */
     protected $model;
 
+    protected $jurusan;
+
     /**
      * Konstruktor PendaftaranRepository.
      *
      * @param Pendaftaran $pendaftaran
      */
-    public function __construct(Pendaftaran $pendaftaran)
+    public function __construct(Pendaftaran $pendaftaran, JurusanRepository $jurusan)
     {
         $this->model = $pendaftaran;
+        $this->jurusan= $jurusan;
     }
 
     /**
@@ -114,6 +117,9 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
         } else if ($pribadi->no_pilihan == 2) {
             $no_pilihan = 1;
         }
+
+        // update kuota jurusan dengn mengurangi -1
+        $this->jurusan->updateKuota($data['jurusans_id']);
 
         // Eksekusi memasukan sql.
         return parent::create([

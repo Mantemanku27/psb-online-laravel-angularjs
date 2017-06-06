@@ -62,12 +62,12 @@
           </p>
           <div class="form-group">
             <span class="input-icon">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
               <i class="fa fa-user"></i> </span>
           </div>
           <div class="form-group form-actions">
             <span class="input-icon">
-              <input type="password" class="form-control password" name="password" placeholder="Password">
+              <input type="password" class="form-control password" name="password" placeholder="Password" required>
               <i class="fa fa-lock"></i>
           </div>
           <div class="form-actions">

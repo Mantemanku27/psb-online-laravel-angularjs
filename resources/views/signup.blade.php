@@ -56,25 +56,25 @@
           <label>Nama</label>
           <div class="form-group">
             <span class="input-icon">
-              <input type="text" class="form-control" name="nama" placeholder="Nama">
+              <input type="text" class="form-control" name="nama" placeholder="Nama" required>
               <i class="fa fa-user"></i> </span>
           </div>
           <label>Telepon</label>          
           <div class="form-group">
             <span class="input-icon">
-              <input type="text" class="form-control" name="telepon" placeholder="No Telepon">
+              <input type="text" class="form-control" name="telepon" placeholder="No Telepon" required>
               <i class="fa fa-user"></i> </span>
           </div>
           <label>Email</label>          
           <div class="form-group">
             <span class="input-icon">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
               <i class="fa fa-user"></i> </span>
           </div>
           <div class="form-group form-actions">
               <label>Password</label>
             <span class="input-icon">
-              <input type="password" class="form-control password" name="password" placeholder="Password">
+              <input type="password" class="form-control password" name="password" placeholder="Password" required>
               <i class="fa fa-lock"></i>
           </div>
           <div class="form-actions">
