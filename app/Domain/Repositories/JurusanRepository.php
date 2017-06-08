@@ -181,6 +181,7 @@ class JurusanRepository extends AbstractRepository implements JurusanInterface, 
         return $provinsi;
     }
 
+    // Mengurangi Data Kuota
     public function updateKuota($id){
        $data = $this->findById($id);
 

@@ -146,4 +146,5 @@ class UserController extends Controller
           return $this->user->updatePassword($request->all());
       }
     // end ganti password
+
 }

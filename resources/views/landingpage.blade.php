@@ -80,7 +80,7 @@
             <li><a href="#service">About Us</a></li>
             <li><a href="#work_outer">Jurusan</a></li>
             <li><a href="#client_outer">Informasi</a></li>
-            <li><a href="#team">Designer</a></li>
+            <!--<li><a href="#team">Designer</a></li>-->
             <li><a href="login"><u>Login</u></a></li>
             <li><a href="#contact">Subscribe</a></li>
           </ul>
@@ -89,7 +89,7 @@
             <li><a href="#service">About Us</a></li>
             <li><a href="#work_outer">Jurusan</a></li>
             <li><a href="#client_outer">Informasi</a></li>
-            <li><a href="#team">Designer</a></li>
+            <!--<li><a href="#team">Designer</a></li>-->
             <li><a href="login"><u>Login</u></a></li>
             <li><a href="#contact">Subscribe</a></li>
           </ul>
@@ -223,9 +223,9 @@
   <!-- /end main section client part -->
 
   <!-- Main Ssection Team -->
-  <section class="main-section team" id="team">
+  <!--<section class="main-section team" id="team">-->
     <!-- Taem -->
-    <div class="container">
+    <!--<div class="container">
       <h2>Designer Komponen Website</h2>
       <h6>Website kami terdiri dari 3 komponen, diantaranya Design, Frontend & Backend</h6>
       <div class="team-leader-block clearfix">
@@ -308,9 +308,9 @@
            website.</p>
         </div>
       </div>
-    </div>
+    </div>-->
     <!-- /end team -->
-  </section>
+  <!--</section>-->
   <!-- /end main section team -->
 
   <!-- Footer -->

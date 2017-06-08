@@ -6,6 +6,7 @@ use App\Domain\Entities\Jurusan;
 use App\Domain\Entities\Pendaftaran;
 use App\Domain\Contracts\PendaftaranInterface;
 use App\Domain\Contracts\Crudable;
+// Kuota
 use App\Domain\Repositories\JurusanRepository;
 /**
  * Class PendaftaranRepository.
@@ -26,6 +27,8 @@ class PendaftaranRepository extends AbstractRepository implements PendaftaranInt
      *
      * @param Pendaftaran $pendaftaran
      */
+    
+    // Kuota
     public function __construct(Pendaftaran $pendaftaran, JurusanRepository $jurusan)
     {
         $this->model = $pendaftaran;

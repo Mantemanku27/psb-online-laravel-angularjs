@@ -107,7 +107,7 @@
         <td style="padding-top:12px;padding-bottom:14px;padding-right:0;padding-left:0;vertical-align:top;text-align:center">
           <p style="Margin-top:0;font-weight:normal;font-family:sans-serif;Margin-bottom:15px;text-align:center;font-size:13px;line-height:19px;color:#97a3b1;Margin:0">
             <em>
-              <a style="text-decoration: none;font-style:normal;color:#1bb4d5 ;" href="http://kodesoft.co.id/" target="_blank">CV. Kodesoft Media Nusantara</a>
+              <a style="text-decoration: none;font-style:normal;color:#1bb4d5 ;" href="http://smkn1kepanjen.sch.id" target="_blank">SMK NEGERI 1 KEPANJEN</a>
             </em><br>
             Jl. Raya Kedungpedaringan Kepanjen Kab. Malang, Telp. (0341) 395777, Fax (0341) 394776,<br>
             E-mail smkn1kepanjen@ymail.com Website smkn1kepanjen.sch.id Kode Pos 65163.

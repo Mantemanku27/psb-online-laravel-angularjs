@@ -19,6 +19,8 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    // Menampilkan data ke Landingpage
     public function __construct(JurusanRepository $jurusan)
     {
         $this->middleware('guest', ['only' => ['getLogin','signup']]);
@@ -30,6 +32,7 @@ class PageController extends Controller
         $jurusans = $this->jurusan->getList();
         return view('landingpage', ['jurusans' => $jurusans]);
     }
+    // end menampilkan data ke landingpage
 
     /**
      * @return string
@@ -41,7 +44,6 @@ class PageController extends Controller
     public function signup()
     {
         return view('signup');
-
     }
     public function getLogin()
     {
@@ -50,7 +52,6 @@ class PageController extends Controller
     public function pendaftaran()
     {
         return view('welcome');
-
     }
 
     public function confirm($confirmation_code)

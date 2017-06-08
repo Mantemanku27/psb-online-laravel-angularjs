@@ -7,7 +7,8 @@
    ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
   ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
 -->
-<!Doctype html>
+<!DOCTYPE HTML>
+
 <html lang="en" data-ng-app="clipApp">
 <head>
   <meta charset="utf-8">
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-touch-fullscreen" content="yes" />
-  <title data-ng-bind="pageTitle()">Pendaftaran | Login</title>
+  <title data-ng-bind="pageTitle()">PSB Online - Login</title>
   <!-- Import Google fonts -->
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
   <!-- Bootstrap -->

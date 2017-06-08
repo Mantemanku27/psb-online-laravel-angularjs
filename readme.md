@@ -2,7 +2,7 @@
 
 Sebuah website yang digunakan untuk melakukan pelaksanaan 'Penerimaan Peserta Didik Baru'
 
-# Panduang Ringkas
+# Panduan Ringkas
 
 ## Instalation
 

@@ -57,4 +57,5 @@ class AppServiceProvider extends ServiceProvider
             ->needs('App\Domain\Contracts\UserInterface')
             ->give('App\Domain\Repositories\UserRepository');
     }
+
 }
