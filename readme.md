@@ -1,15 +1,15 @@
-# CRUD Laravel 5.3 dengan Repository Pattern
+# PSB Online Laravel-angularJS
 
-An example of a basic implementation of the Repository Pattern in Laravel 5.3
+Sebuah website yang digunakan untuk melakukan pelaksanaan 'Penerimaan Peserta Didik Baru'
 
-# Quick Start Guide
+# Panduang Ringkas
 
 ## Instalation
 
 **1. Clone this repo:**
 
 ```sh
-git clone https://github.com/cyberid41/crud-using-repository-laravel-5-3.git
+git clone git@github.com:Mantemanku27/psb-online-laravel-angularjs.git
 ```
 
 **2. Install the dependencies:**
