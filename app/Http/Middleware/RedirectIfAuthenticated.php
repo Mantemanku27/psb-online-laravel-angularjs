@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     /**
-     * Tangani permintaan masuk.
+     * Menangani permintaan masuk.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

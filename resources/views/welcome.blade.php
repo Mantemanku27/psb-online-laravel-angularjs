@@ -75,7 +75,7 @@
   <script src="../assets/js/app.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/config.constant.js"></script>
-  <!-- Digunakan untuk membedakan login antara level Admin(0) & User(1)  -->
+  <!-- Membedakan login antara level Admin(0) & User(1)  -->
   <?php
     if(session('level')==0) {
   ?>
