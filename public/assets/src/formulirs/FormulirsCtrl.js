@@ -155,7 +155,9 @@ app.controller('FormulirCtrl', ['$scope', 'formulirs', 'SweetAlert','$stateParam
         // jika page = 1 > 1
         if ($scope.main.page > 1) {
             // page dikurangi decrement --
-            $scope.main.page--
+            $s
+
+cope.main.page--
         }
         // panggil ajax data
         $scope.getData();

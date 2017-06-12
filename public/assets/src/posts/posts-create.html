@@ -53,7 +53,7 @@
                   <!-- Form Input Deskripsi -->
                   <div class="form-group" ng-class="{'has-error':Form.deskripsi.$dirty && Form.deskripsi.$invalid, 'has-success':Form.deskripsi.$valid}">
                     <label class="control-label"> Deskripsi <span class="symbol required"></span></label>
-                    <input type="text" placeholder="Enter your Deskripsi" class="form-control" name="deskripsi" ng-model="myModel.deskripsi" required>
+                    <textarea type="text" placeholder="Enter your Deskripsi" class="form-control" name="deskripsi" ng-model="myModel.deskripsi" required></textarea>
                     <span class="error text-small block" ng-if="Form.deskripsi.$dirty && Form.deskripsi.$error.required">Deskripsi is required.</span>
                     <span class="success text-small" ng-if="Form.deskripsi.$valid">Thank You!</span>
                   </div>
